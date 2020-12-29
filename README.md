@@ -1,1 +1,0 @@
-# asei_app
