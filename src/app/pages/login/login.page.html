@@ -1,9 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content class="login-wrapper">
+  <div class="login-container">
+      <ion-grid>
+          <ion-row class="center-items">
+              <ion-col size-lg="8" size-md="10" size-sm="12" size-xs="12" class="center-items">
+                  <form >
+                      <div class="login-top-logo">
+                          <img draggable="false" src="../../../assets/img/transparent-logo.png" alt="logo-asei">
+                      </div>
+                      <div class="form-body">
+                          <h1 class="title-form-body">
+                              Bienvenido a la intranet ASEI
+                          </h1>
+                          <div class="form--login-control bg-input">
+                              <ion-input class="input" type="email"  type="text" placeholder="Correo" name="email"></ion-input>
+                              <ion-icon class="icon" name="person-circle"></ion-icon>
+                          </div>
+                          <div class="form--login-control bg-input">
+                              <ion-input type="password" class="input" placeholder="Contraseña" name="password"></ion-input>
+                              <ion-icon class="icon" name="lock-closed-outline"></ion-icon>
+                          </div>
+                          <div class="form--login-control">
+                              <button class="button" type="submit">
+                            Ingresar
+                          </button>
+                          </div>
+                          <div class="form--login-control">
+                              <ion-router-link class="form-link-reset" href="/recuperar">
+                                  <p>¿Olvidaste tu contraseña?</p>
+                              </ion-router-link>
+                          </div>
+                          <div class="socials">
+                              <app-social-links></app-social-links>
+                          </div>
+                      </div>
+                  </form>
+              </ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
 </ion-content>
