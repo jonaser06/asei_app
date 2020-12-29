@@ -1,0 +1,56 @@
+// card stat
+.card-stat {
+    height: 540px;
+    .top-card-stat {
+        height: 52px;
+        border-bottom: 1px solid #C4C4C4;
+        padding: 0 18px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .drop-menu {
+            font-family: Calibri;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            img {
+                margin-left: 15px;
+                max-height: 17px;
+            }
+        }
+    }
+    .body-card-stat {
+        height: calc(100% - 52px);
+        display: flex;
+        flex-flow: column nowrap;
+        .img-card-stat {
+            min-height: 300px;
+            max-height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                max-height: 100%;
+                max-width: 100%;
+            }
+        }
+        .description-card-stat {
+            display: flex;
+            flex-flow: column nowrap;
+            height: 100%;
+            .stat-description {
+                max-height: 136px;
+                overflow: hidden;
+                height: 100%;
+                padding: 1.3em 1.4em;
+                font-family: Calibri, 'Trebuchet MS', sans-serif;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 15px;
+            }
+        }
+    }
+}

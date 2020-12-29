@@ -1,0 +1,64 @@
+// percent stats
+.percent-cards {
+    height: 205px;
+    padding: 1em;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    position: relative;
+    .top-percent.up-trending {
+        background: #DF8708;
+    }
+    .top-percent.low-trending {
+        background: #24344D;
+    }
+    .top-percent {
+        min-width: 120px;
+        width: 75%;
+        margin: 0 auto;
+        height: 40px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        .icon-top-percent {
+            font-size: 20px;
+        }
+        .label-top-percent {
+            font-family: Calibri;
+            margin-left: 5px;
+            font-size: 15px;
+        }
+    }
+    .percent,
+    .title-percent {
+        font-family: Lucida Sans;
+        font-style: normal;
+        font-weight: normal;
+        color: #000000;
+        text-align: center;
+    }
+    .percent {
+        font-size: 40px;
+    }
+    .title-percent {
+        font-size: 18px;
+    }
+    .description-percent {
+        font-family: Calibri;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 15px;
+        text-align: center;
+        max-width: 202px;
+        margin: 0 auto;
+    }
+}
+
+.absolute-right {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+}
