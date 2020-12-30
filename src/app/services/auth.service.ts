@@ -112,7 +112,7 @@ export class AuthService {
     }
   }
 
-  setCurrentSession(token: string, iat: number | string, User: ISessionUser) {
+  setCurrentSession(token: string, iat: number | string, user: ISessionUser) {
     localStorage.setItem("token", token);
     localStorage.setItem("iat", iat.toString());
     localStorage.setItem("user", JSON.stringify(user));
