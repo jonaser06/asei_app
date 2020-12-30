@@ -3,7 +3,7 @@
       <ion-grid>
           <ion-row class="center-items">
               <ion-col size-lg="8" size-md="10" size-sm="12" size-xs="12" class="center-items">
-                  <form >
+                  <form (ngSubmit)="login( fLogin )" #fLogin="ngForm">
                       <div class="login-top-logo">
                           <img draggable="false" src="../../../assets/img/transparent-logo.png" alt="logo-asei">
                       </div>
@@ -12,11 +12,11 @@
                               Bienvenido a la intranet ASEI
                           </h1>
                           <div class="form--login-control bg-input">
-                              <ion-input class="input" type="email"  type="text" placeholder="Correo" name="email"></ion-input>
+                              <ion-input class="input" type="email" type="text" placeholder="Correo" name="email" [(ngModel)]="loginUser.email"></ion-input>
                               <ion-icon class="icon" name="person-circle"></ion-icon>
                           </div>
                           <div class="form--login-control bg-input">
-                              <ion-input type="password" class="input" placeholder="Contraseña" name="password"></ion-input>
+                              <ion-input type="password" class="input" placeholder="Contraseña" name="password" [(ngModel)]="loginUser.password"></ion-input>
                               <ion-icon class="icon" name="lock-closed-outline"></ion-icon>
                           </div>
                           <div class="form--login-control">

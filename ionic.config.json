@@ -1,5 +1,7 @@
 {
   "name": "asei",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
