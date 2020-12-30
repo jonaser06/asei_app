@@ -1,303 +1,168 @@
 <ion-content class="content-section">
- <app-navigation-tabs></app-navigation-tabs> 
-  <div class="layout-section">
-      <div class="container">
-          <div class="row-actions-top">
-              <div class="title-section-container">
-                  <h3 class="title-section">Estadisticos ASei</h3>
-                  <p class="subtitle-section">Encontrarás gráficos actualizados sobre nuestras últimas actividades del mes</p>
-              </div>
-              <div class="actions-page">
 
-                  <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
-                        <option disabled selected>Año</option>
-                        <option value=" ">Option 1</option>
-                        <option value=" ">Option 2</option>
-                        <option value=" ">Option 3</option>
-                    </select>
-
-                  <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
-                        <option disabled selected>Mes</option>
-                        <option value=" ">Enero</option>
-                        <option value=" ">Febrero</option>
-                        <option value=" ">Marzo</option>
-                        <option value=" ">Abril</option>
-                        <option value=" ">Mayo</option>
-                        <option value=" ">Junio</option>
-                        <option value=" ">Julio</option>
-                        <option value=" ">Agosto</option>
-                        <option value=" ">Septiembre</option>
-                        <option value=" ">Octubre</option>
-                        <option value=" ">Noviembre</option>
-                        <option value=" ">Diciembre</option>
-                    </select>
-
-
-                  <button *ngIf="authService.verifyIsAdmin()" (click)="openDialogStat()" class="btn-new-item">
-                    <span>Nuevo gráfico</span>
-                    <ion-icon class="icon-btn" name="add"></ion-icon>
-                </button>
-              </div>
-          </div>
-
-
-          <ion-grid class="section-grid">
-              <ion-row>
-                  <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="12" size-xs="12">
-                      <app-stat-card (editItemEv)="editStat($event)" (deleteItemEv)="removeStat($event)"></app-stat-card>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
-
-          <ion-grid class="section-grid">
-              <ion-row>
-                  <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
-                      <div class="row-actions-top">
-                          <div class="title-section-container">
-                              <h3 class="title-section">Boletines asei</h3>
-                              <p class="subtitle-section">Encuentra aqui el repositorio de graficos e indicadores ASEI</p>
-                          </div>
-                          <button *ngIf="authService.verifyIsAdmin()" (click)="openDialogBulletin()" class="btn-new-item mt-3 mb-3">
-                            <span>Nuevo boletín</span>
-                            <ion-icon class="icon-btn" name="add"></ion-icon>
-                        </button>
-                      </div>
-
-                      <div class="card boletin-card">
-                          <div class="title-card">
-                              <h1 class="title no-margin">Historial de Boletines ASEI</h1>
-                          </div>
-
-                          <app-bulletin-list (editItemEv)="editBulletin($event)" (deleteItemEv)="removeBulletin($event)"></app-bulletin-list> 
-                      </div>
-                  </ion-col>
-                  <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
-                      <div class="row-actions-top">
-                          <div class="title-section-container">
-                              <h3 class="title-section">INDICADORES DEL MES</h3>
-                              <p class="subtitle-section">Visualiza los indicadores más relevantes de este utlimo mes</p>
-                          </div>
-                          <button *ngIf="authService.verifyIsAdmin()" (click)="openDialogIndicator()" class="btn-new-item mt-3 mb-3">
-                            <span>Nuevo indicador</span>
-                            <ion-icon class="icon-btn" name="add"></ion-icon>
-                        </button>
-                      </div>
-
-                      <ion-row>
-                          <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="pt-0 pb-0">
-                              <app-percent-card (editItemEv)="editIndicator($event)" (deleteItemEv)="removeIndicator($event)"></app-percent-card>
-                          </ion-col>
-                      </ion-row>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
-      </div>
-      <!-- Dialogo nueva stat -->
-      <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="800" [height]="580" (closeDialogEv)="closeDialogStat()">
-          <header-dialog>
-              <div class="title-section-container">
-                  <h3 class="title-section">{{ isEdited ? 'Editar Gráfico' : 'Nuevo Gráfico' }}</h3>
-                  <p class="subtitle-section">Completa la información correspondiente al gráfico</p>
-              </div>
-          </header-dialog>
-          <body-dialog>
-
-              <div class="card-modal-1">
-                  <div class="img-graphic">
-                      <div class="left-img">
-                          <div class="insert-img">
-                              <p>Añadir imagen*</p>
-                              <input type="file" title="Añadir imagen" accept="image/*">
-                          </div>
-
-                          <div class="content-img">
-                              <img src="../../../assets/dev/grafico3.png" alt="">
-                          </div>
-                      </div>
-
-                      <div class="right-inputs">
-                          <p>Titulo del gráfico*</p>
-                          <input type="text" placeholder="ASEI Credimiento Sostenible">
-
-                          <p>Descripción del gráfico*</p>
-                          <textarea name="" id="" placeholder="A través de una oferta inmobiliaria de 21,717 unidades, se ha convertido en un motor de reactivación economica por un valor de oferta de S/ 10,015 millones de soles."></textarea>
-
-                          <div class="time">
-                              <div class="month">
-                                  <p>Mes*</p>
-                                  <select name="" id="">
-                                    <option value="" selected>Enero</option>
-                                    <option value="">Febrero</option>
-                                    <option value="">Marzo</option>
-                                    <option value="">Abril</option>
-                                    <option value="">Mayo</option>
-                                    <option value="">Junio</option>
-                                    <option value="">Julio</option>
-                                    <option value="">Agosto</option>
-                                    <option value="">Septiembre</option>
-                                    <option value="">Octubre</option>
-                                    <option value="">Noviembre</option>
-                                    <option value="">Diciembre</option>
-                                </select>
-                              </div>
-
-                              <div class="year">
-                                  <p>Año*</p>
-                                  <select name="" id="">
-                                    <option value="" selected>2020</option>
-                                    <option value="">2019</option>
-                                    <option value="">2018</option>
-                                    <option value="">2017</option>
-                                </select>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="button">
-                      <button>Guardar Gráfico</button>
-                  </div>
-              </div>
-
-          </body-dialog>
-      </app-dialog>
-      <!-- Fin Dialogo nueva stat -->
-
-      <!-- Dialogo boletin -->
-      <app-dialog *ngIf="dialogBulletin" [dialog]="dialogBulletin" [width]="400" [height]="420" (closeDialogEv)="closeDialogBulletin()">
-          <header-dialog>
-              <div class="title-section-container">
-                  <h3 class="title-section"> {{ isEdited ? 'Editar Boletín' : 'Nuevo Boletín' }}</h3>
-                  <p class="subtitle-section">Completa la información del Boletín</p>
-              </div>
-          </header-dialog>
-          <body-dialog>
-              <div class="card-modal-2">
-                  <div class="inputs-boletin">
-                      <p>Titulos del indicador*</p>
-                      <input type="text">
-
-                      <div class="time">
-                          <div class="month">
-                              <p>Mes*</p>
-                              <select name="" id="">
-                                <option value="" selected>Enero</option>
-                                <option value="">Febrero</option>
-                                <option value="">Marzo</option>
-                                <option value="">Abril</option>
-                                <option value="">Mayo</option>
-                                <option value="">Junio</option>
-                                <option value="">Julio</option>
-                                <option value="">Agosto</option>
-                                <option value="">Septiembre</option>
-                                <option value="">Octubre</option>
-                                <option value="">Noviembre</option>
-                                <option value="">Diciembre</option>
-                            </select>
-                          </div>
-
-                          <div class="year">
-                              <p>Año*</p>
-                              <select name="" id="">
-                                <option value="" selected>2020</option>
-                                <option value="">2019</option>
-                                <option value="">2018</option>
-                                <option value="">2017</option>
-                                <option value="">2016</option>
-                                <option value="">2015</option>
-                                <option value="">2014</option>
-                                <option value="">2013</option>
-                                <option value="">2012</option>
-                                <option value="">2011</option>
-                                <option value="">2010</option>
-                                <option value="">2009</option>
-                            </select>
-                          </div>
-                      </div>
-
-                      <p>Añade data del boletin</p>
-                      <input type="file" accept="application/pdf">
-                  </div>
-
-                  <div class="button">
-                      <button>Guardar Boletin</button>
-                  </div>
-              </div>
-          </body-dialog>
-      </app-dialog>
-
-      <!-- Fin dialogo boletin -->
-
-      <!-- Dialogo indicador -->
-      <app-dialog *ngIf="dialogIndicator" [dialog]="dialogIndicator" [width]="400" [height]="430" (closeDialogEv)="closeDialogIndicator()">
-          <header-dialog>
-              <div class="title-section-container">
-                  <h3 class="title-section">{{ isEdited ? 'Editar Indicador' : 'Nuevo Indicador' }}</h3>
-                  <p class="subtitle-section">Completa la información del indicador</p>
-              </div>
-          </header-dialog>
-          <body-dialog>
-              <div class="card-modal-3">
-                  <div>
-                      <div class="inputs-boletin-2">
-                          <div class="percentage">
-                              <div class="number">
-                                  <p>Porcentaje*</p>
-
-                                  <div>
-                                      <input type="number" name="" id="" min="50" placeholder="50">
-                                      <p>%</p>
-                                  </div>
-                              </div>
-
-                              <div class="letters">
-                                  <p>Porcentaje*</p>
-
-                                  <select name="" id="">
-                                    <option value="" selected>Incremento</option>
-                                    <option value="">Option 1</option>
-                                    <option value="">Option 2</option>
-                                </select>
-                              </div>
-                          </div>
-
-                          <p>Titulo*</p>
-                          <input type="text" placeholder="Ventas por proyecto">
-
-                          <p>Descripcion*</p>
-                          <input type="text" placeholder="Pequeña descripcion del indicador estatico">
-                      </div>
-                  </div>
-
-                  <div class="button">
-                      <button>Guardar Indicador</button>
-                  </div>
-              </div>
-          </body-dialog>
-      </app-dialog>
-
-
-      <!-- Fin dialogo indicador -->
-
-      <!-- Dialogo eliminar -->
-      <app-dialog *ngIf="dialogRemove" [dialog]="dialogRemove" [width]="250" [height]="210" (closeDialogEv)="closeDialogRemove()">
-          <header-dialog>
-              <div class="title-section-container">
-                  <h3 class="title-section">{{titleDialogRemove}}</h3>
-              </div>
-          </header-dialog>
-          <body-dialog>
-              <div class="card-modal-5">
-                  <p>¿Estas seguro que deseas eliminar este elemento?</p>
-
-                  <div class="button">
-                      <button>Eliminar</button>
-                  </div>
-              </div>
-          </body-dialog>
-      </app-dialog>
-      <!-- Fin dialogo eliminar -->
-  </div>
-  <!-- <app-footer></app-footer> -->
+    <app-navigation-tabs></app-navigation-tabs>
+    <div class="layout-section">
+        <div class="container">
+            <div class="row-actions-top">
+                <div class="title-section-container">
+                    <h3 class="title-section">Estadisticos ASei</h3>
+                    <p class="subtitle-section">Encontrarás gráficos actualizados sobre nuestras últimas actividades del mes</p>
+                </div>
+                <div class="actions-page">
+  
+                    <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
+                          <option disabled selected>Año</option>
+                          <option value=" ">Option 1</option>
+                          <option value=" ">Option 2</option>
+                          <option value=" ">Option 3</option>
+                      </select>
+  
+                    <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
+                          <option disabled selected>Mes</option>
+                          <option value=" ">Enero</option>
+                          <option value=" ">Febrero</option>
+                          <option value=" ">Marzo</option>
+                          <option value=" ">Abril</option>
+                          <option value=" ">Mayo</option>
+                          <option value=" ">Junio</option>
+                          <option value=" ">Julio</option>
+                          <option value=" ">Agosto</option>
+                          <option value=" ">Septiembre</option>
+                          <option value=" ">Octubre</option>
+                          <option value=" ">Noviembre</option>
+                          <option value=" ">Diciembre</option>
+                      </select>
+  
+  
+                    <button class="btn-new-item">
+                      <span>Nuevo gráfico</span>
+                      <ion-icon class="icon-btn" name="add"></ion-icon>
+                  </button>
+                </div>
+            </div>
+            
+            <ion-grid class="section-grid">
+                <ion-row>
+                    <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="12" size-xs="12">
+                        <app-stat-card></app-stat-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        
+            <ion-grid class="section-grid">
+                <ion-row>
+                    <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                        <div class="row-actions-top">
+                            <div class="title-section-container">
+                                <h3 class="title-section">Boletines asei</h3>
+                                <p class="subtitle-section">Encuentra aqui el repositorio de graficos e indicadores ASEI</p>
+                            </div>
+                            <button class="btn-new-item mt-3 mb-3">
+                              <span>Nuevo boletín</span>
+                              <ion-icon class="icon-btn" name="add"></ion-icon>
+                          </button>
+                        </div>
+        
+                        <div class="card boletin-card">
+                            <div class="title-card">
+                                <h1 class="title no-margin">Historial de Boletines ASEI</h1>
+                            </div>
+        
+                            <app-bulletin-list></app-bulletin-list> 
+                        </div>
+                    </ion-col>
+                    <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                        <div class="row-actions-top">
+                            <div class="title-section-container">
+                                <h3 class="title-section">INDICADORES DEL MES</h3>
+                                <p class="subtitle-section">Visualiza los indicadores más relevantes de este utlimo mes</p>
+                            </div>
+                            <button class="btn-new-item mt-3 mb-3">
+                              <span>Nuevo indicador</span>
+                              <ion-icon class="icon-btn" name="add"></ion-icon>
+                          </button>
+                        </div>
+        
+                        <ion-row>
+                            <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="pt-0 pb-0">
+                                <app-percent-card></app-percent-card>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <!-- Dialogo nueva stat -->
+        <app-dialog>
+            <header-dialog>
+                <div class="title-section-container">
+                    <h3 class="title-section">Editar Gráfico Nuevo Gráfico</h3>
+                    <p class="subtitle-section">Completa la información correspondiente al gráfico</p>
+                </div>
+            </header-dialog>
+            <body-dialog>
+  
+                <div class="card-modal-1">
+                    <div class="img-graphic">
+                        <div class="left-img">
+                            <div class="insert-img">
+                                <p>Añadir imagen*</p>
+                                <input type="file" title="Añadir imagen" accept="image/*">
+                            </div>
+  
+                            <div class="content-img">
+                                <img src="../../../assets/dev/grafico3.png" alt="">
+                            </div>
+                        </div>
+  
+                        <div class="right-inputs">
+                            <p>Titulo del gráfico*</p>
+                            <input type="text" placeholder="ASEI Credimiento Sostenible">
+  
+                            <p>Descripción del gráfico*</p>
+                            <textarea name="" id="" placeholder="A través de una oferta inmobiliaria de 21,717 unidades, se ha convertido en un motor de reactivación economica por un valor de oferta de S/ 10,015 millones de soles."></textarea>
+  
+                            <div class="time">
+                                <div class="month">
+                                    <p>Mes*</p>
+                                    <select name="" id="">
+                                      <option value="" selected>Enero</option>
+                                      <option value="">Febrero</option>
+                                      <option value="">Marzo</option>
+                                      <option value="">Abril</option>
+                                      <option value="">Mayo</option>
+                                      <option value="">Junio</option>
+                                      <option value="">Julio</option>
+                                      <option value="">Agosto</option>
+                                      <option value="">Septiembre</option>
+                                      <option value="">Octubre</option>
+                                      <option value="">Noviembre</option>
+                                      <option value="">Diciembre</option>
+                                  </select>
+                                </div>
+  
+                                <div class="year">
+                                    <p>Año*</p>
+                                    <select name="" id="">
+                                      <option value="" selected>2020</option>
+                                      <option value="">2019</option>
+                                      <option value="">2018</option>
+                                      <option value="">2017</option>
+                                  </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="button">
+                        <button>Guardar Gráfico</button>
+                    </div>
+                </div>
+  
+            </body-dialog>
+        </app-dialog>
+        <!-- Fin Dialogo nueva stat -->
+        
+    </div>
 
 </ion-content>

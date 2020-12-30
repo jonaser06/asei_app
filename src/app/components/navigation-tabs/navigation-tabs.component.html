@@ -1,7 +1,7 @@
 <ion-tab-bar class="tab-header" style="position: relative;">
   <div class="tab-header-info">
       <ion-text>
-          <h1 class="title-tab-header">Bienvenido, {{authService.getCurrentNameUser()}}</h1>
+          <h1 class="title-tab-header">Bienvenido</h1>
       </ion-text>
       <ion-text>
           <p class="subtitle-tab-header">Encuentra información completa en la intranet ASEI</p>
@@ -9,10 +9,10 @@
   </div>
   <ion-grid class="tabs-list">
       <ion-row>
-          <ion-col *ngFor="let item of authService.getCurrentNavigation()">
-              <ion-tab-button (click)="setCurrentActive(item.path)" type="icon-start" [tab]="item.path" [class]="'tab-link ' + authService.getCurrentNavActive(item.path)">
-                  <ion-icon class="no-margin icon-tab" [name]="item.icon"></ion-icon>
-                  <ion-label class="no-margin label-tab">{{item.name}}</ion-label>
+          <ion-col>
+              <ion-tab-button type="icon-start">
+                  <ion-icon class="no-margin icon-tab"></ion-icon>
+                  <ion-label class="no-margin label-tab"></ion-label>
               </ion-tab-button>
           </ion-col>
       </ion-row>
