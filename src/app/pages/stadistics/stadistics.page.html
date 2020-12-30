@@ -34,7 +34,7 @@
                       </select>
   
   
-                    <button class="btn-new-item">
+                    <button (click)="openDialogStat()" class="btn-new-item">
                       <span>Nuevo gráfico</span>
                       <ion-icon class="icon-btn" name="add"></ion-icon>
                   </button>
@@ -57,7 +57,7 @@
                                 <h3 class="title-section">Boletines asei</h3>
                                 <p class="subtitle-section">Encuentra aqui el repositorio de graficos e indicadores ASEI</p>
                             </div>
-                            <button class="btn-new-item mt-3 mb-3">
+                            <button (click)="openDialogBulletin()" class="btn-new-item mt-3 mb-3">
                               <span>Nuevo boletín</span>
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                           </button>
@@ -77,7 +77,7 @@
                                 <h3 class="title-section">INDICADORES DEL MES</h3>
                                 <p class="subtitle-section">Visualiza los indicadores más relevantes de este utlimo mes</p>
                             </div>
-                            <button class="btn-new-item mt-3 mb-3">
+                            <button (click)="openDialogIndicator()" class="btn-new-item mt-3 mb-3">
                               <span>Nuevo indicador</span>
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                           </button>
@@ -93,15 +93,15 @@
             </ion-grid>
         </div>
         <!-- Dialogo nueva stat -->
-        <app-dialog>
+        <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="800" [height]="580" (closeDialogEv)="closeDialogStat()">
             <header-dialog>
                 <div class="title-section-container">
-                    <h3 class="title-section">Editar Gráfico Nuevo Gráfico</h3>
+                    <h3 class="title-section">{{ isEdited ? 'Editar Gráfico' : 'Nuevo Gráfico' }}</h3>
                     <p class="subtitle-section">Completa la información correspondiente al gráfico</p>
                 </div>
             </header-dialog>
             <body-dialog>
-  
+
                 <div class="card-modal-1">
                     <div class="img-graphic">
                         <div class="left-img">
@@ -109,19 +109,19 @@
                                 <p>Añadir imagen*</p>
                                 <input type="file" title="Añadir imagen" accept="image/*">
                             </div>
-  
+
                             <div class="content-img">
                                 <img src="../../../assets/dev/grafico3.png" alt="">
                             </div>
                         </div>
-  
+
                         <div class="right-inputs">
                             <p>Titulo del gráfico*</p>
                             <input type="text" placeholder="ASEI Credimiento Sostenible">
-  
+
                             <p>Descripción del gráfico*</p>
                             <textarea name="" id="" placeholder="A través de una oferta inmobiliaria de 21,717 unidades, se ha convertido en un motor de reactivación economica por un valor de oferta de S/ 10,015 millones de soles."></textarea>
-  
+
                             <div class="time">
                                 <div class="month">
                                     <p>Mes*</p>
@@ -140,7 +140,7 @@
                                       <option value="">Diciembre</option>
                                   </select>
                                 </div>
-  
+
                                 <div class="year">
                                     <p>Año*</p>
                                     <select name="" id="">
@@ -153,20 +153,21 @@
                             </div>
                         </div>
                     </div>
-  
+
                     <div class="button">
                         <button>Guardar Gráfico</button>
                     </div>
                 </div>
-  
+
             </body-dialog>
         </app-dialog>
         <!-- Fin Dialogo nueva stat -->
+
         <!-- Dialogo boletin -->
-        <app-dialog>
+        <app-dialog *ngIf="dialogBulletin" [dialog]="dialogBulletin" [width]="400" [height]="420" (closeDialogEv)="closeDialogBulletin()">
             <header-dialog>
                 <div class="title-section-container">
-                    <h3 class="title-section">Editar Boletín Nuevo Boletín</h3>
+                    <h3 class="title-section"> {{ isEdited ? 'Editar Boletín' : 'Nuevo Boletín' }}</h3>
                     <p class="subtitle-section">Completa la información del Boletín</p>
                 </div>
             </header-dialog>
@@ -175,7 +176,7 @@
                     <div class="inputs-boletin">
                         <p>Titulos del indicador*</p>
                         <input type="text">
-  
+
                         <div class="time">
                             <div class="month">
                                 <p>Mes*</p>
@@ -194,7 +195,7 @@
                                   <option value="">Diciembre</option>
                               </select>
                             </div>
-  
+
                             <div class="year">
                                 <p>Año*</p>
                                 <select name="" id="">
@@ -213,25 +214,25 @@
                               </select>
                             </div>
                         </div>
-  
+
                         <p>Añade data del boletin</p>
                         <input type="file" accept="application/pdf">
                     </div>
-  
+
                     <div class="button">
                         <button>Guardar Boletin</button>
                     </div>
                 </div>
             </body-dialog>
         </app-dialog>
-  
+
         <!-- Fin dialogo boletin -->
-  
+
         <!-- Dialogo indicador -->
-        <app-dialog>
+        <app-dialog *ngIf="dialogIndicator" [dialog]="dialogIndicator" [width]="400" [height]="430" (closeDialogEv)="closeDialogIndicator()">
             <header-dialog>
                 <div class="title-section-container">
-                    <h3 class="title-section">Editar Indicador Nuevo Indicador</h3>
+                    <h3 class="title-section">{{ isEdited ? 'Editar Indicador' : 'Nuevo Indicador' }}</h3>
                     <p class="subtitle-section">Completa la información del indicador</p>
                 </div>
             </header-dialog>
@@ -242,16 +243,16 @@
                             <div class="percentage">
                                 <div class="number">
                                     <p>Porcentaje*</p>
-  
+
                                     <div>
                                         <input type="number" name="" id="" min="50" placeholder="50">
                                         <p>%</p>
                                     </div>
                                 </div>
-  
+
                                 <div class="letters">
                                     <p>Porcentaje*</p>
-  
+
                                     <select name="" id="">
                                       <option value="" selected>Incremento</option>
                                       <option value="">Option 1</option>
@@ -259,36 +260,36 @@
                                   </select>
                                 </div>
                             </div>
-  
+
                             <p>Titulo*</p>
                             <input type="text" placeholder="Ventas por proyecto">
-  
+
                             <p>Descripcion*</p>
                             <input type="text" placeholder="Pequeña descripcion del indicador estatico">
                         </div>
                     </div>
-  
+
                     <div class="button">
                         <button>Guardar Indicador</button>
                     </div>
                 </div>
             </body-dialog>
         </app-dialog>
-  
-  
+
+
         <!-- Fin dialogo indicador -->
-  
+
         <!-- Dialogo eliminar -->
-        <app-dialog>
+        <app-dialog *ngIf="dialogRemove" [dialog]="dialogRemove" [width]="250" [height]="210" (closeDialogEv)="closeDialogRemove()">
             <header-dialog>
                 <div class="title-section-container">
-                    <h3 class="title-section">titleDialogRemove</h3>
+                    <h3 class="title-section">{{titleDialogRemove}}</h3>
                 </div>
             </header-dialog>
             <body-dialog>
                 <div class="card-modal-5">
                     <p>¿Estas seguro que deseas eliminar este elemento?</p>
-  
+
                     <div class="button">
                         <button>Eliminar</button>
                     </div>
