@@ -1,15 +1,28 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { Observable, throwError } from 'rxjs';
+import { retry, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { User } from '../models/User';
+import { ISessionUser, Session } from '../models/Session';
+import { Router } from '@angular/router';
 
-const URL = environment.url
-
+const URL = environment.url;
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    })
+  }
+  
+
+  private session: Session;
   userData: string = null;
   constructor( private http: HttpClient, private storage: Storage ) { }
 
@@ -20,4 +33,5 @@ export class AuthService {
       console.log(resp)
     });
   }
+
 }

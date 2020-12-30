@@ -1,0 +1,106 @@
+.container-list-bulletin {
+    box-sizing: border-box;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.container-list-bulletin::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.container-list-bulletin::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.container-list-bulletin::-webkit-scrollbar-thumb:hover {
+    background: #ccc;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container-list-bulletin::-webkit-scrollbar-thumb:active {
+    background-color: #ccc;
+}
+
+.bulletin-list {
+    height: auto;
+    transition: all ease-in-out .3s;
+    .item {
+        list-style: none;
+        transition: all ease-in-out .15s;
+        .principal-item {
+            padding: 1em 1em;
+            display: flex;
+            align-items: center;
+            .button-sub-menu {
+                outline: none;
+                background: #fff;
+                .icon-sub-menu {
+                    transition: all ease-in-out .2s;
+                }
+            }
+            .bulletin-title {
+                font-family: Calibri;
+                font-style: normal;
+                font-weight: 300;
+                font-size: 15px;
+                margin-left: 10px;
+            }
+        }
+        .sub-menu {
+            height: 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: all ease-in-out .35s;
+            .sub-item {
+                padding: 3px 25px 3px 70px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                span {
+                    font-family: Calibri;
+                    font-style: normal;
+                    font-weight: 300;
+                    font-size: 15px;
+                }
+                .actions {
+                    display: flex;
+                    flex-flow: row nowrap;
+                    margin-left: 15px;
+                    .btn-bulletin-download {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        margin: 0 .3em;
+                    }
+                }
+            }
+        }
+    }
+    .item.active {
+        .icon-sub-menu {
+            transform: rotate(90deg);
+        }
+        .sub-menu {
+            height: auto;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
+.btn-bg-primary {
+    background: #24344D;
+    color: #fff;
+    outline: none;
+}
+
+.btn-outline-primary {
+    border: 1px solid #24344D;
+    background: #fff;
+    color: #24344D;
+    outline: none;
+}

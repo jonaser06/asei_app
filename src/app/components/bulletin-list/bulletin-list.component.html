@@ -1,0 +1,57 @@
+<div class="container-list-bulletin">
+  <ion-list class="bulletin-list">
+      <li class="item active">
+          <div class="principal-item">
+              <button (click)="toggleSubMenu(0)" class="button-sub-menu">
+        <ion-icon class="icon-sub-menu" name="chevron-forward-outline"></ion-icon>
+      </button>
+              <div class="bulletin-title">
+                  Boletin 2020
+              </div>
+          </div>
+          <div class="sub-menu">
+              <div class="sub-item">
+                  <span>Boletin Enero 2020</span>
+                  <div class="actions">
+                      <button *ngIf="!authService.verifyIsAdmin()" class="btn-bg-primary btn-bulletin-download">
+                  <ion-icon name="cloud-download-outline"></ion-icon>
+                </button>
+                      <button class="btn-outline-primary btn-bulletin-download">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </button>
+                      <button *ngIf="authService.verifyIsAdmin()" class="btn-outline-primary btn-bulletin-download" (click)="editItem({})">
+                  <ion-icon name="create-outline"></ion-icon>
+                </button>
+                      <button *ngIf="authService.verifyIsAdmin()" class="btn-outline-primary btn-bulletin-download" (click)="deleteItem({})">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </button>
+                  </div>
+              </div>
+          </div>
+      </li>
+      <li class="item">
+          <div class="principal-item">
+              <button (click)="toggleSubMenu(1)" class="button-sub-menu">
+            <ion-icon class="icon-sub-menu" name="chevron-forward-outline"></ion-icon>
+          </button>
+              <div class="bulletin-title">
+                  Boletin 2020
+              </div>
+          </div>
+          <div class="sub-menu">
+              <div class="sub-item">
+                  <span>Boletin Enero 2019</span>
+                  <div class="actions">
+                      <button class="btn-bg-primary btn-bulletin-download">
+                  <ion-icon name="cloud-download-outline"></ion-icon>
+                </button>
+                      <button class="btn-outline-primary btn-bulletin-download">
+                  <ion-icon name="eye-outline"></ion-icon>
+                </button>
+                  </div>
+              </div>
+
+          </div>
+      </li>
+  </ion-list>
+</div>

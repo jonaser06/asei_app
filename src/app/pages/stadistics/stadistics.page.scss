@@ -1,0 +1,382 @@
+// Card agregar stat
+.card-modal-1 {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    /* padding: 1.5em; */
+}
+
+.card-modal-1 .img-graphic {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .card-modal-1 .img-graphic {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.card-modal-1 .img-graphic p {
+    margin: 0;
+    padding: 0;
+}
+
+.card-modal-1 .img-graphic .left-img {
+    flex-basis: calc(45% - 1em);
+}
+
+.card-modal-1 .img-graphic .left-img .insert-img {
+    position: relative;
+    width: 10em;
+}
+
+.card-modal-1 .img-graphic .left-img .insert-img p {
+    background: #f0f0f0;
+    border: 1px solid #828282;
+    border-radius: 0.5em;
+    padding: 0.5em 0.2em;
+    text-align: center;
+}
+
+.card-modal-1 .img-graphic .left-img .insert-img input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.card-modal-1 .img-graphic .left-img .content-img {
+    height: 7em;
+    padding: 0.7em;
+    border: 1px solid #828282;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .card-modal-1 .img-graphic .left-img .content-img {
+        height: 20em;
+    }
+}
+
+.card-modal-1 .img-graphic .left-img .content-img img {
+    max-width: 100%;
+    height: 6em;
+}
+
+@media (min-width: 768px) {
+    .card-modal-1 .img-graphic .left-img .content-img img {
+        height: 18em;
+    }
+}
+
+.card-modal-1 .right-inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (min-width: 768px) {
+    .card-modal-1 .right-inputs {
+        flex-basis: calc(55% - 1em);
+    }
+}
+
+.card-modal-1 .right-inputs p {
+    font-family: sans-serif;
+    padding: 1em 0 0.5em 0;
+    font-size: 0.8em;
+}
+
+.card-modal-1 .right-inputs input[type="text"] {
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    border-radius: 0.6em;
+    font-family: sans-serif;
+    font-size: 0.8em;
+}
+
+.card-modal-1 .right-inputs textarea {
+    border-radius: 0.6em;
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    height: 7em;
+    font-family: sans-serif;
+    line-height: 1.4em;
+    resize: none;
+    font-size: 0.8em;
+}
+
+.card-modal-1 .right-inputs .time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-modal-1 .right-inputs .time div {
+    flex-basis: calc(50% - 0.5em);
+}
+
+.card-modal-1 .right-inputs .time select {
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    width: 100%;
+    border-radius: 0.6em;
+    color: #828282;
+    transition: 1s ease;
+}
+
+.card-modal-1 .right-inputs .time select:focus {
+    border-radius: 1em 1em 0 0;
+}
+
+.card-modal-1 .right-inputs .time select:active {
+    border-radius: 1em 1em 0 0;
+}
+
+.card-modal-1 .right-inputs .time select option {
+    color: #828282;
+    border: 1px solid #828282;
+}
+
+.card-modal-1 .button {
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-modal-1 .button button {
+    border: none;
+    outline: none;
+    background: #24344D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.6em;
+    padding: 1em;
+    width: 15em;
+    margin: 0 2em;
+}
+
+
+/* Fin card agregar */
+
+
+/* Card form boletin */
+
+.card-modal-2 {
+    box-sizing: border-box;
+}
+
+.card-modal-2 .inputs-boletin p {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    padding: 1em 0 0.5em 0;
+    font-size: 0.8em;
+}
+
+.card-modal-2 .inputs-boletin input[type="text"] {
+    border-radius: 0.6em;
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+.card-modal-2 .inputs-boletin .time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-modal-2 .inputs-boletin .time div {
+    flex-basis: calc(50% - 0.5em);
+}
+
+.card-modal-2 .inputs-boletin .time select {
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    width: 100%;
+    border-radius: 0.6em;
+    color: #828282;
+    transition: 1s ease;
+}
+
+.card-modal-2 .inputs-boletin .time select:focus,
+.card-modal-2 .inputs-boletin .time select:active {
+    border-radius: 1em 1em 0 0;
+}
+
+.card-modal-2 .button {
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-modal-2 .button button {
+    border: none;
+    outline: none;
+    background: #24344D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.6em;
+    padding: 1em;
+    width: 15em;
+    margin: 0 2em;
+}
+
+
+/* Fin card form boletin */
+
+
+/* Card form indicador */
+
+.card-modal-3 {
+    box-sizing: border-box;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-modal-3 .inputs-boletin-2 p {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    padding: 1em 0 0.5em 0;
+    font-size: 0.8em;
+}
+
+.card-modal-3 .inputs-boletin-2 input[type="text"] {
+    border-radius: 0.6em;
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage div {
+    flex-basis: calc(50% - 2em);
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage .number div {
+    display: flex;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage .number div p {
+    color: #828282;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage .number input[type="number"] {
+    border-radius: 0.6em;
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    width: 100%;
+    font-family: sans-serif;
+    margin-right: 0.8em;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage .number input[type="number"]::placeholder {
+    color: #000;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage select {
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    width: 100%;
+    border-radius: 0.6em;
+    transition: 1s ease;
+}
+
+.card-modal-3 .inputs-boletin-2 .percentage select:focus,
+.card-modal-3 .inputs-boletin-2 .percentage select:active {
+    border-radius: 1em 1em 0 0;
+}
+
+.card-modal-3 .button {
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-modal-3 .button button {
+    border: none;
+    outline: none;
+    background: #24344D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.6em;
+    padding: 1em;
+    width: 15em;
+    margin: 0 2em;
+}
+
+
+/* Fin card form indicador */
+
+
+/* Card Eliminar */
+
+.card-modal-5 {
+    font-size: 0.8em;
+    font-family: sans-serif;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.card-modal-5 p {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.card-modal-5 .button {
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-modal-5 .button button {
+    border: none;
+    outline: none;
+    background: #24344D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.6em;
+    padding: 1em;
+    width: 15em;
+    cursor: pointer;
+}
