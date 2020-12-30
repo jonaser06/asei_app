@@ -21,8 +21,6 @@ export class AuthService {
     })
   }
   
-
-  private session: Session;
   userData: string = null;
   constructor( private http: HttpClient, private storage: Storage ) { }
 
