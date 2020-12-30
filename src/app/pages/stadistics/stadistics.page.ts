@@ -34,6 +34,7 @@ export class StadisticsPage implements OnInit {
     this.isEdited = false;
   }
   editStat(item){
+    console.log(item);
     this.isEdited = true;
     this.openDialogStat();
   }

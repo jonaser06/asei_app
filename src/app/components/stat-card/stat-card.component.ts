@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-stat-card',
@@ -7,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatCardComponent implements OnInit {
 
+  @Output() editItemEv = new EventEmitter();
+  @Output() deleteItemEv = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
+
+  editItem(item) {
+    this.editItemEv.emit(item)
+  }
+  deleteItem(item){
+    this.deleteItemEv.emit(item)
+  }
 
 }
