@@ -162,7 +162,140 @@
             </body-dialog>
         </app-dialog>
         <!-- Fin Dialogo nueva stat -->
-        
+        <!-- Dialogo boletin -->
+        <app-dialog>
+            <header-dialog>
+                <div class="title-section-container">
+                    <h3 class="title-section">Editar Boletín Nuevo Boletín</h3>
+                    <p class="subtitle-section">Completa la información del Boletín</p>
+                </div>
+            </header-dialog>
+            <body-dialog>
+                <div class="card-modal-2">
+                    <div class="inputs-boletin">
+                        <p>Titulos del indicador*</p>
+                        <input type="text">
+  
+                        <div class="time">
+                            <div class="month">
+                                <p>Mes*</p>
+                                <select name="" id="">
+                                  <option value="" selected>Enero</option>
+                                  <option value="">Febrero</option>
+                                  <option value="">Marzo</option>
+                                  <option value="">Abril</option>
+                                  <option value="">Mayo</option>
+                                  <option value="">Junio</option>
+                                  <option value="">Julio</option>
+                                  <option value="">Agosto</option>
+                                  <option value="">Septiembre</option>
+                                  <option value="">Octubre</option>
+                                  <option value="">Noviembre</option>
+                                  <option value="">Diciembre</option>
+                              </select>
+                            </div>
+  
+                            <div class="year">
+                                <p>Año*</p>
+                                <select name="" id="">
+                                  <option value="" selected>2020</option>
+                                  <option value="">2019</option>
+                                  <option value="">2018</option>
+                                  <option value="">2017</option>
+                                  <option value="">2016</option>
+                                  <option value="">2015</option>
+                                  <option value="">2014</option>
+                                  <option value="">2013</option>
+                                  <option value="">2012</option>
+                                  <option value="">2011</option>
+                                  <option value="">2010</option>
+                                  <option value="">2009</option>
+                              </select>
+                            </div>
+                        </div>
+  
+                        <p>Añade data del boletin</p>
+                        <input type="file" accept="application/pdf">
+                    </div>
+  
+                    <div class="button">
+                        <button>Guardar Boletin</button>
+                    </div>
+                </div>
+            </body-dialog>
+        </app-dialog>
+  
+        <!-- Fin dialogo boletin -->
+  
+        <!-- Dialogo indicador -->
+        <app-dialog>
+            <header-dialog>
+                <div class="title-section-container">
+                    <h3 class="title-section">Editar Indicador Nuevo Indicador</h3>
+                    <p class="subtitle-section">Completa la información del indicador</p>
+                </div>
+            </header-dialog>
+            <body-dialog>
+                <div class="card-modal-3">
+                    <div>
+                        <div class="inputs-boletin-2">
+                            <div class="percentage">
+                                <div class="number">
+                                    <p>Porcentaje*</p>
+  
+                                    <div>
+                                        <input type="number" name="" id="" min="50" placeholder="50">
+                                        <p>%</p>
+                                    </div>
+                                </div>
+  
+                                <div class="letters">
+                                    <p>Porcentaje*</p>
+  
+                                    <select name="" id="">
+                                      <option value="" selected>Incremento</option>
+                                      <option value="">Option 1</option>
+                                      <option value="">Option 2</option>
+                                  </select>
+                                </div>
+                            </div>
+  
+                            <p>Titulo*</p>
+                            <input type="text" placeholder="Ventas por proyecto">
+  
+                            <p>Descripcion*</p>
+                            <input type="text" placeholder="Pequeña descripcion del indicador estatico">
+                        </div>
+                    </div>
+  
+                    <div class="button">
+                        <button>Guardar Indicador</button>
+                    </div>
+                </div>
+            </body-dialog>
+        </app-dialog>
+  
+  
+        <!-- Fin dialogo indicador -->
+  
+        <!-- Dialogo eliminar -->
+        <app-dialog>
+            <header-dialog>
+                <div class="title-section-container">
+                    <h3 class="title-section">titleDialogRemove</h3>
+                </div>
+            </header-dialog>
+            <body-dialog>
+                <div class="card-modal-5">
+                    <p>¿Estas seguro que deseas eliminar este elemento?</p>
+  
+                    <div class="button">
+                        <button>Eliminar</button>
+                    </div>
+                </div>
+            </body-dialog>
+        </app-dialog>
+        <!-- Fin dialogo eliminar -->
     </div>
 
 </ion-content>
