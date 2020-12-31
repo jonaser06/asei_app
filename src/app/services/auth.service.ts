@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/User';
-import { ISessionUser, Session } from '../models/Session';
-import { Router } from '@angular/router';
 
 const URL = environment.url;
 @Injectable({
@@ -14,6 +9,8 @@ const URL = environment.url;
 })
 
 export class AuthService {
+
+  UserData: string = null;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -25,11 +22,33 @@ export class AuthService {
   constructor( private http: HttpClient, private storage: Storage ) { }
 
   login_service( email: string, password: string){
-    const data = { email, password };
-    this.http.post(`${URL}/test`, data)
-    .subscribe( resp => {
-      console.log(resp)
+
+    // const data = { email, password };
+    let formdata = new FormData;
+    formdata.append('email', email);
+    formdata.append('password', password);
+
+    return new Promise ( resolve => {
+      this.http.post(`http://localhost/asei_api/login`, formdata)
+      .subscribe( resp => {
+  
+        if(resp['status']){
+          this.save_userdata( JSON.stringify(resp) );
+          resolve(resp);
+        }else{
+          this.userData = null;
+          this.storage.clear();
+          resolve(resp);
+        }
+        
+      });
     });
+    
+  }
+
+  async save_userdata( userdata : string ){
+    this.UserData = userdata;
+    await this.storage.set('UserData', userdata );
   }
 
 }
