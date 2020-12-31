@@ -1,3 +1,4 @@
+<app-auth-menu></app-auth-menu>
 <ion-content class="content-section">
 
     <app-navigation-tabs></app-navigation-tabs>
@@ -68,7 +69,7 @@
                                 <h1 class="title no-margin">Historial de Boletines ASEI</h1>
                             </div>
         
-                            <app-bulletin-list></app-bulletin-list> 
+                            <app-bulletin-list (editItemEv)="editBulletin($event)" (deleteItemEv)="removeBulletin($event)" ></app-bulletin-list> 
                         </div>
                     </ion-col>
                     <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
@@ -92,6 +93,7 @@
                 </ion-row>
             </ion-grid>
         </div>
+
         <!-- Dialogo nueva stat -->
         <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="800" [height]="580" (closeDialogEv)="closeDialogStat()">
             <header-dialog>
@@ -275,8 +277,6 @@
                 </div>
             </body-dialog>
         </app-dialog>
-
-
         <!-- Fin dialogo indicador -->
 
         <!-- Dialogo eliminar -->

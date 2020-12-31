@@ -26,7 +26,7 @@ export class AuthService {
 
   login_service( email: string, password: string){
     const data = { email, password };
-    this.http.post(`${URL}/`, data)
+    this.http.post(`${URL}/test`, data)
     .subscribe( resp => {
       console.log(resp)
     });
