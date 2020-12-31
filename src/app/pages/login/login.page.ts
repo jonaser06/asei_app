@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
     if(fLogin.invalid) return;
 
     const valido = await this.authService.login_service(this.loginUser.email, this.loginUser.password);
+
     if(valido['status']){
       this.navCtrol.navigateRoot('/stadistics', { animated : true } );
     }else{

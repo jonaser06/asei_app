@@ -29,7 +29,7 @@ export class AuthService {
     formdata.append('password', password);
 
     return new Promise ( resolve => {
-      this.http.post(`http://localhost/asei_api/login`, formdata)
+      this.http.post(`${URL}/login`, formdata)
       .subscribe( resp => {
   
         if(resp['status']){
