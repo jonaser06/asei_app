@@ -9,6 +9,7 @@ import { PercentCardComponent } from './percent-card/percent-card.component';
 import { SocialLinksComponent } from './social-links/social-links.component';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { IonicModule } from '@ionic/angular';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -22,6 +23,7 @@ import { IonicModule } from '@ionic/angular';
     PercentCardComponent,
     SocialLinksComponent,
     StatCardComponent,  
+    HeaderComponent,
   ],
   exports: [
     AuthMenuComponent,
@@ -32,11 +34,11 @@ import { IonicModule } from '@ionic/angular';
     PercentCardComponent,
     SocialLinksComponent,
     StatCardComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
-    IonicModule
-
+    IonicModule,
   ]
 })
 export class ComponentsModule { }
