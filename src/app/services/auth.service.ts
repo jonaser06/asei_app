@@ -58,7 +58,7 @@ export class AuthService {
         if(val){
           resolve(true);
         }else{
-          this.navCtrol.navigateRoot('/login', { animated : true } );
+          this.navCtrol.navigateRoot('/login', { animated : true } ); 
           resolve(false);
         }
       })
