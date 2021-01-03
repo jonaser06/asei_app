@@ -19,9 +19,10 @@ export class HeaderComponent implements OnInit {
   }
   logout (){
     if(this.autoService.logout()){
-      this.router.navigateByUrl("/login")
-      this.autoService.valida_user();
-    }
+      if(AuthService){
+        this.router.navigateByUrl("/login")
+        }
+      }  
   }
   ngOnInit
 }

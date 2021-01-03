@@ -64,10 +64,9 @@ export class AuthService {
       })
     })
   }
-  logout(): boolean {
+  async logout(){
     try {
-      localStorage.removeItem("token");
-      localStorage.removeItem("iat");
+      await this.storage.remove('UserData');
       return true;
     } catch (error) {
       return false
