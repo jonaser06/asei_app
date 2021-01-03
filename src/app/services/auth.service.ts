@@ -64,4 +64,13 @@ export class AuthService {
       })
     })
   }
+  logout(): boolean {
+    try {
+      localStorage.removeItem("token");
+      localStorage.removeItem("iat");
+      return true;
+    } catch (error) {
+      return false
+    }
+}
 }
