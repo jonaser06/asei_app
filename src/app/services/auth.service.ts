@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { environment } from 'src/environments/environment';
+import { NavController } from '@ionic/angular';
 
 const URL = environment.url;
 @Injectable({
@@ -19,7 +20,7 @@ export class AuthService {
   }
   
   userData: string = null;
-  constructor( private http: HttpClient, private storage: Storage ) { }
+  constructor( private http: HttpClient, private storage: Storage, private navCtrol : NavController ) { }
 
   login_service( email: string, password: string){
 
@@ -51,4 +52,16 @@ export class AuthService {
     await this.storage.set('UserData', userdata );
   }
 
+  valida_user(): Promise<boolean>{
+    return new Promise<boolean>( resolve =>{
+      let userdata = this.storage.get('UserData').then((val)=>{
+        if(val){
+          resolve(true);
+        }else{
+          this.navCtrol.navigateRoot('/login', { animated : true } );
+          resolve(false);
+        }
+      })
+    })
+  }
 }
