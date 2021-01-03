@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { StatisticsService } from 'src/app/services/statistics.service';
 
 @Component({
   selector: 'app-stat-card',
@@ -9,9 +10,23 @@ export class StatCardComponent implements OnInit {
 
   @Output() editItemEv = new EventEmitter();
   @Output() deleteItemEv = new EventEmitter();
-  constructor() { }
 
-  ngOnInit() {}
+  statistics_data : any;
+
+  constructor(private stadisticsService: StatisticsService) { }
+
+  ngOnInit( ) {
+    this.load_statistics();
+  }
+
+  load_statistics(){
+    this.stadisticsService.get_statistics()
+    .then(resp=>{
+      this.statistics_data = resp['data'];
+      console.log(resp['data']);
+    })
+    .catch();
+  }
 
   editItem(item) {
     this.editItemEv.emit(item)

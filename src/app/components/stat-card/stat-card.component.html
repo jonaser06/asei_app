@@ -1,37 +1,41 @@
-<div class="card card-stat">
-  <div class="top-card-stat">
-      <div class="drop-menu">
-          <span>
-            Opciones
-        </span>
-          <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
-          <div class="popover">
-              <button class="item">
-                <span class="no-margin label-menu">Descargar</span>
-                <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
-            </button>
-              <button (click)="editItem({})" class="item">
-                <span class="no-margin label-menu">Editar</span>
-                <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
-            </button>
-              <button (click)="deleteItem({})" class="item">
-                <span class="no-margin label-menu">Eliminar</span>
-                <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
-            </button>
+<ion-row>
+  <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="12" size-xs="12" *ngFor="let statistics of statistics_data">
+    <div class="card card-stat">
+      <div class="top-card-stat">
+          <div class="drop-menu">
+              <span>
+                Opciones
+            </span>
+              <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
+              <div class="popover">
+                  <button class="item">
+                    <span class="no-margin label-menu">Descargar</span>
+                    <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
+                </button>
+                  <button (click)="editItem({})" class="item">
+                    <span class="no-margin label-menu">Editar</span>
+                    <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
+                </button>
+                  <button (click)="deleteItem({})" class="item">
+                    <span class="no-margin label-menu">Eliminar</span>
+                    <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
+                </button>
+              </div>
           </div>
       </div>
-  </div>
-  <div class="body-card-stat">
-      <div class="img-card-stat">
-          <img draggable="false" src="../../../assets/dev/grafico5.png" alt="">
-      </div>
-      <div class="description-card-stat">
-          <div class="title-card">
-              <h1 class="title no-margin">ASEI Credimiento Sostenible</h1>
+      <div class="body-card-stat">
+          <div class="img-card-stat">
+              <img draggable="false" src="http://localhost/asei_api/{{ statistics.image }}" alt="">
           </div>
-          <div class="stat-description">
-              A través de una oferta inmobiliaria de 21,717 unidades, se ha convertido en un motor de reactivación economica por un valor de oferta de S/ 10,015 millones de soles.
+          <div class="description-card-stat">
+              <div class="title-card">
+                  <h1 class="title no-margin">{{ statistics.title }}</h1>
+              </div>
+              <div class="stat-description">
+                {{ statistics.description }}
+              </div>
           </div>
       </div>
-  </div>
-</div>
+    </div>
+  </ion-col>
+</ion-row>
