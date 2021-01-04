@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navigation-tabs',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationTabsComponent implements OnInit {
 
-  constructor() { }
+  nombres : any;
+  constructor(public authService: AuthService, private router: Router) { 
+    this.current_session();
+  }
+  current_session(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.nombres = resp['data']['nombres'];
+    });
+  }
 
   ngOnInit() {}
 
