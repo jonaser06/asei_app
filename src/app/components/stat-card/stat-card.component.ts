@@ -28,9 +28,9 @@ export class StatCardComponent implements OnInit {
     })
     .catch();
   }
-  
-  updatedata(){
 
+  updatedata(){
+    console.log('recibido');
   }
 
   editItem(item) {

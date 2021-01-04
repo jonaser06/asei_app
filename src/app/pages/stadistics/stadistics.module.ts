@@ -17,6 +17,9 @@ import { ComponentsModule } from '../../components/components.module';
     StadisticsPageRoutingModule,
     ComponentsModule,
   ],
+  exports:[
+    StadisticsPage
+  ],
   declarations: [StadisticsPage]
 })
 export class StadisticsPageModule {}
