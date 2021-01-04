@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-stadistics',
@@ -16,6 +17,9 @@ export class StadisticsPage implements OnInit {
   titleDialogRemove: string ="";
   isEdited = false;
 
+  /* formulario de estadisticas */
+  fileToUpload: File = null;
+
   constructor() {
     this.dialogNewStat = false;
     this.dialogRemove = false;
@@ -28,6 +32,14 @@ export class StadisticsPage implements OnInit {
   //Estadisticas
   openDialogStat() {
     this.dialogNewStat = true;
+  }
+  handleFileInput(files: FileList){
+    console.log(this.fileToUpload = files.item(0));
+  }
+
+  stat(fStat: NgForm){
+    
+    console.log(fStat.valid);
   }
   closeDialogStat() {
     this.dialogNewStat = false;

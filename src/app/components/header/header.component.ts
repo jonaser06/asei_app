@@ -9,7 +9,17 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public autoService: AuthService, private router: Router) { }
+  nombres : any;
+  constructor(public authService: AuthService, private router: Router) { 
+    this.current_session();
+  }
+
+  current_session(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.nombres = resp['data']['nombres'];
+    });
+  }
 
   goProfile(){
     this.router.navigateByUrl("/")
@@ -18,7 +28,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("/")
   }
   logout (){
-    if(this.autoService.logout()){
+    if(this.authService.logout()){
       if(AuthService){
         this.router.navigateByUrl("/login")
         }

@@ -23,7 +23,6 @@ export class StatCardComponent implements OnInit {
     this.stadisticsService.get_statistics()
     .then(resp=>{
       this.statistics_data = resp['data'];
-      console.log(resp['data']);
     })
     .catch();
   }
