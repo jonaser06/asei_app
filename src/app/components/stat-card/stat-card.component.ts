@@ -28,8 +28,13 @@ export class StatCardComponent implements OnInit {
     })
     .catch();
   }
+  
+  updatedata(){
+
+  }
 
   editItem(item) {
+    console.log('editar');
     this.editItemEv.emit(item)
   }
   deleteItem(item){

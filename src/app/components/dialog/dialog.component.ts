@@ -35,7 +35,6 @@ export class DialogComponent implements OnInit {
   }
 
   closeDialog() {
-    console.log('test');
     this.closeDialogEv.emit("");
   }
 }

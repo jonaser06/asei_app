@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
@@ -29,7 +29,8 @@ export class StadisticsPage implements OnInit {
   monthstat: any;
   yearstat: any;
 
-  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService) {
+  updateView = new EventEmitter();
+  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService ) {
     this.dialogNewStat = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
@@ -63,6 +64,7 @@ export class StadisticsPage implements OnInit {
     this.statisticsService.new_statistics(formdata)
     .then(resp=>{
       console.log(resp);
+      this.updateView.emit();
     })
     .catch();
     // formdata.append('image', password);
