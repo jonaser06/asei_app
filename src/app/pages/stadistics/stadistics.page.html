@@ -98,64 +98,64 @@
                 </div>
             </header-dialog>
             <body-dialog>
+                <form (ngSubmit)="stat( fStat )" #fStat="ngForm">
+                    <div class="card-modal-1">
+                        <div class="img-graphic">
+                            <div class="left-img">
+                                <div class="insert-img">
+                                    <p>Añadir imagen*</p>
+                                    <input type="file" title="Añadir imagen" accept="image/*" name="image" (change)="handleFileInput($event.target.files)" required>
+                                </div>
 
-                <div class="card-modal-1">
-                    <div class="img-graphic">
-                        <div class="left-img">
-                            <div class="insert-img">
-                                <p>Añadir imagen*</p>
-                                <input type="file" title="Añadir imagen" accept="image/*">
+                                <div class="content-img">
+                                    <!-- <img src="../../../assets/dev/grafico3.png" alt=""> -->
+                                </div>
                             </div>
 
-                            <div class="content-img">
-                                <img src="../../../assets/dev/grafico3.png" alt="">
+                            <div class="right-inputs">
+                                <p>Titulo del gráfico*</p>
+                                <input type="text" name="title">
+
+                                <p>Descripción del gráfico*</p>
+                                <textarea name="description"></textarea>
+
+                                <div class="time">
+                                    <div class="month">
+                                        <p>Mes*</p>
+                                        <select name="month">
+                                        <option value="Enero" selected>Enero</option>
+                                        <option value="Febrero">Febrero</option>
+                                        <option value="Marzo">Marzo</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Mayo">Mayo</option>
+                                        <option value="Junio">Junio</option>
+                                        <option value="Julio">Julio</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Septiembre">Septiembre</option>
+                                        <option value="Octubre">Octubre</option>
+                                        <option value="Noviembre">Noviembre</option>
+                                        <option value="Diciembre">Diciembre</option>
+                                    </select>
+                                    </div>
+
+                                    <div class="year">
+                                        <p>Año*</p>
+                                        <select name="year">
+                                        <option value="2020" selected>2020</option>
+                                        <option value="2019">2019</option>
+                                        <option value="2018">2018</option>
+                                        <option value="2017">2017</option>
+                                    </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="right-inputs">
-                            <p>Titulo del gráfico*</p>
-                            <input type="text" placeholder="ASEI Credimiento Sostenible">
-
-                            <p>Descripción del gráfico*</p>
-                            <textarea name="" id="" placeholder="A través de una oferta inmobiliaria de 21,717 unidades, se ha convertido en un motor de reactivación economica por un valor de oferta de S/ 10,015 millones de soles."></textarea>
-
-                            <div class="time">
-                                <div class="month">
-                                    <p>Mes*</p>
-                                    <select name="" id="">
-                                      <option value="" selected>Enero</option>
-                                      <option value="">Febrero</option>
-                                      <option value="">Marzo</option>
-                                      <option value="">Abril</option>
-                                      <option value="">Mayo</option>
-                                      <option value="">Junio</option>
-                                      <option value="">Julio</option>
-                                      <option value="">Agosto</option>
-                                      <option value="">Septiembre</option>
-                                      <option value="">Octubre</option>
-                                      <option value="">Noviembre</option>
-                                      <option value="">Diciembre</option>
-                                  </select>
-                                </div>
-
-                                <div class="year">
-                                    <p>Año*</p>
-                                    <select name="" id="">
-                                      <option value="" selected>2020</option>
-                                      <option value="">2019</option>
-                                      <option value="">2018</option>
-                                      <option value="">2017</option>
-                                  </select>
-                                </div>
-                            </div>
+                        <div class="button">
+                            <button type="submit">Guardar Gráfico</button>
                         </div>
                     </div>
-
-                    <div class="button">
-                        <button>Guardar Gráfico</button>
-                    </div>
-                </div>
-
+                </form>
             </body-dialog>
         </app-dialog>
         <!-- Fin Dialogo nueva stat -->

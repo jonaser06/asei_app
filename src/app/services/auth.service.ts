@@ -11,7 +11,7 @@ const URL = environment.url;
 
 export class AuthService {
 
-  UserData: string = null;
+  UserData: any ;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -19,7 +19,6 @@ export class AuthService {
     })
   }
   
-  userData: string = null;
   constructor( private http: HttpClient, private storage: Storage, private navCtrol : NavController ) { }
 
   login_service( email: string, password: string){
@@ -37,7 +36,7 @@ export class AuthService {
           this.save_userdata( JSON.stringify(resp) );
           resolve(resp);
         }else{
-          this.userData = null;
+          this.UserData = null;
           this.storage.clear();
           resolve(resp);
         }
@@ -54,7 +53,7 @@ export class AuthService {
 
   get_data(){
     return new Promise( resolve =>{
-      let userdata = this.storage.get('UserData').then((val)=>{
+      this.storage.get('UserData').then((val)=>{
         if(val){
           val = JSON.parse(val);
           resolve(val);
@@ -68,7 +67,7 @@ export class AuthService {
 
   valida_user(): Promise<boolean>{
     return new Promise<boolean>( resolve =>{
-      let userdata = this.storage.get('UserData').then((val)=>{
+      this.storage.get('UserData').then((val)=>{
         if(val){
           val = JSON.parse(val);
           resolve(true);

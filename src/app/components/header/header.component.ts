@@ -10,12 +10,12 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   nombres : any;
-  constructor(public autoService: AuthService, private router: Router) { 
+  constructor(public authService: AuthService, private router: Router) { 
     this.current_session();
   }
 
   current_session(){
-    this.autoService.get_data()
+    this.authService.get_data()
     .then(resp=>{
       this.nombres = resp['data']['nombres'];
     });
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("/")
   }
   logout (){
-    if(this.autoService.logout()){
+    if(this.authService.logout()){
       if(AuthService){
         this.router.navigateByUrl("/login")
         }
