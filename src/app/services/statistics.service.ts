@@ -12,20 +12,27 @@ export class StatisticsService {
   constructor(private http: HttpClient) { }
 
   get_statistics(){
-
     return new Promise ( resolve => {
-
       this.http.get(`${URL}/getchart`)
       .subscribe( resp => {
-
         if(resp['status']){
-          
           resolve(resp);
         }else{
-          
           resolve(resp);
         }
-        
+      });
+    });
+  }
+
+  new_statistics(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/newchart`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
       });
     });
   }

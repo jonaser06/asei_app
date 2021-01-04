@@ -114,38 +114,38 @@
 
                             <div class="right-inputs">
                                 <p>Titulo del gráfico*</p>
-                                <input type="text" name="title">
+                                <input type="text" name="title" [(ngModel)]="titlestat">
 
                                 <p>Descripción del gráfico*</p>
-                                <textarea name="description"></textarea>
+                                <textarea name="description" [(ngModel)]="descriptionstat"></textarea>
 
                                 <div class="time">
                                     <div class="month">
                                         <p>Mes*</p>
-                                        <select name="month">
-                                        <option value="Enero" selected>Enero</option>
-                                        <option value="Febrero">Febrero</option>
-                                        <option value="Marzo">Marzo</option>
-                                        <option value="Abril">Abril</option>
-                                        <option value="Mayo">Mayo</option>
-                                        <option value="Junio">Junio</option>
-                                        <option value="Julio">Julio</option>
-                                        <option value="Agosto">Agosto</option>
-                                        <option value="Septiembre">Septiembre</option>
-                                        <option value="Octubre">Octubre</option>
-                                        <option value="Noviembre">Noviembre</option>
-                                        <option value="Diciembre">Diciembre</option>
-                                    </select>
+                                        <select name="month" [(ngModel)]="monthstat">
+                                            <option value="Enero" selected>Enero</option>
+                                            <option value="Febrero">Febrero</option>
+                                            <option value="Marzo">Marzo</option>
+                                            <option value="Abril">Abril</option>
+                                            <option value="Mayo">Mayo</option>
+                                            <option value="Junio">Junio</option>
+                                            <option value="Julio">Julio</option>
+                                            <option value="Agosto">Agosto</option>
+                                            <option value="Septiembre">Septiembre</option>
+                                            <option value="Octubre">Octubre</option>
+                                            <option value="Noviembre">Noviembre</option>
+                                            <option value="Diciembre">Diciembre</option>
+                                        </select>
                                     </div>
 
                                     <div class="year">
                                         <p>Año*</p>
-                                        <select name="year">
-                                        <option value="2020" selected>2020</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                    </select>
+                                        <select name="year" [(ngModel)]="yearstat">
+                                            <option value="2020" selected>2020</option>
+                                            <option value="2019">2019</option>
+                                            <option value="2018">2018</option>
+                                            <option value="2017">2017</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

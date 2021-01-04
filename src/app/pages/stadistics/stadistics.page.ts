@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import { UiServiceService } from 'src/app/services/ui-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-stadistics',
@@ -7,6 +10,8 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./stadistics.page.scss'],
 })
 export class StadisticsPage implements OnInit {
+
+  URL = environment.url;
 
   dialogNewStat: boolean = false;
   dialogRemove: boolean = false;
@@ -18,9 +23,13 @@ export class StadisticsPage implements OnInit {
   isEdited = false;
 
   /* formulario de estadisticas */
-  fileToUpload: File = null;
+  fileToUploadstat: any;
+  titlestat: any;
+  descriptionstat: any;
+  monthstat: any;
+  yearstat: any;
 
-  constructor() {
+  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService) {
     this.dialogNewStat = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
@@ -34,12 +43,30 @@ export class StadisticsPage implements OnInit {
     this.dialogNewStat = true;
   }
   handleFileInput(files: FileList){
-    console.log(this.fileToUpload = files.item(0));
+    this.fileToUploadstat = files.item(0);
   }
 
   stat(fStat: NgForm){
-    
-    console.log(fStat.valid);
+    if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
+    if(!this.titlestat) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(!this.descriptionstat) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(!this.monthstat) return this.uiserviceService.alert_info('Es necesario el mes');
+    if(!this.yearstat) return this.uiserviceService.alert_info('Es necesario el año');
+
+    let formdata = new FormData;
+    formdata.append('title', this.titlestat);
+    formdata.append('description', this.descriptionstat);
+    formdata.append('month', this.monthstat);
+    formdata.append('year', this.yearstat);
+    formdata.append('image', this.fileToUploadstat);
+
+    this.statisticsService.new_statistics(formdata)
+    .then(resp=>{
+      console.log(resp);
+    })
+    .catch();
+    // formdata.append('image', password);
+    // console.log(this.titlestad);
   }
   closeDialogStat() {
     this.dialogNewStat = false;

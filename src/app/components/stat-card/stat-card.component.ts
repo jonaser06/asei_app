@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { StatisticsService } from 'src/app/services/statistics.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-stat-card',
@@ -12,6 +13,7 @@ export class StatCardComponent implements OnInit {
   @Output() deleteItemEv = new EventEmitter();
 
   statistics_data : any;
+  URL = environment.url;
 
   constructor(private stadisticsService: StatisticsService) { }
 
