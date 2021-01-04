@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user_data : any;
+  nombres : any;
   constructor(public autoService: AuthService, private router: Router) { 
     this.current_session();
   }
@@ -17,8 +17,7 @@ export class HeaderComponent implements OnInit {
   current_session(){
     this.autoService.get_data()
     .then(resp=>{
-      this.user_data = resp['data'];
-      console.log(resp);
+      this.nombres = resp['data']['nombres'];
     });
   }
 
