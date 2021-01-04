@@ -52,10 +52,25 @@ export class AuthService {
     await this.storage.set('UserData', userdata );
   }
 
+  get_data(){
+    return new Promise( resolve =>{
+      let userdata = this.storage.get('UserData').then((val)=>{
+        if(val){
+          val = JSON.parse(val);
+          resolve(val);
+        }else{
+          this.navCtrol.navigateRoot('/login', { animated : true } ); 
+          resolve(false);
+        }
+      })
+    });
+  }
+
   valida_user(): Promise<boolean>{
     return new Promise<boolean>( resolve =>{
       let userdata = this.storage.get('UserData').then((val)=>{
         if(val){
+          val = JSON.parse(val);
           resolve(true);
         }else{
           this.navCtrol.navigateRoot('/login', { animated : true } ); 

@@ -9,7 +9,18 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public autoService: AuthService, private router: Router) { }
+  user_data : any;
+  constructor(public autoService: AuthService, private router: Router) { 
+    this.current_session();
+  }
+
+  current_session(){
+    this.autoService.get_data()
+    .then(resp=>{
+      this.user_data = resp['data'];
+      console.log(resp);
+    });
+  }
 
   goProfile(){
     this.router.navigateByUrl("/")
