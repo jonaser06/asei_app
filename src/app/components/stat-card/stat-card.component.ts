@@ -34,7 +34,6 @@ export class StatCardComponent implements OnInit {
   }
 
   editItem(item) {
-    console.log('editar');
     this.editItemEv.emit(item)
   }
   deleteItem(item){

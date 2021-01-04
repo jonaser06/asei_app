@@ -29,7 +29,7 @@ export class StadisticsPage implements OnInit {
   monthstat: any;
   yearstat: any;
 
-  updateView = new EventEmitter();
+  @Output() updateView = new EventEmitter();
   constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService ) {
     this.dialogNewStat = false;
     this.dialogRemove = false;
@@ -64,7 +64,7 @@ export class StadisticsPage implements OnInit {
     this.statisticsService.new_statistics(formdata)
     .then(resp=>{
       console.log(resp);
-      this.updateView.emit();
+      this.updateView.emit('hola');
     })
     .catch();
     // formdata.append('image', password);
