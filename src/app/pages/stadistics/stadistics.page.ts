@@ -65,7 +65,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('image', this.fileToUploadstat);
 
     this.statisticsService.new_statistics(formdata)
-    .then(resp=>{
+    .then(resp=>{ 
       console.log(resp);
       this.closeDialogStat();
       this.load_statistics();
