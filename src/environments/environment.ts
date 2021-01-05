@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // url: 'http://api.blogingenieria.site',
-  url: 'http://localhost/asei_api',
+  url: 'http://api.blogingenieria.site',
+  //url: 'http://localhost/asei_api',
 };
 
 /*

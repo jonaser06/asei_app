@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
+import { IndicadorService } from 'src/app/services/indicador.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,13 +12,14 @@ import { environment } from 'src/environments/environment';
 })
 export class StadisticsPage implements OnInit {
 
-  statistics_data : any;
+  statistics_data : any ; 
+  indicador_data : any ;
   URL = environment.url;
 
   dialogNewStat: boolean = false;
   dialogRemove: boolean = false;
   dialogBulletin: boolean = false;
-  dialogIndicator: boolean = false;
+  dialogNewInd: boolean = false;
   titleDialog: string = "";
   subtitleDialog: string = "";
   titleDialogRemove: string ="";
@@ -32,13 +34,25 @@ export class StadisticsPage implements OnInit {
   yearstat: any;
   id_stat: any;
 
+  /* formulario de indicador */
+  titleind: any;
+  descriptionind: any;
+  percentageind: any;
+  typeind: any;
+  id_ind: any;
+
+
   @Output() updateView = new EventEmitter();
-  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService ) {
+  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService ) {
     this.dialogNewStat = false;
+    this.dialogNewInd = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
     this.load_statistics();
+    this.load_indicador();
   }
+
+  
 
   ngOnInit() {
   }
@@ -139,7 +153,7 @@ export class StadisticsPage implements OnInit {
     this.id_stat = id;
 
   }
-  btn_remove(){
+  btn_remove (){
     let formdata = new FormData;
     formdata.append('id', this.id_stat);
 
@@ -147,6 +161,88 @@ export class StadisticsPage implements OnInit {
     .then(resp=>{
       this.closeDialogRemove();
       this.load_statistics();
+    })
+    .catch();
+  }
+
+
+  /* formulario de indicadores*/
+  
+  
+
+  //Indicador
+  openDialogInd(){
+    this.dialogNewInd = true;
+    if(!this.isEdited){
+      this.id_ind = '';
+      this.titleind = '';
+      this.descriptionind = '';
+      this.percentageind = '';
+      this.typeind = '';
+  }
+}
+
+indedit(fInd: NgForm){
+  if(!this.id_ind) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
+  if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
+  if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
+  if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el mes');
+  if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el año');
+
+  let formdatas = new FormData;
+  formdatas.append('id', this.id_ind);
+  formdatas.append('title', this.titleind);
+  formdatas.append('description', this.descriptionind);
+  formdatas.append('percentage', this.percentageind);
+  formdatas.append('type', this.typeind);
+
+  this.indicadorService.edit_indicador(formdatas)
+  .then(resp=>{
+    this.closeDialogind();
+    this.load_statistics();
+  })
+  .catch();
+}
+
+closeDialogind() {
+  this.dialogNewInd = false;
+  this.isEdited = false;
+}
+  load_indicador(){
+    this.indicadorService.get_indicador()
+    .then(resp=>{
+      this.indicador_data = resp['data'];
+    })
+    .catch();
+  }
+  editInd(objstat){
+    this.id_stat = objstat.id;
+   
+    this.titleind = objstat.title;
+    this.descriptionind = objstat.description;
+    this.percentageind = objstat.percentage;
+    this.typeind = objstat.type;
+    this.id_ind = objstat.id;
+    
+    this.isEdited = true;
+    this.openDialogInd();
+  }
+
+  removeInd(id){
+    this.openDialogRemove();
+    this.titleDialogRemove = "ELIMINAR INDICADOR";
+    this.id_ind = id;
+
+  }
+
+  btn_removeind(){
+    let formdata = new FormData;
+    formdata.append('id', this.id_ind);
+
+    this.indicadorService.new_indicador(formdata)
+    .then(resp=>{ 
+      this.closeDialogind();
+      this.load_indicador();
     })
     .catch();
   }
@@ -170,22 +266,7 @@ export class StadisticsPage implements OnInit {
   }
 
   //Indicadores
-  openDialogIndicator() {
-    this.dialogIndicator = true;
-  }
-  closeDialogIndicator() {
-    this.dialogIndicator = false;
-    this.isEdited = false;
-  }
-  editIndicator(item){
-    this.isEdited = true;
-    this.openDialogIndicator();
-  }
-  removeIndicator(){
-    this.openDialogRemove();
-    this.titleDialogRemove = "ELIMINAR INDICADOR";
-  }
-
+ 
   //Dialogo eliminar
   openDialogRemove() {
     this.dialogRemove = true;

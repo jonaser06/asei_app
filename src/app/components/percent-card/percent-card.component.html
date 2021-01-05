@@ -3,11 +3,11 @@
       <div class="drop-menu">
           <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
           <div class="popover">
-              <button (click)="editItem({})" class="item">
+              <button (click)="editItem(card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)" class="item">
                 <span class="no-margin label-menu">Editar</span>
                 <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
             </button>
-              <button (click)="deleteItem({})" class="item">
+              <button (click)="deleteItem(card_ind.id)" class="item">
                 <span class="no-margin label-menu">Eliminar</span>
                 <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
             </button>
@@ -23,12 +23,12 @@
       <span class="label-top-percent">Incremento</span>
   </div>
   <div class="percent">
-      50%
+    50
   </div>
   <div class="title-percent">
-      Ventas de proyectos ASEI
+    <h1 class="title no-margin">hola</h1>
   </div>
   <div class="description-percent">
-      Pequeña descripcion del indicadores estatico
+    hola mundo
   </div>
 </div>

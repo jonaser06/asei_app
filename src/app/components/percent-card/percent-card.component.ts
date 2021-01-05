@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { IndicadorService } from 'src/app/services/indicador.service';
 
 @Component({
   selector: 'app-percent-card',
@@ -7,18 +9,29 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PercentCardComponent implements OnInit {
 
+  @Input() card_ind : any;
+
   @Output() editItemEv = new EventEmitter();
   @Output() deleteItemEv = new EventEmitter();
+
+  URL = environment.url;
 
   constructor() { }
 
   ngOnInit() {}
 
-  editItem(item) {
-    this.editItemEv.emit(item)
+  editItem(title, description, percentage, type, id ) {
+    let objstat = {
+      
+      title,
+      description,
+      percentage,
+      type,
+      id,
+    }
+    this.editItemEv.emit(objstat);
   }
-  deleteItem(item){
-    this.deleteItemEv.emit(item)
+  deleteItem(id){
+    this.deleteItemEv.emit(id);
   }
-
 }
