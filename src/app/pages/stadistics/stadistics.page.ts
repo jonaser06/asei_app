@@ -13,13 +13,9 @@ import { environment } from 'src/environments/environment';
 })
 export class StadisticsPage implements OnInit {
 
-<<<<<<< HEAD
   statistics_data : any ; 
   indicador_data : any ;
-=======
-  statistics_data : any;
   bulletin_data : any;
->>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
   URL = environment.url;
 
   dialogNewStat: boolean = false;
@@ -40,7 +36,6 @@ export class StadisticsPage implements OnInit {
   yearstat: any;
   id_stat: any;
 
-<<<<<<< HEAD
   /* formulario de indicador */
   titleind: any;
   descriptionind: any;
@@ -48,29 +43,18 @@ export class StadisticsPage implements OnInit {
   typeind: any;
   id_ind: any;
 
-
-  @Output() updateView = new EventEmitter();
-  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService ) {
-=======
   /* bolletines */
   years = [];
-
   @Output() updateView = new EventEmitter();
-  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private bulletinService: BulletinService ) {
->>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
+  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
     this.load_statistics();
-<<<<<<< HEAD
     this.load_indicador();
-=======
     this.load_bulletin();
->>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
   }
-
-  
 
   ngOnInit() {
   }
