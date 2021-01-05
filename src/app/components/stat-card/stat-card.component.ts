@@ -29,10 +29,10 @@ export class StatCardComponent implements OnInit {
       month,
       year
     }
-    this.editItemEv.emit(objstat)
+    this.editItemEv.emit(objstat);
   }
-  deleteItem(item){
-    this.deleteItemEv.emit(item)
+  deleteItem(id){
+    this.deleteItemEv.emit(id);
   }
 
 }

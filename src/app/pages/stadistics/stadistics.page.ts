@@ -124,7 +124,7 @@ export class StadisticsPage implements OnInit {
   }
   editStat(objstat){
     this.id_stat = objstat.id;
-    this.imagestat = objstat.image;
+    this.imagestat = environment.url + '/' + objstat.image;
     this.titlestat = objstat.title;
     this.descriptionstat = objstat.description;
     this.monthstat = objstat.month;
@@ -133,10 +133,24 @@ export class StadisticsPage implements OnInit {
     this.isEdited = true;
     this.openDialogStat();
   }
-  removeStat(item){
+  removeStat(id){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR GRÁFICO";
+    this.id_stat = id;
+
   }
+  btn_remove(){
+    let formdata = new FormData;
+    formdata.append('id', this.id_stat);
+
+    this.statisticsService.del_statistics(formdata)
+    .then(resp=>{
+      this.closeDialogRemove();
+      this.load_statistics();
+    })
+    .catch();
+  }
+
 
   // Boletin
   openDialogBulletin() {

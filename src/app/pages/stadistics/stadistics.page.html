@@ -112,7 +112,7 @@
                                 </div>
 
                                 <div class="content-img">
-                                    <img src="{{ isEdited ? URL+'/': '' }}{{ imagestat }}" alt="">
+                                    <img src="{{ imagestat }}" alt="">
                                 </div>
                             </div>
 
@@ -290,7 +290,7 @@
                     <p>¿Estas seguro que deseas eliminar este elemento?</p>
 
                     <div class="button">
-                        <button>Eliminar</button>
+                        <button (click)="btn_remove()">Eliminar</button>
                     </div>
                 </div>
             </body-dialog>

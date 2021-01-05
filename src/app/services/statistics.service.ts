@@ -49,4 +49,16 @@ export class StatisticsService {
       });
     });
   }
+  del_statistics(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/deletechart`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
 }
