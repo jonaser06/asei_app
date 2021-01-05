@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,29 +9,16 @@ import { environment } from 'src/environments/environment';
 })
 export class StatCardComponent implements OnInit {
 
+  @Input() card_child : any;
+  
   @Output() editItemEv = new EventEmitter();
   @Output() deleteItemEv = new EventEmitter();
 
-  statistics_data : any;
   URL = environment.url;
 
-  constructor(private stadisticsService: StatisticsService) { }
+  constructor() { }
 
-  ngOnInit( ) {
-    this.load_statistics();
-  }
-
-  load_statistics(){
-    this.stadisticsService.get_statistics()
-    .then(resp=>{
-      this.statistics_data = resp['data'];
-    })
-    .catch();
-  }
-
-  updatedata(){
-    console.log('recibido');
-  }
+  ngOnInit( ) { }
 
   editItem(item) {
     this.editItemEv.emit(item)

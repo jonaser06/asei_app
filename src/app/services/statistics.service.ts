@@ -36,4 +36,17 @@ export class StatisticsService {
       });
     });
   }
+
+  edit_statistics(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/editchart`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
 }
