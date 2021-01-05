@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BulletinService } from 'src/app/services/bulletin.service';
 import { environment } from 'src/environments/environment';
 
@@ -9,16 +9,19 @@ import { environment } from 'src/environments/environment';
 })
 export class BulletinListComponent implements OnInit {
 
+  @Input() years_child : any;
+  @Input() bulletin_child : any;
+  
   @Output() editItemEv = new EventEmitter();
   @Output() deleteItemEv = new EventEmitter();
 
-  bulletin_data : any;
   URL = environment.url;
-  constructor(private bulletinService: BulletinService) {
-    this.load_bulletin();
-   }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
   
   toggleSubMenu(indexParameter: number | string){
     const list = document.querySelectorAll(
@@ -34,18 +37,6 @@ export class BulletinListComponent implements OnInit {
     });
   }
 
-  load_bulletin(){
-    this.bulletinService.get_bulletin()
-    .then(resp=>{
-
-      resp['data'].forEach( data =>{
-
-      });
-      // console.log(resp);
-      this.bulletin_data = resp['data'];
-    })
-    .catch();
-  }
 
   editItem(item) {
     this.editItemEv.emit(item)

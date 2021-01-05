@@ -13,7 +13,7 @@ export class BulletinService {
 
   get_bulletin(){
     return new Promise ( resolve => {
-      this.http.get(`${URL}/getchart`)
+      this.http.get(`${URL}/getbulletin`)
       .subscribe( resp => {
         if(resp['status']){
           resolve(resp);

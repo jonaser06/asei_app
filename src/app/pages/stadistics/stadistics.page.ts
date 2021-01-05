@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { BulletinService } from 'src/app/services/bulletin.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { environment } from 'src/environments/environment';
@@ -12,6 +13,7 @@ import { environment } from 'src/environments/environment';
 export class StadisticsPage implements OnInit {
 
   statistics_data : any;
+  bulletin_data : any;
   URL = environment.url;
 
   dialogNewStat: boolean = false;
@@ -32,12 +34,16 @@ export class StadisticsPage implements OnInit {
   yearstat: any;
   id_stat: any;
 
+  /* bolletines */
+  years = [];
+
   @Output() updateView = new EventEmitter();
-  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService ) {
+  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private bulletinService: BulletinService ) {
     this.dialogNewStat = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
     this.load_statistics();
+    this.load_bulletin();
   }
 
   ngOnInit() {
@@ -167,6 +173,22 @@ export class StadisticsPage implements OnInit {
   removeBulletin(item){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR BOLETÍN";
+  }
+
+  load_bulletin(){
+    this.years = [];
+    this.bulletinService.get_bulletin()
+    .then(resp=>{
+      resp['data'].forEach( data =>{
+        // console.log(data.year);
+        this.years.push(data.year);
+      });
+      this.years = [...new Set(this.years)];
+      this.bulletin_data = resp['data'];
+    })
+    .catch(err=>{
+      console.log(err);
+    });
   }
 
   //Indicadores
