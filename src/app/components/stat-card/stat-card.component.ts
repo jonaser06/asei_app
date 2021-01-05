@@ -20,8 +20,16 @@ export class StatCardComponent implements OnInit {
 
   ngOnInit( ) { }
 
-  editItem(item) {
-    this.editItemEv.emit(item)
+  editItem(id, title, description, image, month, year) {
+    let objstat = {
+      id,
+      title,
+      description,
+      image,
+      month,
+      year
+    }
+    this.editItemEv.emit(objstat)
   }
   deleteItem(item){
     this.deleteItemEv.emit(item)

@@ -24,6 +24,7 @@ export class StadisticsPage implements OnInit {
   isEdited = false;
 
   /* formulario de estadisticas */
+  imagestat: any;
   fileToUploadstat: any;
   titlestat: any;
   descriptionstat: any;
@@ -45,9 +46,22 @@ export class StadisticsPage implements OnInit {
   //Estadisticas
   openDialogStat() {
     this.dialogNewStat = true;
+    if(!this.isEdited){
+      this.titlestat = '';
+      this.imagestat = '';
+      this.titlestat = '';
+      this.descriptionstat = '';
+      this.monthstat = '';
+      this.yearstat = '';
+    }
   }
-  handleFileInput(files: FileList){
-    this.fileToUploadstat = files.item(0);
+  handleFileInput(event){
+    this.fileToUploadstat = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(this.fileToUploadstat);
+    reader.onload = () => {
+        this.imagestat = reader.result;
+    };
   }
 
   stat(fStat: NgForm){
@@ -66,7 +80,6 @@ export class StadisticsPage implements OnInit {
 
     this.statisticsService.new_statistics(formdata)
     .then(resp=>{ 
-      console.log(resp);
       this.closeDialogStat();
       this.load_statistics();
     })
@@ -91,7 +104,6 @@ export class StadisticsPage implements OnInit {
 
     this.statisticsService.edit_statistics(formdata)
     .then(resp=>{
-      console.log(resp);
       this.closeDialogStat();
       this.load_statistics();
     })
@@ -110,7 +122,14 @@ export class StadisticsPage implements OnInit {
     this.dialogNewStat = false;
     this.isEdited = false;
   }
-  editStat(item){
+  editStat(objstat){
+    this.id_stat = objstat.id;
+    this.imagestat = objstat.image;
+    this.titlestat = objstat.title;
+    this.descriptionstat = objstat.description;
+    this.monthstat = objstat.month;
+    this.yearstat = objstat.year;
+    
     this.isEdited = true;
     this.openDialogStat();
   }

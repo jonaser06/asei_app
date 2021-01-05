@@ -78,6 +78,7 @@ export class AuthService {
       })
     })
   }
+  
   async logout(){
     try {
       await this.storage.remove('UserData');
