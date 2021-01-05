@@ -68,7 +68,7 @@
                                 <h1 class="title no-margin">Historial de Boletines ASEI</h1>
                             </div>
         
-                            <app-bulletin-list (editItemEv)="editBulletin($event)" (deleteItemEv)="removeBulletin($event)" ></app-bulletin-list> 
+                            <app-bulletin-list (editItemEv)="editBulletin($event)" (deleteItemEv)="removeBulletin($event)" [years_child]="years" [bulletin_child]="bulletin_data" ></app-bulletin-list> 
                         </div>
                     </ion-col>
                     <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">

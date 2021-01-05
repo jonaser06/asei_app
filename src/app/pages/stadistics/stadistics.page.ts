@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { BulletinService } from 'src/app/services/bulletin.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { IndicadorService } from 'src/app/services/indicador.service';
@@ -12,8 +13,13 @@ import { environment } from 'src/environments/environment';
 })
 export class StadisticsPage implements OnInit {
 
+<<<<<<< HEAD
   statistics_data : any ; 
   indicador_data : any ;
+=======
+  statistics_data : any;
+  bulletin_data : any;
+>>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
   URL = environment.url;
 
   dialogNewStat: boolean = false;
@@ -34,6 +40,7 @@ export class StadisticsPage implements OnInit {
   yearstat: any;
   id_stat: any;
 
+<<<<<<< HEAD
   /* formulario de indicador */
   titleind: any;
   descriptionind: any;
@@ -44,12 +51,23 @@ export class StadisticsPage implements OnInit {
 
   @Output() updateView = new EventEmitter();
   constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService ) {
+=======
+  /* bolletines */
+  years = [];
+
+  @Output() updateView = new EventEmitter();
+  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private bulletinService: BulletinService ) {
+>>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
     this.load_statistics();
+<<<<<<< HEAD
     this.load_indicador();
+=======
+    this.load_bulletin();
+>>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
   }
 
   
@@ -263,6 +281,22 @@ closeDialogind() {
   removeBulletin(item){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR BOLETÍN";
+  }
+
+  load_bulletin(){
+    this.years = [];
+    this.bulletinService.get_bulletin()
+    .then(resp=>{
+      resp['data'].forEach( data =>{
+        // console.log(data.year);
+        this.years.push(data.year);
+      });
+      this.years = [...new Set(this.years)];
+      this.bulletin_data = resp['data'];
+    })
+    .catch(err=>{
+      console.log(err);
+    });
   }
 
   //Indicadores
