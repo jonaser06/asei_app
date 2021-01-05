@@ -25,9 +25,9 @@ export class IndicadorService {
     });
   }
 
-  new_indicador(formdata){
+  new_indicador(formdatas){
     return new Promise ( resolve => {
-      this.http.post(`${URL}/newIndicador`, formdata)
+      this.http.post(`${URL}/newIndicador`, formdatas)
       .subscribe( resp => {
         if(resp['status']){
           resolve(resp);
@@ -38,9 +38,9 @@ export class IndicadorService {
     });
   }
 
-  edit_indicador(formdata){
+  edit_indicador(formdatas){
     return new Promise ( resolve => {
-      this.http.post(`${URL}/editIndicador`, formdata)
+      this.http.post(`${URL}/editIndicador`, formdatas)
       .subscribe( resp => {
         if(resp['status']){
           resolve(resp);
@@ -50,9 +50,9 @@ export class IndicadorService {
       });
     });
   }
-  del_indicador(formdata){
+  del_indicador(formdatas){
     return new Promise ( resolve => {
-      this.http.post(`${URL}/deleteIndicador`, formdata)
+      this.http.post(`${URL}/deleteIndicador`, formdatas)
       .subscribe( resp => {
         if(resp['status']){
           resolve(resp);

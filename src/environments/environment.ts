@@ -5,11 +5,7 @@
 export const environment = {
   production: false,
   url: 'http://api.blogingenieria.site',
-<<<<<<< HEAD
   //url: 'http://localhost/asei_api',
-=======
-  // url: 'http://localhost/asei_api',
->>>>>>> b1e784b617622341a828b290ba61d0907e79ab7d
 };
 
 /*

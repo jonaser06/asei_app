@@ -22,7 +22,6 @@ export class PercentCardComponent implements OnInit {
 
   editItem(title, description, percentage, type, id ) {
     let objstat = {
-      
       title,
       description,
       percentage,
