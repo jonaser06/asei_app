@@ -20,7 +20,7 @@ export class LoginPage implements OnInit {
     /* sesion */
     this.authService.valida_user()
     .then(resp=>{
-      if(resp) this.navCtrol.navigateRoot('/stadistics', { animated : true } );
+      if(resp) this.navCtrol.navigateRoot('tabs/stadistics', { animated : true } );
     })
     .catch();
   }
@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
     const valido = await this.authService.login_service(this.loginUser.email, this.loginUser.password);
 
     if(valido['status']){
-      this.navCtrol.navigateRoot('/stadistics', { animated : true } );
+      this.navCtrol.navigateRoot('tabs/stadistics', { animated : true } );
     }else{
       this.uiserviceService.alert_info(valido['data']['detalle']); 
     }

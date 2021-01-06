@@ -1,35 +1,35 @@
 
 <ion-header class="header-app" [translucent]="true">
-  <div class="toolbar-header">
-      <img class="logo-img" draggable="false" src="../../../assets/img/logo.png" />
-      <div class="header-content-user">
-          <button type="icon-start" class="tab-notify" (click)="goNotifications()">
-              <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
-              <!-- <ion-badge color="primary" class="no-margin label-tab">.</ion-badge> -->
-              <ion-label class="no-margin label-tab"></ion-label>
-          </button>
-          <div class="separator-header"></div>
-          <button class="responsive-button responsive-profile-button" (click)="goProfile()">
-              <img draggable="false" src="../../../assets/img/default-user.png" >
-          </button>
-          <div class="auth-user">
-              <img draggable="false" src="../../../assets/img/default-user.png">
-              <span class="user-name">{{ nombres }}</span>
-              <ion-icon slot="icon-only" name="caret-down"></ion-icon>
-              <div class="popover-menu-user">
-                  <button (click)="goProfile()" class="item-menu">
-                      <ion-icon class="no-margin icon-menu" name="person-circle"></ion-icon>
-                      <span class="no-margin label-menu">Mi perfil</span>
-                  </button>
-                  <button (click)="logout()" href="/" class="item-menu">
-                      <ion-icon class="no-margin icon-menu" name="power"></ion-icon>
-                      <span class="label-menu">Cerrar sesión</span>
-                  </button>
-              </div>
-          </div>
-          <button (click)="logout()" class="responsive-button responsive-button-logout">
-              <ion-icon class="icon-menu" name="power"></ion-icon>
-          </button>
-      </div>
-  </div>
+    <div class="toolbar-header">
+        <img class="logo-img" draggable="false" src="../../../assets/img/logo.png" />
+        <div class="header-content-user">
+            <button type="icon-start" class="tab-notify" (click)="goNotifications()">
+                <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
+                <!-- <ion-badge color="primary" class="no-margin label-tab">.</ion-badge> -->
+                <ion-label class="no-margin label-tab"></ion-label>
+            </button>
+            <div class="separator-header"></div>
+            <button class="responsive-button responsive-profile-button" (click)="goProfile()">
+                <img draggable="false" src="../../../assets/img/default-user.png" >
+            </button>
+            <div class="auth-user">
+                <img draggable="false" src="../../../assets/img/default-user.png">
+                <span class="user-name">{{ nombres }}</span>
+                <ion-icon slot="icon-only" name="caret-down"></ion-icon>
+                <div class="popover-menu-user">
+                    <button (click)="goProfile()" class="item-menu">
+                        <ion-icon class="no-margin icon-menu" name="person-circle"></ion-icon>
+                        <span class="no-margin label-menu">Mi perfil</span>
+                    </button>
+                    <button (click)="logout()" href="/" class="item-menu">
+                        <ion-icon class="no-margin icon-menu" name="power"></ion-icon>
+                        <span class="label-menu">Cerrar sesión</span>
+                    </button>
+                </div>
+            </div>
+            <button (click)="logout()" class="responsive-button responsive-button-logout">
+                <ion-icon class="icon-menu" name="power"></ion-icon>
+            </button>
+        </div>
+    </div>
 </ion-header>
