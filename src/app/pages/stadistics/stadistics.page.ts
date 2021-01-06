@@ -187,8 +187,8 @@ export class StadisticsPage implements OnInit {
     if(!this.id_ind) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
     if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el mes');
-    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el año');
+    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el porcentaje');
+    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdatas = new FormData;
     formdatas.append('id', this.id_ind);
@@ -221,8 +221,8 @@ export class StadisticsPage implements OnInit {
   ind(fInd: NgForm){
     if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el mes');
-    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el año');
+    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
+    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdatas = new FormData;
     formdatas.append('title', this.titleind);
