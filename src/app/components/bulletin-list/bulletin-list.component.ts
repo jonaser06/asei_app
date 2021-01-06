@@ -38,8 +38,15 @@ export class BulletinListComponent implements OnInit {
   }
 
 
-  editItem(item) {
-    this.editItemEv.emit(item)
+  editItem(id, title, month, year, file) {
+    let objbull = {
+      id,
+      title,
+      month,
+      year,
+      file,
+    }
+    this.editItemEv.emit(objbull)
   }
   deleteItem(item){
     this.deleteItemEv.emit(item)

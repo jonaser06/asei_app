@@ -12,15 +12,19 @@
             <div class="sub-menu" *ngFor="let bulletin of bulletin_child">
                 <div *ngIf="bulletin.year == year">
                     <div class="sub-item">
-                        <span>Boletin Enero 2020</span>
+                        <span>{{ bulletin.title }}</span>
                         <div class="actions">
-                            <button class="btn-bg-primary btn-bulletin-download">
-                                <ion-icon name="cloud-download-outline"></ion-icon>
-                            </button>
-                            <button class="btn-outline-primary btn-bulletin-download">
-                                <ion-icon name="eye-outline"></ion-icon>
-                            </button>
-                            <button class="btn-outline-primary btn-bulletin-download" (click)="editItem({})">
+                            <a href="{{ bulletin.file }}" download="FileName">
+                                <button class="btn-bg-primary btn-bulletin-download" >
+                                    <ion-icon name="cloud-download-outline"></ion-icon>
+                                </button>
+                            </a>
+                            <a href="{{ bulletin.file }}" download="FileName">
+                                <button class="btn-outline-primary btn-bulletin-download">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </button>
+                            </a>
+                            <button class="btn-outline-primary btn-bulletin-download" (click)="editItem(bulletin.id, bulletin.title, bulletin.month, bulletin.year, bulletin.file)">
                                 <ion-icon name="create-outline"></ion-icon>
                             </button>
                             <button class="btn-outline-primary btn-bulletin-download" (click)="deleteItem({})">

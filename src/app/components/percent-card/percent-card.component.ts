@@ -28,7 +28,7 @@ export class PercentCardComponent implements OnInit {
       percentage,
       type,
     }
-    
+
     this.editItemEv.emit(objind);
   }
 

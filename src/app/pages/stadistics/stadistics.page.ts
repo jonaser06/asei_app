@@ -45,6 +45,16 @@ export class StadisticsPage implements OnInit {
 
   /* bolletines */
   years = [];
+  idbull: any;
+  titlebull: any;
+  monthbull: any;
+  yearbull: any;
+  filebull: any;
+
+  /* eliminar dialogs */
+  stat_rmv = false;
+  bull_rmv = false;
+  indi_rmv = false;
   @Output() updateView = new EventEmitter();
   constructor( private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
     this.dialogNewStat = false;
@@ -154,18 +164,49 @@ export class StadisticsPage implements OnInit {
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR GRÁFICO";
     this.id_stat = id;
-
+    this.stat_rmv = true;
   }
-  btn_remove (){
-    let formdata = new FormData;
-    formdata.append('id', this.id_stat);
 
-    this.statisticsService.del_statistics(formdata)
-    .then(resp=>{
-      this.closeDialogRemove();
-      this.load_statistics();
-    })
-    .catch();
+  btn_remove (){
+    if(this.stat_rmv){
+      console.log('eliminar stadisticas');
+      let formdata = new FormData;
+      formdata.append('id', this.id_stat);
+  
+      this.statisticsService.del_statistics(formdata)
+      .then(resp=>{
+        this.closeDialogRemove();
+        this.load_statistics();
+        this.stat_rmv = false;
+      })
+      .catch();
+    }else if(this.indi_rmv){
+      console.log('eliminar indicador');
+      let formdata = new FormData;
+      formdata.append('id', this.id_ind);
+  
+      this.indicadorService.del_indicador(formdata)
+      .then(resp=>{ 
+        this.closeDialogRemove();
+        this.load_indicador();
+        this.indi_rmv = false;
+      })
+      .catch();
+    }else if(this.bull_rmv){
+      console.log('eliminar bulletin');
+      let formdata = new FormData;
+      formdata.append('id', this.id_ind);
+  
+      this.indicadorService.new_indicador(formdata)
+      .then(resp=>{ 
+        this.closeDialogRemove();
+        this.load_indicador();
+        this.bull_rmv = false;
+      })
+      .catch();
+    }else{
+      console.log('ocurrio un error');
+    }
   }
 
 
@@ -254,20 +295,8 @@ export class StadisticsPage implements OnInit {
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR INDICADOR";
     this.id_ind = id;
+    this.indi_rmv = true;
   }
-
-  btn_removeind(){
-    let formdata = new FormData;
-    formdata.append('id', this.id_ind);
-
-    this.indicadorService.new_indicador(formdata)
-    .then(resp=>{ 
-      this.closeDialogind();
-      this.load_indicador();
-    })
-    .catch();
-  }
-
 
   // Boletin
   openDialogBulletin() {
@@ -277,21 +306,31 @@ export class StadisticsPage implements OnInit {
     this.dialogBulletin = false;
     this.isEdited = false;
   }
-  editBulletin(item){
+  editBulletin(objbull){
+    
+    this.idbull = objbull.id;
+    this.titlebull = objbull.title;
+    this.monthbull = objbull.month;
+    this.yearbull = objbull.year;
+    this.filebull = objbull.file;
+
     this.isEdited = true;
     this.openDialogBulletin();
+
   }
   removeBulletin(item){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR BOLETÍN";
+    this.bull_rmv = true;
   }
 
   load_bulletin(){
     this.years = [];
     this.bulletinService.get_bulletin()
     .then(resp=>{
-      resp['data'].forEach( data =>{
-        // console.log(data.year);
+      resp['data'].forEach( (data, index) =>{
+        data.file = environment.url + '/' + data.file;
+        // console.log(index);
         this.years.push(data.year);
       });
       this.years = [...new Set(this.years)];
