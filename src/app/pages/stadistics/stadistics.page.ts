@@ -46,11 +46,12 @@ export class StadisticsPage implements OnInit {
   /* bolletines */
   years = [];
   @Output() updateView = new EventEmitter();
-  constructor(private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
+  constructor( private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
     this.dialogBulletin = false;
+
     this.load_statistics();
     this.load_indicador();
     this.load_bulletin();
@@ -169,8 +170,6 @@ export class StadisticsPage implements OnInit {
 
 
   /* formulario de indicadores*/
-  
-  
 
   //Indicador
   openDialogInd(){
@@ -180,36 +179,37 @@ export class StadisticsPage implements OnInit {
       this.titleind = '';
       this.descriptionind = '';
       this.percentageind = '';
-      this.typeind = '';
+      this.typeind = 'incremento';
+    }
   }
-}
 
-indedit(fInd: NgForm){
-  if(!this.id_ind) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
-  if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
-  if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
-  if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el mes');
-  if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el año');
+  indedit(fInd: NgForm){
+    if(!this.id_ind) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
+    if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el mes');
+    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el año');
 
-  let formdatas = new FormData;
-  formdatas.append('id', this.id_ind);
-  formdatas.append('title', this.titleind);
-  formdatas.append('description', this.descriptionind);
-  formdatas.append('percentage', this.percentageind);
-  formdatas.append('type', this.typeind);
+    let formdatas = new FormData;
+    formdatas.append('id', this.id_ind);
+    formdatas.append('title', this.titleind);
+    formdatas.append('description', this.descriptionind);
+    formdatas.append('percentage', this.percentageind);
+    formdatas.append('type', this.typeind);
 
-  this.indicadorService.edit_indicador(formdatas)
-  .then(resp=>{
-    this.closeDialogind();
-    this.load_statistics();
-  })
-  .catch();
-}
+    this.indicadorService.edit_indicador(formdatas)
+    .then(resp=>{
+      this.closeDialogind();
+      this.load_indicador();
+    })
+    .catch();
+  }
 
-closeDialogind() {
-  this.dialogNewInd = false;
-  this.isEdited = false;
-}
+  closeDialogind() {
+    this.dialogNewInd = false;
+    this.isEdited = false;
+  }
+
   load_indicador(){
     this.indicadorService.get_indicador()
     .then(resp=>{
@@ -217,15 +217,35 @@ closeDialogind() {
     })
     .catch();
   }
-  editInd(objstat){
-    this.id_stat = objstat.id;
-   
-    this.titleind = objstat.title;
-    this.descriptionind = objstat.description;
-    this.percentageind = objstat.percentage;
-    this.typeind = objstat.type;
-    this.id_ind = objstat.id;
-    
+
+  ind(fInd: NgForm){
+    if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el mes');
+    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el año');
+
+    let formdatas = new FormData;
+    formdatas.append('title', this.titleind);
+    formdatas.append('description', this.descriptionind);
+    formdatas.append('percentage', this.percentageind);
+    formdatas.append('type', this.typeind);
+
+    this.indicadorService.new_indicador(formdatas)
+    .then(resp=>{
+      this.closeDialogind();
+      this.load_indicador();
+    })
+    .catch();
+  }
+
+  editInd(objind){
+
+    this.id_ind = objind.id;
+    this.titleind = objind.title;
+    this.descriptionind = objind.description;
+    this.percentageind = objind.percentage;
+    this.typeind = objind.type;
+
     this.isEdited = true;
     this.openDialogInd();
   }
@@ -234,7 +254,6 @@ closeDialogind() {
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR INDICADOR";
     this.id_ind = id;
-
   }
 
   btn_removeind(){

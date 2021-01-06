@@ -20,16 +20,18 @@ export class PercentCardComponent implements OnInit {
 
   ngOnInit() {}
 
-  editItem(title, description, percentage, type, id ) {
-    let objstat = {
+  editItem( id, title, description, percentage, type ) {
+    let objind = {
+      id,
       title,
       description,
       percentage,
       type,
-      id,
     }
-    this.editItemEv.emit(objstat);
+    
+    this.editItemEv.emit(objind);
   }
+
   deleteItem(id){
     this.deleteItemEv.emit(id);
   }

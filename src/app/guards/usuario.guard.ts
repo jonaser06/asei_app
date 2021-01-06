@@ -11,7 +11,8 @@ export class UsuarioGuard implements CanLoad {
   constructor( private authService : AuthService ){}
 
   canLoad(): Observable<boolean> | Promise<boolean> | boolean {
-    return this.authService.valida_user();
+    let sesion = this.authService.valida_user();
+    return sesion;
   }
   
 }

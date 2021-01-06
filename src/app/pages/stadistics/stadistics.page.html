@@ -238,44 +238,50 @@
                 </div>
             </header-dialog>
             <body-dialog>
-                <form (ngSubmit)="isEdited ? indedit( fInd ) : ind( fInd )" #fInt="ngForm">
-                <div class="card-modal-3">
-                    <div>
-                        <div class="inputs-boletin-2">
-                            <div class="percentage">
-                                <div class="number">
-                                    <p>Porcentaje*</p>
+                <form (ngSubmit)="isEdited ? indedit( fInd ) : ind( fInd )" #fInd="ngForm">
+                    <div class="card-modal-3">
+                        <div>
+                            <div class="inputs-boletin-2">
+                                <div class="percentage">
+                                    <div class="number">
+                                        <p>Porcentaje*</p>
 
-                                    <div>
-                                        <input name="percentage" [(ngModel)]="percentageind" type="number" min="50" placeholder="50">
-                                        <p>%</p>
+                                        <div>
+                                            <input name="percentage" [(ngModel)]="percentageind" type="number" min="50" placeholder="50">
+                                            <p>%</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="letters">
+                                        <p>Tipo*</p>
+                                        <div *ngIf="typeind == 'incremento' ">
+                                            <select name="type" [(ngModel)]="typeind">
+                                                <option value="incremento" selected>incremento</option>
+                                                <option value="decremento">decremento</option>
+                                            </select>
+                                        </div>
+                                        <div *ngIf="typeind == 'decremento' ">
+                                            <select name="type" [(ngModel)]="typeind">
+                                                <option value="incremento">incremento</option>
+                                                <option value="decremento" selected>decremento</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="letters">
-                                    <p>Tipo*</p>
-                                    
-                                    <select name="type" [(ngModel)]="typeind">
-                                      <option value="" selected>Incremento</option>
-                                      <option value="">Option 1</option>
-                                      <option value="">Option 2</option>
-                                  </select>
-                                </div>
+                                <p>Titulo*</p>
+                                <input type="text" name="title" [(ngModel)]="titleind" placeholder="Ventas por proyecto">
+                                
+                                <p>Descripcion*</p>
+                                
+                                <input type="text" name="description" [(ngModel)]="descriptionind" placeholder="Pequeña descripcion del indicador estatico"> 
                             </div>
+                        </div>
 
-                            <p>Titulo*</p>
-                            <input type="text" name="title" [(ngModel)]="titleind" placeholder="Ventas por proyecto">
-                            
-                            <p>Descripcion*</p>
-                            
-                            <input type="text" name="description" [(ngModel)]="descriptionind" placeholder="Pequeña descripcion del indicador estatico"> 
+                        <div class="button">
+                            <button type="submit">Guardar Indicador</button>
                         </div>
                     </div>
-
-                    <div class="button">
-                        <button type="submit">Guardar Indicador</button>
-                    </div>
-                </div>
                 </form>
             </body-dialog>
         </app-dialog>
