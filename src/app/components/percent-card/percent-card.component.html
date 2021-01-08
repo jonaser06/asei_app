@@ -1,32 +1,32 @@
 <div class="card percent-cards">
-  <div class="absolute-right">
-      <div class="drop-menu">
-          <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
-          <div class="popover">
-              <button (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)" class="item">
+    <div class="absolute-right" *ngIf="rol=='admin'">
+        <div class="drop-menu">
+            <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
+            <div class="popover">
+                <button (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)" class="item">
                 <span class="no-margin label-menu">Editar</span>
                 <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
             </button>
-              <button (click)="deleteItem(card_ind.id)" class="item">
+                <button (click)="deleteItem(card_ind.id)" class="item">
                 <span class="no-margin label-menu">Eliminar</span>
                 <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
             </button>
-          </div>
-      </div>
-  </div>
-  <!-- usar clase up-trending si es para incremento y low-trending si es para decremento -->
-  <div class="top-percent up-trending">
-      <ion-icon class="icon-top-percent" name="trending-up" *ngIf="card_ind.type =='incremento'"></ion-icon>
-      <ion-icon name="trending-down" *ngIf="card_ind.type =='decremento'"></ion-icon>
-      <span class="label-top-percent">{{ card_ind.type | lowercase }}</span>
-  </div>
-  <div class="percent">
-    {{ card_ind.percentage }}
-  </div>
-  <div class="title-percent">
-    <h1 class="title no-margin">{{ card_ind.title }}</h1>
-  </div>
-  <div class="description-percent">
-    {{ card_ind.description }}
-  </div>
+            </div>
+        </div>
+    </div>
+    <!-- usar clase up-trending si es para incremento y low-trending si es para decremento -->
+    <div class="top-percent up-trending">
+        <ion-icon class="icon-top-percent" name="trending-up" *ngIf="card_ind.type =='incremento'"></ion-icon>
+        <ion-icon name="trending-down" *ngIf="card_ind.type =='decremento'"></ion-icon>
+        <span class="label-top-percent">{{ card_ind.type | lowercase }}</span>
+    </div>
+    <div class="percent">
+        {{ card_ind.percentage }}
+    </div>
+    <div class="title-percent">
+        <h1 class="title no-margin">{{ card_ind.title }}</h1>
+    </div>
+    <div class="description-percent">
+        {{ card_ind.description }}
+    </div>
 </div>

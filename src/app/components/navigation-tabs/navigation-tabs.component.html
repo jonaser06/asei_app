@@ -1,51 +1,50 @@
 <ion-tab-bar class="tab-header" style="position: relative;">
-  <div class="tab-header-info">
-      <ion-text>
-          <h1 class="title-tab-header">Bienvenido,{{ nombres }}</h1>
-      </ion-text>
-      <ion-text> 
-          <p class="subtitle-tab-header">Encuentra información completa en la intranet ASEI</p>
-      </ion-text>
-  </div>
-  <ion-grid class="tabs-list">
-      <ion-row>
-        <ion-col>
-            <ion-tab-button type="icon-start" class = 'tab-link tab1' tab="tab1">
-                <ion-icon class="no-margin icon-tab" name="people"></ion-icon>
-                <ion-label class="no-margin label-tab">Usuarios</ion-label>
-            </ion-tab-button>
-        </ion-col>
-        <ion-col>
-            <ion-tab-button type="icon-start" class = 'tab-link tab2' tab="stadistics">
-                <ion-icon class="no-margin icon-tab" name="stats-chart"></ion-icon>
-                <ion-label class="no-margin label-tab">Estadisticos</ion-label>
-            </ion-tab-button>
-        </ion-col>
-          <ion-col>
-              <ion-tab-button type="icon-start" class = 'tab-link tab3' tab="tab3">
-                  <ion-icon class="no-margin icon-tab" name="business"></ion-icon>
-                  <ion-label class="no-margin label-tab">Inmobiliarias</ion-label>
-              </ion-tab-button>
-          </ion-col>
-          <ion-col>
-            <ion-tab-button type="icon-start" class = 'tab-link tab4' tab="tab4">
-                <ion-icon class="no-margin icon-tab" name="book"></ion-icon>
-                <ion-label class="no-margin label-tab">Learning Center</ion-label>
-            </ion-tab-button>
-        </ion-col>
-        <ion-col>
-            <ion-tab-button type="icon-start" class = 'tab-link tab5' tab="infcenter">
-                <ion-icon class="no-margin icon-tab" name="calendar"></ion-icon>
-                <ion-label class="no-margin label-tab">Noticias</ion-label>
-            </ion-tab-button>
-        </ion-col>
-        <ion-col>
-            <ion-tab-button type="icon-start" class = 'tab-link tab6' tab="tab6">
-                <ion-icon class="no-margin icon-tab" name="document-text"></ion-icon>
-                <ion-label class="no-margin label-tab">Documentos</ion-label>
-            </ion-tab-button>
-        </ion-col>
-      </ion-row>
-  </ion-grid>
+    <div class="tab-header-info">
+        <ion-text>
+            <h1 class="title-tab-header">Bienvenido,{{ nombres }}</h1>
+        </ion-text>
+        <ion-text>
+            <p class="subtitle-tab-header">Encuentra información completa en la intranet ASEI</p>
+        </ion-text>
+    </div>
+    <ion-grid class="tabs-list">
+        <ion-row>
+            <ion-col *ngIf='rol == "admin" '>
+                <ion-tab-button type="icon-start" class='tab-link tab1' tab="tab1">
+                    <ion-icon class="no-margin icon-tab" name="people"></ion-icon>
+                    <ion-label class="no-margin label-tab">Usuarios</ion-label>
+                </ion-tab-button>
+            </ion-col>
+            <ion-col>
+                <ion-tab-button type="icon-start" class='tab-link tab2' tab="stadistics">
+                    <ion-icon class="no-margin icon-tab" name="stats-chart"></ion-icon>
+                    <ion-label class="no-margin label-tab">Estadísticos</ion-label>
+                </ion-tab-button>
+            </ion-col>
+            <ion-col *ngIf='rol == "admin"'>
+                <ion-tab-button type="icon-start" class='tab-link tab3' tab="tab3">
+                    <ion-icon class="no-margin icon-tab" name="business"></ion-icon>
+                    <ion-label class="no-margin label-tab">Inmobiliarias</ion-label>
+                </ion-tab-button>
+            </ion-col>
+            <ion-col>
+                <ion-tab-button type="icon-start" class='tab-link tab4' tab="tab4">
+                    <ion-icon class="no-margin icon-tab" name="book"></ion-icon>
+                    <ion-label class="no-margin label-tab">Learning Center</ion-label>
+                </ion-tab-button>
+            </ion-col>
+            <ion-col>
+                <ion-tab-button type="icon-start" class='tab-link tab5' tab="infcenter">
+                    <ion-icon class="no-margin icon-tab" name="calendar"></ion-icon>
+                    <ion-label class="no-margin label-tab">Information Center</ion-label>
+                </ion-tab-button>
+            </ion-col>
+            <ion-col>
+                <ion-tab-button type="icon-start" class='tab-link tab6' tab="tab6">
+                    <ion-icon class="no-margin icon-tab" name="document-text"></ion-icon>
+                    <ion-label class="no-margin label-tab"> Documentos</ion-label>
+                </ion-tab-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-tab-bar>
-

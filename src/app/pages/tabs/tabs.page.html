@@ -1,81 +1,81 @@
 <ion-header class="header-app" [translucent]="true">
-  <div class="toolbar-header">
-      <img class="logo-img" draggable="false" src="../../../assets/img/logo.png" />
-      <div class="header-content-user">
-          <button type="icon-start" class="tab-notify" (click)="goNotifications()">
+    <div class="toolbar-header">
+        <img class="logo-img" draggable="false" src="../../../assets/img/logo.png" />
+        <div class="header-content-user">
+            <button type="icon-start" class="tab-notify" (click)="goNotifications()">
               <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
               <!-- <ion-badge color="primary" class="no-margin label-tab">.</ion-badge> -->
               <ion-label class="no-margin label-tab"></ion-label>
           </button>
-          <div class="separator-header"></div>
-          <button class="responsive-button responsive-profile-button" (click)="goProfile()">
+            <div class="separator-header"></div>
+            <button class="responsive-button responsive-profile-button" (click)="goProfile()">
               <img draggable="false" src="../../../assets/img/default-user.png" >
           </button>
-          <div class="auth-user">
-              <img draggable="false" src="../../../assets/img/default-user.png">
-              <span class="user-name">{{ nombres }}</span>
-              <ion-icon slot="icon-only" name="caret-down"></ion-icon>
-              <div class="popover-menu-user">
-                  <button (click)="goProfile()" class="item-menu">
+            <div class="auth-user">
+                <img draggable="false" src="../../../assets/img/default-user.png">
+                <span class="user-name">{{ nombres }}</span>
+                <ion-icon slot="icon-only" name="caret-down"></ion-icon>
+                <div class="popover-menu-user">
+                    <button (click)="goProfile()" class="item-menu">
                       <ion-icon class="no-margin icon-menu" name="person-circle"></ion-icon>
                       <span class="no-margin label-menu">Mi perfil</span>
                   </button>
-                  <button (click)="logout()" href="/" class="item-menu">
+                    <button (click)="logout()" href="/" class="item-menu">
                       <ion-icon class="no-margin icon-menu" name="power"></ion-icon>
                       <span class="label-menu">Cerrar sesión</span>
                   </button>
-              </div>
-          </div>
-          <button (click)="logout()" class="responsive-button responsive-button-logout">
+                </div>
+            </div>
+            <button (click)="logout()" class="responsive-button responsive-button-logout">
               <ion-icon class="icon-menu" name="power"></ion-icon>
           </button>
-      </div>
-  </div>
+        </div>
+    </div>
 </ion-header>
 
 <ion-content class="content-intranet">
 
-  <ion-tabs class="intranet-page">
+    <ion-tabs class="intranet-page">
 
-    <ion-tab-bar slot="bottom" class="responsive-tabs">
+        <ion-tab-bar slot="bottom" class="responsive-tabs">
 
-      <ion-tab-button class="tab-link-responsive" tab="people">
-        <ion-icon name="people"></ion-icon>
-        <ion-label class="label-item">Schedule</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button class="tab-link-responsive" tab="stadistics">
-        <ion-icon name="stats-chart"></ion-icon>
-        <ion-label class="label-item">Stadistics</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button class="tab-link-responsive" tab="map">
-        <ion-icon name="business"></ion-icon>
-        <ion-label class="label-item">Map</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button class="tab-link-responsive" tab="about">
-        <ion-icon name="book"></ion-icon>
-        <ion-label class="label-item">About</ion-label>
-      </ion-tab-button>
+            <ion-tab-button *ngIf='rol == "admin"' class="tab-link-responsive" tab="people">
+                <ion-icon name="people"></ion-icon>
+                <ion-label class="label-item">Usuarios</ion-label>
+            </ion-tab-button>
 
-      <ion-tab-button class="tab-link-responsive" tab="about">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label class="label-item">About</ion-label>
-      </ion-tab-button>
+            <ion-tab-button class="tab-link-responsive" tab="stadistics">
+                <ion-icon name="stats-chart"></ion-icon>
+                <ion-label class="label-item">Stadistics</ion-label>
+            </ion-tab-button>
 
-      <ion-tab-button class="tab-link-responsive" tab="infcenter/news">
-        <ion-icon name="document-text"></ion-icon>
-        <ion-label class="label-item">News</ion-label>
-      </ion-tab-button>
+            <ion-tab-button *ngIf='rol == "admin"' class="tab-link-responsive" tab="map">
+                <ion-icon name="business"></ion-icon>
+                <ion-label class="label-item">Map</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button class="tab-link-responsive" tab="about">
+                <ion-icon name="book"></ion-icon>
+                <ion-label class="label-item">About</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button class="tab-link-responsive" tab="about">
+                <ion-icon name="calendar"></ion-icon>
+                <ion-label class="label-item">About</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button class="tab-link-responsive" tab="infcenter/news">
+                <ion-icon name="document-text"></ion-icon>
+                <ion-label class="label-item">News</ion-label>
+            </ion-tab-button>
 
 
 
-      <!-- <ion-tab-button class="tab-link-responsive" *ngFor="let item of authService.getCurrentNavigation()" [tab]="item.path">
+            <!-- <ion-tab-button class="tab-link-responsive" *ngFor="let item of authService.getCurrentNavigation()" [tab]="item.path">
         <ion-icon [name]="item.icon"></ion-icon>
         <ion-label class="label-item">{{item.name}}</ion-label>
       </ion-tab-button> -->
-    </ion-tab-bar>
-    
-  </ion-tabs>
+        </ion-tab-bar>
+
+    </ion-tabs>
 </ion-content>

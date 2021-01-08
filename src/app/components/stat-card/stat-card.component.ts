@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-stat-card',
@@ -15,11 +16,19 @@ export class StatCardComponent implements OnInit {
   @Output() deleteItemEv = new EventEmitter();
 
   URL = environment.url;
-
-  constructor() { }
+  rol: String;
+  constructor(public authService: AuthService) { 
+    this.currentRol ();
+  }
 
   ngOnInit( ) { }
 
+  currentRol(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.rol = resp['data']['rol'];
+    });
+  }
   editItem(id, title, description, image, month, year) {
     let objstat = {
       id,

@@ -9,6 +9,8 @@ import { AuthService } from 'src/app/services/auth.service';
 export class TabsPage implements OnInit {
 
   nombres : any;
+  menus : any;
+  rol : any;
   constructor(public authService: AuthService, private router: Router) {
     this.current_session();
   }
@@ -19,7 +21,9 @@ export class TabsPage implements OnInit {
   current_session(){
     this.authService.get_data()
     .then(resp=>{
-      this.nombres = resp['data']['nombres'];
+      this.nombres = resp['data']['nombres']; 
+      this.rol = resp['data']['rol'] 
+      this.menus = resp['data']['permisos'];
     });
   }
 

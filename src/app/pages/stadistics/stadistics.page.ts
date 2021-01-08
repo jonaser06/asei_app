@@ -4,6 +4,8 @@ import { BulletinService } from 'src/app/services/bulletin.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { IndicadorService } from 'src/app/services/indicador.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -17,6 +19,7 @@ export class StadisticsPage implements OnInit {
   indicador_data : any ;
   bulletin_data : any;
   URL = environment.url;
+
 
   dialogNewStat: boolean = false;
   dialogRemove: boolean = false;
@@ -55,8 +58,11 @@ export class StadisticsPage implements OnInit {
   stat_rmv = false;
   bull_rmv = false;
   indi_rmv = false;
+  
+  // rol
+  rol : String ;
   @Output() updateView = new EventEmitter();
-  constructor( private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
+  constructor(public authService: AuthService, private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
@@ -65,10 +71,19 @@ export class StadisticsPage implements OnInit {
     this.load_statistics();
     this.load_indicador();
     this.load_bulletin();
+    this.current_rol();
   }
 
   ngOnInit() {
   }
+// sesion data 
+
+current_rol(){
+  this.authService.get_data()
+  .then(resp=>{
+    this.rol = resp['data']['rol'];
+  });
+}
 
   //Estadisticas
   openDialogStat() {

@@ -1,38 +1,37 @@
 <div class="card card-stat">
-  <div class="top-card-stat">
-      <div class="drop-menu">
-          <span>
+    <div class="top-card-stat">
+        <div *ngIf="rol == 'admin'" class="drop-menu">
+            <span>
             Opciones
         </span>
-          <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
-          <div class="popover">
-              <button class="item">
+            <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
+            <div class="popover">
+                <button class="item">
                 <span class="no-margin label-menu">Descargar</span>
                 <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
             </button>
-              <button (click)="editItem(card_child.id, card_child.title, card_child.description, card_child.image, card_child.month, card_child.year)" class="item">
+                <button (click)="editItem(card_child.id, card_child.title, card_child.description, card_child.image, card_child.month, card_child.year)" class="item">
                 <span class="no-margin label-menu">Editar</span>
                 <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
             </button>
-              <button (click)="deleteItem(card_child.id)" class="item">
+                <button (click)="deleteItem(card_child.id)" class="item">
                 <span class="no-margin label-menu">Eliminar</span>
                 <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
             </button>
-          </div>
-      </div>
-  </div>
-  <div class="body-card-stat">
-      <div class="img-card-stat">
-          <img draggable="false" src="{{ URL + '/' + card_child.image }}" alt="">
-      </div>
-      <div class="description-card-stat">
-          <div class="title-card">
-              <h1 class="title no-margin">{{ card_child.title }}</h1>
-          </div>
-          <div class="stat-description">
-            {{ card_child.description }}
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+    </div>
+    <div class="body-card-stat">
+        <div class="img-card-stat">
+            <img draggable="false" src="{{ URL + '/' + card_child.image }}" alt="">
+        </div>
+        <div class="description-card-stat">
+            <div class="title-card">
+                <h1 class="title no-margin">{{ card_child.title }}</h1>
+            </div>
+            <div class="stat-description">
+                {{ card_child.description }}
+            </div>
+        </div>
+    </div>
 </div>
-

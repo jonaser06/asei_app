@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BulletinService } from 'src/app/services/bulletin.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-bulletin-list',
@@ -16,11 +18,18 @@ export class BulletinListComponent implements OnInit {
   @Output() deleteItemEv = new EventEmitter();
 
   URL = environment.url;
-  constructor() {
+  rol: String;
+  constructor(public authService: AuthService ) { 
+    this.current_rol();
   }
 
-  ngOnInit() {
-    
+  ngOnInit() {}
+   
+  current_rol(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.rol = resp['data']['rol'];
+    });
   }
   
   toggleSubMenu(indexParameter: number | string){

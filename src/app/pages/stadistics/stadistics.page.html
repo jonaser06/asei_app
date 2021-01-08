@@ -8,14 +8,14 @@
                     <p class="subtitle-section">Encontrarás gráficos actualizados sobre nuestras últimas actividades del mes</p>
                 </div>
                 <div class="actions-page">
-  
-                    <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
+
+                    <!-- <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
                           <option disabled selected>Año</option>
                           <option value=" ">Option 1</option>
                           <option value=" ">Option 2</option>
                           <option value=" ">Option 3</option>
                       </select>
-  
+
                     <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
                           <option disabled selected>Mes</option>
                           <option value=" ">Enero</option>
@@ -30,16 +30,16 @@
                           <option value=" ">Octubre</option>
                           <option value=" ">Noviembre</option>
                           <option value=" ">Diciembre</option>
-                      </select>
-  
-  
-                    <button (click)="openDialogStat()" class="btn-new-item">
+                      </select> -->
+
+
+                    <button *ngIf='rol == "admin"' (click)="openDialogStat()" class="btn-new-item">
                       <span>Nuevo gráfico</span>
                       <ion-icon class="icon-btn" name="add"></ion-icon>
                   </button>
                 </div>
             </div>
-            
+
             <ion-grid class="section-grid">
                 <ion-row>
                     <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="12" size-xs="12" *ngFor="let statistics of statistics_data">
@@ -47,7 +47,7 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-        
+
             <ion-grid class="section-grid">
                 <ion-row>
                     <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
@@ -56,18 +56,18 @@
                                 <h3 class="title-section">Boletines asei</h3>
                                 <p class="subtitle-section">Encuentra aqui el repositorio de graficos e indicadores ASEI</p>
                             </div>
-                            <button (click)="openDialogBulletin()" class="btn-new-item mt-3 mb-3">
+                            <button *ngIf='rol == "admin"' (click)="openDialogBulletin()" class="btn-new-item mt-3 mb-3">
                               <span>Nuevo boletín</span>
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                           </button>
                         </div>
-        
+
                         <div class="card boletin-card">
                             <div class="title-card">
                                 <h1 class="title no-margin">Historial de Boletines ASEI</h1>
                             </div>
-        
-                            <app-bulletin-list (editItemEv)="editBulletin($event)" (deleteItemEv)="removeBulletin($event)" [years_child]="years" [bulletin_child]="bulletin_data" ></app-bulletin-list> 
+
+                            <app-bulletin-list (editItemEv)="editBulletin($event)" (deleteItemEv)="removeBulletin($event)" [years_child]="years" [bulletin_child]="bulletin_data"></app-bulletin-list>
                         </div>
                     </ion-col>
                     <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
@@ -76,12 +76,12 @@
                                 <h3 class="title-section">INDICADORES DEL MES</h3>
                                 <p class="subtitle-section">Visualiza los indicadores más relevantes de este utlimo mes</p>
                             </div>
-                            <button (click)="openDialogInd()" class="btn-new-item mt-3 mb-3">
+                            <button *ngIf='rol == "admin"' (click)="openDialogInd()" class="btn-new-item mt-3 mb-3">
                               <span>Nuevo indicador</span>
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                           </button>
                         </div>
-        
+
                         <ion-row>
                             <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="pt-0 pb-0" *ngFor="let indicador of indicador_data">
                                 <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
@@ -92,12 +92,13 @@
             </ion-grid>
         </div>
 
+
         <!-- Dialogo nueva stat -->
         <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="800" [height]="580" (closeDialogEv)="closeDialogStat()">
             <header-dialog>
                 <div class="title-section-container">
                     <h3 class="title-section">{{ isEdited ? 'Editar Gráfico' : 'Nuevo Gráfico' }}</h3>
-                    <p class="subtitle-section">Completa la información correspondiente al gráfico</p> 
+                    <p class="subtitle-section">Completa la información correspondiente al gráfico</p>
                 </div>
             </header-dialog>
             <body-dialog>
@@ -177,7 +178,7 @@
                         <div class="inputs-boletin">
                             <p>Titulos del indicador*</p>
                             <input type="text" [(ngModel)]="titlebull">
-    
+
                             <div class="time">
                                 <div class="month">
                                     <p>Mes*</p>
@@ -196,7 +197,7 @@
                                       <option value="Diciembre">Diciembre</option>
                                   </select>
                                 </div>
-    
+
                                 <div class="year">
                                     <p>Año*</p>
                                     <select name="year" [(ngModel)]="yearbull">
@@ -204,12 +205,12 @@
                                   </select>
                                 </div>
                             </div>
-    
+
                             <p>Añade data del boletin</p>
                             <input type="file" accept="application/pdf">
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
-    
+
                         <div class="button">
                             <button>Guardar Boletin</button>
                         </div>
@@ -262,10 +263,10 @@
 
                                 <p>Titulo*</p>
                                 <input type="text" name="title" [(ngModel)]="titleind" placeholder="Ventas por proyecto">
-                                
+
                                 <p>Descripcion*</p>
-                                
-                                <input type="text" name="description" [(ngModel)]="descriptionind" placeholder="Pequeña descripcion del indicador estatico"> 
+
+                                <input type="text" name="description" [(ngModel)]="descriptionind" placeholder="Pequeña descripcion del indicador estatico">
                             </div>
                         </div>
 
@@ -298,5 +299,4 @@
         <!-- Fin dialogo eliminar -->
     </div>
     <app-footer></app-footer>
-</ion-content> 
-
+</ion-content>
