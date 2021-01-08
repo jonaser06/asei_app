@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UsuarioGuard } from './guards/usuario.guard';
+import { StadisticsPageModule } from './pages/stadistics/stadistics.module';
 
 const routes: Routes = [
   {
@@ -14,6 +15,15 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+  },
+
+  {
+    path: 'infcenter',
+    loadChildren: () => import('./pages/infcenter/infcenter.module').then( m => m.InfCenterPageModule)
+  },
+  {
+    path: 'modalstar',
+    loadChildren: () => import('./pages/inf-center/modalstar/modalstar.module').then( m => m.ModalstarPageModule)
   }
 ];
 

@@ -17,6 +17,10 @@ const routes: Routes = [
       {
         path: 'stadistics',
         loadChildren: () => import('../stadistics/stadistics.module').then( m => m.StadisticsPageModule )
+      },
+      {
+        path: 'infcenter',
+        loadChildren: () => import('../infcenter/infcenter.module').then( m => m.InfCenterPageModule )
       }
     ]
   }

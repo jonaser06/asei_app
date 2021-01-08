@@ -1,0 +1,218 @@
+<ion-content class="content-section">
+  <app-navigation-tabs></app-navigation-tabs>
+  <div class="layout-section">
+      <div class="container">
+          <div class="row-actions-top">
+              <div class="title-section-container">
+                  <h3 class="title-section">Information Center</h3>
+                  <p class="subtitle-section">Encuentra aqui infrmacion actualizada de ASEI</p>
+              </div>
+          </div>
+
+          <!-- admin -->
+          <div class="actions-page">
+              <button (click)="openDialogStat()" class="btn-new-item" class="btn-new-item">
+                  <span>Nueva sección</span>
+                  <ion-icon class="icon-btn" name="add"></ion-icon>
+              </button>
+          </div>
+      </div>
+
+      <ion-grid class="section-grid">
+          <div class="cards-section">
+              <div class="cards-content news-section">
+                  <img class="img-part1" src="../../../assets/img/news-section-3.png">
+                  <img class="img-part2" src="../../../assets/img/news-section-2.png">
+                  <img class="img-part3" src="../../../assets/img/news-section.png">
+                  <h5>Noticias</h5>
+
+                  <!-- admin -->
+                  <div class="admin-buttons">
+                      <div class="btn-active">
+                          <button class="active">Deshabilitar</button>
+                      </div>
+                      
+                      <div class="edit-buttons">
+                          <div class="white-button">
+                              <ion-icon name="pencil-outline"></ion-icon>
+                          </div>
+  
+                          <div class="blue-button">
+                              <ion-icon name="trash"></ion-icon>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="cards-content anniversary-section">
+                  <img class="img-part1" src="../../../assets/img/anniversary-section-3.png">
+                  <img class="img-part2" src="../../../assets/img/anniversary-section-2.png">
+                  <img class="img-part3" src="../../../assets/img/anniversary-section.png">
+                  <h5>Aniversario</h5>
+
+                  <!-- admin -->
+                  <div class="admin-buttons">
+                      <div class="btn-active">
+                          <button class="active">Deshabilitar</button>
+                      </div>
+                      
+                      <div class="edit-buttons">
+                          <div class="white-button">
+                              <ion-icon name="pencil-outline"></ion-icon>
+                          </div>
+  
+                          <div class="blue-button">
+                              <ion-icon name="trash"></ion-icon>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="cards-content fairs-section">
+                  <img class="img-part1" src="../../../assets/img/fairs-section-3.png">
+                  <img class="img-part2" src="../../../assets/img/fairs-section-2.png">
+                  <img class="img-part3" src="../../../assets/img/fairs-section.png">
+                  <h5>Ferias</h5>
+
+                  <!-- admin -->
+                  <div class="admin-buttons">
+                      <div class="btn-active">
+                          <button class="active">Deshabilitar</button>
+                      </div>
+                      
+                      <div class="edit-buttons">
+                          <div class="white-button">
+                              <ion-icon name="pencil-outline"></ion-icon>
+                          </div>
+  
+                          <div class="blue-button">
+                              <ion-icon name="trash"></ion-icon>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="cards-content events-section">
+                  <img class="img-part1" src="../../../assets/img/event-section-3.png">
+                  <img class="img-part2" src="../../../assets/img/event-section-2.png">
+                  <img class="img-part3" src="../../../assets/img/event-section.png">
+                  <h5>Eventos</h5>
+
+                  <!-- admin -->
+                  <div class="admin-buttons">
+                      <div class="btn-active">
+                          <button class="active">Deshabilitar</button>
+                      </div>
+                      
+                      <div class="edit-buttons">
+                          <div class="white-button">
+                              <ion-icon name="pencil-outline"></ion-icon>
+                          </div>
+  
+                          <div class="blue-button">
+                              <ion-icon name="trash"></ion-icon>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="cards-content calendar-section">
+                  <img class="img-part1" src="../../../assets/img/calendar-section-3.png">
+                  <img class="img-part2" src="../../../assets/img/calendar-section-2.png">
+                  <img class="img-part3" src="../../../assets/img/calendar-section.png">
+                  <h5>Calendario</h5>
+
+                  <!-- admin -->
+                  <div class="admin-buttons">
+                      <div class="btn-active">
+                          <button class="active">Deshabilitar</button>
+                      </div>
+                      
+                      <div class="edit-buttons">
+                          <div class="white-button">
+                              <ion-icon class="edit-button" name="pencil-outline"></ion-icon>
+                          </div>
+  
+                          <div class="blue-button">
+                              <ion-icon class="edit-button" name="trash"></ion-icon>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- admin -->
+              <div class="cards-content projects-section">
+                  <img class="img-part1" src="../../../assets/img/projects-section-3.png">
+                  <img class="img-part2" src="../../../assets/img/projects-section-2.png">
+                  <img class="img-part3" src="../../../assets/img/projects-section.png">
+                  <h5>Proyectos</h5>
+
+                  <div class="admin-buttons">
+                      <div class="btn-active">
+                          <button class="inactive">Habilitar</button>
+                      </div>
+                      
+                      <div class="edit-buttons">
+                          <div class="white-button">
+                              <ion-icon class="edit-button" name="pencil-outline"></ion-icon>
+                          </div>
+  
+                          <div class="blue-button">
+                              <ion-icon class="edit-button" name="trash"></ion-icon>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ion-grid>
+  </div>
+
+  <!-- Nueva sección - admin -->
+  <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="700" [height]="580" (closeDialogEv)="closeDialogStat()">
+      <header-dialog>
+          <div class="title-section-container">
+              <h3 class="title-section">{{ isEdited ? 'Editar Sección' : 'Nueva Sección' }}</h3>
+              <p class="subtitle-section">Completa la información correspondiente a la sección</p>
+          </div>
+      </header-dialog>
+      <body-dialog>
+          <div class="sections-modal">
+              <div class="image-modal">
+                  <div class="image">
+                      <p>Añade Imagen*</p>
+                      <input type="file" title="Añade imagen*" accept="image/*" name="" id="">
+                  </div>
+          
+                  <div class="content-img"></div>
+              </div>
+          
+              <div class="input-section">
+                  <label for="name-section">Nombre de la sección</label>
+                  <input type="text" name="" id="name-section">
+              </div>
+          
+              <div class="input-description">
+                  <label for="description-section">Descripción</label>
+                  <input type="text" name="" id="input-section">
+              </div>
+          
+              <div class="question-section">
+                  <label for="question-section">¿Deseas que se vincule al calendario?</label>
+                  <input type="checkbox" name="" id="question-section">
+                  <label class="check-section" for="question-section"></label>
+              </div>
+          
+              <div class="date-section">
+                  <label for="date-section">Tendrá fecha de inicio y fin</label>
+                  <input type="checkbox" name="" id="date-section">
+                  <label class="check-section" for="date-section"></label>
+              </div>
+      
+              <div class="btn-add">
+                  <button>Añadir</button>
+              </div>
+          </div>
+      </body-dialog>
+  </app-dialog>
+  <app-footer></app-footer>
+</ion-content>
