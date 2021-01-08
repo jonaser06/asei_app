@@ -21,10 +21,7 @@ const routes: Routes = [
     path: 'infcenter',
     loadChildren: () => import('./pages/infcenter/infcenter.module').then( m => m.InfCenterPageModule)
   },
-  {
-    path: 'modalstar',
-    loadChildren: () => import('./pages/inf-center/modalstar/modalstar.module').then( m => m.ModalstarPageModule)
-  }
+
 ];
 
 @NgModule({
