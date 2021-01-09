@@ -39,7 +39,11 @@
 
         <ion-tab-bar slot="bottom" class="responsive-tabs">
 
-            <ion-tab-button *ngIf='rol == "admin"' class="tab-link-responsive" tab="people">
+            <ion-tab-button *ngFor="let menu of menues" class="tab-link-responsive" [tab]="menu.path ">
+                <ion-icon [name]="menu.icon"></ion-icon>
+                <ion-label class="label-item">{{ menu.nombre }}</ion-label>
+            </ion-tab-button>
+            <!-- <ion-tab-button *ngIf='rol == "admin"' class="tab-link-responsive" tab="people">
                 <ion-icon name="people"></ion-icon>
                 <ion-label class="label-item">Usuarios</ion-label>
             </ion-tab-button>
@@ -67,7 +71,7 @@
             <ion-tab-button class="tab-link-responsive" tab="infcenter/news">
                 <ion-icon name="document-text"></ion-icon>
                 <ion-label class="label-item">News</ion-label>
-            </ion-tab-button>
+            </ion-tab-button> -->
 
 
 

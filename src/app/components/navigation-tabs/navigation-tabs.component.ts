@@ -9,18 +9,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavigationTabsComponent implements OnInit {
 
-  nombres : any;
-  rol : any;
-  menus : any;
+  nombres :any;
+  menues : any;
   constructor(public authService: AuthService, private router: Router) { 
     this.current_session();
   }
   current_session(){
     this.authService.get_data()
     .then(resp=>{
-      this.nombres = resp['data']['nombres'];
-      this.rol = resp['data']['rol'];
-      this.menus = resp['data']['permisos'];
+      this.nombres = resp['data']['nombres']
+      this.menues = resp['data']['permisos'];
     });
   }
 

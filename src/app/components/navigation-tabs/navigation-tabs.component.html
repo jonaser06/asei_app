@@ -1,7 +1,7 @@
 <ion-tab-bar class="tab-header" style="position: relative;">
     <div class="tab-header-info">
         <ion-text>
-            <h1 class="title-tab-header">Bienvenido,{{ nombres }}</h1>
+            <h1 class="title-tab-header">Bienvenido, {{ nombres }}</h1>
         </ion-text>
         <ion-text>
             <p class="subtitle-tab-header">Encuentra información completa en la intranet ASEI</p>
@@ -9,7 +9,13 @@
     </div>
     <ion-grid class="tabs-list">
         <ion-row>
-            <ion-col *ngIf='rol == "admin" '>
+            <ion-col *ngFor="let menu of menues">
+                <ion-tab-button type="icon-start" class='tab-link tab1' [tab]="menu.path">
+                    <ion-icon class="no-margin icon-tab" [name]="menu.icon"></ion-icon>
+                    <ion-label class="no-margin label-tab">{{ menu.modulo }}</ion-label>
+                </ion-tab-button>
+            </ion-col>
+            <!-- <ion-col *ngIf='rol == "admin" '>
                 <ion-tab-button type="icon-start" class='tab-link tab1' tab="tab1">
                     <ion-icon class="no-margin icon-tab" name="people"></ion-icon>
                     <ion-label class="no-margin label-tab">Usuarios</ion-label>
@@ -44,7 +50,7 @@
                     <ion-icon class="no-margin icon-tab" name="document-text"></ion-icon>
                     <ion-label class="no-margin label-tab"> Documentos</ion-label>
                 </ion-tab-button>
-            </ion-col>
+            </ion-col> -->
         </ion-row>
     </ion-grid>
 </ion-tab-bar>

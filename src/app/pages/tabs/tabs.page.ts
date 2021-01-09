@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
@@ -9,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class TabsPage implements OnInit {
 
   nombres : any;
-  menus : any;
+  menues : any;
   rol : any;
   constructor(public authService: AuthService, private router: Router) {
     this.current_session();
@@ -23,7 +24,7 @@ export class TabsPage implements OnInit {
     .then(resp=>{
       this.nombres = resp['data']['nombres']; 
       this.rol = resp['data']['rol'] 
-      this.menus = resp['data']['permisos'];
+      this.menues = resp['data']['permisos'];
     });
   }
 
