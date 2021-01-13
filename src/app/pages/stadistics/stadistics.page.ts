@@ -76,6 +76,8 @@ export class StadisticsPage implements OnInit {
 
   ngOnInit() {
   }
+
+  ngOnChanges
 // sesion data 
 
 current_rol(){
@@ -184,7 +186,6 @@ current_rol(){
 
   btn_remove (){
     if(this.stat_rmv){
-      console.log('eliminar stadisticas');
       let formdata = new FormData;
       formdata.append('id', this.id_stat);
   
@@ -196,7 +197,6 @@ current_rol(){
       })
       .catch();
     }else if(this.indi_rmv){
-      console.log('eliminar indicador');
       let formdata = new FormData;
       formdata.append('id', this.id_ind);
   
@@ -208,7 +208,6 @@ current_rol(){
       })
       .catch();
     }else if(this.bull_rmv){
-      console.log('eliminar bulletin');
       let formdata = new FormData;
       formdata.append('id', this.id_ind);
   
