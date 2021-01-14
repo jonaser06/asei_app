@@ -95,13 +95,13 @@
 
         <!-- Dialogo nueva stat -->
         <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="800" [height]="580" (closeDialogEv)="closeDialogStat()">
-            <header-dialog>
+            <div class="header-dialog">
                 <div class="title-section-container">
                     <h3 class="title-section">{{ isEdited ? 'Editar Gráfico' : 'Nuevo Gráfico' }}</h3>
                     <p class="subtitle-section">Completa la información correspondiente al gráfico</p>
                 </div>
-            </header-dialog>
-            <body-dialog>
+            </div>
+            <div class="body-dialog">
                 <form (ngSubmit)="isEdited ? statedit( fStat ) : stat( fStat )" #fStat="ngForm">
                     <div class="card-modal-1">
                         <div class="img-graphic">
@@ -160,25 +160,25 @@
                         </div>
                     </div>
                 </form>
-            </body-dialog>
+            </div>
         </app-dialog>
         <!-- Fin Dialogo nueva stat -->
 
         <!-- Dialogo boletin -->
         <app-dialog *ngIf="dialogBulletin" [dialog]="dialogBulletin" [width]="400" [height]="420" (closeDialogEv)="closeDialogBulletin()">
-            <header-dialog>
+            <div class="header-dialog">
                 <div class="title-section-container">
                     <h3 class="title-section"> {{ isEdited ? 'Editar Boletín' : 'Nuevo Boletín' }}</h3>
                     <p class="subtitle-section">Completa la información del Boletín</p>
                 </div>
-            </header-dialog>
-            <body-dialog>
+            </div>
+            <div class="body-dialog">
                 <form (ngSubmit)="isEdited ? bulletedit( fbullet ) : bullet( fbullet )" #fbullet="ngForm">
                     <div class="card-modal-2">
                         <div class="inputs-boletin">
                             <p>Titulos del indicador*</p>
                             <input type="text" [(ngModel)]="titlebull" name="title">
-
+    
                             <div class="time">
                                 <div class="month">
                                     <p>Mes*</p>
@@ -197,7 +197,7 @@
                                       <option value="Diciembre">Diciembre</option>
                                   </select>
                                 </div>
-
+    
                                 <div class="year">
                                     <p>Año*</p>
                                     <select name="year" [(ngModel)]="yearbull">
@@ -205,31 +205,31 @@
                                   </select>
                                 </div>
                             </div>
-
+    
                             <p>Añade data del boletin</p>
                             <input type="file" accept="application/pdf">
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
-
+    
                         <div class="button">
                             <button>Guardar Boletin</button>
                         </div>
                     </div>
                 </form>
-            </body-dialog>
+            </div>
         </app-dialog>
 
         <!-- Fin dialogo boletin -->
 
         <!-- Dialogo indicador -->
         <app-dialog *ngIf="dialogNewInd" [dialog]="dialogNewInd" [width]="400" [height]="430" (closeDialogEv)="closeDialogind()">
-            <header-dialog>
+            <div class="header-dialog">
                 <div class="title-section-container">
                     <h3 class="title-section">{{ isEdited ? 'Editar Indicador' : 'Nuevo Indicador' }}</h3>
                     <p class="subtitle-section">Completa la información del indicador</p>
                 </div>
-            </header-dialog>
-            <body-dialog>
+            </div>
+            <div class="body-dialog">
                 <form (ngSubmit)="isEdited ? indedit( fInd ) : ind( fInd )" #fInd="ngForm">
                     <div class="card-modal-3">
                         <div>
@@ -237,13 +237,13 @@
                                 <div class="percentage">
                                     <div class="number">
                                         <p>Porcentaje*</p>
-
+    
                                         <div>
                                             <input name="percentage" [(ngModel)]="percentageind" type="number" min="50" placeholder="50">
                                             <p>%</p>
                                         </div>
                                     </div>
-
+    
                                     <div class="letters">
                                         <p>Tipo*</p>
                                         <div *ngIf="typeind == 'incremento' ">
@@ -260,43 +260,44 @@
                                         </div>
                                     </div>
                                 </div>
-
+    
                                 <p>Titulo*</p>
                                 <input type="text" name="title" [(ngModel)]="titleind" placeholder="Ventas por proyecto">
-
+    
                                 <p>Descripcion*</p>
-
+    
                                 <input type="text" name="description" [(ngModel)]="descriptionind" placeholder="Pequeña descripcion del indicador estatico">
                             </div>
                         </div>
-
+    
                         <div class="button">
                             <button type="submit">Guardar Indicador</button>
                         </div>
                     </div>
                 </form>
-            </body-dialog>
+            </div>
         </app-dialog>
         <!-- Fin dialogo indicador -->
 
         <!-- Dialogo eliminar -->
         <app-dialog *ngIf="dialogRemove" [dialog]="dialogRemove" [width]="250" [height]="210" (closeDialogEv)="closeDialogRemove()">
-            <header-dialog>
+            <div class="header-dialog">
                 <div class="title-section-container">
                     <h3 class="title-section">{{titleDialogRemove}}</h3>
                 </div>
-            </header-dialog>
-            <body-dialog>
+            </div>
+            <div class="body-dialog">
                 <div class="card-modal-5">
                     <p>¿Estas seguro que deseas eliminar este elemento?</p>
-
+    
                     <div class="button">
                         <button (click)="btn_remove()">Eliminar</button>
                     </div>
                 </div>
-            </body-dialog>
+            </div>
         </app-dialog>
         <!-- Fin dialogo eliminar -->
+        
     </div>
     <app-footer></app-footer>
 </ion-content>

@@ -1,17 +1,17 @@
 <div [class]="dialog ? 'dialog active-dialog' : 'dialog'">
-  <div class="overlay-dialog">
-      <div class="dialog-body" [style]="width ? width+'px' : '800px'">
-          <div class="dialog-header">
-              <div>
-                  <ng-content select="header-dialog"></ng-content>
-              </div>
-              <button type="button" (click)="closeDialog()" class="btn-close-dialog">
+    <div class="overlay-dialog">
+        <div class="dialog-body" [style]="width ? width+'px' : '800px'">
+            <div class="dialog-header">
+                <div>
+                    <ng-content select=".header-dialog"></ng-content>
+                </div>
+                <button type="button" (click)="closeDialog()" class="btn-close-dialog">
         <ion-icon class="icon" name="close-outline"></ion-icon>
-      </button>
-          </div>
-          <div class="dialog-content">
-              <ng-content select="body-dialog"></ng-content>
-          </div>
-      </div>
-  </div>
+        </button>
+            </div>
+            <div class="dialog-content">
+                <ng-content select=".body-dialog"></ng-content>
+            </div>
+        </div>
+    </div>
 </div>
