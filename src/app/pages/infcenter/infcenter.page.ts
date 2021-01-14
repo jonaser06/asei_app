@@ -35,19 +35,19 @@ export class InfCenterPage implements OnInit {
 
   //redireccionamiento de secciones
   noticias(){
-    this.redireccionService.redireccion('/infcenter/news')
+    this.redireccionService.redireccion('/tabs/infcenter/news')
   }
 
   aniversario(){
-    this.redireccionService.redireccion('/infcenter/anniversary')
+    this.redireccionService.redireccion('/tabs/infcenter/anniversary')
   }
 
   ferias(){
-    this.redireccionService.redireccion('/infcenter/fairs')
+    this.redireccionService.redireccion('/tabs/infcenter/fairs')
   }
   
   eventos(){
-    this.redireccionService.redireccion('/infcenter/eventos')
+    this.redireccionService.redireccion('/tabs/infcenter/eventos')
   }
 
 }

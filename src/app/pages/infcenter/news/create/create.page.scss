@@ -1,0 +1,295 @@
+@media (min-width: 500px) {
+    .section-grid .inputs-create {
+        padding: 0 1.2em;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-grid .inputs-create {
+        padding: 0 1.8em;
+    }
+}
+
+@media (min-width: 900px) {
+    .section-grid .inputs-create {
+        padding: 0 2.6em;
+    }
+}
+
+@media (min-width: 1150px) {
+    .section-grid .inputs-create {
+        padding: 0 3.4em;
+    }
+}
+
+@media (min-width: 1480px) {
+    .section-grid .inputs-create {
+        padding: 0 4em;
+    }
+}
+
+@media (min-width: 1680px) {
+    .section-grid .inputs-create {
+        padding: 0 5.4em;
+    }
+}
+
+@media (min-width: 2180px) {
+    .section-grid .inputs-create {
+        padding: 0 6.2em;
+    }
+}
+
+@media (min-width: 2380px) {
+    .section-grid .inputs-create {
+        padding: 0 6.8em;
+    }
+}
+
+@media (min-width: 2580px) {
+    .section-grid .inputs-create {
+        padding: 0 7.6em;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-grid form {
+        width: 90%;
+    }
+}
+
+.section-grid form label, 
+.section-grid form p {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: Calibri;
+}
+
+@media (min-width: 768px) {
+    .section-grid form label, 
+    .section-grid form p {
+        font-size: 15px;
+    }
+}
+
+.section-grid form textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #828282;
+    margin: 0.7em 0;
+    padding: 0.5em;
+    outline: none;
+    resize: none;
+}
+
+.section-grid form .title textarea {
+    height: 5em;
+}
+
+@media (min-width: 768px) {
+    .section-grid form .title textarea {
+        height: 2.5em;
+    }
+}
+
+.section-grid form .summary textarea {
+    height: 9em;
+}
+
+@media (min-width: 768px) {
+    .section-grid form .summary textarea {
+        height: 8em;
+    }
+}
+
+.section-grid form .text textarea {
+    height: 20em;
+}
+
+.section-grid form .link textarea {
+    height: 6em;
+}
+
+@media (min-width: 768px) {
+    .section-grid form .link textarea {
+        height: 2.5em;
+    }
+}
+
+.section-grid form .content-date-admin {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .section-grid form .content-date-admin {
+        flex-direction: row;
+        width: 40%;
+    }
+}
+
+.section-grid form .date input[type="date"] {
+    margin: 0.7em 0;
+    padding: 0.5em;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    border: 1px solid #828282;
+    font-family: Calibri;
+}
+
+@media (min-width: 768px) {
+    .section-grid form .date {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0.5em;
+        width: 100%;
+    }
+
+    .section-grid form .date:last-child {
+        margin-right: 0;
+    }
+
+    .section-grid form .date input[type="date"] {
+        width: 100%;
+    }
+}
+
+.section-grid form .image {
+    position: relative;
+    width: 10em;
+}
+
+.section-grid form .image p {
+    background: #f0f0f0;
+    border: 1px solid #828282;
+    border-radius: 0.5em;
+    padding: 0.5em 0.2em;
+    text-align: center;
+}
+
+.section-grid form .image input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.section-grid form .content-img {
+    height: 10em;
+    width: 85%;
+    padding: 0.7em;
+    border: 1px solid #828282;
+    margin-top: 0.8em;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 700px) {
+    .section-grid form .content-img {
+        width: 70%;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-grid form .content-img {
+        width: 40%;
+    }
+}
+
+.section-grid form .link-active {
+    margin-top: 0.8em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .section-grid form .link-active {
+        width: 40%;
+    }
+}
+
+.section-grid form .link-active input[type="checkbox"] {
+    display: none;
+    visibility: hidden;
+}
+
+.section-grid form .link-active .check-note {
+    border-radius: 10px;
+    width: 35px;
+    height: 15px;
+    border: 1px solid #C4C4C4;
+    transition: 0.5s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note,
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note {
+    background-color: #F7AA3D;
+}
+
+.section-grid form .link-active .check-note::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    border-radius: 10px;
+    background-color: #DF8708;
+    border: 1px solid #c4c4c4;
+    width: 18px;
+    height: 18px;
+    transition: 2s ease;
+}
+
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after,
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after {
+    right: -10%;
+    left: auto;
+}
+
+.section-grid .btn-create {
+    margin-top: 2.5em;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.section-grid .btn-create .btn-return,
+.section-grid .btn-create .btn-add {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.3em;
+}
+
+.section-grid .btn-create .btn-add {
+    margin-right: 0;
+}
+
+.section-grid .btn-create .btn-return button,
+.section-grid .btn-create .btn-add button {
+    border: none;
+    outline: none;
+    text-align: center;
+    border-radius: 0.6em;
+    padding: 1em 3.5em;
+}
+
+.section-grid .btn-create .btn-return button {
+    color: #24344D;
+    background: #fff;
+    border: 1px solid #24344D;
+}
+
+.section-grid .btn-create .btn-add button {
+    background: #24344D;
+    color: #fff;
+}

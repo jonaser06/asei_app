@@ -2,6 +2,17 @@
     color: #24344D;
 }
 
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container .btn-new-item {
+        width: 100%;
+    }
+}
+
 .title-section-container {
     margin-bottom: 0.8em;
 }
@@ -60,6 +71,40 @@
     margin-bottom: 0.8em;
 }
 
+.section-grid .news-grid .slider-img .img-slider .admin-edit{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0.5em;
+    display: flex;
+}
+
+.section-grid .news-grid .slider-img .img-slider .admin-edit .edit {
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: #ffff;
+    color: #24344D;
+    border: 1px solid #24344D;
+    margin: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-grid .news-grid .slider-img .img-slider .admin-edit .delete {
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: #24344D;
+    color: #fff;
+    border: 1px solid #24344D;
+    margin: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .section-grid .news-grid .slider-img .img-slider {
     position: relative;
 }
@@ -95,7 +140,7 @@
 }
 
 .section-grid .news-grid .slider-img .img-slider img {
-    max-width: 100%;
+    width: 100%;
 }
 
 .section-grid .news-grid .slider-img .circle-slider {
@@ -130,7 +175,7 @@
 .section-grid .news-grid .slider-img .content-text .title-text {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 @media (min-width: 1080px) {
@@ -162,26 +207,36 @@
     margin-top: 0.3em;
 }
 
-.section-grid .news-grid .slider-img .content-text .btn-star {
+.section-grid .news-grid .slider-img .content-text .btn-like {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 0.7em;
 }
 
-.section-grid .news-grid .slider-img .content-text .btn-star button {
+.section-grid .news-grid .slider-img .content-text .btn-like button {
     border: none;
     outline: none;
     color: #DF8708;
     background-color: #fff;
 }
 
-.section-grid .news-grid .slider-img .content-text .btn-star .star-btn {
-    color: #DF8708;
-    margin-right: 0.5em;
+.section-grid .news-grid .slider-img .content-text .btn-like .like-btn {
+    display: flex;
+    align-items: center;
+    color: #24344D;
+    border: 1px solid #24344D;
+    padding: 0.5em;
+    background: #f0f0f0;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.section-grid .news-grid .slider-img .content-text .btn-star .star-btn:last-child {
-    color: #DF8708;
+.section-grid .news-grid .slider-img .content-text .btn-like .points {
+    padding: 0;
+    margin: 0;
+    color: #24344D;
+    margin-left: 0.4em;
 }
 
 .section-grid .news-grid .recent-news h3 {
@@ -314,6 +369,9 @@
     padding: 0.5em;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 @media (min-width: 500px) {
@@ -347,19 +405,19 @@
     margin-top: 0.3em;
 }
 
-.section-grid .news-grid .cards-news .card-all .text-content .none-mobile {
+.section-grid .news-grid .none-mobile {
     display: none;
     visibility: hidden;
 }
 
 @media (min-width: 600px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .none-mobile {
+    .section-grid .news-grid .none-mobile {
         display: inline;
         visibility: visible;
     }
 }
 
-.section-grid .news-grid .cards-news .card-all .text-content .btn-star {
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like {
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
@@ -370,18 +428,19 @@
 }
 
 @media (min-width: 490px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-star {
+    .section-grid .news-grid .cards-news .card-all .text-content .btn-like {
         margin-top: 1.5em;
     }
 }
 
 @media (min-width: 1175px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-star {
+    .section-grid .news-grid .cards-news .card-all .text-content .btn-like {
         flex-direction: row;
+        align-items: center;
     }    
 }
 
-.section-grid .news-grid .cards-news .card-all .text-content .btn-star button {
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like button {
     color: #DF8708;
     border: none;
     background-color: #fff;
@@ -390,21 +449,67 @@
     margin-top: 0.5em;
 }
 
-.section-grid .news-grid .cards-news .card-all .text-content .btn-star .star-btn {
-    color: #DF8708;
-    margin-right: 0.1em;
-}
-
-@media (min-width: 460px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-star .star-btn {
-        margin-top: 1em;
+@media (min-width: 1175px) {
+    .section-grid .news-grid .cards-news .card-all .text-content .btn-like button {
+        margin-top: 0;
     }
 }
 
-@media (min-width: 680px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-star .star-btn {
-        margin-top: 0em;
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like .like-btn {
+    display: flex;
+    align-items: center;
+    color: #24344D;
+    border: 1px solid #24344D;
+    padding: 0.5em;
+    background: #f0f0f0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like .points {
+    padding: 0;
+    margin: 0;
+    color: #24344D;
+    margin-left: 0.4em;
+}
+
+
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit {
+    margin: 0.5em;
+    margin-left: 0;
+    display: flex;
+}
+
+@media (min-width: 1175) {
+    .section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit {
+        margin: 0;
     }
+}
+
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit .edit {
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: #ffff;
+    color: #24344D;
+    border: 1px solid #24344D;
+    margin: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit .delete {
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: #24344D;
+    color: #fff;
+    border: 1px solid #24344D;
+    margin: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .section-grid .news-grid .number-option {
@@ -425,8 +530,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+}
+
+@media (min-width: 600px) {
+    .section-grid .news-grid .number-option .numbers-option p {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-grid .news-grid .number-option .numbers-option p {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .section-grid .news-grid .number-option .numbers-option .number-all {
@@ -450,4 +569,106 @@
 
 .section-grid .news-grid .number-option .numbers-option .number-all:last-child {
     margin: 0;
+}
+
+/* Modal New */
+.modal-anniversary {
+    width: 100%;
+}
+
+.modal-anniversary .content-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-anniversary .content-img img {
+    width: 100%;
+}
+
+.modal-anniversary .content-title-date {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+    .modal-anniversary .content-title-date {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+}
+
+.modal-anniversary .content-title-date .title-anniversary {
+    color: #DF8708;
+    font-family: Calibri;
+    font-size: 1.4em;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+@media (min-width: 768px) {
+    .modal-anniversary .content-title-date .title-anniversary {
+        margin-top: 1em;
+        margin-bottom: 0;
+    }
+}
+
+.modal-anniversary .content-title-date .date {
+    margin-top: 1em;
+}
+
+.modal-anniversary .content-title-date p {
+    font-family: Calibri;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+}
+
+.modal-anniversary .italic-paragraph {
+    font-family: Calibri;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.modal-anniversary p {
+    font-family: Calibri;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-anniversary p.question-anniversary {
+    margin-top: 1.5em;
+}
+
+.modal-anniversary .link-original {
+    color: #DF8708;
+    font-size: 1em;
+    margin-top: 2em;
+    cursor: pointer;
+}
+
+.modal-anniversary .content-button {
+    margin-top: 0.8em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-anniversary .content-button button {
+    border: none;
+    outline: none;
+    background: #24344D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.6em;
+    padding: 1em;
+    width: 15em;
+    margin: 0 2em;
+    cursor: pointer;
 }

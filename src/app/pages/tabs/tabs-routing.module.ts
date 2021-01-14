@@ -21,7 +21,8 @@ const routes: Routes = [
       {
         path: 'infcenter',
         loadChildren: () => import('../infcenter/infcenter.module').then( m => m.InfCenterPageModule )
-      }
+      },
+      
     ]
   }
 ];
