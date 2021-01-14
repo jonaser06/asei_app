@@ -11,7 +11,7 @@
 
         <!-- Admin -->
         <div class="actions-page">
-          <button class="btn-new-item" (click)="crearnoticia()">
+          <button class="btn-new-item" (click)="openDialogNews()">
               <span>Crear</span>
               <ion-icon class="icon-btn" name="add"></ion-icon>
           </button>
@@ -24,6 +24,7 @@
           <h3>Enero 2021</h3>
         </div>
       
+        <!-- slider -->
         <div class="slider-img">
           <div class="img-slider">
             <img src="../../../../assets/img/news-img.png">
@@ -83,18 +84,21 @@
             </div>
           </div>
         </div>
+        <!-- fin slider -->
 
         <div class="recent-news">
           <h3>Noticias Pasadas</h3>
         </div>
-
+        <!-- buscador -->
         <div class="input-search">
           <input type="search" name="" id="">
           <button>
             <ion-icon class="search-btn" name="search-outline"></ion-icon>
           </button>
         </div>
+        <!-- fin de buscador -->
 
+        <!-- cards -->
         <div class="cards-news">
           <div class="card-1 card-all">
             <div class="img-content">
@@ -256,7 +260,9 @@
             </div>
           </div>
         </div>
+        <!-- fin cards -->
 
+        <!-- paginador -->
         <div class="number-option">
           <div class="left-option">
             <ion-icon name="chevron-back-outline"></ion-icon>
@@ -287,17 +293,19 @@
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </div>
         </div>
+        <!-- fin paginador -->
+
       </div>
     </ion-grid>
 
     <!-- Dialogo Noticias -->
-    <app-dialog *ngIf="dialogInfo" [dialog]="dialogInfo" [width]="1200" [height]="800" (closeDialogEv)="closeDialogInfo()">
-      <header-dialog>
+    <app-dialog *ngIf="dialogNewNews" [dialog]="dialogNewNews" [width]="1200" [height]="800" (closeDialogEv)="closeDialogInfo()">
+      <div class="header-dialog">
         <div class="title-section-container">
           <h3 class="title-section">{{ isEdited ? 'Noticias Enero 2021' : 'Noticias Enero 2021' }}</h3>
         </div>
-      </header-dialog>
-      <body-dialog>
+      </div>
+      <div class="body-dialog">
         <div class="modal-anniversary">
           <div class="content-img">
             <img src="../../../../assets/img/news-img.png">
@@ -342,7 +350,7 @@
             <button (click)="closeDialogInfo()">Cerrar</button>
           </div>
         </div>
-      </body-dialog>
+      </div>
     </app-dialog>
   </div>
   <app-footer></app-footer>
