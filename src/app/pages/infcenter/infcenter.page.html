@@ -20,13 +20,11 @@
 
         <ion-grid class="section-grid">
             <div class="cards-section">
-                <div class="cards-content news-section">
-                    <ion-card href="/infcenter/news">
+                <div class="cards-content news-section" (click)="noticias()">
                         <img class="img-part1" src="../../../assets/img/news-section-3.png">
                         <img class="img-part2" src="../../../assets/img/news-section-2.png">
                         <img class="img-part3" src="../../../assets/img/news-section.png">
                         <h5>Noticias</h5>
-                    </ion-card>
                     <!-- admin -->
                     <div class="admin-buttons">
                         <!-- <div class="btn-active">
@@ -45,47 +43,40 @@
                     </div>
                 </div>
 
-                <div class="cards-content anniversary-section">
-                    <ion-card href="/infcenter/anniversary">
+                <div class="cards-content anniversary-section" (click)="aniversario()">
                         <img class="img-part1" src="../../../assets/img/anniversary-section-3.png">
                         <img class="img-part2" src="../../../assets/img/anniversary-section-2.png">
                         <img class="img-part3" src="../../../assets/img/anniversary-section.png">
                         <h5>Aniversario</h5>
-                    </ion-card>
                     <!-- admin -->
                     <div class="admin-buttons">
 
                     </div>
                 </div>
 
-                <div class="cards-content fairs-section">
-                    <ion-card href="/infcenter/fairs">
+                <div class="cards-content fairs-section" (click)="ferias()">
                         <img class="img-part1" src="../../../assets/img/fairs-section-3.png">
                         <img class="img-part2" src="../../../assets/img/fairs-section-2.png">
                         <img class="img-part3" src="../../../assets/img/fairs-section.png">
                         <h5>Ferias</h5>
-                    </ion-card>
                     <!-- admin -->
                     <div class="admin-buttons">
-
 
                     </div>
                 </div>
 
-                <div class="cards-content events-section">
-                    <ion-card href="/infcenter/eventos">
+                <div class="cards-content events-section" (click)="eventos()">
                         <img class="img-part1" src="../../../assets/img/event-section-3.png">
                         <img class="img-part2" src="../../../assets/img/event-section-2.png">
                         <img class="img-part3" src="../../../assets/img/event-section.png">
                         <h5>Eventos</h5>
-                    </ion-card>
                     <!-- admin -->
                     <div class="admin-buttons">
 
                     </div>
                 </div>
 
-                <div class="cards-content calendar-section">
+                <div class="cards-content calendar-section" (click)="calendario()">
                     <img class="img-part1" src="../../../assets/img/calendar-section-3.png">
                     <img class="img-part2" src="../../../assets/img/calendar-section-2.png">
                     <img class="img-part3" src="../../../assets/img/calendar-section.png">
@@ -101,9 +92,8 @@
             </div>
         </ion-grid>
     </div>
-
     <!-- Nueva sección - admin -->
-    <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="700" [height]="580" (closeDialogEv)="closeDialogStat()">
+    <!-- <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="700" [height]="580" (closeDialogEv)="closeDialogStat()">
         <header-dialog>
             <div class="title-section-container">
                 <h3 class="title-section">{{ isEdited ? 'Editar Sección' : 'Nueva Sección' }}</h3>
@@ -148,6 +138,6 @@
                 </div>
             </div>
         </body-dialog>
-    </app-dialog>
+    </app-dialog> -->
     <app-footer></app-footer>
 </ion-content>

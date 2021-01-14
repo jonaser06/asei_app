@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionService } from '../../services/redireccion.service';
 
 @Component({
   selector: 'app-inf-center',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfCenterPage implements OnInit {
 
-  constructor() { }
+  constructor( private redireccionService : RedireccionService) { }
 
   ngOnInit() {
     console.log('0. ngOnInit');
@@ -30,6 +31,23 @@ export class InfCenterPage implements OnInit {
   }
   ionViewWillUnload(){
     console.log('6. ionViewWillUnload');
+  }
+
+  //redireccionamiento de secciones
+  noticias(){
+    this.redireccionService.redireccion('/infcenter/news')
+  }
+
+  aniversario(){
+    this.redireccionService.redireccion('/infcenter/anniversary')
+  }
+
+  ferias(){
+    this.redireccionService.redireccion('/infcenter/fairs')
+  }
+  
+  eventos(){
+    this.redireccionService.redireccion('/infcenter/eventos')
   }
 
 }

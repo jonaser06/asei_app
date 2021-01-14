@@ -7,6 +7,7 @@ import { IndicadorService } from 'src/app/services/indicador.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 import { environment } from 'src/environments/environment';
+import { RedireccionService } from '../../services/redireccion.service';
 
 @Component({
   selector: 'app-stadistics',
@@ -383,4 +384,7 @@ current_rol(){
     this.dialogRemove = false;
   }
   
+  
+  
+
 }
