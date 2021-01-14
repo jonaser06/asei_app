@@ -72,12 +72,32 @@ export class StadisticsPage implements OnInit {
     this.load_indicador();
     this.load_bulletin();
     this.current_rol();
+    console.log('constructor');
   }
 
   ngOnInit() {
+    console.log('0. ngOnInit');
   }
 
-  ngOnChanges
+  ionViewDidEnter(){
+    console.log('1. ionViewDidEnter');
+  }
+  ionViewDidLoad(){
+    console.log('2. ionViewDidLoad');
+  }
+  ionViewWillEnter(){
+    console.log('3. ionViewWillEnter');
+  }
+  ionViewWillLeave(){
+    console.log('4. ionViewWillLeave');
+  }
+  ionViewDidLeave(){
+    console.log('5. ionViewDidLeave');
+  }
+  ionViewWillUnload(){
+    console.log('6. ionViewWillUnload');
+  }
+
 // sesion data 
 
 current_rol(){
@@ -223,8 +243,6 @@ current_rol(){
     }
   }
 
-
-  /* formulario de indicadores*/
 
   //Indicador
   openDialogInd(){

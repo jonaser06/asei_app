@@ -22,6 +22,7 @@ export class NavigationTabsComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }

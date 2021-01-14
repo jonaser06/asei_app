@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -10,9 +10,14 @@ import { AuthService } from 'src/app/services/auth.service';
 export class HeaderComponent implements OnInit {
 
   nombres : any;
-  constructor(public authService: AuthService, private router: Router) { 
+  constructor(public authService: AuthService, private navCtrol : NavController) { 
     this.current_session();
   }
+
+  ngOnInit(){
+
+  }
+  
 
   current_session(){
     this.authService.get_data()
@@ -22,17 +27,14 @@ export class HeaderComponent implements OnInit {
   }
 
   goProfile(){
-    this.router.navigateByUrl("/")
+    this.navCtrol.navigateRoot("/")
   }
   goNotifications() {
-    this.router.navigateByUrl("/")
+    this.navCtrol.navigateRoot("/")
   }
   logout (){
     if(this.authService.logout()){
-      if(AuthService){
-        this.router.navigateByUrl("/login")
-        }
-      }  
+      this.navCtrol.navigateRoot("/login", { animated : true } );
+    }
   }
-  ngOnInit
 }

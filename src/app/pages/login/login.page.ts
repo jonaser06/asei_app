@@ -26,16 +26,17 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
+    console.log('0. ngOnInit');
   }
 
+  
   async login( fLogin: NgForm ){
 
     if(fLogin.invalid) return;
 
-    const valido = await this.authService.login_service(this.loginUser.email, this.loginUser.password);
-
+    let valido = await this.authService.login_service(this.loginUser.email, this.loginUser.password)
     if(valido['status']){
-      this.navCtrol.navigateRoot('tabs/stadistics', { animated : true } );
+      this.navCtrol.navigateRoot('tabs/infcenter', { animated : true } );
     }else{
       this.uiserviceService.alert_info(valido['data']['detalle']); 
     }

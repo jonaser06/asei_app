@@ -79,12 +79,12 @@ export class AuthService {
     })
   }
   
-  async logout(){
+  logout(){
     try {
-      await this.storage.remove('UserData');
+      this.storage.remove('UserData');
       return true;
     } catch (error) {
       return false
     }
-}
+  }
 }
