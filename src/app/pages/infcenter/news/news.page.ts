@@ -8,6 +8,9 @@ import { InfcenterService } from '../../../services/infcenter.service';
   styleUrls: ['./news.page.scss'],
 })
 export class NewsPage implements OnInit {
+
+  isEdited = false;
+  
   dialogNewNews: boolean = false;
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
@@ -30,6 +33,10 @@ export class NewsPage implements OnInit {
       console.log(rspt);
     })
     .catch();
+    
+  }
+
+  openDialogInfo(){
     
   }
 

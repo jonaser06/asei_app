@@ -25,12 +25,10 @@
                           </button>
                           </div>
                           <div class="form--login-control">
-                              <ion-router-link class="form-link-reset" href="/recuperar">
-                                  <p>¿Olvidaste tu contraseña?</p>
-                              </ion-router-link>
+                                <p [routerLink]="['/routePath']" routerLinkActive="router-link-active" class="form-link-reset" >¿Olvidaste tu contraseña?</p>
                           </div>
                           <div class="socials">
-                              <app-social-links></app-social-links>
+                                <app-social-links></app-social-links>
                           </div>
                       </div>
                   </form>
