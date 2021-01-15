@@ -374,6 +374,13 @@ current_rol(){
     });
   }
 
+  bulletedit(fbullet: NgForm){
+
+  }
+  bullet(fbullet: NgForm){
+    
+  }
+
   //Indicadores
  
   //Dialogo eliminar

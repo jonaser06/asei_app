@@ -41,4 +41,8 @@ export class NewsPage implements OnInit {
     
   }
 
+  openDialogInfo(){
+    
+  }
+
 }

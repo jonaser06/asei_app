@@ -50,4 +50,7 @@ export class InfCenterPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/eventos')
   }
 
+  calendario(){
+    
+  }
 }
