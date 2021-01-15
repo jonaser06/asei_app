@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfcenterService } from '../../../services/infcenter.service';
 
 @Component({
   selector: 'app-anniversary',
@@ -9,7 +10,9 @@ export class AnniversaryPage implements OnInit {
 
   dialogAnniversaryNew: boolean = false;
   dialogAnniversaryRead: boolean = false;
-  constructor() { }
+  constructor(private infcenterService: InfcenterService) { 
+    this.getaniversario();
+  }
 
   ngOnInit() {
   }
@@ -26,4 +29,13 @@ export class AnniversaryPage implements OnInit {
     this.dialogAnniversaryNew = false;
     this.dialogAnniversaryRead =false;
   }
+  getaniversario(){
+    this.infcenterService.get_infcenterAniversarios()
+    .then(rspt=>{
+      console.log(rspt);
+    })
+    .catch();
+    
+  }
+
 }

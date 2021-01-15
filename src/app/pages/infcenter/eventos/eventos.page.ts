@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfcenterService } from 'src/app/services/infcenter.service';
 
 @Component({
   selector: 'app-eventos',
@@ -10,7 +11,9 @@ export class EventosPage implements OnInit {
   dialogEventosRead: boolean = false;
   dialogEventosCreate: boolean = false;
 
-  constructor() { }
+  constructor(private infcenterService: InfcenterService) { 
+    this.geteventos();
+  }
 
   ngOnInit() {
   }
@@ -26,6 +29,14 @@ export class EventosPage implements OnInit {
   closeDialogInfo(){
     this.dialogEventosCreate = false;
     this.dialogEventosRead =false;
+  }
+  geteventos(){
+    this.infcenterService.get_infcenterEventos()
+    .then(rspt=>{
+      console.log(rspt);
+    })
+    .catch();
+    
   }
 
 }

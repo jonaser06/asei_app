@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfcenterService } from 'src/app/services/infcenter.service';
 
 @Component({
   selector: 'app-fairs',
@@ -9,7 +10,9 @@ export class FairsPage implements OnInit {
 
   dialogFeriasRead: boolean = false;
   dialogFeriasCreate: boolean = false;
-  constructor() { }
+  constructor(private infcenterService: InfcenterService) { 
+    this.getferias();
+  }
 
   ngOnInit() {
   }
@@ -25,6 +28,15 @@ export class FairsPage implements OnInit {
   closeDialogInfo(){
     this.dialogFeriasCreate = false;
     this.dialogFeriasRead =false;
+  }
+
+  getferias(){
+    this.infcenterService.get_infcenterFerias()
+    .then(rspt=>{
+      console.log(rspt);
+    })
+    .catch();
+    
   }
 
 }
