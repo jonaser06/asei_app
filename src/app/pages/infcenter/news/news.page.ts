@@ -8,7 +8,9 @@ import { InfcenterService } from '../../../services/infcenter.service';
   styleUrls: ['./news.page.scss'],
 })
 export class NewsPage implements OnInit {
-  dialogNewNews: boolean = false;
+  dialogReadNews: boolean = false;
+  dialogCreateNews: boolean = false;
+  
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
   }
@@ -17,12 +19,18 @@ export class NewsPage implements OnInit {
   }
 
   openDialogNews(){
-    this.dialogNewNews = true;
+    this.dialogReadNews = true;
+    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
+  }
+
+  createNews(){
+    this.dialogCreateNews= true;
     // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   closeDialogInfo(){
-    this.dialogNewNews = false;
+    this.dialogReadNews = false;
+    this.dialogCreateNews =false;
   }
   getnoticia(){
     this.infcenterService.get_infcenter()

@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./fairs/fairs.module').then( m => m.FairsPageModule)
   },
   {
-    path: 'modalstar',
-    loadChildren: () => import('./modalstar/modalstar.module').then( m => m.ModalstarPageModule)
-  },
-  {
     path: 'news',
     loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
   }

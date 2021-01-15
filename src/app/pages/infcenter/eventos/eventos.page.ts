@@ -7,9 +7,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosPage implements OnInit {
 
+  dialogEventosRead: boolean = false;
+  dialogEventosCreate: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  readDialogEventos(){
+    this.dialogEventosRead = true;
+  }
+
+  createDialogEventos(){
+    this.dialogEventosCreate = true;
+  }
+
+  closeDialogInfo(){
+    this.dialogEventosCreate = false;
+    this.dialogEventosRead =false;
   }
 
 }
