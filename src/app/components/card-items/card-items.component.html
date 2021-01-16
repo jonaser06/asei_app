@@ -1,18 +1,20 @@
 <div class="card-1 card-all">
   <div class="img-content">
-    <img class="img-web" src="../../../../assets/img/new-card.png">
-    <img class="img-mobil" src="../../../../assets/img/new-card-2.png">
+    <!-- <img class="img-web" src="../../../../assets/img/new-card.png"> -->
+    <img class="img-web" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
+    <!-- <img class="img-mobil" src="../../../../assets/img/new-card-2.png"> -->
+    <img class="img-mobil" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
   </div>
 
   <div class="text-content">
     <div class="text">
       <div class="date">
-        28 de Septiembre 2020
+        {{ news_child.fecha_inicio }}
       </div>
 
-      <h5>La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones debido al covid 19</h5>
+      <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
 
-      <p class="none-mobile">Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.</p>
+      <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
     </div>
     
     <div class="btn-like">

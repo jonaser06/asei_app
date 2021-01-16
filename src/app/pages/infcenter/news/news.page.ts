@@ -16,6 +16,7 @@ export class NewsPage implements OnInit {
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
 
+<<<<<<< HEAD
   /* formulario de noticias */
 
   ID_NO : any;
@@ -28,6 +29,10 @@ export class NewsPage implements OnInit {
   files : any;
 
 
+=======
+  /* noticias */
+  NewsData : any;
+>>>>>>> b66a085f4fc0f8ed1754e0197bb5ca3958ed4d17
   
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
@@ -50,16 +55,23 @@ export class NewsPage implements OnInit {
     this.dialogReadNews = false;
     this.dialogCreateNews =false;
   }
+
   getnoticia(){
     this.infcenterService.get_infcenter()
+<<<<<<< HEAD
     .then(rspt=>{
       console.log(rspt);
+=======
+    .then(resp=>{
+      // console.log(resp);
+      this.NewsData = resp['data'];
+>>>>>>> b66a085f4fc0f8ed1754e0197bb5ca3958ed4d17
     })
     .catch();
     
   }
-  // Noticias
   
+<<<<<<< HEAD
   // editnews(objnews){
     
   //   this.ID_NOnews = objnews.ID_NO;
@@ -103,6 +115,13 @@ export class NewsPage implements OnInit {
 
   // }
   // bullet(fbullet: NgForm){
+=======
+  openNew_(ID_NO){
+    console.log(ID_NO);
+  }
+
+  openDialogInfo(){
+>>>>>>> b66a085f4fc0f8ed1754e0197bb5ca3958ed4d17
     
   // }
 

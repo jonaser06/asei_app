@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-card-items',
@@ -7,8 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardItemsComponent implements OnInit {
 
+  @Input() news_child : any;
+
+  @Output() idNews = new EventEmitter();
+
+  URL = environment.url;
+  
   constructor() { }
 
   ngOnInit() {}
+
+  openNew(ID_NO){
+    this.idNews.emit(ID_NO);
+  }
 
 }
