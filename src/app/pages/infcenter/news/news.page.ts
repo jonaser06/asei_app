@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RedireccionService } from '../../../services/redireccion.service';
 import { InfcenterService } from '../../../services/infcenter.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-news',
@@ -8,6 +9,10 @@ import { InfcenterService } from '../../../services/infcenter.service';
   styleUrls: ['./news.page.scss'],
 })
 export class NewsPage implements OnInit {
+
+  news_data : any;
+  URL = environment.url;
+
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
 
@@ -43,7 +48,7 @@ export class NewsPage implements OnInit {
     .catch();
     
   }
-
+  
   openNew_(ID_NO){
     console.log(ID_NO);
   }
