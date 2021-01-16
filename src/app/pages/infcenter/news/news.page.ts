@@ -16,7 +16,6 @@ export class NewsPage implements OnInit {
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
 
-<<<<<<< HEAD
   /* formulario de noticias */
 
   ID_NO : any;
@@ -29,10 +28,6 @@ export class NewsPage implements OnInit {
   files : any;
 
 
-=======
-  /* noticias */
-  NewsData : any;
->>>>>>> 19ce0e8b3a1c1384bef55297a064ea90987c42b4
   
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
@@ -43,10 +38,12 @@ export class NewsPage implements OnInit {
 
   openDialogNews(){
     this.dialogReadNews = true;
+    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   createNews(){
     this.dialogCreateNews= true;
+    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   closeDialogInfo(){
@@ -55,60 +52,58 @@ export class NewsPage implements OnInit {
   }
   getnoticia(){
     this.infcenterService.get_infcenter()
-    .then(resp=>{
-      // console.log(resp);
-      this.NewsData = resp['data'];
-      console.log(this.NewsData);
+    .then(rspt=>{
+      console.log(rspt);
     })
     .catch();
     
   }
   // Noticias
   
-  editnews(objnews){
+  // editnews(objnews){
     
-    this.ID_NOnews = objnews.ID_NO;
-    this.titulonews = objnews.titulo;
-    this.resumennews = objnews.resumen;
-    this.textonews = objnews.texto;
-    this.fecha_inicionews = objnews.fecha_inicio;
-    this.fecha_finnews = objnews.fecha_fin;
-    this.seccionnews = objnews.seccion;
-    this.filesnews = objnews.files;
+  //   this.ID_NOnews = objnews.ID_NO;
+  //   this.titulonews = objnews.titulo;
+  //   this.resumennews = objnews.resumen;
+  //   this.textonews = objnews.texto;
+  //   this.fecha_inicionews = objnews.fecha_inicio;
+  //   this.fecha_finnews = objnews.fecha_fin;
+  //   this.seccionnews = objnews.seccion;
+  //   this.filesnews = objnews.files;
 
-    this.isEdited = true;
-    this.openDialogNews();
+  //   this.isEdited = true;
+  //   this.openDialogNews();
 
-  }
+  // }
 
-  removenews(item){
-    this.openDialogRemove();
-    this.titleDialogRemove = "ELIMINAR BOLETÍN";
-    this.bull_rmv = true;
-  }
+  // removenews(item){
+  //   this.openDialogRemove();
+  //   this.titleDialogRemove = "ELIMINAR BOLETÍN";
+  //   this.bull_rmv = true;
+  // }
 
-  load_news(){
-    this.years = [];
-    this.bulletinService.get_bulletin()
-    .then(resp=>{
-      resp['data'].forEach( (data, index) =>{
-        data.file = environment.url + '/' + data.file;
-        // console.log(index);
-        this.years.push(data.year);
-      });
-      this.years = [...new Set(this.years)];
-      this.bulletin_data = resp['data'];
-    })
-    .catch(err=>{
-      console.log(err);
-    });
-  }
+  // load_news(){
+  //   this.years = [];
+  //   this.bulletinService.get_bulletin()
+  //   .then(resp=>{
+  //     resp['data'].forEach( (data, index) =>{
+  //       data.file = environment.url + '/' + data.file;
+  //       console.log(index);
+  //       this.years.push(data.year);
+  //     });
+  //     this.years = [...new Set(this.years)];
+  //     this.bulletin_data = resp['data'];
+  //   })
+  //   .catch(err=>{
+  //     console.log(err);
+  //   });
+  // }
 
-  bulletedit(fbullet: NgForm){
+  // bulletedit(fbullet: NgForm){
 
-  }
-  bullet(fbullet: NgForm){
+  // }
+  // bullet(fbullet: NgForm){
     
-  }
+  // }
 
 }
