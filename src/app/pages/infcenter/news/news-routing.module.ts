@@ -8,6 +8,14 @@ const routes: Routes = [
     path: '',
     component: NewsPage
   },
+  {
+    path: 'info',
+    loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+  },
 ];
 
 @NgModule({
