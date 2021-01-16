@@ -1,0 +1,33 @@
+
+.input-search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5em;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .input-search {
+        width: 50%;
+    }
+}
+
+.input-search input[type="search"] {
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+    outline: none;
+    padding: 0.6em;
+    font-family: Calibri;
+    flex: 1;
+}
+
+.input-search button {
+    padding: 0.8em;
+    border-radius: 10px;
+    background-color: #24344D;
+    margin-left: 0.8em;
+}
+
+.input-search button .search-btn {
+    color: #fff;
+}

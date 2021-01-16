@@ -16,6 +16,7 @@ export class NewsPage implements OnInit {
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
 
+<<<<<<< HEAD
   /* formulario de noticias */
 
   ID_NO : any;
@@ -28,6 +29,10 @@ export class NewsPage implements OnInit {
   files : any;
 
 
+=======
+  /* noticias */
+  NewsData : any;
+>>>>>>> 19ce0e8b3a1c1384bef55297a064ea90987c42b4
   
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
@@ -38,12 +43,10 @@ export class NewsPage implements OnInit {
 
   openDialogNews(){
     this.dialogReadNews = true;
-    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   createNews(){
     this.dialogCreateNews= true;
-    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   closeDialogInfo(){
@@ -52,8 +55,10 @@ export class NewsPage implements OnInit {
   }
   getnoticia(){
     this.infcenterService.get_infcenter()
-    .then(rspt=>{
-      console.log(rspt);
+    .then(resp=>{
+      // console.log(resp);
+      this.NewsData = resp['data'];
+      console.log(this.NewsData);
     })
     .catch();
     

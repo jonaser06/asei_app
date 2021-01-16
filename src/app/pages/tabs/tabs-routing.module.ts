@@ -7,7 +7,7 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/tabs/stadistics',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
