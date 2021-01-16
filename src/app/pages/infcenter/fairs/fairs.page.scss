@@ -933,6 +933,9 @@
     .section-grid .news-grid .cards-news .card-all {
         flex-basis: calc(50% - 0.5em);
     }
+    app-card-items{
+        flex-basis: calc(50% - 0.5em);
+    }
 }
 
 .section-grid .news-grid .cards-news .card-all .img-content .img-mobil {

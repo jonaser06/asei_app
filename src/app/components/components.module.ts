@@ -10,6 +10,10 @@ import { SocialLinksComponent } from './social-links/social-links.component';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from './header/header.component';
+import { CardItemsComponent } from './card-items/card-items.component';
+import { CardSliderComponent } from './card-slider/card-slider.component';
+import { PaginadorComponent } from './paginador/paginador.component';
+import { BuscadorComponent } from './buscador/buscador.component';
 
 
 
@@ -24,6 +28,10 @@ import { HeaderComponent } from './header/header.component';
     SocialLinksComponent,
     StatCardComponent,  
     HeaderComponent,
+    CardItemsComponent,
+    CardSliderComponent,
+    PaginadorComponent,
+    BuscadorComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -35,6 +43,10 @@ import { HeaderComponent } from './header/header.component';
     SocialLinksComponent,
     StatCardComponent,
     HeaderComponent,
+    CardItemsComponent,
+    CardSliderComponent,
+    PaginadorComponent,
+    BuscadorComponent
   ],
   imports: [
     CommonModule,

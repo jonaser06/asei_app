@@ -1,0 +1,59 @@
+
+.number-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.number-option .numbers-option {
+    display: flex;
+    margin: 0 1em;
+}
+
+.number-option .numbers-option p {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+@media (min-width: 600px) {
+    .number-option .numbers-option p {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (min-width: 768px) {
+    .number-option .numbers-option p {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.number-option .numbers-option .number-all {
+    margin-right: 0.8em;
+    transition: 0.5s ease;
+    cursor: pointer;
+    border: 1px solid #24344D;
+}
+
+.number-option .numbers-option .number-all:hover {
+    background-color: #DF8708;
+    color: #fff;
+    border: none;
+}
+
+.number-option .numbers-option .number-one {
+    color: #fff;
+    background-color: #DF8708;
+    border: none;
+}
+
+.number-option .numbers-option .number-all:last-child {
+    margin: 0;
+}

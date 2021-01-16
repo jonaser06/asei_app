@@ -10,6 +10,9 @@ import { InfcenterService } from '../../../services/infcenter.service';
 export class NewsPage implements OnInit {
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
+
+  /* noticias */
+  NewsData : any;
   
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
@@ -20,12 +23,10 @@ export class NewsPage implements OnInit {
 
   openDialogNews(){
     this.dialogReadNews = true;
-    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   createNews(){
     this.dialogCreateNews= true;
-    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   closeDialogInfo(){
@@ -34,8 +35,10 @@ export class NewsPage implements OnInit {
   }
   getnoticia(){
     this.infcenterService.get_infcenter()
-    .then(rspt=>{
-      console.log(rspt);
+    .then(resp=>{
+      // console.log(resp);
+      this.NewsData = resp['data'];
+      console.log(this.NewsData);
     })
     .catch();
     
