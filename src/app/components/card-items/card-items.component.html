@@ -1,9 +1,6 @@
 <div class="card-1 card-all">
   <div class="img-content">
-    <!-- <img class="img-web" src="../../../../assets/img/new-card.png"> -->
     <img class="img-web" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
-    <!-- <img class="img-mobil" src="../../../../assets/img/new-card-2.png"> -->
-    <img class="img-mobil" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
   </div>
 
   <div class="text-content">
@@ -11,7 +8,9 @@
       <div class="date">
         {{ news_child.fecha_inicio }}
       </div>
+    </div>
 
+    <div class="content-title">
       <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
 
       <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
