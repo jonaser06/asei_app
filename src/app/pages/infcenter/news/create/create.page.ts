@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionService } from '../../../../services/redireccion.service';
 
 @Component({
   selector: 'app-create',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreatePage implements OnInit {
 
-  constructor() { }
+  constructor( private redireccionService: RedireccionService) { }
 
   ngOnInit() {
+  }
+
+  volvernews(){
+    // this.dialogCreateNews= true;
+    this.redireccionService.redireccion('/tabs/infcenter/news')
   }
 
 }

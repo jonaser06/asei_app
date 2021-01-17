@@ -33,8 +33,8 @@
 
   <div class="content-text">
     <div class="title-text">
-      <div class="title">
-          <h5>La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones debido al covid 19</h5>
+      <div class="title" (click)="openDialogNews()">
+          <h5 (click)="openDialogNews()">La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones debido al covid 19</h5>
       </div>
       
       <div class="date-text">
@@ -48,7 +48,7 @@
     de diseño para probar el diseño visual antes de insertar el texto final.</p>
 
     <div class="btn-like">
-      <button class="none-mobile" (click)="openDialogNews()">Ver nota</button>
+      <!-- <button class="none-mobile" (click)="openDialogNews()">Ver nota</button> -->
 
       <div class="like-btn">
           <ion-icon name="thumbs-up"></ion-icon>

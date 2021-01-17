@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionService } from '../../services/redireccion.service';
 
 @Component({
   selector: 'app-card-slider',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardSliderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private redireccionService: RedireccionService) { }
 
   ngOnInit() {}
+
+  openDialogNews(){
+    // this.dialogReadNews = true;
+    this.redireccionService.redireccion('/tabs/infcenter/news/info');
+  }
 
 }

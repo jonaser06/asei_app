@@ -44,18 +44,18 @@
     </ion-grid>
 
     <!-- Crear noticia -->  
-    <app-dialog *ngIf="dialogCreateNews" [dialog]="dialogCreateNews" [width]="1200" [height]="800" (closeDialogEv)="closeDialogInfo()"> 
+    <!-- <app-dialog *ngIf="dialogCreateNews" [dialog]="dialogCreateNews" [width]="1200" [height]="800" (closeDialogEv)="closeDialogInfo()"> 
           <div class="header-dialog">
             <!-- <div class="layout-section">
               <div class="container">
                 <div class="row-actions-top"> -->
-                  <div class="title-section-container">
+                  <!-- <div class="title-section-container">
                       <h3 class="title-section color-news">Crear Noticias</h3>
-                      <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
+                      <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p> -->
                   <!-- </div>
                 </div>
               </div> -->
-            </div>
+            <!-- </div>
           </div>
         
         <div class="body-dialog">
@@ -113,10 +113,10 @@
             </form>
             </ion-grid>
           </div>
-    </app-dialog>
+    </app-dialog> --> -->
 
     <!-- Dialogo Noticias -->
-    <app-dialog *ngIf="dialogReadNews" [dialog]="dialogReadNews" [width]="1200" [height]="800" (closeDialogEv)="closeDialogInfo()">
+    <!-- <app-dialog *ngIf="dialogReadNews" [dialog]="dialogReadNews" [width]="1200" [height]="800" (closeDialogEv)="closeDialogInfo()">
       <div class="header-dialog">
         <div class="title-section-container">
           <h3 class="title-section">{{ isEdited ? 'Noticias Enero 2021' : 'Noticias Enero 2021' }}</h3>
@@ -168,7 +168,7 @@
           </div>
         </div>
       </div>
-    </app-dialog>
+    </app-dialog> -->
   </div>
   <app-footer></app-footer>
 </ion-content>

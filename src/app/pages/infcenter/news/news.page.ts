@@ -27,13 +27,13 @@ export class NewsPage implements OnInit {
   }
 
   openDialogNews(){
-    this.dialogReadNews = true;
-    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
+    // this.dialogReadNews = true;
+    this.redireccionService.redireccion('/tabs/infcenter/news/info');
   }
 
   createNews(){
-    this.dialogCreateNews= true;
-    // this.redireccionService.redireccion('/tabs/infcenter/news/create');
+    // this.dialogCreateNews= true;
+    this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
   closeDialogInfo(){
