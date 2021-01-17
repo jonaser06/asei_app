@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfcenterService } from '../../../services/infcenter.service';
+import { RedireccionService } from '../../../services/redireccion.service';
 
 @Component({
   selector: 'app-anniversary',
@@ -10,7 +11,7 @@ export class AnniversaryPage implements OnInit {
 
   dialogAnniversaryNew: boolean = false;
   dialogAnniversaryRead: boolean = false;
-  constructor(private infcenterService: InfcenterService) { 
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService) { 
     this.getaniversario();
   }
 
@@ -18,11 +19,13 @@ export class AnniversaryPage implements OnInit {
   }
 
   readDialogAnniversary(){
-    this.dialogAnniversaryRead = true;
+    // this.dialogAnniversaryRead = true;
+    this.redireccionService.redireccion('/tabs/infcenter/anniversary/info');
   }
 
   createDialogAnniversary(){
-    this.dialogAnniversaryNew = true;
+    // this.dialogAnniversaryNew = true;
+    this.redireccionService.redireccion('/tabs/infcenter/anniversary/create')
   }
 
   closeDialogInfo(){

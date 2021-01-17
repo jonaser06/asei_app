@@ -24,10 +24,6 @@ const routes: Routes = [
     path: 'news',
     loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
   },
-  {
-    path: 'create',
-    loadChildren: () => import('./aniversary/create/create.module').then( m => m.CreatePageModule)
-  }
 ];
 
 @NgModule({

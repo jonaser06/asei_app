@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfcenterService } from 'src/app/services/infcenter.service';
+import { RedireccionService } from '../../../services/redireccion.service';
 
 @Component({
   selector: 'app-eventos',
@@ -11,7 +12,7 @@ export class EventosPage implements OnInit {
   dialogEventosRead: boolean = false;
   dialogEventosCreate: boolean = false;
 
-  constructor(private infcenterService: InfcenterService) { 
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService ) { 
     this.geteventos();
   }
 
@@ -19,17 +20,20 @@ export class EventosPage implements OnInit {
   }
 
   readDialogEventos(){
-    this.dialogEventosRead = true;
+    // this.dialogEventosRead = true;
+    this.redireccionService.redireccion('/tabs/infcenter/eventos/info');
   }
 
   createDialogEventos(){
-    this.dialogEventosCreate = true;
+    // this.dialogEventosCreate = true;
+    this.redireccionService.redireccion('/tabs/infcenter/eventos/create')
   }
 
   closeDialogInfo(){
     this.dialogEventosCreate = false;
     this.dialogEventosRead =false;
   }
+  
   geteventos(){
     this.infcenterService.get_infcenterEventos()
     .then(rspt=>{
