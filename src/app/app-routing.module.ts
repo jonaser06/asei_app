@@ -20,11 +20,7 @@ const routes: Routes = [
   {
     path: 'infcenter',
     loadChildren: () => import('./pages/infcenter/infcenter.module').then( m => m.InfCenterPageModule)
-  },
-  {
-    path: 'info',
-    loadChildren: () => import('./page/infcenter/news/info/info.module').then( m => m.InfoPageModule)
-  },
+  }
 
 ];
 
