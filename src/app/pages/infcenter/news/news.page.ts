@@ -62,6 +62,7 @@ export class NewsPage implements OnInit {
     this.infcenterService.delete_infcenterNews(ID_NO)
     .then(resp=>{ 
       console.log('ELIMINAR NOTA : '+ID_NO);
+      this.getnoticia();
     })
     .catch();
   }
