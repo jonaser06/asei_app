@@ -4,12 +4,12 @@
     </div>
 
     <div class="text-content">
-        <div class="text">
-            <div class="date">
-                {{ news_child.fecha_inicio }}
-            </div>
-        </div>
-
+      <div class="text">
+          <div class="date">
+              {{ news_child.fecha_inicio }}
+          </div>
+      </div>
+      <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
       <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
     </div>
     
