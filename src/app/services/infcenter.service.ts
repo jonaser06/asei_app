@@ -12,9 +12,10 @@ export class InfcenterService {
 
   constructor( private http: HttpClient) { }
 
-  get_infcenter(){
+  /* news */
+  get_infcenterNews(){
     return new Promise (resolve => {
-      this.http.get(`${URL}/notes/noticias`)
+      this.http.get(`${URL}/notes/noticias?last=true`)
       .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);
@@ -25,6 +26,20 @@ export class InfcenterService {
     });
   }
 
+  get_infcenterNewsID(id){
+    return new Promise ( resolve =>{
+      this.http.get(`${URL}/notes/${id}`)
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  /* ferias */
   get_infcenterFerias(){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/ferias`)
@@ -38,6 +53,7 @@ export class InfcenterService {
     });
   }
 
+  /* Aniversarios */
   get_infcenterAniversarios(){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/aniversarios`)
@@ -50,7 +66,8 @@ export class InfcenterService {
       });
     });
   }
-
+  
+  /* eventos */
   get_infcenterEventos(){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/eventos`)

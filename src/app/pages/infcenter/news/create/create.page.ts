@@ -15,7 +15,7 @@ export class CreatePage implements OnInit {
 
   volvernews(){
     // this.dialogCreateNews= true;
-    this.redireccionService.redireccion('/tabs/infcenter/news')
+    this.redireccionService.backpage();
   }
 
 }

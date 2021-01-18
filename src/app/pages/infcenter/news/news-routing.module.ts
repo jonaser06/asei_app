@@ -9,7 +9,7 @@ const routes: Routes = [
     component: NewsPage
   },
   {
-    path: 'info',
+    path: 'info/:id',
     loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
   },
   {

@@ -25,7 +25,7 @@ export class AnniversaryPage implements OnInit {
 
   createDialogAnniversary(){
     // this.dialogAnniversaryNew = true;
-    this.redireccionService.redireccion('/tabs/infcenter/anniversary/create')
+    this.redireccionService.redireccion('/tabs/infcenter/anniversary/create');
   }
 
   closeDialogInfo(){

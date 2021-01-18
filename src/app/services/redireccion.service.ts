@@ -13,4 +13,8 @@ export class RedireccionService {
 
   }
 
+  backpage(){
+    this.navCtrol.back();
+  }
+
 }

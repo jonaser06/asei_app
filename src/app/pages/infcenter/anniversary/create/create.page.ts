@@ -15,7 +15,7 @@ export class CreatePage implements OnInit {
 
   volverAnniversary(){
     // this.dialogCreateNews= true;
-    this.redireccionService.redireccion('/tabs/infcenter/anniversary')
+    this.redireccionService.backpage();
   }
 
 }

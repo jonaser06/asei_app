@@ -42,9 +42,9 @@ export class NewsPage implements OnInit {
   }
 
   getnoticia(){
-    this.infcenterService.get_infcenter()
+    this.infcenterService.get_infcenterNews()
     .then(resp=>{
-      // console.log(resp);
+      console.log(resp);
       this.NewsData = resp['data'];
     })
     .catch();
@@ -52,7 +52,7 @@ export class NewsPage implements OnInit {
   }
   
   openNew_(ID_NO){
-    console.log(ID_NO);
+    this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO);
   }
 
   openDialogInfo(){}
