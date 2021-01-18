@@ -4,36 +4,41 @@
     </div>
 
     <div class="text-content">
-      <div class="text">
-          <div class="date">
-              {{ news_child.fecha_inicio }}
-          </div>
-      </div>
-      <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
-      <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
+        <div class="text">
+            <div class="date">
+                {{ news_child.fecha_inicio }}
+            </div>
+        </div>
+        <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
+        <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
 
-      <div class="btn-like">
-  
-        <!-- Admin -->
-        <div class="admin-edit">
-          <div class="edit" (click)="editNew(news_child.ID_NO)">
-            <ion-icon name="pencil-outline"></ion-icon>
-          </div>
-  
-          <div class="delete" (click)="removeNew(news_child.ID_NO)">
-            <ion-icon name="trash"></ion-icon>
-          </div>
+        <div class="btn-like">
+
+            <!-- Admin -->
+            <div class="admin-edit">
+                <div class="edit" (click)="editNew(news_child.ID_NO)">
+                    <ion-icon name="pencil-outline"></ion-icon>
+                </div>
+
+                <div class="delete" (click)="removeNew(news_child.ID_NO)">
+                    <ion-icon name="trash"></ion-icon>
+                </div>
+            </div>
+
+            <div class="btn-like">
+
+                <div class="stars-btn">
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star-outline"></ion-icon>
+                </div>
+            </div>
+
         </div>
-  
-        <div class="like-btn">
-          <ion-icon name="thumbs-up"></ion-icon>
-  
-          <p class="points">0</p>
-        </div>
-  
-      </div>
     </div>
-    
+
 </div>
 
 <!-- <div class="card-2 card-all">
