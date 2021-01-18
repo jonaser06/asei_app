@@ -15,8 +15,13 @@ export class CreatePage implements OnInit {
 
   volverEventos(){
     // this.dialogCreateNews= true;
-    this.redireccionService.redireccion('/tabs/infcenter/eventos')
+    // this.redireccionService.redireccion('/tabs/infcenter/eventos');
+    this.redireccionService.backpage();
   }
   
 
 }
+
+16450493
+
+33138731

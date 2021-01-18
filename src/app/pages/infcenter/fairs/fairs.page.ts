@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
 
@@ -11,7 +12,9 @@ export class FairsPage implements OnInit {
 
   dialogFeriasRead: boolean = false;
   dialogFeriasCreate: boolean = false;
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService) { 
+
+  feriasData: any;
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
     this.getferias();
   }
 
@@ -39,9 +42,19 @@ export class FairsPage implements OnInit {
     this.infcenterService.get_infcenterFerias()
     .then(rspt=>{
       console.log(rspt);
+      this.feriasData = rspt['data'];
     })
     .catch();
     
   }
+  
+
+  openNew_(ID_NO){
+    this.redireccionService.redireccion('/tabs/infcenter/fairs/info/'+ID_NO);
+  }
+
+  openDialogInfo(){}
+    
+ 
 
 }

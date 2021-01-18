@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
 
@@ -11,8 +12,9 @@ export class EventosPage implements OnInit {
 
   dialogEventosRead: boolean = false;
   dialogEventosCreate: boolean = false;
+  eventosData: any;
 
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService ) { 
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
     this.geteventos();
   }
 
@@ -38,9 +40,17 @@ export class EventosPage implements OnInit {
     this.infcenterService.get_infcenterEventos()
     .then(rspt=>{
       console.log(rspt);
+      this.eventosData = rspt['data']
     })
     .catch();
     
   }
+  
+  openNew_(ID_NO){
+    this.redireccionService.redireccion('/tabs/infcenter/eventos/info/'+ID_NO);
+  }
+
+  openDialogInfo(){}
+    
 
 }

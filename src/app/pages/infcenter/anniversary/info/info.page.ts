@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from '../../../../services/redireccion.service';
 
 @Component({
@@ -8,14 +10,32 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 })
 export class InfoPage implements OnInit {
 
-  constructor(private redireccionService: RedireccionService) { }
+  aniversarioData: any;
+
+  constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
+    this.get_Aniversario()
+  }
 
   ngOnInit() {
   }
 
   volverAnniversary(){
     // this.dialogCreateNews= true;
-    this.redireccionService.redireccion('/tabs/infcenter/anniversary')
+    // this.redireccionService.redireccion('/tabs/infcenter/anniversary')
+    this.redireccionService.backpage();
   }
 
+  get_Aniversario(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.infcenterService.get_infcenterNewsID(id)
+    .then(resp=>{
+      this.aniversarioData = resp;
+      this.aniversarioData = this.aniversarioData.data;
+      console.log(this.aniversarioData);
+    })
+    .catch();
+  }
 }
+
+

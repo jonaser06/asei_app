@@ -94,7 +94,9 @@
         <app-buscador></app-buscador>   
 
         <div class="cards-news">
-        <app-card-items></app-card-items>
+        <app-card-items *ngFor="let item of eventosData?.notes" [news_child]="item" (idNews)="openNew_($event)">
+          
+        </app-card-items>
         </div>
         <app-paginador></app-paginador>
       </div>

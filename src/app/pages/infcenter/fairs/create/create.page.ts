@@ -15,7 +15,8 @@ export class CreatePage implements OnInit {
 
   volverFerias(){
     // this.dialogCreateNews= true;
-    this.redireccionService.redireccion('/tabs/infcenter/fairs')
+    // this.redireccionService.redireccion('/tabs/infcenter/fairs');
+    this.redireccionService.backpage();
   }
 
 }

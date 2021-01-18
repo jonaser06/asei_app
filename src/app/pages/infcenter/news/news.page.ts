@@ -36,10 +36,10 @@ export class NewsPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
 
-  closeDialogInfo(){
-    this.dialogReadNews = false;
-    this.dialogCreateNews =false;
-  }
+  // closeDialogInfo(){
+  //   this.dialogReadNews = false;
+  //   this.dialogCreateNews =false;
+  // }
 
   getnoticia(){
     this.infcenterService.get_infcenterNews()

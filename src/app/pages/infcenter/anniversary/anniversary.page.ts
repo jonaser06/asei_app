@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from '../../../services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
 
@@ -11,7 +12,9 @@ export class AnniversaryPage implements OnInit {
 
   dialogAnniversaryNew: boolean = false;
   dialogAnniversaryRead: boolean = false;
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService) { 
+
+  aniversarioData: any;
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
     this.getaniversario();
   }
 
@@ -28,17 +31,25 @@ export class AnniversaryPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/anniversary/create');
   }
 
-  closeDialogInfo(){
-    this.dialogAnniversaryNew = false;
-    this.dialogAnniversaryRead =false;
-  }
+  // closeDialogInfo(){
+  //   this.dialogAnniversaryNew = false;
+  //   this.dialogAnniversaryRead =false;
+  // }
   getaniversario(){
     this.infcenterService.get_infcenterAniversarios()
     .then(rspt=>{
       console.log(rspt);
+      this.aniversarioData = rspt['data']
     })
     .catch();
     
   }
+  
+  openNew_(ID_NO){
+    this.redireccionService.redireccion('/tabs/infcenter/anniversary/info/'+ID_NO);
+  }
+
+  openDialogInfo(){}
+    
 
 }
