@@ -54,6 +54,17 @@ export class NewsPage implements OnInit {
   openNew_(ID_NO){
     this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO);
   }
+  editNew_(ID_NO){
+    console.log('EDITAR NOTA : '+ID_NO);
+    this.redireccionService.redireccion('/tabs/infcenter/news/edit/'+ID_NO);
+  }
+  removeNew_(ID_NO){
+    this.infcenterService.delete_infcenterNews(ID_NO)
+    .then(resp=>{ 
+      console.log('ELIMINAR NOTA : '+ID_NO);
+    })
+    .catch();
+  }
 
   openDialogInfo(){}
     

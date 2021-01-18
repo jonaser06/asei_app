@@ -39,6 +39,32 @@ export class InfcenterService {
     });
   }
 
+  create_infcenterNews(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/new`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_infcenterNews(id){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/notes/${id}/delete`)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
   /* ferias */
   get_infcenterFerias(){
     return new Promise (resolve => {

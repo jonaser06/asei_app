@@ -17,18 +17,17 @@
     </div>
     
     <div class="btn-like">
-      <!-- <button class="none-mobile">Ver nota</button> -->
 
       <!-- Admin -->
-      <!-- <div class="admin-edit">
-        <div class="edit">
+      <div class="admin-edit">
+        <div class="edit" (click)="editNew(news_child.ID_NO)">
           <ion-icon name="pencil-outline"></ion-icon>
         </div>
 
-        <div class="delete">
+        <div class="delete" (click)="removeNew(news_child.ID_NO)">
           <ion-icon name="trash"></ion-icon>
         </div>
-      </div> -->
+      </div>
 
       <div class="like-btn">
         <ion-icon name="thumbs-up"></ion-icon>
