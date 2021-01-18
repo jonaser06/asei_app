@@ -1,83 +1,89 @@
 <ion-content class="content-section">
-  <div class="layout-section">
-    <div class="container">
-        <div class="row-actions-top">
-            <div class="title-section-container">
-                <h3 class="title-section color-news">Crear Eventos</h3>
-                <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
+    <div class="layout-section">
+        <div class="container">
+            <div class="row-actions-top">
+                <div class="title-section-container">
+                    <h3 class="title-section color-news">Crear Eventos</h3>
+                    <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
+                </div>
             </div>
         </div>
+
+        <ion-grid class="section-grid">
+            <form action="" class="inputs-create">
+                <div class="title">
+                    <label for="title-note">Título de la nota</label>
+                    <textarea name="" id="title-note"></textarea>
+                </div>
+
+                <div class="summary">
+                    <label for="summary-note">Resumen de la nota</label>
+                    <textarea name="" id="summary-note"></textarea>
+                </div>
+
+                <div class="text">
+                    <label for="text-note">Texto de la nota</label>
+                    <textarea name="" id="text-note"></textarea>
+                </div>
+
+                <div class="link">
+                    <label for="link-note">Link de la nota</label>
+                    <textarea name="" id="link-note"></textarea>
+                </div>
+
+
+                <div class="content-date-admin">
+                    <div class="date">
+                        <label for="date-note">Fecha de inicio</label>
+                        <input type="date" name="" id="date-note">
+                    </div>
+
+                    <div class="date">
+                        <label for="date-note">Fecha de fin</label>
+                        <input type="date" name="" id="date-note">
+                    </div>
+                </div>
+
+
+                <div class="content-date-admin">
+                    <div class="date">
+                        <label for="date-note">Hora de inicio</label>
+                        <input type="time" name="" id="date-note">
+                    </div>
+
+                    <div class="date">
+                        <label for="date-note">Hora de fin</label>
+                        <input type="time" name="" id="date-note">
+                    </div>
+                </div>
+
+                <div class="image">
+                    <p>Añade Imagen</p>
+                    <input type="file" title="Añade imagen" accept="image/*" name="" id="">
+                </div>
+
+                <div class="content-img"></div>
+
+                <div class="link-active">
+                    <label for="active-note">Esta nota se vinculará con el calendario</label>
+                    <input type="checkbox" name="" id="active-note">
+                    <label class="check-note" for="active-note"></label>
+                </div>
+                <div class="link-active">
+                    <label for="active-note-2">Se enviara a notificación push por esta publicación</label>
+                    <input type="checkbox" name="" id="active-note-2">
+                    <label class="check-note" for="active-note-2"></label>
+                </div>
+                <div class="btn-create">
+                    <div class="btn-return">
+                        <button (click)="volverEventos()">Volver</button>
+                    </div>
+
+                    <div class="btn-add">
+                        <button>Añadir</button>
+                    </div>
+                </div>
+            </form>
+        </ion-grid>
     </div>
-
-    <ion-grid class="section-grid">
-      <form action="" class="inputs-create">
-        <div class="title">
-          <label for="title-note">Título de la nota</label>
-          <textarea name="" id="title-note"></textarea>
-        </div>
-
-        <div class="summary">
-          <label for="summary-note">Resumen de la nota</label>
-          <textarea name="" id="summary-note"></textarea>
-        </div>
-
-        <div class="text">
-          <label for="text-note">Texto de la nota</label>
-          <textarea name="" id="text-note"></textarea>
-        </div>
-
-        <div class="link">
-          <label for="link-note">Link de la nota</label>
-          <textarea name="" id="link-note"></textarea>
-        </div>
-
-        <div class="content-date-admin">
-          <div class="date">
-            <label for="date-note">Fecha de inicio</label>
-            <input type="date" name="" id="date-note">
-          </div>
-
-          <div class="date">
-            <label for="date-note">Fecha de fin</label>
-            <input type="date" name="" id="date-note">
-          </div>
-        </div>
-
-        <div class="content-date-admin">
-          <div class="date">
-            <label for="date-note">Hora de inicio</label>
-            <input type="time" name="" id="date-note">
-          </div>
-
-          <div class="date">
-            <label for="date-note">Hora de fin</label>
-            <input type="time" name="" id="date-note">
-          </div>
-        </div>
-
-        <div class="image">
-          <p>Añade Imagen</p>
-          <input type="file" title="Añade imagen" accept="image/*" name="" id="">
-        </div>
-
-        <div class="content-img"></div>
-
-        <div class="link-active">
-          <label for="active-note">Esta nota se vinculará con el calendario</label>
-          <input type="checkbox" name="" id="active-note">
-          <label class="check-note" for="active-note"></label>
-        </div>
-
-        <div class="btn-create">
-          <div class="btn-return">
-            <button (click)="volverEventos()">Volver</button>
-          </div>
-
-          <div class="btn-add">
-            <button>Añadir</button>
-          </div>
-        </div>
-      </form>
-    </ion-grid>
-  </div>
 </ion-content>

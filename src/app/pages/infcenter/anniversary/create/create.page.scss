@@ -58,7 +58,7 @@
     }
 }
 
-.section-grid form label, 
+.section-grid form label,
 .section-grid form p {
     margin: 0;
     padding: 0;
@@ -67,7 +67,7 @@
 }
 
 @media (min-width: 768px) {
-    .section-grid form label, 
+    .section-grid form label,
     .section-grid form p {
         font-size: 15px;
     }
@@ -148,11 +148,9 @@
         margin-right: 0.5em;
         width: 100%;
     }
-
     .section-grid form .date:last-child {
         margin-right: 0;
     }
-
     .section-grid form .date input[type="date"] {
         width: 100%;
     }
@@ -230,8 +228,8 @@
     position: relative;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note,
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note {
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note,
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note {
     background-color: #F7AA3D;
 }
 
@@ -248,8 +246,8 @@
     transition: 2s ease;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after,
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after {
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after,
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after {
     right: -10%;
     left: auto;
 }
@@ -291,4 +289,20 @@
 .section-grid .btn-create .btn-add button {
     background: #24344D;
     color: #fff;
+}
+
+.content-date-admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .content-date-admin {
+        align-items: center;
+        flex-direction: row;
+        width: 80%;
+    }
 }

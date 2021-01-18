@@ -7,7 +7,6 @@
         display: flex;
         justify-content: space-between;
     }
-
     .container .btn-new-item {
         width: 100%;
     }
@@ -71,7 +70,7 @@
     margin-bottom: 0.8em;
 }
 
-.section-grid .news-grid .slider-img .img-slider .admin-edit{
+.section-grid .news-grid .slider-img .img-slider .admin-edit {
     position: absolute;
     top: 0;
     right: 0;
@@ -390,7 +389,7 @@
     .section-grid .news-grid .cards-news .card-all .text-content .btn-like {
         flex-direction: row;
         align-items: center;
-    }    
+    }
 }
 
 .section-grid .news-grid .cards-news .card-all .text-content .btn-like button {
@@ -425,7 +424,6 @@
     color: #24344D;
     margin-left: 0.4em;
 }
-
 
 .section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit {
     margin: 0.5em;
@@ -524,7 +522,9 @@
     margin: 0;
 }
 
+
 /* Modal New */
+
 .modal-anniversary {
     width: 100%;
 }
@@ -686,7 +686,7 @@
     }
 }
 
-.section-grid form label, 
+.section-grid form label,
 .section-grid form p {
     margin: 0;
     padding: 0;
@@ -695,7 +695,7 @@
 }
 
 @media (min-width: 768px) {
-    .section-grid form label, 
+    .section-grid form label,
     .section-grid form p {
         font-size: 15px;
     }
@@ -777,11 +777,9 @@
         margin-right: 0.5em;
         width: 100%;
     }
-
     .section-grid form .date:last-child {
         margin-right: 0;
     }
-
     .section-grid form .date input[type="date"],
     .section-grid form .date input[type="time"] {
         width: 100%;
@@ -861,8 +859,8 @@
     cursor: pointer;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note,
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note {
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note,
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note {
     background-color: #F7AA3D;
 }
 
@@ -879,8 +877,8 @@
     transition: 2s ease;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after,
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after {
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after,
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after {
     right: -10%;
     left: auto;
 }
@@ -922,4 +920,32 @@
 .section-grid .btn-create .btn-add button {
     background: #24344D;
     color: #fff;
+}
+
+.date input[type="date"],
+.date input[type="time"] {
+    margin: 0.7em 0;
+    padding: 0.5em;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    border: 1px solid #828282;
+    font-family: Calibri;
+}
+
+@media (min-width: 768px) {
+    .date {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0.5em;
+        width: 100%;
+    }
+    .date:last-child {
+        margin-right: 0;
+    }
+    .date input[type="date"],
+    .date input[type="time"] {
+        width: 100%;
+    }
 }
