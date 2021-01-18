@@ -79,7 +79,7 @@
                             <button *ngIf='rol == "admin"' (click)="openDialogInd()" class="btn-new-item mt-3 mb-3">
                               <span>Nuevo indicador</span>
                               <ion-icon class="icon-btn" name="add"></ion-icon>
-                          </button>
+                            </button>
                         </div>
 
                         <ion-row>
@@ -178,7 +178,7 @@
                         <div class="inputs-boletin">
                             <p>Titulos del indicador*</p>
                             <input type="text" [(ngModel)]="titlebull" name="title">
-    
+
                             <div class="time">
                                 <div class="month">
                                     <p>Mes*</p>
@@ -197,7 +197,7 @@
                                       <option value="Diciembre">Diciembre</option>
                                   </select>
                                 </div>
-    
+
                                 <div class="year">
                                     <p>Año*</p>
                                     <select name="year" [(ngModel)]="yearbull">
@@ -205,12 +205,12 @@
                                   </select>
                                 </div>
                             </div>
-    
+
                             <p>Añade data del boletin</p>
                             <input type="file" accept="application/pdf">
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
-    
+
                         <div class="button">
                             <button>Guardar Boletin</button>
                         </div>
@@ -237,13 +237,13 @@
                                 <div class="percentage">
                                     <div class="number">
                                         <p>Porcentaje*</p>
-    
+
                                         <div>
                                             <input name="percentage" [(ngModel)]="percentageind" type="number" min="50" placeholder="50">
                                             <p>%</p>
                                         </div>
                                     </div>
-    
+
                                     <div class="letters">
                                         <p>Tipo*</p>
                                         <div *ngIf="typeind == 'incremento' ">
@@ -260,16 +260,16 @@
                                         </div>
                                     </div>
                                 </div>
-    
+
                                 <p>Titulo*</p>
                                 <input type="text" name="title" [(ngModel)]="titleind" placeholder="Ventas por proyecto">
-    
+
                                 <p>Descripcion*</p>
-    
+
                                 <input type="text" name="description" [(ngModel)]="descriptionind" placeholder="Pequeña descripcion del indicador estatico">
                             </div>
                         </div>
-    
+
                         <div class="button">
                             <button type="submit">Guardar Indicador</button>
                         </div>
@@ -289,7 +289,7 @@
             <div class="body-dialog">
                 <div class="card-modal-5">
                     <p>¿Estas seguro que deseas eliminar este elemento?</p>
-    
+
                     <div class="button">
                         <button (click)="btn_remove()">Eliminar</button>
                     </div>
@@ -297,7 +297,7 @@
             </div>
         </app-dialog>
         <!-- Fin dialogo eliminar -->
-        
+
     </div>
     <app-footer></app-footer>
 </ion-content>
