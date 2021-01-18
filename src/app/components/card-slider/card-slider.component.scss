@@ -1,5 +1,4 @@
-
-.slider-img .img-slider .admin-edit{
+.slider-img .img-slider .admin-edit {
     position: absolute;
     top: 0;
     right: 0;
@@ -165,4 +164,46 @@
     margin: 0;
     color: #24344D;
     margin-left: 0.4em;
+}
+
+.btn-like {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.7em;
+}
+
+.btn-like button {
+    border: none;
+    outline: none;
+    color: #DF8708;
+    background-color: #fff;
+}
+
+.stars-btn {
+    display: flex;
+    align-items: center;
+}
+
+.stars {
+    color: #DF8708;
+    margin-right: 0.6em;
+}
+
+.stars:last-child {
+    margin-right: 0;
+}
+
+.stars-btn {
+    display: flex;
+    align-items: center;
+}
+
+.stars-btn {
+    color: #DF8708;
+    margin-right: 0.6em;
+}
+
+.stars-btn:last-child {
+    margin-right: 0;
 }
