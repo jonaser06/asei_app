@@ -34,6 +34,34 @@
     }
 }
 
+.date input[type="date"],
+.date input[type="time"] {
+    margin: 0.7em 0;
+    padding: 0.5em;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    border: 1px solid #828282;
+    font-family: Calibri;
+}
+
+@media (min-width: 768px) {
+    .date {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0.5em;
+        width: 100%;
+    }
+    .date:last-child {
+        margin-right: 0;
+    }
+    .date input[type="date"],
+    .date input[type="time"] {
+        width: 100%;
+    }
+}
+
 @media (min-width: 2180px) {
     .section-grid .inputs-create {
         padding: 0 6.2em;
@@ -58,7 +86,7 @@
     }
 }
 
-.section-grid form label, 
+.section-grid form label,
 .section-grid form p {
     margin: 0;
     padding: 0;
@@ -67,7 +95,7 @@
 }
 
 @media (min-width: 768px) {
-    .section-grid form label, 
+    .section-grid form label,
     .section-grid form p {
         font-size: 15px;
     }
@@ -148,11 +176,9 @@
         margin-right: 0.5em;
         width: 100%;
     }
-
     .section-grid form .date:last-child {
         margin-right: 0;
     }
-
     .section-grid form .date input[type="date"] {
         width: 100%;
     }
@@ -231,8 +257,8 @@
     cursor: pointer;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note,
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note {
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note,
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note {
     background-color: #F7AA3D;
 }
 
@@ -249,8 +275,8 @@
     transition: 2s ease;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after,
-.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after {
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after,
+.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after {
     right: -10%;
     left: auto;
 }
