@@ -52,6 +52,20 @@ export class InfcenterService {
     });
   }
 
+  update_infcenterNews(formdata, id){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/${id}/update`, formdata)
+      .subscribe( resp => {
+        console.log(resp);
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
   delete_infcenterNews(id){
     return new Promise ( resolve => {
       this.http.get(`${URL}/notes/${id}/delete`)

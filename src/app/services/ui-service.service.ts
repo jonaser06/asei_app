@@ -17,4 +17,16 @@ export class UiServiceService {
 
     await alert.present();
   }
+
+  stripHtml(html: string) {
+    var div = document.createElement("DIV");
+
+    div.innerHTML = html;
+
+    let cleanText = div.innerText;
+
+    div = null; // prevent mem leaks
+
+    return cleanText;
+  }
 }

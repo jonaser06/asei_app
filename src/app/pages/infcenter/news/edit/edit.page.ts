@@ -4,6 +4,7 @@ import { UiServiceService } from 'src/app/services/ui-service.service';
 import { RedireccionService } from '../../../../services/redireccion.service';
 import { InfcenterService } from '../../../../services/infcenter.service';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit',
@@ -30,10 +31,14 @@ export class EditPage implements OnInit {
 
   get_newsid(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.infcenterService.get_infcenterNewsID(id)
-    .then(resp=>{
-      console.log(resp);
+    .then((resp: any)=>{
+      
+      this.titulo = resp.data.titulo;
+      this.resumen = resp.data.resumen;
+      this.texto = this.uiserviceService.stripHtml(resp.data.texto);
+      this.fecha_publicacion = resp.data.fecha_publicacion;
+      this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
   }
@@ -61,16 +66,18 @@ export class EditPage implements OnInit {
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
 
     let formdata = new FormData;
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
     formdata.append('titulo', this.titulo);
     formdata.append('resumen', this.resumen);
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('seccion', 'noticias');
-    formdata.append("files[]", this.fileToUploadstat);
+    formdata.append("file", this.fileToUploadstat);
 
-    this.infcenterService.create_infcenterNews(formdata)
+    this.infcenterService.update_infcenterNews(formdata, id)
     .then(resp=>{ 
-      console.log('SE CREO LA NOTA');
+      console.log('SE EDITO LA NOTA');
       this.redireccionService.backpage();
     })
     .catch();
