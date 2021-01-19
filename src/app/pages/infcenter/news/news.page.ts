@@ -66,6 +66,14 @@ export class NewsPage implements OnInit {
     })
     .catch();
   }
+  search_(buscatxt){
+    this.infcenterService.search_infcenter('noticias', buscatxt)
+    .then(resp=>{ 
+      console.log('Buscar nota : '+buscatxt);
+      this.NewsData = resp['data'];
+    })
+    .catch();
+  }
 
   openDialogInfo(){}
     

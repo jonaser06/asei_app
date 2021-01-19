@@ -12,6 +12,20 @@ export class InfcenterService {
 
   constructor( private http: HttpClient) { }
 
+  /* buscador */
+  search_infcenter(section, key){
+    return new Promise (resolve => {
+      this.http.get(`${URL}/notes/search/${section}?search=${key}`)
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
   /* news */
   get_infcenterNews(){
     return new Promise (resolve => {
