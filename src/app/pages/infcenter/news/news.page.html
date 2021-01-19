@@ -20,9 +20,9 @@
 
     <ion-grid class="section-grid" >
       <div class="news-grid">
-        <div class="date-year">
+        <!-- <div class="date-year">
           <h3>Enero 2021</h3>
-        </div>
+        </div> -->
       
         <app-card-slider></app-card-slider>
 
@@ -33,7 +33,7 @@
         <app-buscador (buscatxt)="search_($event)"></app-buscador>        
 
         
-        <div class="cards-news" >
+        <div class="cards-news">
           <app-card-items *ngFor="let item of NewsData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)"> 
           </app-card-items>
         </div>

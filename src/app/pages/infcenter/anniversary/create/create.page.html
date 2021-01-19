@@ -10,46 +10,47 @@
         </div>
 
         <ion-grid class="section-grid">
-            <form action="" class="inputs-create">
+            <form action="" class="inputs-create" (ngSubmit)="createAniversario(fAniversario)" #fAniversario="ngForm">
                 <div class="title">
                     <label for="title-note">Título de la nota</label>
-                    <textarea name="" id="title-note"></textarea>
+                    <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
                 </div>
 
                 <div class="summary">
                     <label for="summary-note">Resumen de la nota</label>
-                    <textarea name="" id="summary-note"></textarea>
+                    <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
                 </div>
 
                 <div class="text">
                     <label for="text-note">Texto de la nota</label>
-                    <textarea name="" id="text-note"></textarea>
+                    <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
                 </div>
 
-                <div class="link">
+                <!-- <div class="link">
                     <label for="link-note">Link de la nota</label>
                     <textarea name="" id="link-note"></textarea>
-                </div>
+                </div> -->
 
                 <div class="content-date-admin">
                     <div class="date">
                         <label for="date-note">Fecha publicación</label>
-                        <input type="date" name="" id="date-note">
+                        <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
                     </div>
                     <div class="date">
                         <label for="date-hour">Hora de publicación</label>
-                        <input type="time" name="" id="date-hour">
+                        <input type="time" name="hora_publicacion" id="date-hour" [(ngModel)]="hora_publicacion">
                     </div>
                 </div>
 
 
                 <div class="image">
                     <p>Añade Imagen</p>
-                    <input type="file" title="Añade imagen" accept="image/*" name="" id="">
+                    <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
                 </div>
-
-                <div class="content-img"></div>
-
+        
+                <div class="content-img">
+                    <img src="{{ imagestat }}" alt="">
+                </div>
                 <div class="link-active">
                     <label for="active-note">Esta nota se vinculará con el calendario</label>
                     <input type="checkbox" name="" id="active-note">
@@ -63,11 +64,12 @@
 
                 <div class="btn-create">
                     <div class="btn-return">
-                        <button (click)="volverAnniversary()">Volver</button>
+                        <!-- <button (click)="volverAnniversary()">Volver</button> -->
+                        <input type="button" value="Volver" class="volver" (click)="volverAnniversary()">
                     </div>
 
                     <div class="btn-add">
-                        <button>Añadir</button>
+                        <button type="submit">Añadir</button>
                     </div>
                 </div>
             </form>
