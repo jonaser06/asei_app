@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 export class NewsPage implements OnInit {
 
   news_data : any;
+  pages : any;
+  currentpage : any;
   URL = environment.url;
 
   dialogReadNews: boolean = false;
@@ -42,13 +44,29 @@ export class NewsPage implements OnInit {
   // }
 
   getnoticia(){
+    let pages = [];
     this.infcenterService.get_infcenterNews()
     .then(resp=>{
-      console.log(resp);
       this.NewsData = resp['data'];
+      for(let i = 1 ; i <= this.NewsData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.NewsData.page;
+
     })
     .catch();
     
+  }
+
+  changepage_(page){
+    let pages = [];
+    this.infcenterService.get_infcenterNews(page)
+    .then(resp=>{
+      this.NewsData = resp['data'];
+      for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.NewsData.page;
+    })
+    .catch();
   }
   
   openNew_(ID_NO){

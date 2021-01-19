@@ -27,9 +27,9 @@ export class InfcenterService {
   }
 
   /* news */
-  get_infcenterNews(){
+  get_infcenterNews(page = 1,limit = 4,last=false){
     return new Promise (resolve => {
-      this.http.get(`${URL}/notes/noticias?last=true`)
+      this.http.get(`${URL}/notes/noticias?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);

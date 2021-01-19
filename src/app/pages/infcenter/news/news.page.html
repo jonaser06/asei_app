@@ -38,7 +38,7 @@
           </app-card-items>
         </div>
         
-        <app-paginador></app-paginador>
+        <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 
       </div>
     </ion-grid>
