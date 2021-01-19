@@ -48,7 +48,6 @@ export class CreatePage implements OnInit {
     let formdata = new FormData;
     formdata.append('titulo', this.titulo);
     formdata.append('resumen', this.resumen);
-    formdata.append('resumen', this.resumen);
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('seccion', 'noticias');
