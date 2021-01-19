@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { RedireccionService } from '../../../../services/redireccion.service';
 import { InfcenterService } from '../../../../services/infcenter.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -20,9 +21,21 @@ export class EditPage implements OnInit {
   fileToUploadstat: any;
   imagestat: any;
 
-  constructor( private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { }
+  constructor( public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) {
+    this.get_newsid();
+  }
 
   ngOnInit() {
+  }
+
+  get_newsid(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    this.infcenterService.get_infcenterNewsID(id)
+    .then(resp=>{
+      console.log(resp);
+    })
+    .catch();
   }
 
   handleFileInput(event){
