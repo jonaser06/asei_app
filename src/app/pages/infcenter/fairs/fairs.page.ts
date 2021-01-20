@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { RedireccionService } from '../../../services/redireccion.service';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-fairs',
@@ -14,6 +15,11 @@ export class FairsPage implements OnInit {
 
   dialogFeriasRead: boolean = false;
   dialogFeriasCreate: boolean = false;
+  news_data : any;
+  pages : any;
+  currentpage : any;
+  URL = environment.url;
+  
 
   feriasData: any;
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
@@ -41,23 +47,60 @@ export class FairsPage implements OnInit {
   // }
 
 
+ 
   getferias(){
+    let pages = [];
     this.infcenterService.get_infcenterFerias()
-    .then(rspt=>{
-      console.log(rspt);
-      this.feriasData = rspt['data'];
+    .then(resp=>{
+      this.feriasData = resp['data'];
+      for(let i = 1 ; i <= this.feriasData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.feriasData.page;
+
     })
     .catch();
     
   }
+
+  changepage_(page){
+    let pages = [];
+    this.infcenterService.get_infcenterFerias(page)
+    .then(resp=>{
+      this.feriasData = resp['data'];
+      for(let i = 1 ; i <= this.feriasData.pages; i++ ){pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.feriasData.page;
+    })
+    .catch();
+  }
   
-  openNew_(ID_NO){
-    this.redireccionService.redireccion('/tabs/infcenter/fairs/info/'+ID_NO);
+
+  openFerias_(ID_NO){
+    this.redireccionService.redireccion('/tabs/infcenter/fairs/info/'+ID_NO); 
+  }
+  editFerias_(ID_NO){
+    console.log('EDITAR FERIAS : '+ID_NO);
+    this.redireccionService.redireccion('/tabs/infcenter/fairs/edit/'+ID_NO);
+  }
+  removeFerias_(ID_NO){
+    this.infcenterService.delete_infcenterFerias(ID_NO)
+    .then(resp=>{ 
+      console.log('ELIMINAR NOTA : '+ID_NO);
+      this.getferias();
+    })
+    .catch();
+  }
+  search_(buscatxt){
+    this.infcenterService.search_infcenter('ferias', buscatxt)
+    .then(resp=>{ 
+      console.log('Buscar feria : '+buscatxt);
+      this.feriasData = resp['data'];
+    })
+    .catch();
   }
 
   openDialogInfo(){}
     
-  
 
 
 }

@@ -14,6 +14,7 @@ export class NewsPage implements OnInit {
   pages : any;
   currentpage : any;
   URL = environment.url;
+  
 
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
@@ -23,6 +24,7 @@ export class NewsPage implements OnInit {
   
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
+  
   }
 
   ngOnInit() {

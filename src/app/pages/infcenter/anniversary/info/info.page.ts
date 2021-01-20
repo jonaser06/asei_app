@@ -28,7 +28,7 @@ export class InfoPage implements OnInit {
   get_Aniversario(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.infcenterService.get_infcenterNewsID(id)
+    this.infcenterService.get_infcenterAniversariosID(id)
     .then(resp=>{
       this.aniversarioData = resp;
       this.aniversarioData = this.aniversarioData.data;

@@ -1,0 +1,77 @@
+<ion-content class="content-section">
+  <div class="layout-section">
+    <div class="container">
+        <div class="row-actions-top">
+            <div class="title-section-container">
+                <h3 class="title-section color-news">Editar Noticia</h3>
+                <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
+            </div>
+        </div>
+    </div>
+
+    <ion-grid class="section-grid">
+      <form action="" class="inputs-create" (ngSubmit)="editFerias(fFerias)" #fFerias="ngForm">
+        <div class="title">
+          <label for="title-note">Título de la feria/label>
+          <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
+        </div>
+
+        <div class="summary">
+          <label for="summary-note">Resumen de la feria/label>
+          <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
+        </div>
+
+        <div class="text">
+          <label for="text-note">Texto de la feria</label>
+          <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
+        </div>
+
+        <!-- <div class="link">
+          <label for="link-note">Link de la nota</label>
+          <textarea name="" id="link-note"></textarea>
+        </div> -->
+
+        <div class="content-date-admin">
+          <div class="date">
+            <label for="date-note">Fecha de publicación</label>
+            <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+          </div>
+        </div>
+
+        <div class="image">
+          <p>Añade Imagen</p>
+          <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
+        </div>
+
+        <div class="content-img">
+          <img src="{{ imagestat }}" alt="">
+        </div>
+
+        <!-- <div class="link-active">
+          <label for="active-note">Esta nota se vinculará con el calendario</label>
+          <input type="checkbox" name="" id="active-note">
+          <label class="check-note" for="active-note"></label>
+        </div> -->
+
+        <div class="link-active">
+            <label for="active-note">Esta publicación se vinculará con el calendario</label>
+            <input type="checkbox" name="" id="active-note">
+            <label class="check-note" for="active-note"></label>
+        </div>
+        <div class="link-active">
+            <label for="active-note-2">Se enviara a notificación push por esta publicación</label>
+            <input type="checkbox" name="" id="active-note-2">
+            <label class="check-note" for="active-note-2"></label>
+        </div>
+        <div class="btn-create">
+          <div class="btn-return">
+              <input type="button" value="Volver" class="volver" (click)="volverFerias()">
+          </div>
+          <div class="btn-add">
+            <button type="submit">Añadir</button>
+          </div>
+        </div>
+      </form>
+    </ion-grid>
+  </div>
+</ion-content>

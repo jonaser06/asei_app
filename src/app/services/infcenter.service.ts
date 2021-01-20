@@ -94,9 +94,10 @@ export class InfcenterService {
   }
 
   /* ferias */
-  get_infcenterFerias(){
+
+  get_infcenterFerias(page = 1,limit = 4, last=false){
     return new Promise (resolve => {
-      this.http.get(`${URL}/notes/ferias`)
+      this.http.get(`${URL}/notes/ferias?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);
@@ -107,10 +108,65 @@ export class InfcenterService {
     });
   }
 
+  get_infcenterFeriasID(id){
+    return new Promise ( resolve =>{
+      this.http.get(`${URL}/notes/${id}`)
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  create_infcenterFerias(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/new`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  update_infcenterFerias(formdata, id){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/${id}/update`, formdata)
+      .subscribe( resp => {
+        console.log(resp);
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_infcenterFerias(id){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/notes/${id}/delete`)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+
   /* Aniversarios */
-  get_infcenterAniversarios(){
+
+  get_infcenterAniversarios(page = 1, limit = 4, last=false){
     return new Promise (resolve => {
-      this.http.get(`${URL}/notes/aniversarios`)
+      this.http.get(`${URL}/notes/aniversarios?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);
@@ -121,6 +177,60 @@ export class InfcenterService {
     });
   }
   
+  get_infcenterAniversariosID(id){
+    return new Promise ( resolve =>{
+      this.http.get(`${URL}/notes/${id}`)
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  create_infcenterAniversarios(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/new`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  update_infcenterAniversarios(formdata, id){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/${id}/update`, formdata)
+      .subscribe( resp => {
+        console.log(resp);
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_infcenterAniversarios(id){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/notes/${id}/delete`)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+
   /* eventos */
   get_infcenterEventos(){
     return new Promise (resolve => {
@@ -134,5 +244,58 @@ export class InfcenterService {
       });
     });
   }
+  get_infcenterEventosID(id){
+    return new Promise ( resolve =>{
+      this.http.get(`${URL}/notes/${id}`)
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  create_infcenterEventos(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/new`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  update_infcenterEventos(formdata, id){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/notes/${id}/update`, formdata)
+      .subscribe( resp => {
+        console.log(resp);
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_infcenterEventos(id){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/notes/${id}/delete`)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
 
 }

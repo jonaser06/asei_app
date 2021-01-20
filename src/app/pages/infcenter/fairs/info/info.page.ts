@@ -10,7 +10,7 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 })
 export class InfoPage implements OnInit {
 
-  feriasData ; any;
+  feriasData : any;
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
     this.get_Ferias()}
@@ -28,7 +28,7 @@ export class InfoPage implements OnInit {
   get_Ferias(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.infcenterService.get_infcenterNewsID(id)
+    this.infcenterService.get_infcenterFeriasID(id)
     .then(resp=>{
       this.feriasData = resp;
       this.feriasData = this.feriasData.data;
@@ -36,5 +36,8 @@ export class InfoPage implements OnInit {
     })
     .catch();
   }
+
+  openDialogInfo(){}
+    
 
 }

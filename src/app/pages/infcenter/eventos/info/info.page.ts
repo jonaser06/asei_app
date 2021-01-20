@@ -27,7 +27,7 @@ export class InfoPage implements OnInit {
   get_Eventos(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    this.infcenterService.get_infcenterNewsID(id)
+    this.infcenterService.get_infcenterEventosID(id)
     .then(resp=>{
       this.eventosData = resp;
       this.eventosData = this.eventosData.data;
@@ -36,6 +36,8 @@ export class InfoPage implements OnInit {
     .catch();
   }
 
+  openDialogInfo(){}
+    
 
 
 }

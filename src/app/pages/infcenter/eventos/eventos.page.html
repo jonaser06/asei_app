@@ -34,18 +34,16 @@
                     <h3>Eventos Pasados</h3>
                 </div>
 
-                <app-buscador></app-buscador>
+                <app-buscador (buscatxt)="search_($event)"></app-buscador>      
 
                 <div class="cards-news">
-                    <app-card-items *ngFor="let item of eventosData?.notes" [news_child]="item" (idNews)="openNew_($event)">
-
+                    <app-card-items *ngFor="let item of eventosData?.notes" [news_child]="item" (idEventos)="openEventos_($event)" (idEventosE)="editEventos_($event)" (idEventosR)="removeEventos_($event)">
+                       
                     </app-card-items>
                 </div>
-                <app-paginador></app-paginador>
+                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
             </div>
         </ion-grid>
-
-       
     </div>
     <app-footer></app-footer>
 </ion-content>
