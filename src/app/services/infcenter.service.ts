@@ -13,9 +13,9 @@ export class InfcenterService {
   constructor( private http: HttpClient) { }
 
   /* buscador */
-  search_infcenter(section, key){
+  search_infcenter(section, page = 1, key){
     return new Promise (resolve => {
-      this.http.get(`${URL}/notes/search/${section}?search=${key}`)
+      this.http.get(`${URL}/notes/search/${section}?search=${key}&page=${page}`)
       .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);
