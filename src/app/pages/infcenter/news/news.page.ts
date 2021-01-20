@@ -14,7 +14,7 @@ export class NewsPage implements OnInit {
   pages : any;
   currentpage : any;
   URL = environment.url;
-  
+  currentkey : any;
 
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
@@ -61,14 +61,19 @@ export class NewsPage implements OnInit {
 
   changepage_(page){
     let pages = [];
-    this.infcenterService.get_infcenterNews(page)
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    this.infcenterService.search_infcenter('noticias', page, this.currentkey)
     .then(resp=>{
       this.NewsData = resp['data'];
-      for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.NewsData.page;
+      if(resp['status']){
+        for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.NewsData.page;
+      }
     })
-    .catch();
+    .catch(err=>{
+      console.log('ocurrio un error');
+    });
   }
   
   openNew_(ID_NO){
@@ -87,10 +92,17 @@ export class NewsPage implements OnInit {
     .catch();
   }
   search_(buscatxt){
-    this.infcenterService.search_infcenter('noticias', buscatxt)
+    let pages = [];
+    this.currentkey = buscatxt;
+    this.infcenterService.search_infcenter('noticias', 1, buscatxt)
     .then(resp=>{ 
       console.log('Buscar nota : '+buscatxt);
       this.NewsData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.NewsData.page;
+      }
     })
     .catch();
   }
