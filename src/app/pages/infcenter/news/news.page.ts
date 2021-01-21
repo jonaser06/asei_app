@@ -15,6 +15,7 @@ export class NewsPage implements OnInit {
   currentpage : any;
   URL = environment.url;
   currentkey : any;
+  
 
   dialogReadNews: boolean = false;
   dialogCreateNews: boolean = false;
