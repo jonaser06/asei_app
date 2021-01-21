@@ -30,7 +30,7 @@ export class FairsPage implements OnInit {
   ngOnInit() {
   }
 
- 
+
 
   createDialogFerias(){
     // this.dialogFeriasCreate = true;
