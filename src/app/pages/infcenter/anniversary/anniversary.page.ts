@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { InfcenterService } from '../../../services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
 
@@ -15,6 +16,7 @@ export class AnniversaryPage implements OnInit {
   pages : any;
   currentpage : any;
   currentkey : any;
+  URL = environment.url;
 
   aniversarioData: any;
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 

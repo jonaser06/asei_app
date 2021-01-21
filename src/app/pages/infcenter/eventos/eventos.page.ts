@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
+import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../../services/redireccion.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class EventosPage implements OnInit {
   pages : any;
   currentpage : any;
   currentkey: any;
+  URL = environment.url;
 
 
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
