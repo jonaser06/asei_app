@@ -14,6 +14,7 @@ export class AnniversaryPage implements OnInit {
   dialogAnniversaryRead: boolean = false;
   pages : any;
   currentpage : any;
+  currentkey : any;
 
   aniversarioData: any;
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
@@ -53,14 +54,19 @@ export class AnniversaryPage implements OnInit {
 
   changepage_(page){
     let pages = [];
-    this.infcenterService.get_infcenterAniversarios(page)
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    this.infcenterService.search_infcenter('aniversarios', page, this.currentkey)
     .then(resp=>{
-      this.aniversarioData= resp['data'];
-      for(let i = 1 ; i <= this.aniversarioData.pages; i++ ){pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.aniversarioData.page;
+      this.aniversarioData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.aniversarioData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.aniversarioData.page;
+      }
     })
-    .catch();
+    .catch(err=>{
+      console.log('ocurrio un error');
+    });
   }
 
   openAniversarios_(ID_NO){
@@ -82,13 +88,21 @@ export class AnniversaryPage implements OnInit {
   }
   
   search_(buscatxt){
-    this.infcenterService.search_infcenter('aniversario', buscatxt)
+    let pages = [];
+    this.currentkey = buscatxt;
+    this.infcenterService.search_infcenter('aniversarios', 1, buscatxt)
     .then(resp=>{ 
-      console.log('Buscar aniversario : '+buscatxt);
+      console.log('Buscar Aniversarios : '+buscatxt);
       this.aniversarioData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.aniversarioData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.aniversarioData.page;
+      }
     })
     .catch();
   }
   openDialogInfo(){}
+
 
 }

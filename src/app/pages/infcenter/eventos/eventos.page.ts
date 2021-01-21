@@ -15,6 +15,7 @@ export class EventosPage implements OnInit {
   eventosData: any;
   pages : any;
   currentpage : any;
+  currentkey: any;
 
 
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
@@ -54,16 +55,20 @@ export class EventosPage implements OnInit {
   }    
   changepage_(page){
     let pages = [];
-    this.infcenterService.get_infcenterEventos(page)
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    this.infcenterService.search_infcenter('eventos', page, this.currentkey)
     .then(resp=>{
-      this.eventosData= resp['data'];
-      for(let i = 1 ; i <= this.eventosData.pages; i++ ){pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.eventosData.page;
+      this.eventosData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.eventosData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.eventosData.page;
+      }
     })
-    .catch();
+    .catch(err=>{
+      console.log('ocurrio un error');
+    });
   }
- 
 
   openEventos_(ID_NO){
     this.redireccionService.redireccion('/tabs/infcenter/eventos/info/'+ID_NO);
@@ -83,10 +88,17 @@ export class EventosPage implements OnInit {
   }
 
   search_(buscatxt){
-    this.infcenterService.search_infcenter('eventos', buscatxt)
+    let pages = [];
+    this.currentkey = buscatxt;
+    this.infcenterService.search_infcenter('eventos', 1, buscatxt)
     .then(resp=>{ 
-      console.log('Buscar eventos : '+buscatxt);
+      console.log('Buscar Eventos : '+buscatxt);
       this.eventosData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.eventosData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.eventosData.page;
+      }
     })
     .catch();
   }
