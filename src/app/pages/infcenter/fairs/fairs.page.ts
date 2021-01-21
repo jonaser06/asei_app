@@ -19,6 +19,7 @@ export class FairsPage implements OnInit {
   pages : any;
   currentpage : any;
   URL = environment.url;
+  currentkey : any;
   
 
   feriasData: any;
@@ -64,7 +65,8 @@ export class FairsPage implements OnInit {
 
   changepage_(page){
     let pages = [];
-    this.infcenterService.get_infcenterFerias(page)
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    this.infcenterService.search_infcenter('ferias', 1, page)
     .then(resp=>{
       this.feriasData = resp['data'];
       for(let i = 1 ; i <= this.feriasData.pages; i++ ){pages.push(i)}
@@ -91,10 +93,17 @@ export class FairsPage implements OnInit {
     .catch();
   }
   search_(buscatxt){
-    this.infcenterService.search_infcenter('ferias', buscatxt)
+    let pages = [];
+    this.currentkey = buscatxt;
+    this.infcenterService.search_infcenter('ferias', 1, buscatxt)
     .then(resp=>{ 
       console.log('Buscar feria : '+buscatxt);
       this.feriasData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.feriasData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.feriasData.page;
+      }
     })
     .catch();
   }

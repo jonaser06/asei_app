@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { InfcenterService } from '../../../services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
 
@@ -14,6 +15,8 @@ export class AnniversaryPage implements OnInit {
   dialogAnniversaryRead: boolean = false;
   pages : any;
   currentpage : any;
+  URL = environment.url;
+  currentkey : any;
 
   aniversarioData: any;
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
@@ -53,6 +56,7 @@ export class AnniversaryPage implements OnInit {
 
   changepage_(page){
     let pages = [];
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
     this.infcenterService.get_infcenterAniversarios(page)
     .then(resp=>{
       this.aniversarioData= resp['data'];
@@ -82,10 +86,17 @@ export class AnniversaryPage implements OnInit {
   }
   
   search_(buscatxt){
-    this.infcenterService.search_infcenter('aniversario', buscatxt)
+    let pages = [];
+    this.currentkey = buscatxt;
+    this.infcenterService.search_infcenter('aniversario', 1, buscatxt)
     .then(resp=>{ 
-      console.log('Buscar aniversario : '+buscatxt);
+      console.log('Buscar nota : '+buscatxt);
       this.aniversarioData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.aniversarioData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.aniversarioData.page;
+      }
     })
     .catch();
   }
