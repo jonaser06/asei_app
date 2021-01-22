@@ -3,8 +3,18 @@
     <div class="container">
       <div class="row-actions-top">
           <div class="title-section-container">
-              <h3 class="title-section color-news">Eventos Enero 2021</h3>
+            <div class="title-arrow">
+               <!-- Flecha a la izquierda -->
+               <div class="left-arrow">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+
+              <div class="title">
+                <h3 class="title-section color-news">Noticias</h3>
+                <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+              </div>
           </div>
+        </div>
       </div>
     </div>
 
@@ -19,6 +29,7 @@
               <h4 class="title-anniversary">{{ eventosData?.titulo }}</h4>
   
               <div class="date">
+                <ion-icon class="icon-calendar" name="calendar-outline"></ion-icon>
                   <p>{{ eventosData?.fecha_publicacion }}</p>
               </div>
           </div>

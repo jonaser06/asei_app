@@ -3,8 +3,18 @@
     <div class="container">
       <div class="row-actions-top">
           <div class="title-section-container">
-              <h3 class="title-section color-news">Aniversario Enero 2021</h3>
+            <div class="title-arrow">
+               <!-- Flecha a la izquierda -->
+               <div class="left-arrow">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+
+              <div class="title">
+                <h3 class="title-section color-news">Noticias</h3>
+                <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+              </div>
           </div>
+        </div>
       </div>
     </div>
 
@@ -19,17 +29,25 @@
               <h4 class="title-anniversary">{{ aniversarioData?.titulo }}</h4>
   
               <div class="date">
+                <ion-icon class="icon-calendar" name="calendar-outline"></ion-icon>
                   <p>{{ aniversarioData?.fecha_inicio }}</p>
               </div>
-          </div>
-          
-          {{ aniversarioData?.resumen }}
 
-          <p class="italic-paragraph">Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en 
-          demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar 
-          el texto final. Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de 
-          tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.</p>
-      
+              <div class="stars-btn">
+                <p>Calificación</p>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star-outline"></ion-icon>
+                <p class="number-stars">4.5</p>
+              </div>
+          </div>
+
+   
+
+          <p class="italic-paragraph">{{ aniversarioData?.resumen }} </p>
+
           <p class="question-anniversary">What is Lorem Ipsum?</p>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
           industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type 
@@ -48,8 +66,26 @@
           Various versions have evolved over the years, sometimes by accident, sometimes on purpose 
           (injected humour and the like).</p>
               
-          <div class="link-original">
-              <p>Ver en la pagina original</p>
+          <div class="content-link">
+            <div class="title">
+              <p>Enlaces</p>
+            </div>
+
+            <div class="content-link-2">
+              <div class="link-1 link-all">
+                <ion-icon class="icon-link" name="link-outline"></ion-icon>
+                <a target="_blank" href="http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129">
+                  http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129
+                </a>
+              </div>
+
+              <div class="link-2 link-all">
+                <ion-icon class="icon-link" name="link-outline"></ion-icon>
+                <a target="_blank" href="https://www.facebook.com/">
+                  https://www.facebook.com/
+                </a>
+              </div>
+            </div>
           </div>
   
           <div class="content-button">

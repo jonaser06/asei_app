@@ -1,3 +1,27 @@
+.row-actions-top .title-section-container .title-arrow {
+    display: flex;
+    align-items: center;
+}
+
+.row-actions-top .title-section-container .title-arrow .left-arrow {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.4em;
+    color: #828282;
+}
+
+.row-actions-top .title-section-container .title-arrow .title {
+    margin-left: 0.5em;
+}
+
+.row-actions-top .title-section-container .title-arrow .title p {
+    font-family: Calibri;
+    font-weight: 300;
+    color: #828282;
+    font-style: italic;
+}
+
+
 .info-anniversary {
     display: flex;
     flex-direction: column;
@@ -99,38 +123,47 @@
 
 .modal-anniversary .content-title-date {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-@media (min-width: 800px) {
+/* @media (min-width: 800px) {
     .modal-anniversary .content-title-date {
         flex-direction: row;
         align-items: center;
         margin-bottom: 1em;
     }
-}
+} */
 
 .modal-anniversary .content-title-date .title-anniversary {
-    color: #DF8708;
+    color: #24344D;
     font-family: Calibri;
     font-size: 1.4em;
     margin: 0;
     padding: 0;
     font-weight: 700;
-    margin-bottom: 1em;
-}
-
-@media (min-width: 768px) {
-    .modal-anniversary .content-title-date .title-anniversary {
-        margin-top: 1em;
-        margin-bottom: 0;
-    }
+    margin-top: 1em;
 }
 
 .modal-anniversary .content-title-date .date {
-    margin-top: 1em;
+    color: #24344D;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+}
+
+@media (min-width: 768px) {
+    .modal-anniversary .content-title-date .date {
+        margin-top: 1em;
+    }
+}
+
+.modal-anniversary .content-title-date .date .icon-calendar {
+    margin-right: 0.5em;
+    font-size: 1.4em;
+    font-weight: 800;
 }
 
 .modal-anniversary .content-title-date p {
@@ -138,6 +171,43 @@
     margin: 0;
     padding: 0;
     font-weight: 400;
+}
+
+.content-title-date .stars-btn {
+    display: flex;
+    align-items: center;
+}
+
+.content-title-date .stars-btn p {
+    color: #24344D;
+    margin-right: 0.5em;
+}
+
+.content-title-date .stars-btn {
+    color: #DF8708;
+    margin-bottom: 0.8em;
+}
+
+.content-title-date .stars-btn .number-stars {
+    color: #DF8708;
+    margin: 0;
+    padding: 0;
+    font-weight: 700;
+    margin-left: 0.8em;
+    font-size: 16px;
+}
+
+.content-title-date .stars-btn .stars {
+    margin-right: 0.4em;
+}
+
+.content-title-date .stars:last-child {
+    margin-right: 0;
+}
+
+.modal-anniversary {
+    box-shadow: 0 8px 9px rgba(0,0,0,0.25);
+    padding: 2em;
 }
 
 .modal-anniversary .italic-paragraph {
@@ -156,6 +226,46 @@
     margin-top: 1.5em;
 }
 
+.modal-anniversary .content-link {
+    margin-top: 1em;
+    margin-bottom: 0.8em;
+    width: 100%;
+}
+
+.modal-anniversary .content-link .title {
+    color: #24344D;
+    margin-bottom: 0.8em;
+}
+
+.modal-anniversary .content-link .content-link-2 .icon-link {
+    margin-right: 0.5em;
+    font-size: 20px;
+}
+
+.modal-anniversary .content-link .content-link-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-anniversary .content-link .content-link-2 .link-all {
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+@media (min-width: 650px) {
+    .modal-anniversary .content-link .content-link-2 .link-all {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.modal-anniversary .content-link .content-link-2 .link-all a {
+    display: block;
+    width: 100%;
+    color: #24344D;
+}
+
+/* 
 .modal-anniversary .link-original {
     color: #DF8708;
     font-size: 1em;
@@ -181,9 +291,14 @@
     width: 15em;
     margin: 0 2em;
     cursor: pointer;
-}
+} */
 
 .notes-anniversary {
+    box-shadow: 0px 8px 9px rgba(0,0,0,0.25);
+    padding: 1em;
+    height: 100%;
+    width: 100%;
+    margin: auto;
     margin-top: 2em;
 }
 
@@ -191,48 +306,119 @@
     .notes-anniversary {
         margin-top: 0em;
         margin-left: 2em;
+        flex-basis: calc(40% - 1em);
+        width: 100%;
     }
 }
+
+.notes-anniversary h3 {
+    color: #24344D;
+    line-height: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.notes-anniversary .title-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.notes-anniversary .title-content .arrows {
+    display: flex;
+    align-items: center;
+    margin-left: 1em;
+}
+
+.notes-anniversary .title-content .arrows .left-arrow .icon-btn {
+    font-size: 25px;
+    color: #828282;
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+
+.notes-anniversary .title-content .arrows .right-arrow .icon-btn {
+    font-size: 25px;
+    color: #828282;
+    cursor: pointer;
+}
+
+@media (min-width: 1150px) {
+    .notes-anniversary h3 {
+        text-align: center;
+    }
+}
+
+.notes-anniversary .cards-notes {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+/* @media (min-width: 800px) {
+    .notes-anniversary .cards-notes {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1150px) {
+    .notes-anniversary .cards-notes {
+        flex-direction: column;
+    }
+} */
 
 .notes-anniversary .card-note {
     display: flex;
     justify-content: center;
     margin-bottom: 1em;
+    flex-basis: calc(50% - 0.2em);
 }
 
 .notes-anniversary .card-note .text-content {
-    flex-basis: calc(50%);
+    flex-basis: calc(70%);
+}
+
+@media (min-width: 1150px) {
+    .notes-anniversary .card-note .text-content {
+        flex-basis: calc(50%);
+    }
 }
 
 .notes-anniversary .card-note .notes-img {
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px 0 0 15px;
 }
 
 .notes-anniversary .card-note .text-content {
-    padding: 0.3em;
+    padding: 0.8em;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0 10px 10px 0;
-    border: 1px solid #828282;
     border-left: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.notes-anniversary .card-note .text-content .date {
+.notes-anniversary .card-note .text-content .date p {
     font-family: Calibri;
     font-size: 12px;
     padding: 0;
     margin: 0;
-    margin-bottom: 0.3em;
+    margin-bottom: 0.8em;
 }
 
 .notes-anniversary .card-note .text-content h5 {
-    font-family: Calibri;
-    font-size: 18px;
-    font-weight: 700;
-    color: #DF8708;
+    font-family: 'Lucida Sans';
+    font-size: 14px;
+    font-weight: normal;
+    color: #24344D;
     padding: 0;
+    line-height: 18px;
+    letter-spacing: 0.035em;
     margin: 0;
 }
 
