@@ -11,6 +11,20 @@ export class StatisticsService {
 
   constructor(private http: HttpClient) { }
 
+    /* buscador */
+    search_estadisticos(section, page = 1, key){
+      return new Promise (resolve => {
+        this.http.get(`${URL}/notes/search/${section}?search=${key}&page=${page}`)
+        .subscribe( resp =>{
+          if(resp['status']){
+            resolve(resp);
+          }else{
+            resolve(resp);
+          }
+        });
+      });
+    }
+
   get_statistics(){
     return new Promise ( resolve => {
       this.http.get(`${URL}/getchart`)

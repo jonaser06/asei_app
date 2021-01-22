@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../services/redireccion.service';
+import { InfcenterService } from '../../services/infcenter.service';
 
 @Component({
   selector: 'app-stadistics',
@@ -20,6 +21,12 @@ export class StadisticsPage implements OnInit {
   indicador_data : any ;
   bulletin_data : any;
   URL = environment.url;
+
+  /*paginador*/
+
+  currentkey : any;
+  currentpage : any;
+  pages : any;
 
 
   dialogNewStat: boolean = false;
@@ -63,7 +70,7 @@ export class StadisticsPage implements OnInit {
   // rol
   rol : String ;
   @Output() updateView = new EventEmitter();
-  constructor(public authService: AuthService, private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
+  constructor(public authService: AuthService, private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService, private infcenterService: InfcenterService ) {
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
@@ -76,37 +83,16 @@ export class StadisticsPage implements OnInit {
     console.log('constructor');
   }
 
-  ngOnInit() {
-    console.log('0. ngOnInit');
-  }
-
-  ionViewDidEnter(){
-    console.log('1. ionViewDidEnter');
-  }
-  ionViewDidLoad(){
-    console.log('2. ionViewDidLoad');
-  }
-  ionViewWillEnter(){
-    console.log('3. ionViewWillEnter');
-  }
-  ionViewWillLeave(){
-    console.log('4. ionViewWillLeave');
-  }
-  ionViewDidLeave(){
-    console.log('5. ionViewDidLeave');
-  }
-  ionViewWillUnload(){
-    console.log('6. ionViewWillUnload');
-  }
+  ngOnInit() { }
 
 // sesion data 
 
-current_rol(){
-  this.authService.get_data()
-  .then(resp=>{
-    this.rol = resp['data']['rol'];
-  });
-}
+  current_rol(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.rol = resp['data']['rol'];
+    });
+  }
 
   //Estadisticas
   openDialogStat() {
@@ -127,6 +113,10 @@ current_rol(){
     reader.onload = () => {
         this.imagestat = reader.result;
     };
+  }
+  adjuntfile(event){
+    this.filebull = event.target.files[0];
+    console.log(this.filebull);
   }
 
   stat(fStat: NgForm){
@@ -230,12 +220,12 @@ current_rol(){
       .catch();
     }else if(this.bull_rmv){
       let formdata = new FormData;
-      formdata.append('id', this.id_ind);
+      formdata.append('id', this.idbull);
   
-      this.indicadorService.new_indicador(formdata)
+      this.bulletinService.del_bulletin(formdata)
       .then(resp=>{ 
         this.closeDialogRemove();
-        this.load_indicador();
+        this.load_bulletin();
         this.bull_rmv = false;
       })
       .catch();
@@ -334,6 +324,12 @@ current_rol(){
   // Boletin
   openDialogBulletin() {
     this.dialogBulletin = true;
+    this.filebull = '';
+    if(!this.isEdited){
+      this.monthbull = '';
+      this.yearbull = '';
+      this.titlebull = '';
+    }
   }
   closeDialogBulletin() {
     this.dialogBulletin = false;
@@ -351,9 +347,10 @@ current_rol(){
     this.openDialogBulletin();
 
   }
-  removeBulletin(item){
+  removeBulletin(id){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR BOLETÍN";
+    this.idbull = id;
     this.bull_rmv = true;
   }
 
@@ -367,6 +364,8 @@ current_rol(){
         this.years.push(data.year);
       });
       this.years = [...new Set(this.years)];
+      this.years.sort((a, b) => b - a );
+      // console.log(this.years.sort((a, b) => a - b ));
       this.bulletin_data = resp['data'];
     })
     .catch(err=>{
@@ -375,10 +374,47 @@ current_rol(){
   }
 
   bulletedit(fbullet: NgForm){
+    console.log(this.filebull);
+    if(!this.idbull) return this.uiserviceService.alert_info('No se encontro el id del boletin, actualizar');
+    if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    if(!this.monthbull) return this.uiserviceService.alert_info('Es necesario el mes');
+    if(!this.yearbull) return this.uiserviceService.alert_info('Es necesario año');
+    if(!this.titlebull) return this.uiserviceService.alert_info('Es necesario un titulo');
+
+    let formdata = new FormData;
+    formdata.append('id', this.idbull);
+    formdata.append('title', this.titlebull);
+    formdata.append('month', this.monthbull);
+    formdata.append('year', this.yearbull);
+    formdata.append('file', this.filebull);
+
+    this.bulletinService.edit_bulletin(formdata)
+    .then(resp=>{ 
+      this.closeDialogBulletin();
+      this.load_bulletin();
+    })
+    .catch();
 
   }
   bullet(fbullet: NgForm){
-    
+    if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    if(!this.monthbull) return this.uiserviceService.alert_info('Es necesario el mes');
+    if(!this.yearbull) return this.uiserviceService.alert_info('Es necesario año');
+    if(!this.titlebull) return this.uiserviceService.alert_info('Es necesario un titulo');
+
+    let formdata = new FormData;
+    formdata.append('title', this.titlebull);
+    formdata.append('month', this.monthbull);
+    formdata.append('year', this.yearbull);
+    formdata.append('file', this.filebull);
+
+    this.bulletinService.new_bulletin(formdata)
+    .then(resp=>{ 
+      this.closeDialogBulletin();
+      this.load_bulletin();
+    })
+    .catch();
+
   }
 
   //Indicadores
@@ -391,6 +427,22 @@ current_rol(){
     this.dialogRemove = false;
   }
   
+  changepage_(page){
+    let pages = [];
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    this.statisticsService.search_estadisticos('noticias', page, this.currentkey)
+    .then(resp=>{
+      this.statistics_data = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.statistics_data.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.statistics_data.page;
+      }
+    })
+    .catch(err=>{
+      console.log('ocurrio un error');
+    });
+  }
   
   
 

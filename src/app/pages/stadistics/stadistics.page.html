@@ -48,9 +48,40 @@
                 </ion-row>
             </ion-grid>
 
+            <!-- <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador> -->
+            <div class="number-option">
+                <div class="left-option">
+                    <ion-icon name="chevron-back-outline"></ion-icon>
+                </div>
+            
+            <div class="numbers-option">
+                    <div class="number-one number-all">
+                        <p>1</p>
+                    </div>
+                    <div class="number-two number-all">
+                        <p>2</p>
+                    </div>
+                    <div class="number-three number-all">
+                        <p>3</p>
+                    </div>
+                    <div class="number-four number-all">
+                        <p>4</p>
+                    </div>
+                    <div class="number-five number-all">
+                        <p>5</p>
+                    </div>
+                    <div class="number-six number-all">
+                        <p>6</p>
+                    </div>
+                </div>
+                <div class="right-option">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </div>
+            </div>
+
             <ion-grid class="section-grid">
                 <ion-row>
-                    <ion-col size-xl="6" size-lg="6" size-md="6" size-sm="12" size-xs="12">
+                    <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
                         <div class="row-actions-top">
                             <div class="title-section-container">
                                 <h3 class="title-section">Boletines asei</h3>
@@ -81,11 +112,27 @@
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                             </button>
                         </div>
+                        <ion-row >
+                            <div class="indicators">
+                                <div class="left-arrow">
+                                    <ion-icon class="left-btn" name="chevron-back-outline"></ion-icon>
+                                </div>
 
-                        <ion-row>
-                            <ion-col size-xl="6" size-lg="6" size-md="12" size-sm="12" size-xs="12" class="pt-0 pb-0" *ngFor="let indicador of indicador_data">
+                            <div class="target-indicator" >
+                            <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="8" size-xs="12" class="pt-0 pb-0" *ngFor="let indicador of indicador_data">
                                 <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
                             </ion-col>
+                        
+                            </div>
+                            <div class="right-arrow">
+                                <ion-icon class="right-btn" name="chevron-forward-outline"></ion-icon>
+                            </div>
+
+                            <div class="buttons">
+                                <div class="content-btn"></div>
+                                <div class="content-btn"></div>
+                            </div>
+                            </div>
                         </ion-row>
                     </ion-col>
                 </ion-row>
@@ -201,13 +248,13 @@
                                 <div class="year">
                                     <p>Año*</p>
                                     <select name="year" [(ngModel)]="yearbull">
-                                      <option value="2020" *ngFor="let item of [2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009]" >{{ item }}</option>
+                                      <option [value]="item" *ngFor="let item of [2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013]" >{{ item }}</option>
                                   </select>
                                 </div>
                             </div>
 
                             <p>Añade data del boletin</p>
-                            <input type="file" accept="application/pdf">
+                            <input type="file" accept="application/pdf" (change)="adjuntfile($event)">
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
 

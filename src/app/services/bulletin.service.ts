@@ -36,4 +36,30 @@ export class BulletinService {
       });
     });
   }
+
+  edit_bulletin(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/editbulletin`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  del_bulletin(formdatas){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/deletebulletin`, formdatas)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
 }
