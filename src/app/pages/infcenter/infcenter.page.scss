@@ -94,7 +94,6 @@
     .cards-section .cards-content {
         margin-top: 0.3em;
     }
-    
 }
 
 .cards-section .cards-content img {
@@ -121,16 +120,14 @@
         display: none;
         visibility: hidden;
     }
-
     .cards-section .cards-content img.img-part2 {
         display: inline;
         visibility: visible;
     }
-
     .cards-section .cards-content img.img-part3 {
         display: none;
         visibility: hidden;
-    } 
+    }
 }
 
 @media (min-width: 768px) {
@@ -138,16 +135,14 @@
         display: none;
         visibility: hidden;
     }
-
     .cards-section .cards-content img.img-part2 {
         display: none;
         visibility: hidden;
     }
-
     .cards-section .cards-content img.img-part3 {
         display: inline;
         visibility: visible;
-    } 
+    }
 }
 
 @media (min-width: 851px) {
@@ -155,16 +150,14 @@
         display: none;
         visibility: hidden;
     }
-
     .cards-section .cards-content img.img-part2 {
         display: inline;
         visibility: visible;
     }
-
     .cards-section .cards-content img.img-part3 {
         display: none;
         visibility: hidden;
-    } 
+    }
 }
 
 .cards-section .cards-content h5 {
@@ -360,17 +353,17 @@
 
 @media (min-width: 600px) {
     .cards-section .news-section,
-.cards-section .anniversary-section,
-.cards-section .fairs-section,
-.cards-section .events-section,
-.cards-section .calendar-section,
-.cards-section .projects-section {
-    flex-basis: calc(50% - 0.3em);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .cards-section .anniversary-section,
+    .cards-section .fairs-section,
+    .cards-section .events-section,
+    .cards-section .calendar-section,
+    .cards-section .projects-section {
+        flex-basis: calc(50% - 0.3em);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 @media (min-width: 768px) {
@@ -393,7 +386,9 @@
     }
 }
 
+
 /* Modal 1 */
+
 .sections-modal p {
     margin: 0;
     padding: 0;

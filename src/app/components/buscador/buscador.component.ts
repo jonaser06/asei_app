@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RedireccionService } from '../../services/redireccion.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-buscador',
@@ -10,7 +12,7 @@ export class BuscadorComponent implements OnInit {
 
 
   @Output() buscatxt = new EventEmitter();
-  constructor() { }
+  constructor(private router: Router,private redireccionService: RedireccionService) { }
 
   ngOnInit() {}
 
@@ -18,5 +20,11 @@ export class BuscadorComponent implements OnInit {
     let input = (<HTMLInputElement>document.querySelector('.buscatxt')).value;
     this.buscatxt.emit(input);
   }
+  
+  createSection(){
+    const { url } = this.router;
+    this.redireccionService.redireccion(`${url}/create`);
+  }
+   
 
 }

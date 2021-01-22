@@ -1,49 +1,61 @@
 <ion-content class="content-section">
-  <app-navigation-tabs></app-navigation-tabs>
-  <div class="layout-section">
-    <div class="container">
-        <div class="row-actions-top">
-            <div class="title-section-container">
-                <h3 class="title-section color-news">Noticias Recientes</h3>
-                <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+    <app-navigation-tabs></app-navigation-tabs>
+    <div class="layout-section">
+        <div class="container">
+            <div class="row-actions-top">
+                <div class="title-section-container">
+                    <div class="title-arrow">
+                        <!-- Flecha a la izquierda -->
+                        <div class="left-arrow">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+
+                        <div class="title">
+                            <h3 class="title-section color-news">Noticias</h3>
+                            <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Admin -->
+            <div class="actions-page no-web">
+                <button class="btn-new-item" (click)="createNews()">
+                <span>Crear Noticias</span>
+                <ion-icon class="icon-btn" name="add-circle"></ion-icon>
+              </button>
             </div>
         </div>
 
-        <!-- Admin -->
-        <div class="actions-page">
-          <button class="btn-new-item" (click)="createNews()">
-              <span>Crear</span>
-              <ion-icon class="icon-btn" name="add"></ion-icon>
-          </button>
-        </div>  
+        <ion-grid class="section-grid">
+            <div class="news-grid">
+                <app-buscador (buscatxt)="search_($event)"></app-buscador>
+                <!-- Solo usuarios -->
+                <div class="recent-news">
+                    <h3>Noticias Recientes</h3>
+                </div>
+                <div class="cards-news">
+                    <app-card-items *ngFor="let item of OldData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)">
+                    </app-card-items>
+                </div>
+                <app-paginador [paginas]="pagesOld" [pagina]="currentpageOld" (number_page)="changepage_Old($event)"></app-paginador>
+
+                <!-- <app-card-slider></app-card-slider> -->
+
+                <div class="recent-news">
+                    <h3>Noticias Pasadas</h3>
+                </div>
+
+                <div class="cards-news">
+                    <app-card-items *ngFor="let item of NewsData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)">
+                    </app-card-items>
+                </div>
+
+                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
+
+            </div>
+        </ion-grid>
+
     </div>
-
-    <ion-grid class="section-grid" >
-      <div class="news-grid">
-        <!-- <div class="date-year">
-          <h3>Enero 2021</h3>
-        </div> -->
-      
-        <app-card-slider></app-card-slider>
-
-        <div class="recent-news">
-          <h3>Noticias Pasadas</h3>
-        </div>
-
-        <app-buscador (buscatxt)="search_($event)"></app-buscador>        
-
-        
-        <div class="cards-news">
-          <app-card-items *ngFor="let item of NewsData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)"> 
-          </app-card-items>
-        </div>
-        
-        <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
-
-      </div>
-    </ion-grid>
-
-  </div>
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 </ion-content>
-
