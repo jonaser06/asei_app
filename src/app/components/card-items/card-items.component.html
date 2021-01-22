@@ -6,15 +6,15 @@
     <div class="text-content">
         <div class="text">
             <div class="date">
-                {{ news_child.fecha_inicio }}
+                <ion-icon class="icon-calendar" name="calendar-clear-outline"></ion-icon>
+                <p>Publicado : {{ news_child.fecha_publicacion }}</p>
             </div>
         </div>
-        <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
-        <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
-
+        <div class="content-title">
+            <h5 (click)="openNew(news_child.ID_NO)">{{ news_child.titulo }}</h5>
+            <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
+        </div>
         <div class="btn-like">
-
-            <!-- Admin -->
             <div class="admin-edit">
                 <div class="edit" (click)="editNew(news_child.ID_NO)">
                     <ion-icon name="pencil-outline"></ion-icon>
@@ -24,19 +24,24 @@
                     <ion-icon name="trash"></ion-icon>
                 </div>
             </div>
-
-            <div class="btn-like">
-
-                <div class="stars-btn">
-                    <ion-icon class="stars" name="star"></ion-icon>
-                    <ion-icon class="stars" name="star"></ion-icon>
-                    <ion-icon class="stars" name="star"></ion-icon>
-                    <ion-icon class="stars" name="star"></ion-icon>
-                    <ion-icon class="stars" name="star-outline"></ion-icon>
-                </div>
-            </div>
-
         </div>
+
+        <!-- Admin -->
+
+        <div class="btn-like">
+
+            <div class="stars-btn">
+                <p>Calificación</p>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star-outline"></ion-icon>
+                <p class="number-stars">4.5</p>
+            </div>
+        </div>
+
+
     </div>
 
 </div>

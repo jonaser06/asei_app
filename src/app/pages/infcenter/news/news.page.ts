@@ -37,6 +37,7 @@ export class NewsPage implements OnInit {
   }
 
   createNews(){
+    console.log('ddd')
     // this.dialogCreateNews= true;
     this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }

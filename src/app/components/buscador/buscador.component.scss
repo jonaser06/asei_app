@@ -1,4 +1,3 @@
-
 .input-search {
     display: flex;
     align-items: center;
@@ -8,26 +7,104 @@
 
 @media (min-width: 768px) {
     .input-search {
-        width: 50%;
+        width: 50% !important;
     }
 }
 
 .input-search input[type="search"] {
     border-radius: 10px;
-    border: 1px solid #c4c4c4;
+    border: 1px solid #24344D;
     outline: none;
     padding: 0.6em;
     font-family: Calibri;
     flex: 1;
 }
 
+.input-search input[type="search"]::placeholder {
+    color: #24344D;
+}
+
 .input-search button {
+    position: absolute;
     padding: 0.8em;
     border-radius: 10px;
-    background-color: #24344D;
+    background-color: transparent;
     margin-left: 0.8em;
+    right: 0;
 }
 
 .input-search button .search-btn {
-    color: #fff;
+    // color: #fff;
+}
+
+@media (min-width: 900px) {
+    .actions-page.no-web {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.actions-page.no-mobil {
+    display: none;
+    visibility: hidden;
+}
+
+@media (min-width: 900px) {
+    .actions-page.no-mobil {
+        display: inline;
+        visibility: visible;
+    }
+    .actions-page.no-mobil .btn-new-item {
+        background-color: #f0f0f0;
+        color: #24344D;
+    }
+    .content-search .actions-page.no-mobil .icon-btn {
+        color: #24344D !important;
+        font-size: 20px !important;
+    }
+}
+
+.content-search {
+    width: 100%;
+}
+
+@media (min-width: 900px) {
+    .content-search {
+        background-image: url(../../../assets/img/fondo-section.jpg);
+        background-size: contain;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em;
+    }
+}
+
+.input-search {
+    display: flex;
+    align-items: center;
+    margin: 0.6em 0;
+    width: 100%;
+    position: relative;
+}
+
+.content-search .date-start.no-mobil,
+.content-search .date-end.no-mobil {
+    display: none;
+    visibility: hidden;
+}
+
+@media (min-width: 1250px) {
+    .content-search .date-start.no-mobil,
+    .content-search .date-end.no-mobil {
+        display: inline;
+        visibility: visible;
+    }
+    .content-search .date-start.no-mobil input[type="date"],
+    .content-search .date-end.no-mobil input[type="date"] {
+        color: #24344D;
+        padding: 0.5em 0.3em;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+    }
 }

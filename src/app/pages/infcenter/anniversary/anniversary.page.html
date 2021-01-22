@@ -31,11 +31,11 @@
                     <h3>Aniversarios Pasados</h3>
                 </div>
 
-                <app-buscador (buscatxt)="search_($event)"></app-buscador>      
+                <app-buscador (buscatxt)="search_($event)"></app-buscador>
 
                 <div class="cards-news">
                     <app-card-items *ngFor="let item of aniversarioData?.notes" [news_child]="item" (idAniversarios)="openAniversarios_($event)" (idAniversariosE)="editAniversarios_($event)" (idAniversariosR)="removeAniversarios_($event)">
-                       
+
                     </app-card-items>
                 </div>
 
@@ -44,7 +44,7 @@
 
         </ion-grid>
 
-       
+
     </div>
     <app-footer></app-footer>
 </ion-content>

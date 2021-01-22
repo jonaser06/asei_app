@@ -986,3 +986,12 @@
         width: 80%;
     }
 }
+
+@media (min-width: 900px) {
+    .section-grid .news-grid .cards-news .card-all {
+        flex-basis: calc(33% - 5em);
+    }
+    app-card-items {
+        flex-basis: calc(33% - 0.5em);
+    }
+}
