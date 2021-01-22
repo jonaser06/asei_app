@@ -77,23 +77,23 @@ export class FairsPage implements OnInit {
       console.log('ocurrio un error');
     });
   }
-  
 
   openFerias_(ID_NO){
     this.redireccionService.redireccion('/tabs/infcenter/fairs/info/'+ID_NO); 
   }
   editFerias_(ID_NO){
-    console.log('EDITAR FERIAS : '+ID_NO);
+    console.log('EDITAR FERIA : '+ID_NO);
     this.redireccionService.redireccion('/tabs/infcenter/fairs/edit/'+ID_NO);
   }
   removeFerias_(ID_NO){
-    this.infcenterService.delete_infcenterFerias(ID_NO)
+    this.infcenterService.delete_infcenterNews(ID_NO)
     .then(resp=>{ 
-      console.log('ELIMINAR NOTA : '+ID_NO);
+      console.log('ELIMINAR FERIA : '+ID_NO);
       this.getferias();
     })
     .catch();
   }
+
   search_(buscatxt){
     let pages = [];
     this.currentkey = buscatxt;
