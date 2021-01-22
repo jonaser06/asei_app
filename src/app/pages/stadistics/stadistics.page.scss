@@ -1,3 +1,123 @@
+.indicators {
+    overflow: hidden;
+}
+
+.indicators .left-arrow {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.indicators .right-arrow {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.indicators .target-indicator {
+    display: flex;
+    padding: 0 2em;
+}
+
+.indicators .right-arrow .right-btn,
+.indicators .left-arrow .left-btn {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+ .number-option {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+    margin-bottom: 1.5em;
+}
+
+ .number-option .numbers-option {
+    display: flex;
+    margin: 0 1em;
+}
+
+ .number-option p {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+@media (min-width: 600px) {
+     .number-option p {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (min-width: 768px) {
+     .number-option p {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+ .number-option .number-all {
+    margin-right: 0.8em;
+    transition: 0.5s ease;
+    cursor: pointer;
+    border: 1px solid #24344D;
+}
+
+ .number-option .number-all:hover {
+    background-color: #DF8708;
+    color: #fff;
+    border: none;
+}
+
+ .number-option .numbers-option .number-one {
+    color: #fff;
+    background-color: #DF8708;
+    border: none;
+}
+
+ .number-option .numbers-option .number-all:last-child {
+    margin: 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.content-btn {
+    width: 30px;
+    height: 5px;
+    background-color: #C4C4C4;
+    margin-right: 0.5em;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.content-btn:hover {
+    background-color: #DF8708;
+}
+
+.content-btn:nth-child(1) {
+    background-color: #DF8708;
+}
+
 // Card agregar stat
 .card-modal-1 {
     width: 100%;
