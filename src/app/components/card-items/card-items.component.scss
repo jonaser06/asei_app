@@ -124,7 +124,6 @@
 }
 
 .card-all .text-content .btn-like .admin-edit {
-    margin: 0.5em;
     margin-left: 0;
     display: flex;
 }
@@ -141,7 +140,7 @@
     background-color: #ffff;
     color: #24344D;
     border: 1px solid #24344D;
-    margin: 0.1em;
+    margin-right: 0.2em;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -151,10 +150,9 @@
 .card-all .text-content .btn-like .admin-edit .delete {
     padding: 0.4em;
     border-radius: 10px;
-    background-color: #24344D;
+    background-color: #F15642;
     color: #fff;
-    border: 1px solid #24344D;
-    margin: 0.1em;
+    border: 1px solid #F15642;
     cursor: pointer;
     display: flex;
     align-items: center;

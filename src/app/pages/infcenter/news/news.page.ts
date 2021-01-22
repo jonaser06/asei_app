@@ -12,9 +12,12 @@ export class NewsPage implements OnInit {
 
   news_data : any;
   pages : any;
+  pagesOld : any;
   currentpage : any;
+  currentpageOld : any;
   URL = environment.url;
   currentkey : any;
+  currentkeyOld : any;
   
 
   dialogReadNews: boolean = false;
@@ -22,9 +25,11 @@ export class NewsPage implements OnInit {
 
   /* noticias */
   NewsData : any;
+  OldData : any;
   
   constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
     this.getnoticia();
+    this.getOldnoticia();
   
   }
 
@@ -37,7 +42,6 @@ export class NewsPage implements OnInit {
   }
 
   createNews(){
-    console.log('ddd')
     // this.dialogCreateNews= true;
     this.redireccionService.redireccion('/tabs/infcenter/news/create');
   }
@@ -60,6 +64,20 @@ export class NewsPage implements OnInit {
     .catch();
     
   }
+  getOldnoticia(){
+    let pages = [];
+    this.infcenterService.get_infcenterNews(1,3,true)
+    .then(resp=>{
+      console.log(resp);
+      this.OldData = resp['data'];
+      for(let i = 1 ; i <= this.OldData.pages; i++ ){ pages.push(i)}
+      this.pagesOld = pages;
+      this.currentpageOld = this.OldData.page;
+
+    })
+    .catch();
+    
+  }
 
   changepage_(page){
     let pages = [];
@@ -71,6 +89,22 @@ export class NewsPage implements OnInit {
         for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
         this.pages = pages;
         this.currentpage = this.NewsData.page;
+      }
+    })
+    .catch(err=>{
+      console.log('ocurrio un error');
+    });
+  }
+  changepage_Old(page){
+    let pages = [];
+    this.currentkeyOld = ( this.currentkeyOld === undefined ) ? '':this.currentkeyOld;
+    this.infcenterService.search_infcenter('noticias', page, this.currentkeyOld)
+    .then(resp=>{
+      this.OldData = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.OldData.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpageOld = this.OldData.page;
       }
     })
     .catch(err=>{
@@ -99,11 +133,11 @@ export class NewsPage implements OnInit {
     this.infcenterService.search_infcenter('noticias', 1, buscatxt)
     .then(resp=>{ 
       console.log('Buscar nota : '+buscatxt);
-      this.NewsData = resp['data'];
+      this.OldData = resp['data'];
       if(resp['status']){
-        for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
-        this.pages = pages;
-        this.currentpage = this.NewsData.page;
+        for(let i = 1 ; i <= this.OldData.pages; i++ ){pages.push(i)}
+        this.pagesOld = pages;
+        this.currentpageOld = this.OldData.page;
       }
     })
     .catch();
