@@ -21,7 +21,7 @@
                             </a>
                             <a href="{{ bulletin.file }}" download="FileName">
                                 <button class="btn-outline-primary btn-bulletin-download">
-                                    <ion-icon name="eye-outline"></ion-icon>
+                                    <ion-icon name="eye-outline"></ion-icon> 
                                 </button>
                             </a>
                             <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="editItem(bulletin.id, bulletin.title, bulletin.month, bulletin.year, bulletin.file)">
