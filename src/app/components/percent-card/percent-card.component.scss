@@ -62,3 +62,36 @@
     right: 8px;
     top: 6px;
 }
+
+.percent-cards .admin-edit {
+    margin-top: 0.5em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.percent-cards .admin-edit .pencil-btn {
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: #ffff;
+    color: #24344D;
+    border: 1px solid #24344D;
+    margin: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.percent-cards .admin-edit .delete-btn {
+    padding: 0.4em;
+    border-radius: 10px;
+    background-color: #F15642;
+    color: #fff;
+    border: 1px solid #F15642;
+    margin: 0.1em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

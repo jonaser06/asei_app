@@ -8,6 +8,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../services/redireccion.service';
+import { InfcenterService } from '../../services/infcenter.service';
 
 @Component({
   selector: 'app-stadistics',
@@ -20,6 +21,12 @@ export class StadisticsPage implements OnInit {
   indicador_data : any ;
   bulletin_data : any;
   URL = environment.url;
+
+  /*paginador*/
+
+  currentkey : any;
+  currentpage : any;
+  pages : any;
 
 
   dialogNewStat: boolean = false;
@@ -63,7 +70,7 @@ export class StadisticsPage implements OnInit {
   // rol
   rol : String ;
   @Output() updateView = new EventEmitter();
-  constructor(public authService: AuthService, private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService ) {
+  constructor(public authService: AuthService, private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService, private infcenterService: InfcenterService ) {
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
@@ -391,6 +398,22 @@ current_rol(){
     this.dialogRemove = false;
   }
   
+  changepage_(page){
+    let pages = [];
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    this.statisticsService.search_estadisticos('noticias', page, this.currentkey)
+    .then(resp=>{
+      this.statistics_data = resp['data'];
+      if(resp['status']){
+        for(let i = 1 ; i <= this.statistics_data.pages; i++ ){pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.statistics_data.page;
+      }
+    })
+    .catch(err=>{
+      console.log('ocurrio un error');
+    });
+  }
   
   
 
