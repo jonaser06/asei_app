@@ -27,7 +27,7 @@
                             <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="editItem(bulletin.id, bulletin.title, bulletin.month, bulletin.year, bulletin.file)">
                                 <ion-icon name="create-outline"></ion-icon>
                             </button>
-                            <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="deleteItem({})">
+                            <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="deleteItem(bulletin.id)">
                                 <ion-icon name="trash-outline"></ion-icon>
                             </button>
                         </div>

@@ -201,13 +201,13 @@
                                 <div class="year">
                                     <p>Año*</p>
                                     <select name="year" [(ngModel)]="yearbull">
-                                      <option value="2020" *ngFor="let item of [2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009]" >{{ item }}</option>
+                                      <option [value]="item" *ngFor="let item of [2024,2023,2022,2021,2020,2019,2018,2017,2016,2015,2014,2013]" >{{ item }}</option>
                                   </select>
                                 </div>
                             </div>
 
                             <p>Añade data del boletin</p>
-                            <input type="file" accept="application/pdf">
+                            <input type="file" accept="application/pdf" (change)="adjuntfile($event)">
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
 
