@@ -44,6 +44,7 @@ export class BulletinListComponent implements OnInit {
         item.classList.remove("active");
       }
     });
+    
   }
 
 
