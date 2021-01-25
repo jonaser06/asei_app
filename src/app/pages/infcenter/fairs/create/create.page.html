@@ -3,8 +3,17 @@
         <div class="container">
             <div class="row-actions-top">
                 <div class="title-section-container">
-                    <h3 class="title-section color-news">Crear Ferias</h3>
-                    <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
+                    <div class="title-arrow">
+                        <!-- Flecha a la izquierda -->
+                        <div class="left-arrow">
+                          <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+        
+                        <div class="title">
+                          <h3 class="title-section color-news">Crear Feria</h3>
+                          <p class="subtitle-section color-news">Completa la información correspondiente a la feria</p>
+                        </div>
+                      </div>
                 </div>
             </div>
         </div>
@@ -12,25 +21,37 @@
         <ion-grid class="section-grid">
             <form action="" class="inputs-create" (ngSubmit)="createFerias(fFerias)" #fFerias="ngForm">
                 <div class="title">
-                    <label for="title-note">Título de la nota</label>
+                    <label for="title-note">Nombre de la feria</label>
                     <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
                 </div>
 
                 <div class="summary">
-                    <label for="summary-note">Resumen de la nota</label>
+                    <label for="summary-note">Resumen</label>
                     <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
                 </div>
 
                 <div class="text">
-                    <label for="text-note">Texto de la nota</label>
+                    <label for="text-note">Contenido</label>
                     <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
                 </div>
 
-                <!-- <div class="link">
-                    <label for="link-note">Link de la nota</label>
-                    <textarea name="" id="link-note"></textarea>
-                </div> -->
-
+                <div class="link">
+                    <label for="link-note">Enlaces</label>
+                    <div class="link-content-btn">
+                      <div class="link-input">
+                        <ion-icon class="link-btn" name="link-outline"></ion-icon>
+                        <textarea name="" id="link-note"></textarea>
+                      </div>
+            
+                      <div class="delete-link">
+                        <ion-icon name="trash"></ion-icon>
+                      </div>
+            
+                      <div class="add-link">
+                        <ion-icon name="add-outline"></ion-icon>
+                      </div>
+                    </div>
+                </div>
 
                 <div class="content-date-admin">
                     <div class="date">
@@ -43,33 +64,29 @@
                         <input type="date" name="fecha_fin" id="date-note" [(ngModel)]="fecha_fin">
                     </div>
                 </div>
-                <div class="content-date-admin">
-                    <div class="date">
-                        <label for="date-note">Hora de inicio</label>
-                        <input type="time" name="hora_inicio" id="date-note" [(ngModel)]="hora_inicio">
-                    </div>
 
-                    <div class="date">
-                        <label for="date-note">Hora de fin</label>
-                        <input type="time" name="hora_fin" id="date-note" [(ngModel)]="hora_fin">
+                <div class="add-img">
+                    <p>Selecciones imagen</p>
+                    <div class="content-add-img">
+                        <div class="content-img">
+                            <img src="{{ imagestat }}" alt="">
+                          </div>
+                
+                        <div class="image">
+                            <p>Añade Imagen</p>
+                            <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
+                        </div>
                     </div>
                 </div>
-                <div class="image">
-                    <p>Añade Imagen</p>
-                    <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
-                </div>
-
-                <div class="content-img">
-                    <img src="{{ imagestat }}" alt="">
-                  </div>
+                
 
                 <div class="link-active">
-                    <label for="active-note">Esta nota se vinculará con el calendario</label>
+                    <label for="active-note">Vincular con el calendario</label>
                     <input type="checkbox" name="" id="active-note">
                     <label class="check-note" for="active-note"></label>
                 </div>
                 <div class="link-active">
-                    <label for="active-note-2">Se enviara a notificación push por esta publicación</label>
+                    <label for="active-note-2">Enviar notificaciones push</label>
                     <input type="checkbox" name="" id="active-note-2">
                     <label class="check-note" for="active-note-2"></label>
                 </div>
@@ -80,7 +97,7 @@
                     </div>
 
                     <div class="btn-add">
-                        <button type="submit" >Añadir</button>
+                        <button type="submit">Guardar</button>
                     </div>
                 </div>
             </form>

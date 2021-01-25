@@ -63,7 +63,7 @@
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                           </button>
                         </div>
-
+                        
                         <div class="card boletin-card">
                             <div class="title-card">
                                 <h1 class="title no-margin">Historial de Boletines ASEI</h1>
@@ -74,6 +74,7 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
+        <!-- </ion-content> -->
             <ion-grid class="section-grid">
                 <ion-row>
                     <ion-col size-xl="12" size-lg="12" size-md="12" size-sm="12" size-xs="12">
@@ -88,17 +89,21 @@
                             </button>
                         </div>
                         <ion-row>
-                            <div class="indicators">
+                            
+                            <div class="indicators" >
                                 <div class="left-arrow">
                                     <ion-icon class="left-btn" name="chevron-back-outline"></ion-icon>
                                 </div>
+                             
 
                                 <div class="target-indicator">
+                                    
                                     <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12" class="pt-0 pb-0" *ngFor="let indicador of indicador_data">
                                         <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
                                     </ion-col>
-
+                                   
                                 </div>
+                                 
                                 <div class="right-arrow">
                                     <ion-icon class="right-btn" name="chevron-forward-outline"></ion-icon>
                                 </div>
@@ -108,6 +113,7 @@
                                     <div class="content-btn"></div>
                                 </div>
                             </div>
+  
                         </ion-row>
                     </ion-col>
                 </ion-row>

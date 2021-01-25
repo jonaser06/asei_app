@@ -1,3 +1,26 @@
+.row-actions-top .title-section-container .title-arrow {
+    display: flex;
+    align-items: center;
+}
+
+.row-actions-top .title-section-container .title-arrow .left-arrow {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.4em;
+    color: #828282;
+}
+
+.row-actions-top .title-section-container .title-arrow .title {
+    margin-left: 0.5em;
+}
+
+.row-actions-top .title-section-container .title-arrow .title p {
+    font-family: Calibri;
+    font-weight: 300;
+    color: #828282;
+    font-style: italic;
+}
+
 @media (min-width: 500px) {
     .section-grid .inputs-create {
         padding: 0 1.2em;
@@ -53,12 +76,21 @@
 }
 
 @media (min-width: 768px) {
-    .section-grid form {
+    .section-grid .inputs-create {
         width: 90%;
+        margin: auto;
+        box-shadow: 0 8px 8px rgba(0,0,0,0.25);
+        padding: 2em;
     }
 }
 
-.section-grid form label,
+@media (min-width: 950px) {
+    .section-grid .inputs-create {
+        width: 70%;
+    }
+}
+
+.section-grid form label, 
 .section-grid form p {
     margin: 0;
     padding: 0;
@@ -67,10 +99,16 @@
 }
 
 @media (min-width: 768px) {
-    .section-grid form label,
+    .section-grid form label, 
     .section-grid form p {
         font-size: 15px;
     }
+}
+
+.section-grid form label {
+    color: #828282;
+    font-size: 0.9em;
+    font-weight: normal;
 }
 
 .section-grid form textarea {
@@ -107,8 +145,30 @@
     height: 20em;
 }
 
+.section-grid form .link .link-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.section-grid form .link .link-input .link-btn {
+    color: #24344D;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+}
+
 .section-grid form .link textarea {
-    height: 6em;
+    height: 2.5em;
+    padding-left: 2.2em;
+    flex: 1;
 }
 
 @media (min-width: 768px) {
@@ -117,7 +177,39 @@
     }
 }
 
-.section-grid form .content-date-admin {
+.section-grid form .link .link-content-btn {
+    display: flex;
+    align-items: center;
+}
+
+.section-grid form .link .link-content-btn .delete-link {
+    color: #24344D;
+    border: 1px solid #24344D;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 0.3em;
+    margin: 0 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.section-grid form .link .link-content-btn .add-link {
+    color: #f0f0f0;
+    background-color: #24344D;
+    border-radius: 10px;
+    padding: 0.3em;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.section-grid form .content-date-admin,
+.section-grid form .content-date-admin-2 {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -126,11 +218,28 @@
 @media (min-width: 768px) {
     .section-grid form .content-date-admin {
         flex-direction: row;
-        width: 40%;
+        width: 100%;
+    }
+
+    .section-grid form .content-date-admin-2 {
+        flex-direction: row;
+        width: 50%;
     }
 }
 
 .section-grid form .date input[type="date"] {
+    margin: 0.7em 0;
+    padding: 0.5em;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    border: 1px solid #828282;
+    font-family: Calibri;
+    color: #24344D;
+}
+
+.section-grid form .date input[type="time"] {
     margin: 0.7em 0;
     padding: 0.5em;
     outline: none;
@@ -148,25 +257,50 @@
         margin-right: 0.5em;
         width: 100%;
     }
+
     .section-grid form .date:last-child {
         margin-right: 0;
     }
+
     .section-grid form .date input[type="date"] {
         width: 100%;
     }
+
+    .section-grid form .date input[type="time"] {
+        width: 100%;
+    }
+}
+
+.section-grid form .add-img {
+    margin-top: 0.5em;
+    width: 100%;
+}
+
+.section-grid form .add-img p {
+    color: #828282;
+    font-family: Calibri;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+.section-grid form .add-img .content-add-img {
+    display: flex;
+    align-items: center;
 }
 
 .section-grid form .image {
     position: relative;
     width: 10em;
+    margin-left: 1em;
 }
 
 .section-grid form .image p {
-    background: #f0f0f0;
-    border: 1px solid #828282;
-    border-radius: 0.5em;
-    padding: 0.5em 0.2em;
+    background: #F15642;
+    border-radius: 10px;
+    padding: 0.5em;
+    font-family: Calibri;
     text-align: center;
+    color: #fff;
 }
 
 .section-grid form .image input[type="file"] {
@@ -188,30 +322,57 @@
     align-items: center;
 }
 
+.section-grid form .content-img img {
+    max-width: 100%;
+    height: 9em;
+}
+
 @media (min-width: 700px) {
     .section-grid form .content-img {
         width: 70%;
+        height: 14em;
+    }
+
+    .section-grid form .content-img img {
+        height: 12em;
     }
 }
 
 @media (min-width: 768px) {
     .section-grid form .content-img {
-        width: 40%;
+        width: 50%;
     }
 }
 
 .section-grid form .link-active {
     margin-top: 0.8em;
+    margin-bottom: 1em;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 @media (min-width: 768px) {
     .section-grid form .link-active {
-        width: 40%;
+        width: 50%;
     }
+}
+
+.section-grid form .link-active label {
+    color: #828282;
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-right: 1em;
+}
+
+.section-grid form .link-active label.active-name {
+    color: #000;
+    margin-right: 1.5em;
+    margin-left: 3em;
+    font-size: 0.9em;
+    font-weight: normal;
+    font-family: 'Lucida Sans Regular';
 }
 
 .section-grid form .link-active input[type="checkbox"] {
@@ -226,10 +387,11 @@
     border: 1px solid #C4C4C4;
     transition: 0.5s ease;
     position: relative;
+    cursor: pointer;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked~.check-note,
-.section-grid form .link-active input[type="checkbox"]:checked~.check-note {
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note,
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note {
     background-color: #F7AA3D;
 }
 
@@ -246,8 +408,8 @@
     transition: 2s ease;
 }
 
-.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after,
-.section-grid form .link-active input[type="checkbox"]:checked~.check-note::after {
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after,
+.section-grid form .link-active input[type="checkbox"]:checked ~ .check-note::after {
     right: -10%;
     left: auto;
 }
@@ -289,20 +451,4 @@
 .section-grid .btn-create .btn-add button {
     background: #24344D;
     color: #fff;
-}
-
-.content-date-admin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-@media (min-width: 768px) {
-    .content-date-admin {
-        align-items: center;
-        flex-direction: row;
-        width: 80%;
-    }
 }
