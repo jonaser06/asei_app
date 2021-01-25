@@ -166,9 +166,14 @@ export class StadisticsPage implements OnInit {
   }
 
   load_statistics(){
+    let pages = [];
     this.statisticsService.get_statistics()
     .then(resp=>{
-      this.statistics_data = resp['data'];
+      this.statistics_data = resp['data']['content'];
+      for(let i = 1 ; i <= resp['data'].pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = resp['data'].page;
+      
     })
     .catch();
   }
@@ -277,7 +282,7 @@ export class StadisticsPage implements OnInit {
   load_indicador(){
     this.indicadorService.get_indicador()
     .then(resp=>{
-      this.indicador_data = resp['data'];
+      this.indicador_data = resp['data']['content'];
     })
     .catch();
   }
@@ -358,7 +363,7 @@ export class StadisticsPage implements OnInit {
     this.years = [];
     this.bulletinService.get_bulletin()
     .then(resp=>{
-      resp['data'].forEach( (data, index) =>{
+      resp['data']['content'].forEach( (data, index) =>{
         data.file = environment.url + '/' + data.file;
         // console.log(index);
         this.years.push(data.year);
@@ -366,7 +371,7 @@ export class StadisticsPage implements OnInit {
       this.years = [...new Set(this.years)];
       this.years.sort((a, b) => b - a );
       // console.log(this.years.sort((a, b) => a - b ));
-      this.bulletin_data = resp['data'];
+      this.bulletin_data = resp['data']['content'];
     })
     .catch(err=>{
       console.log(err);
@@ -429,21 +434,15 @@ export class StadisticsPage implements OnInit {
   
   changepage_(page){
     let pages = [];
-    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
-    this.statisticsService.search_estadisticos('noticias', page, this.currentkey)
+    this.statisticsService.get_statistics(page)
     .then(resp=>{
-      this.statistics_data = resp['data'];
-      if(resp['status']){
-        for(let i = 1 ; i <= this.statistics_data.pages; i++ ){pages.push(i)}
-        this.pages = pages;
-        this.currentpage = this.statistics_data.page;
-      }
+      this.statistics_data = resp['data']['content'];
+      for(let i = 1 ; i <= resp['data'].pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = resp['data'].page;
+      
     })
-    .catch(err=>{
-      console.log('ocurrio un error');
-    });
+    .catch();
   }
-  
-  
 
 }
