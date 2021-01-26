@@ -1,5 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { RedireccionService } from 'src/app/services/redireccion.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-card-items',
@@ -16,10 +20,14 @@ export class CardItemsComponent implements OnInit {
 
   URL = environment.url;
   
-  constructor() { }
+  constructor(private redireccionService: RedireccionService, private router: Router) { }
 
   ngOnInit() {}
-
+  
+  openNote (ID_NO) {
+    const { url } = this.router;
+    this.redireccionService.redireccion(`${url}/info/${ID_NO}`)
+  }
   openNew(ID_NO){
     this.idNews.emit(ID_NO);
   }

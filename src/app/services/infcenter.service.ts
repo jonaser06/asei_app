@@ -13,6 +13,10 @@ export class InfcenterService {
   constructor( private http: HttpClient) { }
 
   /* buscador */
+  redurect() {
+    console.log('re');
+  }
+
   search_infcenter(section, page = 1, key){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/search/${section}?search=${key}&page=${page}`)
@@ -45,6 +49,7 @@ export class InfcenterService {
     return new Promise ( resolve =>{
       this.http.get(`${URL}/notes/${id}`)
       .subscribe( resp =>{
+        console.log(resp);
         if(resp['status']){
           resolve(resp);
         }else{
