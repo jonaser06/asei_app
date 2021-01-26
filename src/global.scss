@@ -619,3 +619,29 @@ option {
     border-radius: 1em;
     font-size: 1em;
 }
+
+/**** Slide ****/
+.slick-dots li button{
+    width:18px !important;
+    height:5px !important;
+    border-radius:0px !important;
+    padding:0px !important;
+    background-color:darkgrey !important;
+}
+
+.slick-dots li button:before{
+content:"" !important;
+}
+
+.slick-dots .slick-active button{
+    background-color:#DF8708 !important;
+}
+
+.slick-prev:before, .slick-next:before{
+    opacity:1 !important;
+    color:#DF8708 !important;
+}
+
+.slick-slide{
+    margin:9px !important;
+}

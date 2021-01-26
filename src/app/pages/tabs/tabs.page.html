@@ -1,10 +1,20 @@
 <ion-header class="header-app" [translucent]="true">
     <div class="toolbar-header">
         <img class="logo-img" draggable="false" src="../../../assets/img/logo.png" />
+    
+        <ion-grid class="tabs-list" >
+            <ion-row class="row-tabs" >
+                    <ion-tab-button *ngFor="let menu of menues" class="tab-link-responsive" [tab]="menu.path">
+                        <ion-icon [name]="menu.icon"></ion-icon>
+                        <ion-label class="label-tab">{{ menu.nombre }}</ion-label>
+                    </ion-tab-button>
+            </ion-row>
+        </ion-grid>
+
         <div class="header-content-user">
             <button type="icon-start" class="tab-notify" (click)="goNotifications()">
               <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
-              <!-- <ion-badge color="primary" class="no-margin label-tab">.</ion-badge> -->
+       
               <ion-label class="no-margin label-tab"></ion-label>
           </button>
             <div class="separator-header"></div>
@@ -43,42 +53,7 @@
                 <ion-icon [name]="menu.icon"></ion-icon>
                 <ion-label class="label-item">{{ menu.nombre }}</ion-label>
             </ion-tab-button>
-            <!-- <ion-tab-button *ngIf='rol == "admin"' class="tab-link-responsive" tab="people">
-                <ion-icon name="people"></ion-icon>
-                <ion-label class="label-item">Usuarios</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button class="tab-link-responsive" tab="stadistics">
-                <ion-icon name="stats-chart"></ion-icon>
-                <ion-label class="label-item">Stadistics</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button *ngIf='rol == "admin"' class="tab-link-responsive" tab="map">
-                <ion-icon name="business"></ion-icon>
-                <ion-label class="label-item">Map</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button class="tab-link-responsive" tab="about">
-                <ion-icon name="book"></ion-icon>
-                <ion-label class="label-item">About</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button class="tab-link-responsive" tab="about">
-                <ion-icon name="calendar"></ion-icon>
-                <ion-label class="label-item">About</ion-label>
-            </ion-tab-button>
-
-            <ion-tab-button class="tab-link-responsive" tab="infcenter/news">
-                <ion-icon name="document-text"></ion-icon>
-                <ion-label class="label-item">News</ion-label>
-            </ion-tab-button> -->
-
-
-
-            <!-- <ion-tab-button class="tab-link-responsive" *ngFor="let item of authService.getCurrentNavigation()" [tab]="item.path">
-        <ion-icon [name]="item.icon"></ion-icon>
-        <ion-label class="label-item">{{item.name}}</ion-label>
-      </ion-tab-button> -->
+          
         </ion-tab-bar>
 
     </ion-tabs>

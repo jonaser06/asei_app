@@ -8,6 +8,7 @@ import { StadisticsPageRoutingModule } from './stadistics-routing.module';
 
 import { StadisticsPage } from './stadistics.page';
 import { ComponentsModule } from '../../components/components.module';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { ComponentsModule } from '../../components/components.module';
     IonicModule,
     StadisticsPageRoutingModule,
     ComponentsModule,
+    SlickCarouselModule,
   ],
   exports:[
     StadisticsPage

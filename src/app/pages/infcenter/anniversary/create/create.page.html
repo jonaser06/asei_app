@@ -3,8 +3,17 @@
         <div class="container">
             <div class="row-actions-top">
                 <div class="title-section-container">
-                    <h3 class="title-section color-news">Crear Aniversarios</h3>
-                    <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
+                    <div class="title-arrow">
+                        <!-- Flecha a la izquierda -->
+                        <div class="left-arrow">
+                          <ion-icon name="arrow-back-outline"></ion-icon>
+                        </div>
+        
+                        <div class="title">
+                          <h3 class="title-section color-news">Crear Aniversario</h3>
+                          <p class="subtitle-section color-news">Completa la información correspondiente al aniversario</p>
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>
@@ -12,55 +21,93 @@
         <ion-grid class="section-grid">
             <form action="" class="inputs-create" (ngSubmit)="createAniversario(fAniversario)" #fAniversario="ngForm">
                 <div class="title">
-                    <label for="title-note">Título de la nota</label>
+                    <label for="title-note">Nombre del aniversario</label>
                     <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
                 </div>
 
                 <div class="summary">
-                    <label for="summary-note">Resumen de la nota</label>
+                    <label for="summary-note">Resumen</label>
                     <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
                 </div>
 
                 <div class="text">
-                    <label for="text-note">Texto de la nota</label>
+                    <label for="text-note">Contenido</label>
                     <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
                 </div>
 
-                <!-- <div class="link">
-                    <label for="link-note">Link de la nota</label>
-                    <textarea name="" id="link-note"></textarea>
-                </div> -->
+                <div class="link">
+                    <label for="link-note">Enlaces</label>
+                    <div class="link-content-btn">
+                      <div class="link-input">
+                        <ion-icon class="link-btn" name="link-outline"></ion-icon>
+                        <textarea name="" id="link-note"></textarea>
+                      </div>
+            
+                      <div class="delete-link">
+                        <ion-icon name="trash"></ion-icon>
+                      </div>
+            
+                      <div class="add-link">
+                        <ion-icon name="add-outline"></ion-icon>
+                      </div>
+                    </div>
+                  </div>
 
                 <div class="content-date-admin">
                     <div class="date">
-                        <label for="date-note">Fecha publicación</label>
+                        <label for="date-note">Fecha de publicación</label>
                         <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
                     </div>
                     <div class="date">
-                        <label for="date-hour">Hora de publicación</label>
+                        <label for="date-hour">Hora de inicio</label>
                         <input type="time" name="hora_publicacion" id="date-hour" [(ngModel)]="hora_publicacion">
                     </div>
                 </div>
 
+                <div class="add-img">
+                    <p>Selecciones imagen</p>
+                    <div class="content-add-img">
+                        <div class="content-img">
+                            <img src="{{ imagestat }}" alt="">
+                        </div>
+                        <div class="image">
+                            <p>Seleccione imagen</p>
+                            <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
+                        </div>
+                    </div>
+                </div>
 
-                <div class="image">
-                    <p>Añade Imagen</p>
-                    <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
-                </div>
         
-                <div class="content-img">
-                    <img src="{{ imagestat }}" alt="">
-                </div>
+                
                 <div class="link-active">
-                    <label for="active-note">Esta nota se vinculará con el calendario</label>
+                    <label for="active-note">Enviar notificaciones push</label>
                     <input type="checkbox" name="" id="active-note">
                     <label class="check-note" for="active-note"></label>
                 </div>
                 <div class="link-active">
-                    <label for="active-note-2">Se enviara a notificación push por esta publicación</label>
+                    <label for="active-note-2">Vincular con el calendario</label>
                     <input type="checkbox" name="" id="active-note-2">
                     <label class="check-note" for="active-note-2"></label>
                 </div>
+
+                <div class="content-date-admin-2">
+                    <div class="date">
+                      <label for="date-note-3">Fecha calendario</label>
+                      <input type="date" name="" id="date-note-3">
+                    </div>
+                  </div>
+          
+                  <div class="content-date-admin">
+                    <div class="date">
+                      <label for="date-note-4">Hora inicio calendario</label>
+                      <input type="time" name="" id="date-note-4">
+                    </div>
+          
+                    <div class="date">
+                      <label for="date-note-5">Hora fin calendario</label>
+                      <input type="time" name="" id="date-note-5">
+                    </div>
+                  </div>
 
                 <div class="btn-create">
                     <div class="btn-return">
@@ -69,7 +116,7 @@
                     </div>
 
                     <div class="btn-add">
-                        <button type="submit">Añadir</button>
+                        <button type="submit">Guardar</button>
                     </div>
                 </div>
             </form>

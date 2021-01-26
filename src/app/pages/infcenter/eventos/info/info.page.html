@@ -10,8 +10,8 @@
               </div>
 
               <div class="title">
-                <h3 class="title-section color-news">Noticias</h3>
-                <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+                <h3 class="title-section color-news">Eventos</h3>
+                <p class="subtitle-section color-news">Revisa nuestras eventos recientes y pasadas</p>
               </div>
           </div>
         </div>
@@ -31,6 +31,21 @@
               <div class="date">
                 <ion-icon class="icon-calendar" name="calendar-outline"></ion-icon>
                   <p>{{ eventosData?.fecha_publicacion }}</p>
+              </div>
+
+              <div class="date">
+                <ion-icon class="icon-calendar" name="time-outline"></ion-icon>
+                <p>Hora: 3pm - 5pm</p>
+              </div>
+
+              <div class="stars-btn">
+                <p>Calificación</p>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star"></ion-icon>
+                <ion-icon class="stars" name="star-outline"></ion-icon>
+                <p class="number-stars">4.5</p>
               </div>
           </div>
           
@@ -58,16 +73,47 @@
           Various versions have evolved over the years, sometimes by accident, sometimes on purpose 
           (injected humour and the like).</p>
               
-          <div class="link-original">
-              <p>Ver en la pagina original</p>
+          <div class="content-link">
+            <div class="title">
+              <p>Enlaces</p>
+            </div>
+
+            <div class="content-link-2">
+              <div class="link-1 link-all">
+                <ion-icon class="icon-link" name="link-outline"></ion-icon>
+                <a target="_blank" href="http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129">
+                  http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129
+                </a>
+              </div>
+
+              <div class="link-2 link-all">
+                <ion-icon class="icon-link" name="link-outline"></ion-icon>
+                <a target="_blank" href="https://www.facebook.com/">
+                  https://www.facebook.com/
+                </a>
+              </div>
+            </div>
           </div>
-  
           <div class="content-button">
-              <button (click)="volverEventos()">Regresar</button>
+            <input type="button" value="Regresar" class="volver" (click)="volverEventos()">
           </div>
         </div>
   
         <div class="notes-anniversary">
+          <div class="title-content">
+            <h3>Más ferias</h3>
+
+            <div class="arrows">
+              <div class="left-arrow">
+                <ion-icon class="icon-btn" name="chevron-back-outline"></ion-icon>
+              </div>
+
+              <div class="right-arrow">
+                <ion-icon class="icon-btn" name="chevron-forward-outline"></ion-icon>
+              </div>
+            </div>
+          </div>
+
           <div class="cards-notes">
             <div class="card-1 card-note">
               <div class="img-content">
@@ -80,9 +126,6 @@
                 </div>
 
                 <h5>Feliz navidad les desea ASEI</h5>
-                <div class="see-note">
-                  <button class="none-mobile">Ver nota</button>
-                </div>
               </div>
             </div>
   
@@ -97,9 +140,6 @@
                 </div>
 
                 <h5>Feliz navidad les desea ASEI</h5>
-                <div class="see-note">
-                  <button class="none-mobile">Ver nota</button>
-                </div>
               </div>
             </div>
   
@@ -114,9 +154,6 @@
                 </div>
 
                 <h5>Feliz navidad les desea ASEI</h5>
-                <div class="see-note">
-                  <button class="none-mobile">Ver nota</button>
-                </div>
               </div>
             </div>
   
@@ -131,9 +168,6 @@
                 </div>
 
                 <h5>Feliz navidad les desea ASEI</h5>
-                <div class="see-note">
-                  <button class="none-mobile">Ver nota</button>
-                </div>
               </div>
             </div>
           </div>

@@ -129,6 +129,7 @@ export class NewsPage implements OnInit {
   search_(buscatxt){
     let pages = [];
     this.currentkey = buscatxt;
+    this.currentkeyOld = buscatxt;
     this.infcenterService.search_infcenter('noticias', 1, buscatxt)
     .then(resp=>{ 
       console.log('Buscar nota : '+buscatxt);
