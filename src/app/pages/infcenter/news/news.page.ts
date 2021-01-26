@@ -73,7 +73,6 @@ export class NewsPage implements OnInit {
       for(let i = 1 ; i <= this.OldData.pages; i++ ){ pages.push(i)}
       this.pagesOld = pages;
       this.currentpageOld = this.OldData.page;
-
     })
     .catch();
     
@@ -95,7 +94,7 @@ export class NewsPage implements OnInit {
       console.log('ocurrio un error');
     });
   }
-  changepage_Old(page){
+  changepageOld_(page){
     let pages = [];
     this.currentkeyOld = ( this.currentkeyOld === undefined ) ? '':this.currentkeyOld;
     this.infcenterService.search_infcenter('noticias', page, this.currentkeyOld)
