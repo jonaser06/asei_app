@@ -25,14 +25,17 @@ export class TabsPage implements OnInit {
       this.nombres = resp['data']['nombres']; 
       this.rol = resp['data']['rol'] 
       this.menues = resp['data']['permisos'];
+      console.log(this.menues);
     });
   }
-
+  setCurrentActive(path: string){
+    this.navCtrol.navigateRoot(`/tabs/${path}`);
+  }
   goProfile(){
-    this.navCtrol.navigateRoot("/")
+    // this.navCtrol.navigateRoot("/")
   }
   goNotifications() {
-    this.navCtrol.navigateRoot("/")
+    // this.navCtrol.navigateRoot("/")
   }
   logout (){
     if(this.authService.logout()){
