@@ -16,6 +16,7 @@ export class CreatePage implements OnInit {
   resumen : any;
   texto : any;
   seccion : any;
+  link : any;
   fecha_publicacion : any;
   hora_publicacion : any;
   fileToUploadstat: any;
@@ -43,7 +44,7 @@ export class CreatePage implements OnInit {
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
-    // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(!this.link) return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
 
@@ -53,6 +54,7 @@ export class CreatePage implements OnInit {
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('hora_publicacion', this.hora_publicacion);
+    formdata.append('link', this.link);
     formdata.append('seccion', 'noticias');
     formdata.append("files[]", this.fileToUploadstat);
 

@@ -18,6 +18,7 @@ export class EditPage implements OnInit {
   resumen : any;
   texto : any;
   seccion : any;
+  link : any;
   fecha_publicacion : any;
   fileToUploadstat: any;
   imagestat: any;
@@ -31,11 +32,13 @@ export class EditPage implements OnInit {
 
   get_newsid(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
+    console.log();
     this.infcenterService.get_infcenterNewsID(id)
     .then((resp: any)=>{
       
       this.titulo = resp.data.titulo;
       this.resumen = resp.data.resumen;
+      this.link = resp.data.link;
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
       this.fecha_publicacion = resp.data.fecha_publicacion;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
@@ -62,7 +65,7 @@ export class EditPage implements OnInit {
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
-    // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(!this.link) return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
 
     let formdata = new FormData;
@@ -73,6 +76,7 @@ export class EditPage implements OnInit {
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('seccion', 'noticias');
+    formdata.append('link', this.link);
     formdata.append("file", this.fileToUploadstat);
 
     this.infcenterService.update_infcenterNews(formdata, id)

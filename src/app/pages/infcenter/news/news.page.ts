@@ -27,7 +27,7 @@ export class NewsPage implements OnInit {
   NewsData : any;
   OldData : any;
   
-  constructor(private redireccionService: RedireccionService,private infcenterService: InfcenterService) { 
+  constructor(private redireccionService: RedireccionService, private infcenterService: InfcenterService) { 
     this.getnoticia();
     this.getOldnoticia();
   
@@ -112,10 +112,11 @@ export class NewsPage implements OnInit {
   }
   
   openNew_(ID_NO){
-    this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO); 
+    this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO);
   }
   editNew_(ID_NO){
     console.log('EDITAR NOTA : '+ID_NO);
+    // this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO);
     this.redireccionService.redireccion('/tabs/infcenter/news/edit/'+ID_NO);
   }
   removeNew_(ID_NO){

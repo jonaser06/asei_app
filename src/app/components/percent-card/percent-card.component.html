@@ -33,5 +33,15 @@
     <div class="description-percent">
         {{ card_ind.description }}
     </div>
-    
+
+    <!-- Admin -->
+    <div class="admin-edit">
+        <div class="pencil-btn">
+            <ion-icon name="pencil-outline" (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)" ></ion-icon>
+        </div>
+
+        <div class="delete-btn">
+            <ion-icon name="trash" (click)="deleteItem(card_ind.id)"></ion-icon>
+        </div>
+    </div>
 </div>

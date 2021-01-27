@@ -1,77 +1,108 @@
 <ion-content class="content-section">
   <div class="layout-section">
-    <div class="container">
-        <div class="row-actions-top">
-            <div class="title-section-container">
-                <h3 class="title-section color-news">Editar Noticia</h3>
-                <p class="subtitle-section color-news">Completa la información correspondiente a la nota</p>
-            </div>
-        </div>
-    </div>
+      <div class="container">
+          <div class="row-actions-top">
+              <div class="title-section-container">
+                <div class="title-arrow">
+                  <!-- Flecha a la izquierda -->
+                  <div class="left-arrow">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                  </div>
+  
+                  <div class="title">
+                    <h3 class="title-section color-news">Nueva Noticia</h3>
+                    <p class="subtitle-section color-news">Completa la información correspondiente a la noticia</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
 
-    <ion-grid class="section-grid">
-      <form action="" class="inputs-create" (ngSubmit)="editNews(fNews)" #fNews="ngForm">
-        <div class="title">
-          <label for="title-note">Título de la nota</label>
-          <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
-        </div>
+  <ion-grid class="section-grid">
+    <form class="inputs-create" (ngSubmit)="editNews(fNews)" #fNews="ngForm">
+      <div class="title">
+        <label for="title-note">Nombre de la noticia</label>
+        <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
+      </div>
 
-        <div class="summary">
-          <label for="summary-note">Resumen de la nota</label>
-          <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
-        </div>
+      <div class="summary">
+        <label for="summary-note">Resumen</label>
+        <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
+      </div>
 
-        <div class="text">
-          <label for="text-note">Texto de la nota</label>
-          <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
-        </div>
+      <div class="text">
+        <label for="text-note">Contenido</label>
+        <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
+      </div>
 
-        <!-- <div class="link">
-          <label for="link-note">Link de la nota</label>
-          <textarea name="" id="link-note"></textarea>
-        </div> -->
+      <div class="link">
+        <label for="link-note">Enlaces</label>
+        <div class="link-content-btn">
+          <div class="link-input">
+            <ion-icon class="link-btn" name="link-outline"></ion-icon>
+            <input class="link-class" type="text" name="link" [(ngModel)]="link">
+            <!-- <textarea name="" id="link-note"></textarea> -->
+          </div>
 
-        <div class="content-date-admin">
-          <div class="date">
-            <label for="date-note">Fecha de publicación</label>
-            <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+          <div class="delete-link">
+            <ion-icon name="trash"></ion-icon>
+          </div>
+
+          <div class="add-link">
+            <ion-icon name="add-outline"></ion-icon>
           </div>
         </div>
+      </div>
 
-        <div class="image">
-          <p>Añade Imagen</p>
-          <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
+      <div class="content-date-admin">
+        <div class="date">
+          <label for="date-note">Fecha de publicación</label>
+          <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
         </div>
+        <div class="date">
+          <label for="date-note-2">Hora de publicación</label>
+          <input type="time" name="hora_publicacion" id="date-note-2" [(ngModel)]="hora_publicacion">
+        </div>
+      </div>
 
+    <div class="add-img">
+      <p>Selecciones imagen</p>
+      <div class="content-add-img">
         <div class="content-img">
           <img src="{{ imagestat }}" alt="">
         </div>
+          <div class="image">
+            <p>Seleccione imagen</p>
+           <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
+          </div>
+        </div>
+      </div>
 
-        <!-- <div class="link-active">
-          <label for="active-note">Esta nota se vinculará con el calendario</label>
-          <input type="checkbox" name="" id="active-note">
-          <label class="check-note" for="active-note"></label>
+      
+
+      <!-- <div class="link-active">
+        <label for="active-note">Esta nota se vinculará con el calendario</label>
+        <input type="checkbox" name="" id="active-note">
+        <label class="check-note" for="active-note"></label>
+      </div> -->
+      <div class="link-active">
+          <label for="active-note-2">Enviar notificaciones push</label>
+          <input type="checkbox" name="" id="active-note-2">
+          <label class="check-note" for="active-note-2"></label>
+      </div>
+      <div class="btn-create">
+        <div>
+            <input value="Volver" class="btn-return_" (click)="volvernews()">
+        </div>
+        <!-- <div class="btn-return">
+          <button type="input" (click)="volvernews()">Volver</button>
         </div> -->
-
-        <div class="link-active">
-            <label for="active-note">Esta nota se vinculará con el calendario</label>
-            <input type="checkbox" name="" id="active-note">
-            <label class="check-note" for="active-note"></label>
+        <div class="btn-add">
+          <button type="submit">Guardar</button>
         </div>
-        <div class="link-active">
-            <label for="active-note-2">Se enviara a notificación push por esta publicación</label>
-            <input type="checkbox" name="" id="active-note-2">
-            <label class="check-note" for="active-note-2"></label>
-        </div>
-        <div class="btn-create">
-          <div class="btn-return">
-              <input type="button" value="Volver" class="volver" (click)="volvernews()">
-          </div>
-          <div class="btn-add">
-            <button type="submit">Añadir</button>
-          </div>
-        </div>
-      </form>
-    </ion-grid>
-  </div>
+      </div>
+    </form>
+  </ion-grid>
+</div>
 </ion-content>
+

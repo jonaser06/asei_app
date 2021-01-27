@@ -40,7 +40,8 @@
           <div class="link-content-btn">
             <div class="link-input">
               <ion-icon class="link-btn" name="link-outline"></ion-icon>
-              <textarea name="" id="link-note"></textarea>
+              <input class="link-class" type="text" name="link" [(ngModel)]="link">
+              <!-- <textarea name="" id="link-note"></textarea> -->
             </div>
   
             <div class="delete-link">
@@ -90,12 +91,12 @@
             <label class="check-note" for="active-note-2"></label>
         </div>
         <div class="btn-create">
-          <!-- <div class="btn-return">
-              <input type="submit" value="Volver" class="btn-return" (click)="volvernews()">
-          </div> -->
-          <div class="btn-return">
-            <button type="input" (click)="volvernews()">Volver</button>
+          <div>
+              <input value="Volver" class="btn-return_" (click)="volvernews()">
           </div>
+          <!-- <div class="btn-return">
+            <button type="input" (click)="volvernews()">Volver</button>
+          </div> -->
           <div class="btn-add">
             <button type="submit">Guardar</button>
           </div>
