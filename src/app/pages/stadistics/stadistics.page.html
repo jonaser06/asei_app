@@ -90,7 +90,7 @@
                         </div>
                         <ion-row>
                             
-                            <div class="indicators" >
+                            <!-- <div class="indicators" >
                                 <div class="left-arrow">
                                     <ion-icon class="left-btn" name="chevron-back-outline"></ion-icon>
                                 </div>
@@ -112,9 +112,16 @@
                                     <div class="content-btn"></div>
                                     <div class="content-btn"></div>
                                 </div>
-                            </div>
+                            </div> -->
   
                         </ion-row>
+
+                        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                            
+                            <div ngxSlickItem class="slide" *ngFor="let indicador of indicador_data">
+                                <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
+                            </div>
+                        </ngx-slick-carousel>
                     </ion-col>
                 </ion-row>
             </ion-grid>
