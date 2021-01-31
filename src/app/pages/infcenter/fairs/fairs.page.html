@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row-actions-top">
                 <div class="title-section-container">
-                    <h3 class="title-section color-news">Ferias Recientes</h3>
-                    <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+                    <h3 class="title-section color-news">Ferias Publicadas</h3>
+                    <p class="subtitle-section color-news">Revisa aqui las ferias mas destacadas de ASEI</p>
                 </div>
             </div>
 
@@ -27,13 +27,14 @@
 
                 <app-card-slider></app-card-slider>
 
-                <div class="recent-news">
-                    <h3>Ferias Pasadas</h3>
-                </div>
+               
 
                 <app-buscador (buscatxt)="search_($event)"></app-buscador>        
 
-        
+                 <div class="recent-news">
+                    <h3></h3>
+                </div>
+
                 <div class="cards-news">
                   <app-card-items *ngFor="let item of feriasData?.notes" [news_child]="item" (idFerias)="openFerias_($event)" (idFeriasE)="editFerias_($event)" (idFeriasR)="removeFerias_($event)"> 
                   </app-card-items>
