@@ -25,7 +25,6 @@ export class InfoPage implements OnInit {
 
   get_news(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.infcenterService.get_infcenterNewsID(id)
     .then(resp=>{
       this.NewData = resp;
