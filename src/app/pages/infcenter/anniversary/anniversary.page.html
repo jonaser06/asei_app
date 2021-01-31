@@ -4,8 +4,8 @@
         <div class="container">
             <div class="row-actions-top">
                 <div class="title-section-container">
-                    <h3 class="title-section color-news">Aniversarios Recientes</h3>
-                    <p class="subtitle-section color-news">Revisa aqui las noticias mas destacadas de ASEI</p>
+                    <h3 class="title-section color-news">Aniversarios Publicados</h3>
+                    <p class="subtitle-section color-news">Revisa aqui los aniversarios mas destacadas de ASEI</p>
                 </div>
             </div>
 
@@ -27,11 +27,13 @@
                 <app-card-slider></app-card-slider>
 
 
-                <div class="recent-news">
-                    <h3>Aniversarios Pasados</h3>
-                </div>
+                
 
                 <app-buscador (buscatxt)="search_($event)"></app-buscador>
+                
+                <div class="recent-news">
+                    <h3></h3> 
+               </div>
 
                 <div class="cards-news">
                     <app-card-items *ngFor="let item of aniversarioData?.notes" [news_child]="item" (idAniversarios)="openAniversarios_($event)" (idAniversariosE)="editAniversarios_($event)" (idAniversariosR)="removeAniversarios_($event)">
