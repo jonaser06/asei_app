@@ -33,16 +33,16 @@
                     <h3>Enero 2021</h3>
                 </div> -->
 
-                <app-card-slider></app-card-slider>
+                <!-- <app-card-slider></app-card-slider> -->
 
 
-                
+
 
                 <app-buscador (buscatxt)="search_($event)"></app-buscador>
-                
+
                 <div class="recent-news">
-                    <h3></h3> 
-               </div>
+                    <h3></h3>
+                </div>
 
                 <div class="cards-news">
                     <app-card-items *ngFor="let item of aniversarioData?.notes" [news_child]="item" (idAniversarios)="openAniversarios_($event)" (idAniversariosE)="editAniversarios_($event)" (idAniversariosR)="removeAniversarios_($event)">
@@ -50,7 +50,7 @@
                     </app-card-items>
                 </div>
 
-                <!-- <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador> -->
+                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
             </div>
 
         </ion-grid>
