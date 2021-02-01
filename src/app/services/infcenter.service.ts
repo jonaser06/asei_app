@@ -31,7 +31,7 @@ export class InfcenterService {
   }
 
   /* news */
-  get_infcenterNews(page = 1,limit = 3,last=false){
+  get_infcenterNews(page = 1,limit = 9,last=false){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/noticias?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
@@ -101,7 +101,7 @@ export class InfcenterService {
 
   /* ferias */
 
-  get_infcenterFerias(page = 1,limit = 3, last=false){
+  get_infcenterFerias(page = 1,limit = 9, last=false){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/ferias?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
@@ -170,7 +170,7 @@ export class InfcenterService {
 
   /* Aniversarios */
 
-  get_infcenterAniversarios(page = 1, limit = 3, last=false){
+  get_infcenterAniversarios(page = 1, limit = 9, last=false){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/aniversarios?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
