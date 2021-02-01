@@ -208,8 +208,7 @@
     cursor: pointer;
 }
 
-.section-grid form .content-date-admin,
-.section-grid form .content-date-admin-2 {
+.section-grid form .content-date-admin {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -219,11 +218,6 @@
     .section-grid form .content-date-admin {
         flex-direction: row;
         width: 100%;
-    }
-
-    .section-grid form .content-date-admin-2 {
-        flex-direction: row;
-        width: 50%;
     }
 }
 
@@ -451,4 +445,25 @@
 .section-grid .btn-create .btn-add button {
     background: #24344D;
     color: #fff;
+}
+.btn-return_{
+    color: #24344D;
+    background: #fff;
+    border: 1px solid #24344D;
+    outline: none;
+    text-align: center;
+    border-radius: 0.6em;
+    padding: 0.7em 2.7em;
+    margin-right: 5px;
+    width: 140px;
+    cursor: pointer;
+}
+
+.link-class{
+    width: 100%;
+    padding: 0.6em;
+    border: 1px solid #828282;
+    border-radius: 9px;
+    padding-left: 40px;
+    box-sizing: border-box;
 }
