@@ -66,7 +66,7 @@ export class NewsPage implements OnInit {
   }
   getOldnoticia(){
     let pages = [];
-    this.infcenterService.get_infcenterNews(1,3,true)
+    this.infcenterService.get_infcenterNews(1,9,true)
     .then(resp=>{
       console.log(resp);
       this.OldData = resp['data'];
