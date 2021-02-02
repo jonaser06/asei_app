@@ -92,7 +92,7 @@ export class EditPage implements OnInit {
     formdata.append('hora_fin', this.hora_inicio);
     formdata.append('link', this.link);
     formdata.append('seccion', 'aniversarios');
-    formdata.append("files[]", this.fileToUploadstat);
+    formdata.append("file", this.fileToUploadstat);
 
     this.infcenterService.update_infcenterAniversarios(formdata , id)
     .then(resp=>{ 
