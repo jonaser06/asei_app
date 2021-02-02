@@ -238,9 +238,10 @@ export class InfcenterService {
 
 
   /* eventos */
-  get_infcenterEventos(){
+
+  get_infcenterEventos(page = 1, limit = 9, last=false){
     return new Promise (resolve => {
-      this.http.get(`${URL}/notes/eventos`)
+      this.http.get(`${URL}/notes/eventos?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);
@@ -250,6 +251,7 @@ export class InfcenterService {
       });
     });
   }
+
   get_infcenterEventosID(id){
     return new Promise ( resolve =>{
       this.http.get(`${URL}/notes/${id}`)

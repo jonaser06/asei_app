@@ -18,8 +18,13 @@ export class CreatePage implements OnInit {
   // seccion : any;
   fecha_publicacion : any;
   hora_publicacion : any;
+  fecha_inicio: any;
+  fecha_fin: any;
+  hora_inicio: any;
+  hora_fin: any;
   fileToUploadstat: any;
   imagestat: any;
+  link: any;
 
   constructor(private redireccionService: RedireccionService, private uiserviceService: UiServiceService, private infcenterService: InfcenterService) { }
 
@@ -46,14 +51,21 @@ export class CreatePage implements OnInit {
     // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
+    if(!this.fecha_inicio) return this.uiserviceService.alert_info('Es necesario la fecha de inicio');
+    if(!this.hora_inicio) return this.uiserviceService.alert_info('Es necesario la hora de inico');
 
     let formdata = new FormData;
     formdata.append('titulo', this.titulo);
     formdata.append('resumen', this.resumen);
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
-    formdata.append('fecha_publicacion', this.hora_publicacion);
-    formdata.append('seccion', 'noticias');
+    formdata.append('hora_publicacion', this.hora_publicacion);
+    formdata.append('fecha_inicio', this.fecha_inicio);
+    formdata.append('hora_inicio', this.hora_inicio);
+    formdata.append('fecha_fin', this.fecha_inicio);
+    formdata.append('hora_fin', this.hora_inicio);
+    formdata.append('link', this.link);
+    formdata.append('seccion', 'aniversarios');
     formdata.append("files[]", this.fileToUploadstat);
 
     this.infcenterService.create_infcenterNews(formdata)

@@ -21,6 +21,8 @@ export class EditPage implements OnInit {
    // seccion : any;
    fecha_publicacion : any;
    hora_publicacion : any;
+   fecha_inicio : any;
+   hora_inicio : any;
    fileToUploadstat: any;
    imagestat: any;
  
@@ -42,6 +44,8 @@ export class EditPage implements OnInit {
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
       this.fecha_publicacion = resp.data.fecha_publicacion;
       this.hora_publicacion = resp.data.fecha_publicacion;
+      this.fecha_inicio = resp.data.fecha_inicio;
+      this.hora_inicio = resp.data.fecha_inicio;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
@@ -68,6 +72,8 @@ export class EditPage implements OnInit {
     // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
+    if(!this.fecha_inicio) return this.uiserviceService.alert_info('Es necesario la fecha de inicio');
+    if(!this.hora_inicio) return this.uiserviceService.alert_info('Es necesario la hora de inicio');
 
     let formdata = new FormData;
     let id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -77,7 +83,9 @@ export class EditPage implements OnInit {
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('hora_publicacion', this.hora_publicacion);
-    formdata.append('seccion', 'noticias');
+    formdata.append('fecha_inicio', this.fecha_inicio);
+    formdata.append('hora_inicio', this.hora_inicio);
+    formdata.append('seccion', 'aniversarios');
     formdata.append("files[]", this.fileToUploadstat);
 
     this.infcenterService.update_infcenterAniversarios(formdata , id)

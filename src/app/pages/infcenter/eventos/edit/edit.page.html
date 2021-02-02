@@ -31,12 +31,38 @@
           <textarea name="" id="link-note"></textarea>
         </div> -->
 
-        <div class="content-date-admin">
-          <div class="date">
-            <label for="date-note">Fecha de publicación</label>
-            <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+            <div class="content-date-admin">
+              <div class="date">
+                  <label for="date-note">Fecha de publicación</label>
+                  <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+                </div>
+                <div class="date">
+                  <label for="date-note-2">Hora de publicación</label>
+                  <input type="time" name="hora_publicacion" id="date-note-2" [(ngModel)]="hora_publicacion">
+                </div>
           </div>
-        </div>
+          <div class="content-date-admin">
+              <div class="date">
+                  <label for="date-note">Fecha de inicio</label>
+                  <input type="date" name="fecha_inicio" id="date-note" [(ngModel)]="fecha_inicio">
+              </div>
+
+              <div class="date">
+                  <label for="date-note">Fecha de fin</label>
+                  <input type="date" name="fecha_fin" id="date-note" [(ngModel)]="fecha_fin">
+              </div>
+          </div>
+          <div class="content-date-admin">
+              <div class="date">
+                  <label for="date-note">Hora de inicio</label>
+                  <input type="time" name="hora_inicio" id="date-note" [(ngModel)]="hora_inicio">
+              </div>
+
+              <div class="date">
+                  <label for="date-note">Hora de fin</label>
+                  <input type="time" name="hora_fin" id="date-note" [(ngModel)]="hora_fin">
+              </div>
+          </div>
 
         <div class="image">
           <p>Añade Imagen</p>

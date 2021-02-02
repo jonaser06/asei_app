@@ -18,6 +18,8 @@ export class EditPage implements OnInit {
   resumen : any;
   texto : any;
   // seccion : any;
+  fecha_publicacion: any;
+  hora_publicacion: any;
   fecha_inicio : any;
   fecha_fin : any;
   hora_inicio: any;
@@ -40,10 +42,12 @@ export class EditPage implements OnInit {
       this.titulo = resp.data.titulo;
       this.resumen = resp.data.resumen;
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
-      this.fecha_inicio = resp.data.fecha_publicacion;
-      this.fecha_fin = resp.data.fecha_publicacion;
-      this.hora_inicio = resp.data.fecha_publicacion;
-      this.hora_fin = resp.data.fecha_publicacion;
+      this.fecha_publicacion = resp.data.fecha_publicacion;
+      this.hora_publicacion = resp.data.hora_publicacion;
+      this.fecha_inicio = resp.data.fecha_inicio;
+      this.fecha_fin = resp.data.fecha_fin;
+      this.hora_inicio = resp.data.hora_inicio;
+      this.hora_fin = resp.data.hora_fin;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
@@ -70,6 +74,8 @@ export class EditPage implements OnInit {
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
     // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
+    if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
     if(!this.fecha_inicio) return this.uiserviceService.alert_info('Es necesario la fecha de inicio');
     if(!this.fecha_fin) return this.uiserviceService.alert_info('Es necesario la fecha de fin');
     if(!this.hora_inicio) return this.uiserviceService.alert_info('Es necesario la hora de inicio');
@@ -81,11 +87,13 @@ export class EditPage implements OnInit {
     formdata.append('titulo', this.titulo);
     formdata.append('resumen', this.resumen);
     formdata.append('texto', this.texto);
+    formdata.append('fecha_publicacion', this.fecha_publicacion);
+    formdata.append('hora_publicacion', this.hora_publicacion);
     formdata.append('fecha_inicio', this.fecha_inicio);
     formdata.append('fecha_fin', this.fecha_fin);
     formdata.append('hora_inicio', this.hora_inicio);
     formdata.append('hora_fin', this.hora_fin);
-    formdata.append('seccion', 'noticias');
+    formdata.append('seccion', 'ferias');
     formdata.append("files[]", this.fileToUploadstat);
 
     this.infcenterService.update_infcenterFerias (formdata, id)

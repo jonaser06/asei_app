@@ -55,6 +55,16 @@
 
                 <div class="content-date-admin">
                     <div class="date">
+                        <label for="date-note">Fecha de publicación</label>
+                        <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+                      </div>
+                      <div class="date">
+                        <label for="date-note-2">Hora de publicación</label>
+                        <input type="time" name="hora_publicacion" id="date-note-2" [(ngModel)]="hora_publicacion">
+                      </div>
+                </div>
+                <div class="content-date-admin">
+                    <div class="date">
                         <label for="date-note">Fecha de inicio</label>
                         <input type="date" name="fecha_inicio" id="date-note" [(ngModel)]="fecha_inicio">
                     </div>
