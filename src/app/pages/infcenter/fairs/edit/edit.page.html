@@ -10,14 +10,14 @@
     </div>
 
     <ion-grid class="section-grid">
-      <form action="" class="inputs-create" (ngSubmit)="editFerias(fFerias)" #fFerias="ngForm">
+      <form class="inputs-create" (ngSubmit)="editFerias(fFerias)" #fFerias="ngForm">
         <div class="title">
-          <label for="title-note">Título de la feria/label>
+          <label for="title-note">Título de la feria</label>
           <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
         </div>
 
         <div class="summary">
-          <label for="summary-note">Resumen de la feria/label>
+          <label for="summary-note">Resumen de la feria</label>
           <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
         </div>
 
