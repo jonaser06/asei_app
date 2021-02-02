@@ -12,6 +12,11 @@
 
 /* Core CSS required for Ionic components to work properly */
 
+@import "../node_modules/@swimlane/ngx-datatable/themes/bootstrap.css";
+@import "../node_modules/@swimlane/ngx-datatable/themes/material.css";
+@import "../node_modules/@swimlane/ngx-datatable/index.css";
+@import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
+
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -645,4 +650,37 @@ content:"" !important;
 
 .slick-slide{
     margin:9px !important;
+}
+
+ion-item {
+    --background:white !important; 
+    color:black !important;
+    border-color:transparent !important;
+    --border-color:transparent !important;
+  }
+
+  ion-item ion-icon{
+      color:black !important;
+      --border-color:transparent !important;
+  }
+
+  .item-inner{
+    border-color:transparent !important;
+  }
+
+
+  .swiper-pagination.swiper-pagination-bullets{
+    position:relative !important;
+}
+  
+
+.swiper-pagination-bullet-active
+{
+    background:#DF8708;
+}
+
+.swiper-pagination-bullet{
+    width:18px;
+    height:5px;
+    border-radius:0%;
 }

@@ -116,12 +116,21 @@
   
                         </ion-row>
 
-                        <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                        <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
                             
                             <div ngxSlickItem class="slide" *ngFor="let indicador of indicador_data">
                                 <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
                             </div>
-                        </ngx-slick-carousel>
+                        </ngx-slick-carousel> -->
+
+                        <button class="slick-prev slick-arrow" aria-label="Previous" type="button" (click)="prevSlide()">Previous</button>
+                          <ion-slides pager="true" [options]="slideOpts" #Slides>
+                            <ion-slide *ngFor="let indicador of indicador_data">
+                                <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
+                            </ion-slide>
+                        </ion-slides>
+                        <button class="slick-next slick-arrow" aria-label="Previous" type="button" (click)="nextSlide()">Previous</button>
+
                     </ion-col>
                 </ion-row>
             </ion-grid>

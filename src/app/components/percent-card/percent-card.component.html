@@ -1,7 +1,3 @@
-
-
-
-
 <div class="card percent-cards">
     <div class="absolute-right" *ngIf="rol=='admin'">
         <div class="drop-menu">
@@ -28,16 +24,16 @@
         {{ card_ind.percentage }}
     </div>
     <div class="title-percent">
-        <h1 class="title no-margin">{{ card_ind.title }}</h1>
+        {{ card_ind.title }}
     </div>
-    <div class="description-percent">
+    <!-- <div class="description-percent">
         {{ card_ind.description }}
-    </div>
+    </div> -->
 
     <!-- Admin -->
     <div class="admin-edit">
         <div class="pencil-btn">
-            <ion-icon name="pencil-outline" (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)" ></ion-icon>
+            <ion-icon name="pencil-outline" (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)"></ion-icon>
         </div>
 
         <div class="delete-btn">
