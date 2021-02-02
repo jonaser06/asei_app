@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BulletinService } from 'src/app/services/bulletin.service';
 import { StatisticsService } from 'src/app/services/statistics.service';
@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../services/redireccion.service';
 import { InfcenterService } from '../../services/infcenter.service';
+import { IonSlides } from '@ionic/angular';
 
 
 @Component({
@@ -85,9 +86,50 @@ export class StadisticsPage implements OnInit {
 
   slideConfig : any;
 
+  slideOpts={
+    initialSlide: 1,
+    speed: 400,
+    slidesPerView: Math.floor (window.innerWidth / 400),
+    breakpoints: {
+      400: {
+        
+        slidesPerView: 1,
+        spaceBetween: 30
+      
+      },
+      600: {
+        
+        slidesPerView: 2,
+        spaceBetween: 30
+      
+      },
+      800: {
+        
+          slidesPerView: 3,
+          spaceBetween: 20
+        
+      },
+      1200:{
+          slidesPerView: 4,
+          spaceBetween: 10
+      }
+    }
+  };
+  
+  @ViewChild(IonSlides) slides: IonSlides;
+
+
   ngOnInit() { }
 
-// sesion data 
+  nextSlide() {
+    this.slides.slideNext();
+   }
+
+  prevSlide() {
+    this.slides.slidePrev();
+  }
+
+  // sesion data 
 
   current_rol(){
     this.authService.get_data()
