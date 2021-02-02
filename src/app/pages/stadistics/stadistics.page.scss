@@ -535,3 +535,15 @@
     font-size: 30px;
     cursor: pointer;
 }
+
+app-percent-card {
+    width: 100%;
+}
+
+app-bulletin-list {
+    overflow: auto;
+}
+
+.boletin-card .title-card .title {
+    padding: 1rem !important;
+}
