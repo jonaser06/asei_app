@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { holdReady } from 'jquery';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
@@ -35,6 +36,8 @@ export class EditPage implements OnInit {
   }
 
   get_feriasid(){
+    console.log("hola");
+    return ;
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.infcenterService.get_infcenterFeriasID(id)
     .then((resp: any)=>{
@@ -69,6 +72,8 @@ export class EditPage implements OnInit {
     this.redireccionService.backpage();
   }
   editFerias(fFerias: NgForm){
+    console.log("hola");
+    return ;
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
