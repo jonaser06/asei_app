@@ -25,6 +25,7 @@ export class CreatePage implements OnInit {
    hora_fin: any;
    fileToUploadstat: any;
    imagestat: any;
+   link: any;
 
 
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService) { }
@@ -56,8 +57,8 @@ export class CreatePage implements OnInit {
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
     if(!this.fecha_inicio) return this.uiserviceService.alert_info('Es necesario la fecha de inicio');
     if(!this.fecha_fin) return this.uiserviceService.alert_info('Es necesario la fecha de fin');
-    if(!this.hora_inicio) return this.uiserviceService.alert_info('Es necesario la hora de inicio');
-    if(!this.hora_fin) return this.uiserviceService.alert_info('Es necesario la hora de fin');
+    // if(!this.hora_inicio) return this.uiserviceService.alert_info('Es necesario la hora de inicio');
+    // if(!this.hora_fin) return this.uiserviceService.alert_info('Es necesario la hora de fin');
 
     let formdata = new FormData;
     formdata.append('titulo', this.titulo);
@@ -69,6 +70,7 @@ export class CreatePage implements OnInit {
     formdata.append('fecha_fin', this.fecha_fin);
     formdata.append('hora_inicio', this.hora_inicio);
     formdata.append('hora_fin', this.hora_fin);
+    formdata.append('link', this.link);
     formdata.append('seccion', 'ferias');
     formdata.append("files[]", this.fileToUploadstat);
 

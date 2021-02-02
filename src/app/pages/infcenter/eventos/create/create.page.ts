@@ -24,6 +24,7 @@ export class CreatePage implements OnInit {
     hora_fin : any;
     fileToUploadstat: any;
     imagestat: any;
+    link: any;
 
   constructor(private redireccionService: RedireccionService, private infcenterService: InfcenterService, private uiserviceService: UiServiceService) { }
 
@@ -67,6 +68,7 @@ export class CreatePage implements OnInit {
     formdata.append('fecha_fin', this.fecha_fin);
     formdata.append('hora_inicio', this.hora_inicio);
     formdata.append('hora_fin', this.hora_fin);
+    formdata.append('link', this.link);
     formdata.append('seccion', 'eventos');
     formdata.append("files[]", this.fileToUploadstat);
 
