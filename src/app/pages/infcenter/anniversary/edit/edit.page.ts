@@ -16,15 +16,18 @@ export class EditPage implements OnInit {
 
    /* nueva Aniversario */
    titulo : any;
-   resumen : any;
-   texto : any;
-   // seccion : any;
-   fecha_publicacion : any;
-   hora_publicacion : any;
-   fecha_inicio : any;
-   hora_inicio : any;
-   fileToUploadstat: any;
-   imagestat: any;
+  resumen : any;
+  texto : any;
+  // seccion : any;
+  fecha_publicacion : any;
+  hora_publicacion : any;
+  fecha_inicio: any;
+  fecha_fin: any;
+  hora_inicio: any;
+  hora_fin: any;
+  fileToUploadstat: any;
+  imagestat: any;
+  link: any;
  
 
   constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
@@ -85,6 +88,9 @@ export class EditPage implements OnInit {
     formdata.append('hora_publicacion', this.hora_publicacion);
     formdata.append('fecha_inicio', this.fecha_inicio);
     formdata.append('hora_inicio', this.hora_inicio);
+    formdata.append('fecha_fin', this.fecha_inicio);
+    formdata.append('hora_fin', this.hora_inicio);
+    formdata.append('link', this.link);
     formdata.append('seccion', 'aniversarios');
     formdata.append("files[]", this.fileToUploadstat);
 

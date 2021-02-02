@@ -27,6 +27,7 @@ export class EditPage implements OnInit {
   hora_fin: any;
   fileToUploadstat: any;
   imagestat: any;
+  link: any;
 
   constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
     this.get_feriasid();
@@ -94,6 +95,7 @@ export class EditPage implements OnInit {
     formdata.append('fecha_fin', this.fecha_fin);
     formdata.append('hora_inicio', this.hora_inicio);
     formdata.append('hora_fin', this.hora_fin);
+    formdata.append('link', this.link);
     formdata.append('seccion', 'ferias');
     formdata.append("files[]", this.fileToUploadstat);
 

@@ -2,27 +2,36 @@
   <div class="layout-section">
     <div class="container">
         <div class="row-actions-top">
-            <div class="title-section-container">
-                <h3 class="title-section color-news">Editar Ferias</h3>
-                <p class="subtitle-section color-news">Completa la información correspondiente a la feria</p>
+          <div class="title-section-container">
+            <div class="title-arrow">
+              <!-- Flecha a la izquierda -->
+              <div class="left-arrow">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+
+              <div class="title">
+                <h3 class="title-section color-news">Editar Evento/h3>
+                <p class="subtitle-section color-news">Completa la información correspondiente al evento</p>
+              </div>
             </div>
+          </div>
         </div>
     </div>
 
     <ion-grid class="section-grid">
       <form action="" class="inputs-create" (ngSubmit)="editFerias(fFerias)" #fFerias="ngForm">
         <div class="title">
-          <label for="title-note">Título de la feria</label>
+          <label for="title-note">Título del evento</label>
           <textarea name="titulo" id="title-note" [(ngModel)]="titulo"></textarea>
         </div>
 
         <div class="summary">
-          <label for="summary-note">Resumen de la feria/label>
+          <label for="summary-note">Resumen del evento</label>
           <textarea name="resumen" id="summary-note" [(ngModel)]="resumen"></textarea>
         </div>
 
         <div class="text">
-          <label for="text-note">Texto de la feria</label>
+          <label for="text-note">Texto del evento/label>
           <textarea name="texto" id="text-note" [(ngModel)]="texto"></textarea>
         </div>
 

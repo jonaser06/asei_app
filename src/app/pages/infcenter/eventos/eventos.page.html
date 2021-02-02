@@ -46,7 +46,7 @@
                   <h3></h3> 
                 </div>
                 <div class="cards-news">
-                    <app-card-items *ngFor="let item of eventosData?.notes" [news_child]="item" (idEventos)="openEventos_($event)" (idEventosE)="editEventos_($event)" (idEventosR)="removeEventos_($event)">
+                    <app-card-items *ngFor="let item of eventosData?.notes" [news_child]="item" (idNews)="openEventos_($event)" (idNewsE)="editEventos_($event)" (idNewsR)="removeEventos_($event)">
                        
                     </app-card-items>
                 </div>

@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="cards-news">
-                    <app-card-items *ngFor="let item of aniversarioData?.notes" [news_child]="item" (idAniversarios)="openAniversarios_($event)" (idAniversariosE)="editAniversarios_($event)" (idAniversariosR)="removeAniversarios_($event)">
+                    <app-card-items *ngFor="let item of aniversarioData?.notes" [news_child]="item" (idNews)="openAniversarios_($event)" (idNewsE)="editAniversarios_($event)" (idNewsR)="removeAniversarios_($event)">
 
                     </app-card-items>
                 </div>
