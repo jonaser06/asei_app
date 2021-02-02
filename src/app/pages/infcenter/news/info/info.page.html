@@ -1,174 +1,179 @@
 <ion-content class="content-section">
     <div class="layout-section">
-        <div class="container">
-            <div class="row-actions-top">
-                <div class="title-section-container">
-                    <div class="title-arrow">
-                        <!-- Flecha a la izquierda -->
-                        <div class="left-arrow">
-                            <ion-icon name="arrow-back-outline"></ion-icon>
-                        </div>
-
-                        <div class="title">
-                            <h3 class="title-section color-news">Ferias</h3>
-                            <p class="subtitle-section color-news">Revisa nuestras ferias inmobiliarias recientes y pasadas</p>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row-actions-top">
+            <div class="title-section-container">
+              <div class="title-arrow">
+                <!-- Flecha a la izquierda -->
+                <div class="left-arrow">
+                  <ion-icon name="arrow-back-outline"></ion-icon>
                 </div>
+  
+                <div class="title">
+                  <h3 class="title-section color-news">Noticias</h3>
+                  <p class="subtitle-section color-news">Revisa aquí las noticias más destacadas de ASEI</p>
+                </div>
+              </div>
             </div>
         </div>
-
-        <ion-grid class="section-grid">
-            <div class="info-anniversary">
-                <div class="modal-anniversary">
-                    <div class="content-img">
-                        <img src="../../../../../assets/img/news-img.png">
-                    </div>
-
-                    <div class="content-title-date">
-                        <h4 class="title-anniversary">{{ NewData?.titulo }}</h4>
-
-                        <div class="date">
-                            <ion-icon class="icon-calendar" name="calendar-outline"></ion-icon>
-                            <p>{{ NewData?.fecha_publicacion }}</p>
-                        </div>
-                        <div class="stars-btn">
-                            <p>Calificación</p>
-                            <ion-icon class="stars" name="star"></ion-icon>
-                            <ion-icon class="stars" name="star"></ion-icon>
-                            <ion-icon class="stars" name="star"></ion-icon>
-                            <ion-icon class="stars" name="star"></ion-icon>
-                            <ion-icon class="stars" name="star-outline"></ion-icon>
-                            <p class="number-stars">4.5</p>
-                        </div>
-                    </div>
-                    <div [innerHTML]="NewData?.texto">
-                        {{ NewData?.texto }}
-                    </div>
-
-                    <!-- <p class="italic-paragraph">NUEVO Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en 
-          demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar 
-          el texto final. Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de 
-          tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.</p> -->
-                    <div class="content-link">
-                        <div class="title">
-                            <p>Enlaces</p>
-                        </div>
-
-                        <div class="content-link-2">
-                            <div class="link-1 link-all">
-                                <ion-icon class="icon-link" name="link-outline"></ion-icon>
-                                <a target="_blank" href="http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129">
-                  http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129
-                </a>
-                            </div>
-
-                            <div class="link-2 link-all">
-                                <ion-icon class="icon-link" name="link-outline"></ion-icon>
-                                <a target="_blank" href="https://www.facebook.com/">
-                  https://www.facebook.com/
-                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- <div class="link-original">
-              <p>Ver en la pagina original</p>-->
+      </div>
+  
+      <ion-grid class="section-grid">
+        <div class="info-anniversary">
+          <div class="modal-anniversary">
+            <div class="content-img">
+                <img src="../../../../../assets/img/fairs-img.png">
+            </div>
+    
+            <div class="content-title-date">
+                <h4 class="title-anniversary">{{ NewData?.titulo }}</h4>
+    
+                <div class="date">
+                    <ion-icon class="icon-calendar" name="calendar-outline"></ion-icon>
+                    <p>{{ NewData?.fecha_inicio }}</p>
                 </div>
-
-
-
-                <div class="content-button">
-                    <button (click)="volvernews()">Regresar</button>
+  
+                <div class="stars-btn">
+                  <p>Calificación</p>
+                  <ion-icon class="stars" name="star"></ion-icon>
+                  <ion-icon class="stars" name="star"></ion-icon>
+                  <ion-icon class="stars" name="star"></ion-icon>
+                  <ion-icon class="stars" name="star"></ion-icon>
+                  <ion-icon class="stars" name="star-outline"></ion-icon>
+                  <p class="number-stars">4.5</p>
                 </div>
             </div>
 
-            <div class="notes-anniversary">
-                <div class="title-content">
-                    <h3>Más ferias</h3>
-
-                    <div class="arrows">
-                        <div class="left-arrow">
-                            <ion-icon class="icon-btn" name="chevron-back-outline"></ion-icon>
-                        </div>
-
-                        <div class="right-arrow">
-                            <ion-icon class="icon-btn" name="chevron-forward-outline"></ion-icon>
-                        </div>
-                    </div>
-                </div>
-                <div class="cards-notes">
-                    <div class="card-1 card-note">
-                        <div class="img-content">
-                            <img class="notes-img" src="../../../../../assets/img/notes-news.png">
-                        </div>
-
-                        <div class="text-content">
-                            <div class="date">
-                                <p>28 de Septiembre 2020</p>
-                            </div>
-
-                            <h5>La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones ...</h5>
-                            <div class="see-note">
-                                <!-- <button class="none-mobile">Ver nota</button> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-2 card-note">
-                        <div class="img-content">
-                            <img class="notes-img" src="../../../../../assets/img/notes-news.png">
-                        </div>
-
-                        <div class="text-content">
-                            <div class="date">
-                                <p>28 de Septiembre 2020</p>
-                            </div>
-
-                            <h5>La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones ...</h5>
-                            <div class="see-note">
-                                <!-- <button class="none-mobile">Ver nota</button> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-3 card-note">
-                        <div class="img-content">
-                            <img class="notes-img" src="../../../../../assets/img/notes-news.png">
-                        </div>
-
-                        <div class="text-content">
-                            <div class="date">
-                                <p>28 de Septiembre 2020</p>
-                            </div>
-
-                            <h5>La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones ...</h5>
-                            <div class="see-note">
-                                <!-- <button class="none-mobile">Ver nota</button> -->
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-4 card-note">
-                        <div class="img-content">
-                            <img class="notes-img" src="../../../../../assets/img/notes-news.png">
-                        </div>
-
-                        <div class="text-content">
-                            <div class="date">
-                                <p>28 de Septiembre 2020</p>
-                            </div>
-
-                            <h5>La apuesta inmobiliaria de quienes cancelaron viajes por vacaciones ...</h5>
-                            <div class="see-note">
-                                <!-- <button class="none-mobile">Ver nota</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div [innerHTML]="feriasData?.texto">
+                {{ NewData?.texto }}
             </div>
-
-        </ion-grid>
+            
+            <p class="italic-paragraph">Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en 
+            demostraciones de tipografías o de borradores de diseño para probar el diseño visual antes de insertar 
+            el texto final. Lorem ipsum es el texto que se usa habitualmente en diseño gráfico en demostraciones de 
+            tipografías o de borradores de diseño para probar el diseño visual antes de insertar el texto final.</p>
+        
+            <p class="question-anniversary">What is Lorem Ipsum?</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type 
+            and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
+            into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release 
+            of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like 
+            Aldus PageMaker including versions of Lorem Ipsum.</p>
+    
+            <p class="question-anniversary">Why do we use it?</p>
+                
+            <p>It is a long established fact that a reader will be distracted by the readable content of a page when 
+            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution 
+            of letters, as opposed to using 'Content here, content here', making it look like readable English. 
+            Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model 
+            text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+            Various versions have evolved over the years, sometimes by accident, sometimes on purpose 
+            (injected humour and the like).</p>
+  
+            <div class="content-link">
+              <div class="title">
+                <p>Enlaces</p>
+              </div>
+  
+              <div class="content-link-2">
+                <div class="link-1 link-all">
+                  <ion-icon class="icon-link" name="link-outline"></ion-icon>
+                  <a target="_blank" href="http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129">
+                    http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129
+                  </a>
+                </div>
+  
+                <div class="link-2 link-all">
+                  <ion-icon class="icon-link" name="link-outline"></ion-icon>
+                  <a target="_blank" href="https://www.facebook.com/">
+                    https://www.facebook.com/
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="content-button">
+                <input type="button" value="Regresar" class="volver" (click)="volverNews()">
+              </div>
+          </div>
+    
+          <div class="notes-anniversary">
+            <div class="title-content">
+              <h3>Más noticias</h3>
+  
+              <div class="arrows">
+                <div class="left-arrow">
+                  <ion-icon class="icon-btn" name="chevron-back-outline"></ion-icon>
+                </div>
+  
+                <div class="right-arrow">
+                  <ion-icon class="icon-btn" name="chevron-forward-outline"></ion-icon>
+                </div>
+              </div>
+            </div>
+  
+            <div class="cards-notes">
+              <div class="card-1 card-note">
+                <div class="img-content">
+                  <img class="notes-img" src="../../../../../assets/img/notes-news.png">
+                </div>
+    
+                <div class="text-content">
+                  <div class="date">
+                    <p>Dia : 8 de Septiembre 2020</p>
+                  </div>
+  
+                  <h5>Industria inmobiliaria del Perú sale adelante con descuentos y promociones</h5>
+                </div>
+              </div>
+    
+              <div class="card-2 card-note">
+                <div class="img-content">
+                  <img class="notes-img" src="../../../../../assets/img/notes-news.png">
+                </div>
+    
+                <div class="text-content">
+                  <div class="date">
+                    <p>Dia : 8 de Septiembre 2020</p>
+                  </div>
+  
+                  <h5>Industria inmobiliaria del Perú sale adelante con descuentos y promociones</h5>
+                </div>
+              </div>
+    
+              <div class="card-3 card-note">
+                <div class="img-content">
+                  <img class="notes-img" src="../../../../../assets/img/notes-news.png">
+                </div>
+    
+                <div class="text-content">
+                  <div class="date">
+                    <p>Dia : 8 de Septiembre 2020</p>
+                  </div>
+  
+                  <h5>Industria inmobiliaria del Perú sale adelante con descuentos y promociones</h5>
+                </div>
+              </div>
+    
+              <div class="card-4 card-note">
+                <div class="img-content">
+                  <img class="notes-img" src="../../../../../assets/img/notes-news.png">
+                </div>
+    
+                <div class="text-content">
+                  <div class="date">
+                    <p>Dia : 8 de Septiembre 2020</p>
+                  </div>
+  
+                  <h5>Industria inmobiliaria del Perú sale adelante con descuentos y promociones</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-grid>
     </div>
-</ion-content>
+    <app-footer></app-footer>
+  </ion-content>
+  
+  

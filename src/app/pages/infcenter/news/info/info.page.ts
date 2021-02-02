@@ -18,9 +18,10 @@ export class InfoPage implements OnInit {
 
   ngOnInit() {
   }
-  volvernews(){
+  volverNews(){
     // this.dialogCreateNews= true;
-    this.redireccionService.redireccion('/tabs/infcenter/news')
+    // this.redireccionService.redireccion('/tabs/infcenter/fairs')
+    this.redireccionService.backpage();
   }
 
   get_news(){

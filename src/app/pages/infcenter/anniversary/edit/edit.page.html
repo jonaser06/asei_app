@@ -40,11 +40,44 @@
           <textarea name="" id="link-note"></textarea>
         </div> -->
 
-        <div class="content-date-admin">
-          <div class="date">
-            <label for="date-note">Fecha de publicación</label>
-            <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+        <div class="link">
+          <label for="link-note">Enlaces</label>
+          <div class="link-content-btn">
+            <div class="link-input">
+              <ion-icon class="link-btn" name="link-outline"></ion-icon>
+              <input class="link-class" type="text" name="link" [(ngModel)]="link">
+              <!-- <textarea name="" id="link-note"></textarea> -->
+            </div>
+  
+            <div class="delete-link">
+              <ion-icon name="trash"></ion-icon>
+            </div>
+  
+            <div class="add-link">
+              <ion-icon name="add-outline"></ion-icon>
+            </div>
           </div>
+        </div>
+
+        <div class="content-date-admin">
+            <div class="date">
+                <label for="date-note">Fecha de publicación</label>
+                <input type="date" name="fecha_publicacion" id="date-note" [(ngModel)]="fecha_publicacion">
+            </div>
+            <div class="date">
+              <label for="date-note-2">Hora de publicación</label>
+              <input type="time" name="hora_publicacion" id="date-note-2" [(ngModel)]="hora_publicacion">
+            </div>
+        </div>
+        <div class="content-date-admin">
+            <div class="date">
+              <label for="date-note">Fecha de inicio</label>
+              <input type="date" name="fecha_inicio" id="date-note" [(ngModel)]="fecha_inicio">
+          </div>
+            <div class="date">
+                <label for="date-hour">Hora de inicio</label>
+                <input type="time" name="hora_inicio" id="date-hour" [(ngModel)]="hora_inicio">
+            </div>
         </div>
 
         <div class="image">
@@ -74,7 +107,8 @@
         </div>
         <div class="btn-create">
           <div class="btn-return">
-              <input type="button" value="Volver" class="volver" (click)="volverAnniversary()">
+            <!-- <button (click)="volverFerias()">Volver</button> -->
+            <input value="Volver" class="btn-return_" (click)="volverFerias()">
           </div>
           <div class="btn-add">
             <button type="submit">Añadir</button>
