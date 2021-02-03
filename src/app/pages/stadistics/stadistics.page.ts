@@ -63,6 +63,7 @@ export class StadisticsPage implements OnInit {
   monthbull: any;
   yearbull: any;
   filebull: any;
+  filebull_: any;
 
   /* eliminar dialogs */
   stat_rmv = false;
@@ -160,7 +161,8 @@ export class StadisticsPage implements OnInit {
   }
   adjuntfile(event){
     this.filebull = event.target.files[0];
-    console.log(this.filebull);
+    this.filebull_=this.filebull.name;
+    console.log(this.filebull.name);
   }
 
   stat(fStat: NgForm){
@@ -187,19 +189,19 @@ export class StadisticsPage implements OnInit {
 
   statedit(fStat: NgForm){
     if(!this.id_stat) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
-    if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
+    // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titlestat) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.descriptionstat) return this.uiserviceService.alert_info('Es necesario la descripcion');
     if(!this.monthstat) return this.uiserviceService.alert_info('Es necesario el mes');
     if(!this.yearstat) return this.uiserviceService.alert_info('Es necesario el año');
-
+    
     let formdata = new FormData;
     formdata.append('id', this.id_stat);
     formdata.append('title', this.titlestat);
     formdata.append('description', this.descriptionstat);
     formdata.append('month', this.monthstat);
     formdata.append('year', this.yearstat);
-    formdata.append('image', this.fileToUploadstat);
+    if(this.fileToUploadstat!==undefined) formdata.append('image', this.fileToUploadstat);
 
     this.statisticsService.edit_statistics(formdata)
     .then(resp=>{
@@ -314,7 +316,6 @@ export class StadisticsPage implements OnInit {
     .then(resp=>{
       this.closeDialogind();
       this.load_indicador();
-      location.reload();
     })
     .catch();
   }
@@ -430,13 +431,14 @@ export class StadisticsPage implements OnInit {
     this.isEdited = false;
   }
   editBulletin(objbull){
-    
     this.idbull = objbull.id;
     this.titlebull = objbull.title;
     this.monthbull = objbull.month;
     this.yearbull = objbull.year;
     this.filebull = objbull.file;
-
+    this.filebull_ = objbull.file;
+    this.filebull_ = this.filebull_.split('/');
+    this.filebull_ = this.filebull_[this.filebull_.length - 1 ];
     this.isEdited = true;
     this.openDialogBulletin();
 
@@ -468,13 +470,11 @@ export class StadisticsPage implements OnInit {
   }
 
   bulletedit(fbullet: NgForm){
-    console.log(this.filebull);
     if(!this.idbull) return this.uiserviceService.alert_info('No se encontro el id del boletin, actualizar');
     if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
     if(!this.monthbull) return this.uiserviceService.alert_info('Es necesario el mes');
     if(!this.yearbull) return this.uiserviceService.alert_info('Es necesario año');
     if(!this.titlebull) return this.uiserviceService.alert_info('Es necesario un titulo');
-
     let formdata = new FormData;
     formdata.append('id', this.idbull);
     formdata.append('title', this.titlebull);

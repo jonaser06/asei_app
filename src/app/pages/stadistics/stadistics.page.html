@@ -252,6 +252,7 @@
                             </div>
 
                             <p>Añade data del boletin</p>
+                            <label *ngIf="isEdited">Archivo cargado: {{ filebull_ }}</label>
                             <input type="file" accept="application/pdf" (change)="adjuntfile($event)">
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
