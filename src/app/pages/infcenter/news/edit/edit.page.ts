@@ -20,6 +20,7 @@ export class EditPage implements OnInit {
   seccion : any;
   link : any;
   fecha_publicacion : any;
+  hora_publicacion: any;
   fileToUploadstat: any;
   imagestat: any;
 
@@ -41,6 +42,7 @@ export class EditPage implements OnInit {
       this.link = resp.data.link;
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
       this.fecha_publicacion = resp.data.fecha_publicacion;
+      this.hora_publicacion = resp.data.hora_publicacion;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
@@ -75,6 +77,7 @@ export class EditPage implements OnInit {
     formdata.append('resumen', this.resumen);
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
+    formdata.append('hora_publicacion', this.hora_publicacion);
     formdata.append('seccion', 'noticias');
     formdata.append('link', this.link);
     formdata.append("file", this.fileToUploadstat);
