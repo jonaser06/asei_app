@@ -5,7 +5,8 @@ import { StatisticsService } from 'src/app/services/statistics.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { IndicadorService } from 'src/app/services/indicador.service';
 import { AuthService } from 'src/app/services/auth.service';
-
+// import { File } from '@ionic-native/file/ngx';
+// import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../services/redireccion.service';
 import { InfcenterService } from '../../services/infcenter.service';
@@ -73,7 +74,16 @@ export class StadisticsPage implements OnInit {
   // rol
   rol : String ;
   @Output() updateView = new EventEmitter();
-  constructor(public authService: AuthService, private uiserviceService: UiServiceService, private statisticsService: StatisticsService, private indicadorService: IndicadorService, private bulletinService: BulletinService, private infcenterService: InfcenterService ) {
+  constructor(
+    public authService: AuthService, 
+    private uiserviceService: UiServiceService, 
+    private statisticsService: StatisticsService, 
+    private indicadorService: IndicadorService, 
+    private bulletinService: BulletinService, 
+    private infcenterService: InfcenterService, 
+    // private transfer: FileTransfer, 
+    // private file: File
+    ) {
     this.dialogNewStat = false;
     this.dialogNewInd = false;
     this.dialogRemove = false;
@@ -164,7 +174,6 @@ export class StadisticsPage implements OnInit {
     this.filebull_=this.filebull.name;
     console.log(this.filebull.name);
   }
-
   stat(fStat: NgForm){
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titlestat) return this.uiserviceService.alert_info('Es necesario un titulo');
@@ -284,6 +293,17 @@ export class StadisticsPage implements OnInit {
       console.log('ocurrio un error');
     }
   }
+  // donwloadstat_(url){
+  //   console.log(url);
+  //   const img = url;
+  //   const fileTransfer: FileTransferObject = this.transfer.create();
+
+  //   fileTransfer.download(img, this.file.externalRootDirectory + 'image.jpg').then((entry) => {
+  //     console.log('download complete: ' + entry.toURL());
+  //   }, (error) => {
+  //     // handle error
+  //   });
+  // }
 
 
   //Indicador

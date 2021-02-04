@@ -6,18 +6,26 @@
         </span> -->
             <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
             <div class="popover">
+                <!-- <button class="item">
+                    <span class="no-margin label-menu" (click)="download(URL + '/' + card_child.image)">Descargar</span>
+                    <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
+                </button> -->
                 <button class="item">
-                <span class="no-margin label-menu">Descargar Imagen</span>
-                <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
-            </button>
+                    <span class="no-margin label-menu">
+                        <a href="{{ URL + '/' + card_child.image }}" download="image.jpg" target="_blank" style="text-decoration: none; padding: 0px !important;" class="item">
+                            Descargar
+                        </a>
+                    </span>
+                    <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
+                </button>
                 <button (click)="editItem(card_child.id, card_child.title, card_child.description, card_child.image, card_child.month, card_child.year)" class="item">
-                <span class="no-margin label-menu">Editar</span>
-                <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
-            </button>
+                    <span class="no-margin label-menu">Editar</span>
+                    <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>
+                </button>
                 <button (click)="deleteItem(card_child.id)" class="item">
-                <span class="no-margin label-menu">Eliminar</span>
-                <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
-            </button>
+                    <span class="no-margin label-menu">Eliminar</span>
+                    <ion-icon class="no-margin icon-menu" name="trash-outline"></ion-icon>
+                </button>
             </div>
         </div>
     </div>

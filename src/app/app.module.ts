@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+// import { File } from '@ionic-native/file/ngx';
+// import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { ComponentsModule } from './components/components.module';
 
 @NgModule({
@@ -26,7 +28,9 @@ import { ComponentsModule } from './components/components.module';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    // File,
+    // FileTransfer
   ],
   bootstrap: [AppComponent]
 })

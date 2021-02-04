@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { StatisticsService } from 'src/app/services/statistics.service';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,6 +13,7 @@ export class StatCardComponent implements OnInit {
   
   @Output() editItemEv = new EventEmitter();
   @Output() deleteItemEv = new EventEmitter();
+  // @Output() imgFile = new EventEmitter();
 
   URL = environment.url;
   rol: String;
@@ -43,5 +43,9 @@ export class StatCardComponent implements OnInit {
   deleteItem(id){
     this.deleteItemEv.emit(id);
   }
+
+  // download(url){
+  //   this.imgFile.emit(url);
+  // }
 
 }
