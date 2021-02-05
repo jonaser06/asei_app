@@ -46,9 +46,10 @@ export class EditPage implements OnInit {
       this.resumen = resp.data.resumen;
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
       this.fecha_publicacion = resp.data.fecha_publicacion;
-      this.hora_publicacion = resp.data.fecha_publicacion;
+      this.hora_publicacion = resp.data.hora_publicacion;
       this.fecha_inicio = resp.data.fecha_inicio;
-      this.hora_inicio = resp.data.fecha_inicio;
+      this.hora_inicio = resp.data.hora_inicio;
+      this.link = resp.data.link;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();

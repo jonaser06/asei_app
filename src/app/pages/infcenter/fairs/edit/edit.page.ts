@@ -50,6 +50,7 @@ export class EditPage implements OnInit {
       this.fecha_fin = resp.data.fecha_fin;
       this.hora_inicio = resp.data.hora_inicio;
       this.hora_fin = resp.data.hora_fin;
+      this.link = resp.data.link;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
