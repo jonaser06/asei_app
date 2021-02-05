@@ -63,12 +63,13 @@ export class EditPage implements OnInit {
   }
 
   editNews(fNews: NgForm){
-    if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
+    // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
     if(!this.link) return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
+    if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
 
     let formdata = new FormData;
     let id = this.activatedRoute.snapshot.paramMap.get('id');
