@@ -29,7 +29,6 @@ export class NewsPage implements OnInit {
   
   constructor(private redireccionService: RedireccionService, private infcenterService: InfcenterService) { 
     this.getnoticia();
-    this.getOldnoticia();
   
   }
 
@@ -64,19 +63,6 @@ export class NewsPage implements OnInit {
     .catch();
     
   }
-  getOldnoticia(){
-    let pages = [];
-    this.infcenterService.get_infcenterNews(1,9,true)
-    .then(resp=>{
-      console.log(resp);
-      this.OldData = resp['data'];
-      for(let i = 1 ; i <= this.OldData.pages; i++ ){ pages.push(i)}
-      this.pagesOld = pages;
-      this.currentpageOld = this.OldData.page;
-    })
-    .catch();
-    
-  }
 
   changepage_(page){
     let pages = [];
@@ -88,22 +74,6 @@ export class NewsPage implements OnInit {
         for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
         this.pages = pages;
         this.currentpage = this.NewsData.page;
-      }
-    })
-    .catch(err=>{
-      console.log('ocurrio un error');
-    });
-  }
-  changepageOld_(page){
-    let pages = [];
-    this.currentkeyOld = ( this.currentkeyOld === undefined ) ? '':this.currentkeyOld;
-    this.infcenterService.search_infcenter('noticias', page, this.currentkeyOld)
-    .then(resp=>{
-      this.OldData = resp['data'];
-      if(resp['status']){
-        for(let i = 1 ; i <= this.OldData.pages; i++ ){pages.push(i)}
-        this.pages = pages;
-        this.currentpageOld = this.OldData.page;
       }
     })
     .catch(err=>{
@@ -130,15 +100,13 @@ export class NewsPage implements OnInit {
   search_(buscatxt){
     let pages = [];
     this.currentkey = buscatxt;
-    this.currentkeyOld = buscatxt;
     this.infcenterService.search_infcenter('noticias', 1, buscatxt)
     .then(resp=>{ 
       console.log('Buscar nota : '+buscatxt);
-      this.OldData = resp['data'];
+      this.NewsData = resp['data'];
       if(resp['status']){
-        for(let i = 1 ; i <= this.OldData.pages; i++ ){pages.push(i)}
+        for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
         this.pagesOld = pages;
-        this.currentpageOld = this.OldData.page;
       }
     })
     .catch();
