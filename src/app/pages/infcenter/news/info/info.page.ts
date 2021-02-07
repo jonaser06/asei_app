@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-info',
@@ -11,6 +12,7 @@ import { RedireccionService } from 'src/app/services/redireccion.service';
 export class InfoPage implements OnInit {
 
   NewData : any;
+  URL = environment.url;
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
     this.get_news()

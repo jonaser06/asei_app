@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { holdReady } from 'jquery';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';

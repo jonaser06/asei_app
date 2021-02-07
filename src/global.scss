@@ -17,6 +17,7 @@
 @import "../node_modules/@swimlane/ngx-datatable/index.css";
 @import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
 
+
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -61,6 +62,51 @@ $white-color: "#fff";
     margin-bottom: 10px;
 }
 
+.title-section-container{
+    padding-left:1em;
+}
+
+.section-grid .news-courses .input-search.no-user {
+    margin: 0.7em 0;
+    margin-right:1.5vw;
+}
+
+
+.container{
+    margin: 0vw 4.5vw;
+}
+
+@media (max-width: 600px) {
+    
+   
+    .container .title-section{
+        font-size:17px !important;
+    }
+    .container .subtitle-section{
+        font-size:11px !important;
+    }
+
+    .container{
+    margin: 0vw 0vw;
+}
+    
+}
+
+
+
+
+    .container{
+        max-width:92% !important;
+    }
+
+@media(max-width:500px){
+    .container{
+        max-width:100% !important;
+    }    
+}
+
+
+
 .container {
     margin: 0 auto;
     @media screen and (min-width: 2000px) {
@@ -84,7 +130,7 @@ $white-color: "#fff";
 }
 
 .section-grid {
-    margin: 15px 0 18px 0;
+    margin: 0px 0 18px 0;
 }
 
 .card {
@@ -158,6 +204,7 @@ $white-color: "#fff";
     position: relative;
     outline: none;
     background: #fff;
+    color: #24344c;
     @media screen and (max-width: 340px) {
         padding-top: 0;
     }
@@ -467,7 +514,7 @@ $white-color: "#fff";
         position: absolute;
         right: -46px;
         max-height: 100%;
-        border-left: 46px solid #DF8708;
+        /* border-left: 46px solid #DF8708; */
         border-top: 23px solid transparent;
         border-bottom: 23px solid transparent;
     }
@@ -684,3 +731,26 @@ ion-item {
     height:5px;
     border-radius:0%;
 }
+
+input,select{
+    background:white;
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+    background-color: white;
+    color: black;
+    border-radius:10px;
+}
+
+.item-searchbar .item-inner,.item-searchar .item-native{
+    --inner-padding-end:0px;
+}
+
+.dialog-body{
+    height:auto !important; 
+}
+
+.checkbox-checked.checkbox-icon { padding:2px; }
+
+
+
