@@ -71,7 +71,7 @@ export class EditPage implements OnInit {
     this.redireccionService.backpage();
   }
   editFerias(fFerias: NgForm){
-    if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
+    // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');

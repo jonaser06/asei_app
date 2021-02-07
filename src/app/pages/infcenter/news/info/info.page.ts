@@ -36,5 +36,6 @@ export class InfoPage implements OnInit {
     })
     .catch();
   }
+  openDialogInfo(){}
 
 }
