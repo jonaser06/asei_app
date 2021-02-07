@@ -29,6 +29,8 @@ export class TabsPage implements OnInit {
     });
   }
   setCurrentActive(path: string){
+    console.log (path);
+    return;
     this.navCtrol.navigateRoot(`/tabs/${path}`);
   }
   goProfile(){
