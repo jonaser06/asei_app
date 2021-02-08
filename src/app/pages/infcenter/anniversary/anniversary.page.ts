@@ -21,6 +21,7 @@ export class AnniversaryPage implements OnInit {
   aniversarioData: any;
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
     this.getaniversario();
+    
   }
 
   ngOnInit() {
@@ -53,6 +54,8 @@ export class AnniversaryPage implements OnInit {
     .catch();
     
   }
+
+
 
   changepage_(page){
     let pages = [];
