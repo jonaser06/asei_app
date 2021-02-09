@@ -64,6 +64,9 @@ export class InfoPage implements OnInit {
     this.dialogRemove = false;
   }
 
+  onRateChange(event) {
+    console.log('Your rate:', event);
+  }
 
 
 }

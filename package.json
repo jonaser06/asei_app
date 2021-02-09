@@ -29,6 +29,7 @@
     "@swimlane/ngx-datatable": "^19.0.0",
     "bootstrap": "^4.6.0",
     "cordova-android": "9.0.0",
+    "ionic4-rating": "^1.0.9",
     "jquery": "^3.5.1",
     "ngx-slick-carousel": "^0.5.1",
     "rxjs": "~6.5.5",

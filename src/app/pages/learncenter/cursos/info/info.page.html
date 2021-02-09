@@ -146,24 +146,32 @@
 
     <!-- Dialogo Calificacion - aparece cuando culminó el curso -->
     <app-dialog *ngIf="dialogCalificacion" [dialog]="dialogCalificacion" [width]="300" [height]="270" (closeDialogEv)="closeDialogCalificacion()">
-      <body-dialog>
+      <div class="body-dialog">
         <div class="modal-stars">
-          <p>¿Te resulto util la noticia?</p>
+          <p class="mainn">¡Felicitaciones, terminaste el curso!</p>
           <p>Calificar curso</p>
 
-          <div class="stars">
+
+          <rating [rate]="rate"
+        readonly="false"
+        size="default" 
+        (rateChange)="onRateChange($event)"
+        (ngModelChange)="onRateChange($event)">
+          </rating>
+
+          <!-- <div class="stars">
             <ion-icon class="stars-btn" name="star"></ion-icon>
             <ion-icon class="stars-btn" name="star"></ion-icon>
             <ion-icon class="stars-btn" name="star"></ion-icon>
             <ion-icon class="stars-btn" name="star"></ion-icon>
             <ion-icon class="stars-btn" name="star-outline"></ion-icon>
-          </div>
+          </div> -->
 
           <div class="content-btn">
             <button>Guardar</button>
           </div>
         </div>
-      </body-dialog>
+      </div>
     </app-dialog>
   </div>
   <app-footer></app-footer>

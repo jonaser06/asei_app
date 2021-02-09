@@ -1,0 +1,399 @@
+<ion-content class="content-section">
+  <div class="layout-section">
+      <div class="container">
+          <div class="row-actions-top">
+              <div class="title-section-container">
+                  <h3 class="title-section">GESTOR DE DOCUMENTO</h3>
+                  <p class="subtitle-section">Encuentra aqui los datos completos de los administradores de los modulos de la intranet</p>
+              </div>
+          </div>
+
+      </div>
+      
+
+      <ion-grid class="section-grid">
+        <div class="courses">
+          <div class="news-courses">
+            <div class="search-courses">
+              <div class="input-search no-user">
+                <input type="search" name="" id="" placeholder="Buscar por nombre">
+                <ion-icon class="search-btn" name="search-outline"></ion-icon>
+              </div>
+            <div class="options2">
+              <!-- <select name="example" placeholder="Estado">
+                <option value="">Tipo de documento</option>
+                <option value="A">Pdf</option>
+                <option value="B">Doc</option>
+                <option value="B">Excel</option>
+              </select> -->
+    
+              <!-- Add -->
+               <div class="actions-page no-mobil">
+                <button class="btn-new-item" (click)="editIndicator($event)">
+                    <span>Nuevo documento</span>
+                    <ion-icon class="icon-btn" name="add-circle"></ion-icon>
+                </button>
+              </div>  
+            </div>
+            </div>
+          </div>
+        </div> 
+
+      </ion-grid>
+      <app-dialog *ngIf="dialogNewStat" [dialog]="dialogNewStat" [width]="800" [height]="580" (closeDialogEv)="closeDialogStat()">
+        <div class="header-dialog">
+            <div class="title-section-container dialog">
+                <h3 class="title-section"> Nuevo documento</h3>
+                <p class="subtitle-section">Completa la información correspondiente de nuevo documento</p>
+            </div>
+        </div>
+        <div class="body-dialog">
+
+            <form action="" class="card-modal-1">
+                <div class="campos-doc">
+                    <div class="right-inputs">
+                       <div class="nomdoc">
+                        <div class="tittle">
+                        <p>Nombre del documento*</p>
+                        </div>
+                        <div class="field">
+                          <input type="text">
+                        </div>
+                      </div>
+
+                        <div class="date">
+                          <div class="tittle">
+                          <p>Fecha de registro</p>
+                          </div>
+                          <div class="field">
+                          <input type="date" name="" id="date-note">
+                          </div>
+                        </div>
+
+                        <div class="link-input">
+                          <div class="tittle">
+                          <p>Seleccione documento</p>
+                          </div>
+                          <div class="field">
+                          <ion-icon class="link-btn" name="link-outline"></ion-icon>
+                          <input type="text">
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button">
+                    <button type="submit">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+    </app-dialog>
+
+      <ion-grid class="section-grid">
+        <div class="courses">
+          
+
+          <div class="new-card">
+            
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/pdf.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+
+
+              
+              
+            </div>
+
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/xls.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+            
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/doc.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/ppt.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+
+           
+
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/pdf.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/xls.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+            
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                  <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                
+              </div>
+                <img src="../../../../assets/img/doc.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+
+              </div>
+              
+            </div>
+
+            <div class="card-1 card-content">
+              <div class="content-img">
+                <div class="admin-edit downl">
+                  
+                    <a routerLink="/admin-usuarios/admin-doc">Descargar</a>
+                  
+                </div>
+                <img src="../../../../assets/img/ppt.png" alt="">
+              </div>
+
+              <div class="content-info">
+                <h5>Guias  de introduccion para el nuevo colaborador de ASEI  </h5>
+
+                <div class="info-description">
+                  <p>17 de diciembre de 2020</p>
+
+                  
+                </div>
+
+                <div class="admin-edit">
+                  <div class="cloud-btn">
+                    <ion-icon name="trash"></ion-icon>
+                  </div>
+                  <div class="pencil">
+                    <ion-icon name="pencil"></ion-icon>
+                  </div>
+                  </div>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+
+          <div class="number-option">
+            <div class="left-option">
+              <ion-icon name="chevron-back-outline"></ion-icon>
+            </div>
+  
+            <div class="numbers-option">
+              <div class="number-one number-all">
+                <p>1</p>
+              </div>
+              <div class="number-two number-all">
+                <p>2</p>
+              </div>
+              <div class="number-three number-all">
+                <p>3</p>
+              </div>
+              <div class="number-four number-all">
+                <p>4</p>
+              </div>
+              <div class="number-five number-all">
+                <p>5</p>
+              </div>
+              <div class="number-six number-all">
+                <p>6</p>
+              </div>
+            </div>
+  
+            <div class="right-option">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </div>
+          </div>
+
+
+          
+        </div> 
+      </ion-grid>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

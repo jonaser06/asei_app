@@ -20,9 +20,13 @@ const routes: Routes = [
   {
     path: 'infcenter',
     loadChildren: () => import('./pages/infcenter/infcenter.module').then( m => m.InfCenterPageModule)
-  },  {
+  },
+  {
     path: 'learncenter',
     loadChildren: () => import('./pages/learncenter/learncenter.module').then( m => m.LearncenterPageModule)
+  },  {
+    path: 'admin-usuarios',
+    loadChildren: () => import('./pages/admin-usuarios/admin-usuarios.module').then( m => m.AdminUsuariosPageModule)
   }
 
 

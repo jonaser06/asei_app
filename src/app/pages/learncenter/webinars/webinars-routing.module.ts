@@ -19,6 +19,18 @@ const routes: Routes = [
   {
     path: 'info',
     loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
+  },
+  {
+    path: 'finish',
+    loadChildren: () => import('./finish/finish.module').then( m => m.FinishPageModule)
+  },
+  {
+    path: 'keep',
+    loadChildren: () => import('./keep/keep.module').then( m => m.KeepPageModule)
+  },
+  {
+    path: 'news',
+    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
   }
 ];
 

@@ -27,6 +27,11 @@ const routes: Routes = [
         path: 'learning-center',
         loadChildren: () => import('../learncenter/learncenter.module').then( m => m.LearncenterPageModule )
       },
+
+      {
+        path: 'admin',
+        loadChildren: () => import('../admin-usuarios/admin-usuarios.module').then( m => m.AdminUsuariosPageModule )
+      },
       
     ]
   }

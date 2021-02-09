@@ -1,0 +1,99 @@
+<ion-content class="content-section">
+  <app-navigation-tabs></app-navigation-tabs>
+  
+  <div class="layout-section">
+
+    
+    <div class="courses">
+
+      <div class="container">
+          <div class="row-actions-top">
+              <div class="title-section-container">
+                  <h3 class="title-section">BANDEJA DE ENTRADA</h3>
+                  <p class="subtitle-section">Gestiona la información de los administradores de la intranet ASEI</p>
+              </div>
+          </div>
+      </div>
+
+      <ion-grid class="section-grid">
+        <div class="courses">
+          <div class="news-courses">
+            <div class="search-courses">
+              <div class="input-search no-user">
+                <input type="search" name="" id="" placeholder="Buscar por nombre o palabra clave">
+                <ion-icon class="search-btn" name="search-outline"></ion-icon>
+              </div>
+              
+            </div>
+          </div>
+        </div> 
+
+      </ion-grid>
+
+
+
+    
+    
+    <ion-card *ngFor ="let data of rows">
+      <ion-item >
+        <div class="card-photo"  >
+          <div class="content-img">
+            <img src="../../../../../assets/img/logo-asei.png" alt="">
+          </div>
+        </div>
+        <div class="card-info">
+        <ion-label class="name">{{data.nombre}}</ion-label>
+        <ion-label>{{data.cargo}}
+        </ion-label>
+        <div class="state-off">
+          <br>
+          <ion-label>{{data.estado}}</ion-label>
+        </div>
+        </div>
+        <!-- <div class="card-state">
+          <ion-label>{{data.estado}}</ion-label>
+        </div> -->
+        <div class="card-arrow ion-activated" href="#" >
+        <!-- <ion-button fill="outline" slot="end">View</ion-button> -->
+        <!-- <ion-button><ion-icon name="arrow-forward-outline"></ion-icon></ion-button> -->
+        <!-- <ion-icon name="arrow-forward-outline"></ion-icon> -->
+        <label>Hace 15 min</label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+        </div>
+      </ion-item>    
+    </ion-card>
+    
+    <div class="number-option">
+      <div class="left-option">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </div>
+
+      <div class="numbers-option">
+        <div class="number-one number-all">
+          <p>1</p>
+        </div>
+        <div class="number-two number-all">
+          <p>2</p>
+        </div>
+        <div class="number-three number-all">
+          <p>3</p>
+        </div>
+        <div class="number-four number-all">
+          <p>4</p>
+        </div>
+        <div class="number-five number-all">
+          <p>5</p>
+        </div>
+        <div class="number-six number-all">
+          <p>6</p>
+        </div>
+      </div>
+
+      <div class="right-option">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </div>
+    </div>
+  </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

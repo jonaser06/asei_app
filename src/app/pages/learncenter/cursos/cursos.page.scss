@@ -169,12 +169,14 @@ margin-left:-25%;
 }
 
 .courses .news-courses h4 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 15px;
     font-family: 'Lucida Sans';
     margin: 0;
     padding: 0;
     margin-top: 1em;
+    cursor:pointer;
+    width:fit-content;
 }
 
 @media (min-width: 768px) {
@@ -564,12 +566,14 @@ margin-left:-25%;
 
 .courses .keep-watching h4,
 .courses .courses-completed h4 {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 15px;
     font-family: 'Lucida Sans';
     margin: 0;
     padding: 0;
     margin: 2.5em 0 0.5em;
+    width:fit-content;
+    cursor:pointer;
 }
 
 @media (min-width: 768px) {

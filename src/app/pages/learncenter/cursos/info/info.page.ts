@@ -65,4 +65,8 @@ ngOnInit(){
     this.dialogRemove = false;
   }
 
+   onRateChange(event) {
+    console.log('Your rate:', event);
+  }
+
 }

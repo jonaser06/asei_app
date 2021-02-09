@@ -531,6 +531,7 @@
     margin: 0;
     padding: 0;
     color: #24344D;
+    font-family:Calibri;
 }
 
 .modal-stars p:nth-child(2) {
@@ -573,4 +574,13 @@
     width: 15em;
     margin: 0 2em;
     cursor: pointer;
+}
+
+
+.modal-stars p{
+    font-weight:400;
+}
+
+.modal-stars .mainn{
+    font-weight:600;
 }
