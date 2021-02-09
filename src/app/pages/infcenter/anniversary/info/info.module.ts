@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { InfoPageRoutingModule } from './info-routing.module';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 import { InfoPage } from './info.page';
 
@@ -13,7 +14,8 @@ import { InfoPage } from './info.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    InfoPageRoutingModule
+    InfoPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [InfoPage]
 })

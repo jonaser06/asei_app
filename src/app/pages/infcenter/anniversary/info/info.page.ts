@@ -13,9 +13,12 @@ export class InfoPage implements OnInit {
 
   aniversarioData: any;
   URL = environment.url;
+  NewsData : any;
+  Title : String = 'Más Aniversarios';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
     this.get_Aniversario()
+    this.more_news()
   }
 
   ngOnInit() {
@@ -35,6 +38,14 @@ export class InfoPage implements OnInit {
       this.aniversarioData = resp;
       this.aniversarioData = this.aniversarioData.data;
       console.log(this.aniversarioData);
+    })
+    .catch();
+  }
+
+  more_news(){
+    this.infcenterService.get_infcenterAniversarios()
+    .then(resp=>{
+      this.NewsData = resp['data']['notes'];
     })
     .catch();
   }

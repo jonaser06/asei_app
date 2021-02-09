@@ -14,6 +14,7 @@ import { CardItemsComponent } from './card-items/card-items.component';
 import { CardSliderComponent } from './card-slider/card-slider.component';
 import { PaginadorComponent } from './paginador/paginador.component';
 import { BuscadorComponent } from './buscador/buscador.component';
+import { MoreNewsComponent } from './more-news/more-news.component';
 
 
 
@@ -31,7 +32,8 @@ import { BuscadorComponent } from './buscador/buscador.component';
     CardItemsComponent,
     CardSliderComponent,
     PaginadorComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    MoreNewsComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -46,7 +48,8 @@ import { BuscadorComponent } from './buscador/buscador.component';
     CardItemsComponent,
     CardSliderComponent,
     PaginadorComponent,
-    BuscadorComponent
+    BuscadorComponent,
+    MoreNewsComponent
   ],
   imports: [
     CommonModule,
