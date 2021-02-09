@@ -12,10 +12,14 @@ import { environment } from '../../../../../environments/environment.prod';
 export class InfoPage implements OnInit {
 
   feriasData : any;
+  NewsData : any;
   URL = environment.url;
+  Title : String = 'Más ferias';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
-    this.get_Ferias()}
+    this.get_Ferias()
+    this.more_news()
+  }
     
 
   ngOnInit() {
@@ -35,6 +39,14 @@ export class InfoPage implements OnInit {
       this.feriasData = resp;
       this.feriasData = this.feriasData.data;
       console.log(this.feriasData);
+    })
+    .catch();
+  }
+
+  more_news(){
+    this.infcenterService.get_infcenterFerias()
+    .then(resp=>{
+      this.NewsData = resp['data']['notes'];
     })
     .catch();
   }

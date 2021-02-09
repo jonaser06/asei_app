@@ -36,7 +36,6 @@ export class InfcenterService {
       this.http.get(`${URL}/notes/noticias?limit=${limit}&page=${page}&last=${last}`)
       .subscribe( resp =>{
         if(resp['status']){
-          console.log(resp)
           resolve(resp);
         }else{
           resolve(resp);

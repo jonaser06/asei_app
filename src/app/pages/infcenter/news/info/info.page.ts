@@ -12,10 +12,13 @@ import { environment } from 'src/environments/environment';
 export class InfoPage implements OnInit {
 
   NewData : any;
+  NewsData : any;
+  Title : String = 'Más noticias';
   URL = environment.url;
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
-    this.get_news()
+    this.get_news();
+    this.more_news();
   }
 
   ngOnInit() {
@@ -36,6 +39,14 @@ export class InfoPage implements OnInit {
     })
     .catch();
   }
+  more_news(){
+    this.infcenterService.get_infcenterNews()
+    .then(resp=>{
+      this.NewsData = resp['data']['notes'];
+    })
+    .catch();
+  }
+
   openDialogInfo(){}
 
 }
