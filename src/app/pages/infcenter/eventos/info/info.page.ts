@@ -13,9 +13,13 @@ export class InfoPage implements OnInit {
 
   eventosData: any;
   URL = environment.url;
+  NewsData : any;
+  Title : String = 'Más ferias';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
-    this.get_Eventos()}
+    this.get_Eventos()
+    this.more_news()
+  }
 
   ngOnInit() {
   }
@@ -37,6 +41,15 @@ export class InfoPage implements OnInit {
     })
     .catch();
   }
+
+  more_news(){
+    this.infcenterService.get_infcenterEventos()
+    .then(resp=>{
+      this.NewsData = resp['data']['notes'];
+    })
+    .catch();
+  }
+
 
   openDialogInfo(){}
     
