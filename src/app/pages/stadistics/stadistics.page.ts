@@ -102,7 +102,7 @@ export class StadisticsPage implements OnInit {
     speed: 400,
     slidesPerView: Math.floor (window.innerWidth / 400),
     breakpoints: {
-      400: {
+      200: {
         
         slidesPerView: 1,
         spaceBetween: 30
