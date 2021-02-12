@@ -175,11 +175,11 @@ export class StadisticsPage implements OnInit {
     console.log(this.filebull.name);
   }
   stat(fStat: NgForm){
-    if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
-    if(!this.titlestat) return this.uiserviceService.alert_info('Es necesario un titulo');
-    if(!this.descriptionstat) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(!this.monthstat) return this.uiserviceService.alert_info('Es necesario el mes');
-    if(!this.yearstat) return this.uiserviceService.alert_info('Es necesario el año');
+    if(this.fileToUploadstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('selecciona una imagen');
+    if(this.titlestat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(this.descriptionstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(this.monthstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
+    if(this.yearstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el año');
 
     let formdata = new FormData;
     formdata.append('title', this.titlestat);
@@ -197,12 +197,12 @@ export class StadisticsPage implements OnInit {
   }
 
   statedit(fStat: NgForm){
-    if(!this.id_stat) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
+    if(this.id_stat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('no existe id, recargue la pagina');
     // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
-    if(!this.titlestat) return this.uiserviceService.alert_info('Es necesario un titulo');
-    if(!this.descriptionstat) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(!this.monthstat) return this.uiserviceService.alert_info('Es necesario el mes');
-    if(!this.yearstat) return this.uiserviceService.alert_info('Es necesario el año');
+    if(this.titlestat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(this.descriptionstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(this.monthstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
+    if(this.yearstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el año');
     
     let formdata = new FormData;
     formdata.append('id', this.id_stat);
@@ -320,10 +320,10 @@ export class StadisticsPage implements OnInit {
 
   indedit(fInd: NgForm){
     if(!this.id_ind) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
-    if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
-    if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario el porcentaje');
-    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el tipo');
+    if(this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if( this.descriptionind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(this.percentageind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el porcentaje');
+    if(this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdatas = new FormData;
     formdatas.append('id', this.id_ind);
@@ -398,10 +398,10 @@ export class StadisticsPage implements OnInit {
   }
 
   ind(fInd: NgForm){
-    if(!this.titleind) return this.uiserviceService.alert_info('Es necesario un titulo');
-    if(!this.descriptionind) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(!this.percentageind) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
-    if(!this.typeind) return this.uiserviceService.alert_info('Es necesario el tipo');
+    if(this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(this.descriptionind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(this.percentageind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
+    if(this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdatas = new FormData;
     formdatas.append('title', this.titleind);
@@ -490,11 +490,11 @@ export class StadisticsPage implements OnInit {
   }
 
   bulletedit(fbullet: NgForm){
-    if(!this.idbull) return this.uiserviceService.alert_info('No se encontro el id del boletin, actualizar');
-    if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
-    if(!this.monthbull) return this.uiserviceService.alert_info('Es necesario el mes');
-    if(!this.yearbull) return this.uiserviceService.alert_info('Es necesario año');
-    if(!this.titlebull) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(this.idbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se encontro el id del boletin, actualizar');
+    if(this.filebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    if(this.monthbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
+    if(this.yearbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario año');
+    if(this.titlebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
     let formdata = new FormData;
     formdata.append('id', this.idbull);
     formdata.append('title', this.titlebull);
@@ -511,10 +511,10 @@ export class StadisticsPage implements OnInit {
 
   }
   bullet(fbullet: NgForm){
-    if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
-    if(!this.monthbull) return this.uiserviceService.alert_info('Es necesario el mes');
-    if(!this.yearbull) return this.uiserviceService.alert_info('Es necesario año');
-    if(!this.titlebull) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if(this.filebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    if(this.monthbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
+    if(this.yearbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario año');
+    if(this.titlebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
 
     let formdata = new FormData;
     formdata.append('title', this.titlebull);
