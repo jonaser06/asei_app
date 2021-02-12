@@ -527,7 +527,7 @@ export class StadisticsPage implements OnInit {
     .then(resp=>{ 
       this.closeDialogBulletin();
       this.load_bulletin();
-      this.filebull == null;
+      this.filebull == null; 
     })
     .catch();
 
