@@ -17,19 +17,19 @@
                         <span>{{ bulletin.title }}</span>
                         <div class="actions">
                             <a href="{{ bulletin.file }}" download="FileName">
-                                <button class="btn-bg-primary btn-bulletin-download">
+                                <button class="btn-bg-primary btn-bulletin-download" title= "Descargar">
                                     <ion-icon name="cloud-download-outline"></ion-icon>
                                 </button>
                             </a>
                             <a href="{{ bulletin.file }}" download="FileName">
-                                <button class="btn-outline-primary btn-bulletin-download">
-                                    <ion-icon name="eye-outline"></ion-icon> 
+                                <button class="btn-outline-primary btn-bulletin-download" title= "Visualizar">
+                                    <ion-icon name="eye-outline" > </ion-icon> 
                                 </button>
                             </a>
-                            <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="editItem(bulletin.id, bulletin.title, bulletin.month, bulletin.year, bulletin.file)">
+                            <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="editItem(bulletin.id, bulletin.title, bulletin.month, bulletin.year, bulletin.file)" title= "Editar">
                                 <ion-icon name="create-outline"></ion-icon>
                             </button>
-                            <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="deleteItem(bulletin.id)">
+                            <button *ngIf="rol=='admin'" class="btn-outline-primary btn-bulletin-download" (click)="deleteItem(bulletin.id)" title= "Eliminar">
                                 <ion-icon name="trash-outline"></ion-icon>
                             </button>
                         </div>
