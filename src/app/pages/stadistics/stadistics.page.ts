@@ -175,7 +175,7 @@ export class StadisticsPage implements OnInit {
     console.log(this.filebull.name);
   }
   stat(fStat: NgForm){
-    if(this.fileToUploadstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('selecciona una imagen');
+    if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(this.titlestat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
     if(this.descriptionstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la descripcion');
     if(this.monthstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
@@ -192,6 +192,7 @@ export class StadisticsPage implements OnInit {
     .then(resp=>{ 
       this.closeDialogStat();
       this.load_statistics();
+      this.fileToUploadstat = null;
     })
     .catch();
   }
@@ -511,7 +512,7 @@ export class StadisticsPage implements OnInit {
 
   }
   bullet(fbullet: NgForm){
-    if(this.filebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
     if(this.monthbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
     if(this.yearbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario año');
     if(this.titlebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
@@ -526,6 +527,7 @@ export class StadisticsPage implements OnInit {
     .then(resp=>{ 
       this.closeDialogBulletin();
       this.load_bulletin();
+      this.filebull == null;
     })
     .catch();
 
