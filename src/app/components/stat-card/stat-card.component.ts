@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/services/auth.service';
 
+
 @Component({
   selector: 'app-stat-card',
   templateUrl: './stat-card.component.html',
@@ -31,7 +32,7 @@ export class StatCardComponent implements OnInit {
   }
   editItem(id, title, description, image, month, year) {
     let objstat = {
-      id,
+      id, 
       title,
       description,
       image,
@@ -39,6 +40,7 @@ export class StatCardComponent implements OnInit {
       year
     }
     this.editItemEv.emit(objstat);
+    
   }
   deleteItem(id){
     this.deleteItemEv.emit(id);
