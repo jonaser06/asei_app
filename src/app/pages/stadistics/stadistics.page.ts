@@ -491,7 +491,7 @@ export class StadisticsPage implements OnInit {
 
   bulletedit(fbullet: NgForm){
     if(this.idbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se encontro el id del boletin, actualizar');
-    if(this.filebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    // if(this.filebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un archivo pdf');
     if(this.monthbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
     if(this.yearbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario año');
     if(this.titlebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
