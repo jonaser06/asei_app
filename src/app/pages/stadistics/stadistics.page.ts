@@ -321,10 +321,10 @@ export class StadisticsPage implements OnInit {
 
   indedit(fInd: NgForm){
     if(!this.id_ind) return this.uiserviceService.alert_info('no existe id, recargue la pagina');
-    if(this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
+    if( this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
     if( this.descriptionind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(this.percentageind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el porcentaje');
-    if(this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
+    if( this.percentageind.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el porcentaje');
+    if( this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdatas = new FormData;
     formdatas.append('id', this.id_ind);

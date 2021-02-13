@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 // import { File } from '@ionic-native/file/ngx';
 // import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { ComponentsModule } from './components/components.module';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { ComponentsModule } from './components/components.module';
   providers: [
     StatusBar,
     SplashScreen,
+    OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     // File,
     // FileTransfer
