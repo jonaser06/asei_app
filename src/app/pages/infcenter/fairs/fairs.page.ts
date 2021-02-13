@@ -110,6 +110,12 @@ export class FairsPage implements OnInit {
     .catch();
   }
 
+  volverInfo(){
+    // this.dialogCreateNews= true;
+    // this.redireccionService.redireccion('/tabs/infcenter/fairs')
+    this.redireccionService.backpage();
+  }
+
   openDialogInfo(){}
 
 }

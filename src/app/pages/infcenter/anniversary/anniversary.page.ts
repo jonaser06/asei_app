@@ -107,6 +107,11 @@ export class AnniversaryPage implements OnInit {
     })
     .catch();
   }
+
+  
+  volverInfo(){
+    this.redireccionService.backpage();
+  }
   openDialogInfo(){}
 
 

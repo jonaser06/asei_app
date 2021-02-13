@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
+import { RedireccionService } from '../../../../services/redireccion.service';
+
 @Component({
   selector: 'app-info',
   templateUrl: './info.page.html',
@@ -19,7 +21,7 @@ export class InfoPage implements OnInit {
   titleDialogRemove: string ="";
   isEdited = false;
 
-  constructor(public authService: AuthService) { 
+  constructor(public authService: AuthService,private redireccionService: RedireccionService) { 
     this.dialogRemove = false;
   }
 
@@ -66,6 +68,10 @@ export class InfoPage implements OnInit {
 
   onRateChange(event) {
     console.log('Your rate:', event);
+  }
+
+  volverWebinars(){
+    this.redireccionService.backpage();
   }
 
 

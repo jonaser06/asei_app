@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth.service';
 
+import { RedireccionService } from '../../../../services/redireccion.service';
+
 @Component({
   selector: 'app-info',
   templateUrl: './info.page.html',
@@ -20,7 +22,7 @@ ngOnInit(){
   titleDialogRemove: string ="";
   isEdited = false;
 
-  constructor(public authService: AuthService) { 
+  constructor(public authService: AuthService,private redireccionService: RedireccionService) { 
     this.dialogRemove = false;
   }
 
@@ -34,6 +36,10 @@ ngOnInit(){
     } else {
       contentVideo[n].setAttribute('style','height: 0em;');
     }
+  }
+
+  volverCursos(){
+    this.redireccionService.backpage();
   }
 
   //Info

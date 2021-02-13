@@ -62,6 +62,9 @@ $white-color: "#fff";
     margin-bottom: 10px;
 }
 
+ion-icon{
+    pointer-events: none;
+}
 
 .title-section-container{
     padding-left:1em;
@@ -694,7 +697,35 @@ content:"" !important;
 .slick-prev:before, .slick-next:before{
     opacity:1 !important;
     color:#DF8708 !important;
+    font-size:24px !important;
 }
+
+.slick-prev,.slick-next{
+    top:190px !important;
+}
+
+.slick-next {
+    right: -20px !important;
+}
+
+@media (max-width:794px){
+    .slick-prev,.slick-next{
+        top:255px !important;
+    }   
+}
+
+@media (max-width:600px){
+    .slick-prev,.slick-next{
+        top:270px !important;
+    }   
+}
+
+@media (max-width:300px){
+    .slick-prev,.slick-next{
+        top:295px !important;
+    }   
+}
+
 
 .slick-slide{
     margin:9px !important;
@@ -752,6 +783,4 @@ input,select{
 }
 
 .checkbox-checked.checkbox-icon { padding:2px; }
-
-
 

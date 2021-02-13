@@ -626,6 +626,76 @@ ion-card.main{
     margin:1em 18em;
 }
 
+.doc-user{
+    margin:2em 16em;
+}
+
+.doc-user .cards-doc{
+    display:block;
+    text-align:center;
+}
+
+.doc-user .cards-doc ion-card{
+    width:28%;
+    display:inline-block;
+    border-radius:10px;
+    padding:1em 2em;
+    margin:1.5em;
+    height:auto;
+}
+
+.doc-user .cards-doc ion-card .content-img img{
+    text-align:center;
+}
+
+.doc-user .cards-doc ion-card .content-img img{
+    width:30%;
+    height:auto;
+}
+
+.doc-user .cards-doc ion-card .title-doc{
+    font-family:'Lucida Sans', sans-serif;
+    font-weight:600;
+    font-size:1.3em;
+    color:black;
+    text-align: left;
+}
+
+.doc-user .cards-doc ion-card .cloud-btn
+{
+    padding: .05em;
+    border-radius: 10px;
+    background-color: #F15642;
+    color: #fff;
+    border: 1px solid #F15642;
+    margin: 0.5em 0em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:50px;
+    height:40px;
+    
+}
+
+.doc-user .cards-doc ion-card .cloud-btn ion-icon{
+    font-size:x-large;
+}
+
+.doc-user .cards-doc ion-card .subtitle-doc{
+    font-family:Calibri;
+    font-weight:300;
+    font-size:1.1em;
+    color:black;
+    text-align: left;
+}
+
+.title-doc-user{
+    font-family:'Lucida Sans', sans-serif;
+    font-weight:600;
+    font-size:1.7em;
+}
+
 .main ion-card{
     margin:1.5% 1%;
     // width:48%;
@@ -656,6 +726,11 @@ ion-card.main{
 ion-card.main{
     margin:1em 15em;    
 }
+
+.doc-user{
+    margin:2em 13em;
+}
+
 .content-img img{
     height: 11em;
 }
@@ -665,6 +740,10 @@ ion-card.main{
 @media (max-width: 1350px){
     ion-card.main{
         margin:1em 12em;
+    }
+
+    .doc-user{
+        margin:2em 10em;
     }
     .content-img img{
         height: 10em;
@@ -676,6 +755,9 @@ ion-card.main{
         margin:1em 8em;
         padding:1em 3em;
     }
+    .doc-user{
+        margin:2em 7em;
+    }
     .content-img img{
         height: 11em;
     }
@@ -686,6 +768,10 @@ ion-card.main{
         margin:1em 5em;
         padding:1em 2em;
     }
+
+    .doc-user{
+        margin:2em 3em;
+    }
     .content-img img{
         height: 9em;
     }
@@ -695,6 +781,9 @@ ion-card.main{
     ion-card.main{
         margin:1em 3em;
         padding:1em 1em;
+    }
+    .doc-user{
+        margin:2em 2em;
     }
     .main ion-card{
         width:98%;
@@ -711,6 +800,12 @@ ion-card.main{
 
     
 }
+@media (max-width:766px){
+    .doc-user .cards-doc ion-card{
+        width:40%;
+    }
+}
+
 
 @media (max-width: 600px){
     ion-card.main{
@@ -719,6 +814,14 @@ ion-card.main{
     }
     .main ion-card{
         width:98%;
+    }
+
+    .doc-user .cards-doc ion-card{
+        width:90%;
+    }
+
+    .doc-user{
+        margin:2em .5em;
     }
 
     .content-img img{
@@ -770,7 +873,7 @@ align-items:center;
 }
 
 ion-card ion-card{
-    padding:1.5em .5em;
+    padding:1.3em .5em;
     background-color:white !important;
 }
 
@@ -840,5 +943,7 @@ ion-item:hover{
     font-size:17px;
     text-transform:none;
 }
+
+
 
 

@@ -105,6 +105,13 @@ export class EventosPage implements OnInit {
     .catch();
   }
 
+  volverInfo(){
+    
+    this.redireccionService.backpage();
+  }
+
   openDialogInfo(){}
+  
+
 
 }

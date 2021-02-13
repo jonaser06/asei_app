@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionService } from '../../../../services/redireccion.service';
 
 @Component({
   selector: 'app-finish',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FinishPage implements OnInit {
 
-  constructor() { }
+  constructor(private redireccionService: RedireccionService) { }
 
   ngOnInit() {
+  }
+
+  volverWebinars(){
+    this.redireccionService.backpage();
   }
 
 }

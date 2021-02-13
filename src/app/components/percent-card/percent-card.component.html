@@ -1,5 +1,5 @@
 <div class="card percent-cards">
-    <div class="absolute-right" *ngIf="rol=='admin'">
+    <!-- <div class="absolute-right" *ngIf="rol=='admin'">
         <div class="drop-menu">
             <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
             <div class="popover">
@@ -13,7 +13,7 @@
             </button>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- usar clase up-trending si es para incremento y low-trending si es para decremento -->
     <div class="top-percent up-trending">
         <ion-icon class="icon-top-percent" name="trending-up" *ngIf="card_ind.type =='incremento'"></ion-icon>
@@ -33,11 +33,11 @@
     <!-- Admin -->
     <div class="admin-edit">
         <div class="pencil-btn">
-            <ion-icon name="pencil-outline" (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)"></ion-icon>
+            <button (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)"><ion-icon name="pencil-outline" ></ion-icon> </button>
         </div>
 
         <div class="delete-btn">
-            <ion-icon name="trash" (click)="deleteItem(card_ind.id)"></ion-icon>
+            <button (click)="deleteItem(card_ind.id)"><ion-icon name="trash" ></ion-icon></button>
         </div>
     </div>
 </div>

@@ -4,8 +4,8 @@
     
         <ion-grid class="tabs-list" >
             <ion-row class="row-tabs">
-                <ion-col  *ngFor="let menu of menues">
-                    <ion-tab-button class="tab-link-responsive" [tab]="menu.path" (click)="setCurrentActive(menu.path)">
+                <ion-col *ngFor="let menu of menues">
+                    <ion-tab-button class="tab-link-responsive" [tab]="menu.path" (click)="setCurrentActive(menu.path)" [title]="menu.modulo">
                         <ion-icon [name]="menu.icon"></ion-icon>
                         <ion-label class="label-tab">{{ menu.nombre }}</ion-label>
                     </ion-tab-button>

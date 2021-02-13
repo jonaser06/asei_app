@@ -104,3 +104,14 @@
     color: #24344D;
     outline: none;
 }
+
+.sub-item .actions .btn-outline-primary:hover{
+    background: #24344D;
+    color: #fff;
+    outline: none;
+    border: 1px solid #24344D;
+}
+
+.sub-item .actions ion-icon{
+    vertical-align:middle;
+}

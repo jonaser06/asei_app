@@ -95,3 +95,17 @@
     align-items: center;
     justify-content: center;
 }
+
+.admin-edit button{
+    background-color:transparent;
+}
+
+.admin-edit .delete-btn ion-icon{
+    vertical-align: middle;
+    color:white;
+}
+
+.admin-edit .pencil-btn ion-icon{
+    vertical-align: middle;
+    color:#24344D;
+}

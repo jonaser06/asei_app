@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import {IonSlides}  from '@ionic/angular';
 
+import { RedireccionService } from '../../../services/redireccion.service';
+
 @Component({
   selector: 'app-cursos',
   templateUrl: './cursos.page.html',
@@ -9,7 +11,7 @@ import {IonSlides}  from '@ionic/angular';
 })
 export class CursosPage implements OnInit {
 
-  constructor() { }
+  constructor(private redireccionService: RedireccionService) { }
 
   ngOnInit() {
   }
@@ -51,6 +53,10 @@ slideNext(object, slideView) {
   //Move to previous slide
   slidePrev(object, slideView) {
     slideView.slidePrev(500);
+  }
+
+  volverLearn(){
+    this.redireccionService.backpage();
   }
 
 }

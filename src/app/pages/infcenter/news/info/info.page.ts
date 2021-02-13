@@ -4,6 +4,8 @@ import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { environment } from 'src/environments/environment';
 
+
+
 @Component({
   selector: 'app-info',
   templateUrl: './info.page.html',
@@ -46,6 +48,8 @@ export class InfoPage implements OnInit {
     })
     .catch();
   }
+
+ 
 
   openDialogInfo(){}
 

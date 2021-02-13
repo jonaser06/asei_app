@@ -64,7 +64,7 @@ export class EditPage implements OnInit {
     };
   }
 
-  volverFerias(){
+  volverEventos(){
     // this.dialogCreateNews= true;
     // this.redireccionService.redireccion('/tabs/infcenter/fairs');
     this.redireccionService.backpage();

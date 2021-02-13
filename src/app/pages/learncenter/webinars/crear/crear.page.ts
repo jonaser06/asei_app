@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { RedireccionService } from '../../../../services/redireccion.service';
+
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.page.html',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearPage implements OnInit {
 
-  constructor() { }
+  constructor(private redireccionService: RedireccionService) { }
 
   ngOnInit() {
+  }
+
+  volverWebinars(){
+    this.redireccionService.backpage();
   }
 
 }

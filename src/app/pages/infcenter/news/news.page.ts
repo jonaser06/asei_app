@@ -35,6 +35,8 @@ export class NewsPage implements OnInit {
   ngOnInit() {
   }
 
+  
+
   openDialogNews(){
     // this.dialogReadNews = true;
     this.redireccionService.redireccion('/tabs/infcenter/news/info');
@@ -110,6 +112,12 @@ export class NewsPage implements OnInit {
       }
     })
     .catch();
+  }
+
+  volverInfo(){
+    // this.dialogCreateNews= true;
+    // this.redireccionService.redireccion('/tabs/infcenter/fairs')
+    this.redireccionService.backpage();
   }
 
   openDialogInfo(){}

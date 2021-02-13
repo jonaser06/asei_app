@@ -31,6 +31,8 @@ export class EditPage implements OnInit {
   ngOnInit() {
   }
 
+  
+
   get_newsid(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log();

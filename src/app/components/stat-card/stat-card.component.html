@@ -10,14 +10,15 @@
                     <span class="no-margin label-menu" (click)="download(URL + '/' + card_child.image)">Descargar</span>
                     <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
                 </button> -->
-                <button class="item">
+                <a class="enlace-descarga" href="{{ URL + '/' + card_child.image }}" target="_blank" >   <button class="item">
                     <span class="no-margin label-menu">
-                        <a href="{{ URL + '/' + card_child.image }}" download="image.jpg" target="_blank" style="text-decoration: none; padding: 0px !important;" class="item">
+                        Descargar<!-- <a href="{{ URL + '/' + card_child.image }}" download="image.jpg" target="_blank" style="text-decoration: none; padding: 0px !important;" class="item">
                             Descargar
-                        </a>
+                        </a> -->
                     </span>
                     <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
                 </button>
+                </a>
                 <button (click)="editItem(card_child.id, card_child.title, card_child.description, card_child.image, card_child.month, card_child.year)" class="item">
                     <span class="no-margin label-menu">Editar</span>
                     <ion-icon class="no-margin icon-menu" name="create-outline"></ion-icon>

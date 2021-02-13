@@ -5,7 +5,7 @@
               <div class="title-section-container">
                 <div class="title-arrow">
                   <!-- Flecha a la izquierda -->
-                  <div class="left-arrow">
+                  <div class="left-arrow" (click)="volverCursos()">
                     <ion-icon name="arrow-back-outline"></ion-icon>
                   </div>
   
@@ -19,7 +19,7 @@
 
           <!-- Admin -->
           <div class="actions-page no-web">
-            <button class="btn-new-item">
+            <button class="btn-new-item" (click)="iraCrear()">
                 <span>Nuevo Curso</span>
                 <ion-icon class="icon-btn" name="add"></ion-icon>
             </button>
@@ -38,7 +38,7 @@
     
     
               <div class="actions-page no-mobil">
-                <button class="btn-new-item">
+                <button class="btn-new-item" (click)="iraCrear()">
                     <span>Nuevo Curso</span>
                     <ion-icon class="icon-btn" name="add-circle"></ion-icon>
                 </button>
