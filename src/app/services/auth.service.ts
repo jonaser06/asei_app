@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { environment } from 'src/environments/environment';
 import { NavController } from '@ionic/angular';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 const URL = environment.url;
 @Injectable({
@@ -19,7 +20,7 @@ export class AuthService {
     })
   }
   
-  constructor( private http: HttpClient, private storage: Storage, private navCtrol : NavController ) { }
+  constructor( private http: HttpClient, private storage: Storage, private navCtrol : NavController, private oneSignal: OneSignal ) { }
 
   login_service( email: string, password: string){
 
@@ -33,12 +34,23 @@ export class AuthService {
       .subscribe( resp => {
   
         if(resp['status']){
+
           this.save_userdata( JSON.stringify(resp) );
+
+          /* suscribo a onesignal */
+          this.oneSignal.getIds()
+          .then(r=>{
+            let id = resp['data']['user_id'];
+            this.subscribe_notification(id, r.userId);
+          });
+
           resolve(resp);
         }else{
+
           this.UserData = null;
           this.storage.clear();
           resolve(resp);
+          
         }
         
       });
@@ -79,6 +91,19 @@ export class AuthService {
     })
   }
   
+  subscribe_notification(id, notificationid){
+    let formdata = new FormData;
+    formdata.append('id_notify', notificationid);
+
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/user/${id}/update`, formdata)
+      .subscribe( resp => {
+        console.log(resp);
+      });
+    });
+  }
+
+
   logout(){
     try {
       this.storage.remove('UserData');

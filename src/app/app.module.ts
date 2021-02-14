@@ -14,6 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
 // import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { ComponentsModule } from './components/components.module';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx'
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +32,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     SplashScreen,
     OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    LocalNotifications
     // File,
     // FileTransfer
   ],

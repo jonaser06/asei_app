@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { IonicSafeString, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { PushNotificationsService } from './services/push-notifications.service';
@@ -22,9 +22,16 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
+      // this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.pushService.init();
+      if(this.platform.is('android')) {
+        this.statusBar.styleBlackOpaque();
+      }
+      this.platform.backButton.subscribe(()=>{
+        navigator['app'].exitApp();
+      });
+
     });
   }
 }

@@ -16,8 +16,7 @@
         <div class="header-content-user">
             <button type="icon-start" class="tab-notify" (click)="goNotifications()">
               <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
-       
-              <ion-label class="no-margin label-tab"></ion-label>
+              <ion-label class="no-margin label-tab" *ngIf="bubble"></ion-label>
           </button>
             <div class="separator-header"></div>
             <button class="responsive-button responsive-profile-button" (click)="goProfile()">

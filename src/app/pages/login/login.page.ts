@@ -23,7 +23,7 @@ export class LoginPage implements OnInit {
     /* sesion */
     this.authService.valida_user()
     .then(resp=>{
-      if(resp) this.navCtrol.navigateRoot('tabs/stadistics', { animated : true } );
+      if(resp) this.navCtrol.navigateRoot('tabs/infcenter', { animated : true } );
     })
     .catch()
   }

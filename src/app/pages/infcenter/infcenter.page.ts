@@ -11,26 +11,7 @@ export class InfCenterPage implements OnInit {
   constructor( private redireccionService : RedireccionService) { }
 
   ngOnInit() {
-    console.log('0. ngOnInit');
-  }
-
-  ionViewDidEnter(){
-    console.log('1. ionViewDidEnter');
-  }
-  ionViewDidLoad(){
-    console.log('2. ionViewDidLoad');
-  }
-  ionViewWillEnter(){
-    console.log('3. ionViewWillEnter');
-  }
-  ionViewWillLeave(){
-    console.log('4. ionViewWillLeave');
-  }
-  ionViewDidLeave(){
-    console.log('5. ionViewDidLeave');
-  }
-  ionViewWillUnload(){
-    console.log('6. ionViewWillUnload');
+    
   }
 
   //redireccionamiento de secciones
