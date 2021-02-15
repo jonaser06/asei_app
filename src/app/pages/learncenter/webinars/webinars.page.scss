@@ -479,6 +479,9 @@ margin-left:-25%;
     font-size: 15px;
     font-weight: 300;
     margin-top: 2.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .courses .new-card .card-content .content-info .calificacion,
