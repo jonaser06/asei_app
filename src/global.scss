@@ -445,14 +445,14 @@ ion-icon{
 
 // Sections
 .layout-section {
-    padding: 1.5em 2em;
+    // padding: 1.5em 2em;
     background: #F5F5F5;
     min-height: calc(100vh - 74px - 75px);
     @media screen and (max-width: 400px) {
-        padding: 1.5em 1em;
+        // padding: 1.5em 1em;
     }
     @media screen and (max-width: 360px) {
-        padding: 1.2em .8em;
+        // padding: 1.2em .8em;
     }
 }
 

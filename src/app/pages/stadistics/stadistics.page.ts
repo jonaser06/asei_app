@@ -399,9 +399,10 @@ export class StadisticsPage implements OnInit {
   }
 
   ind(fInd: NgForm){
+    console.log(this.percentageind);
     if(this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(this.descriptionind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario la descripcion');
-    if(this.percentageind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
+    if(this.percentageind.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
     if(this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdatas = new FormData;
