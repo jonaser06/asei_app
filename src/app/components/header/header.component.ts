@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goProfile(){
-    this.navCtrol.navigateRoot("/")
+    this.navCtrol.navigateRoot("/");
   }
   goNotifications() {
     this.navCtrol.navigateRoot("/")

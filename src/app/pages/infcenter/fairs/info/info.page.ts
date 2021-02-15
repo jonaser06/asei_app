@@ -11,6 +11,8 @@ import { environment } from '../../../../../environments/environment.prod';
 })
 export class InfoPage implements OnInit {
 
+  dialogCalificacion: boolean = false;
+  isEdited = false;
   feriasData : any;
   NewsData : any;
   URL = environment.url;
@@ -29,6 +31,20 @@ export class InfoPage implements OnInit {
     // this.dialogCreateNews= true;
     // this.redireccionService.redireccion('/tabs/infcenter/fairs')
     this.redireccionService.backpage();
+  }
+
+
+  openDialogCalificacion() {
+    this.dialogCalificacion = true;
+  }
+
+  closeDialogCalificacion() {
+    this.dialogCalificacion = false;
+    this.isEdited = false;
+  }
+
+  onRateChange(event) {
+    console.log('Your rate:', event);
   }
 
   get_Ferias(){

@@ -8,6 +8,7 @@ import { InfoPageRoutingModule } from './info-routing.module';
 import { ComponentsModule } from 'src/app/components/components.module';
 
 import { InfoPage } from './info.page';
+import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { InfoPage } from './info.page';
     FormsModule,
     IonicModule,
     InfoPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    IonicRatingModule
   ],
   declarations: [InfoPage]
 })

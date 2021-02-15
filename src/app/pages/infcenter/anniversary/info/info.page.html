@@ -39,7 +39,7 @@
               </div>
 
               <div class="stars-btn">
-                <p>Calificación</p>
+                <p (click)="openDialogCalificacion()">Calificación</p>
                 <ion-icon class="stars" name="star"></ion-icon>
                 <ion-icon class="stars" name="star"></ion-icon>
                 <ion-icon class="stars" name="star"></ion-icon>
@@ -91,6 +91,35 @@
             <input type="button" value="Regresar" class="btn-return_" (click)="volverAnniversary()">
           </div>
         </div>
+
+        <app-dialog *ngIf="dialogCalificacion" [dialog]="dialogCalificacion" [width]="300" [height]="270" (closeDialogEv)="closeDialogCalificacion()">
+          <div class="body-dialog">
+            <div class="modal-stars">
+              <p class="mainn">¿Te resultó útil la noticia?</p>
+              <p>Califica</p>
+    
+    
+              <rating [rate]="rate"
+            readonly="false"
+            size="default" 
+            (rateChange)="onRateChange($event)"
+            (ngModelChange)="onRateChange($event)">
+              </rating>
+    
+              <!-- <div class="stars">
+                <ion-icon class="stars-btn" name="star"></ion-icon>
+                <ion-icon class="stars-btn" name="star"></ion-icon>
+                <ion-icon class="stars-btn" name="star"></ion-icon>
+                <ion-icon class="stars-btn" name="star"></ion-icon>
+                <ion-icon class="stars-btn" name="star-outline"></ion-icon>
+              </div> -->
+    
+              <div class="content-btn">
+                <button>Guardar</button>
+              </div>
+            </div>
+          </div>
+        </app-dialog>
 
         <app-more-news [news_child]="NewsData" [title]="Title"></app-more-news>
       </div>

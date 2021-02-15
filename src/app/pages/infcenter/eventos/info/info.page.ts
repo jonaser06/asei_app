@@ -11,6 +11,8 @@ import { environment } from '../../../../../environments/environment.prod';
 })
 export class InfoPage implements OnInit {
 
+  dialogCalificacion: boolean = false;
+  isEdited = false;
   eventosData: any;
   URL = environment.url;
   NewsData : any;
@@ -28,6 +30,21 @@ export class InfoPage implements OnInit {
     // this.dialogCreateNews= true;
     // this.redireccionService.redireccion('/tabs/infcenter/eventos')
     this.redireccionService.backpage();
+  }
+
+  
+  //Info
+  openDialogCalificacion() {
+    this.dialogCalificacion = true;
+  }
+
+  closeDialogCalificacion() {
+    this.dialogCalificacion = false;
+    this.isEdited = false;
+  }
+
+  onRateChange(event) {
+    console.log('Your rate:', event);
   }
 
   get_Eventos(){
