@@ -30,9 +30,9 @@ export class AppComponent {
       if(this.platform.is('android')) {
         this.pushService.init();
         this.statusBar.styleBlackOpaque();
-        this.platform.backButton.subscribe(()=>{
-          navigator['app'].exitApp();
-        });
+        // this.platform.backButton.subscribe(()=>{
+        //   navigator['app'].exitApp();
+        // });
       }
 
     });

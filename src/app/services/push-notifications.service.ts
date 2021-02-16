@@ -1,9 +1,12 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { AuthService } from './auth.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
+const URL = environment.url;
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +18,7 @@ export class PushNotificationsService {
   //not notification bubble
   nn_bubble = new EventEmitter();
 
-  constructor(private oneSignal: OneSignal, private alertCrtl: AlertController, private localNotification: LocalNotifications, public authService: AuthService) { }
+  constructor(private http: HttpClient, private oneSignal: OneSignal, private alertCrtl: AlertController, private localNotification: LocalNotifications, public authService: AuthService, private navCtrol : NavController) { }
 
   init(){
 
@@ -24,23 +27,23 @@ export class PushNotificationsService {
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
 
     this.oneSignal.handleNotificationReceived().subscribe((resp) => {
-    // do something when notification is received
+      // do something when notification is received
       // let msg = resp.payload.body;
       // let title = resp.payload.title;
       // let additionalData = resp.payload.additionalData;
-      // this.showAlert( title, msg, additionalData.task );
-      // this.showLocalNotification();
+
       console.log("Notificacion recibida ");
+      console.log(resp.payload.additionalData);
+      this.save_notification(resp.payload.additionalData);
       this.bubble();
+
 
     });
 
     this.oneSignal.handleNotificationOpened().subscribe((resp) => {
-      // do something when a notification is opened
-      // let additionalData = resp.notification.payload.additionalData;
-      // this.showAlert( 'Notificacion abierta', 'You already read this before', additionalData.task );
       console.log("Notificacion abierta ", resp);
       this.not_booble();
+      this.navCtrol.navigateRoot('tabs/notifications', { animated : true } )
     });
 
     this.oneSignal.endInit();
@@ -55,31 +58,30 @@ export class PushNotificationsService {
     this.nn_bubble.emit('{"notification":false}');
   }
 
-  showLocalNotification(){
-    this.localNotification.schedule({
-      id: 1,
-      text: 'Single ILocalNotification',
-      sound: 'file://sound.mp3',
-      data: { secret: 'test' }
+  save_notification(payload){
+
+    this.http.post(`${URL}/setNotification`, payload)
+    .subscribe( resp => {
+      console.log("respuesta del api");
+      console.log(resp);
     });
   }
 
-  async showAlert(title, msg, task){
-
-    const alert = await this.alertCrtl.create({
-      header: title,
-      subHeader: msg,
-      buttons: [
-        {
-          text: `Action: ${task}`,
-          handler: () =>{
-
-          }
-        }
-      ]
+  get_notification(payload){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/getNotification`, payload)
+      .subscribe( resp => {
+        resolve(resp);
+      });
     });
-    
-    alert.present()
+  }
+
+  update_notification(){
+
+  }
+
+  delete_notification(){
+
   }
 
 }
