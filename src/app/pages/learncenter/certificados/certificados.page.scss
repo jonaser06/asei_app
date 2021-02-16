@@ -182,14 +182,26 @@
 .courses .new-card .card-content,
 .courses .card-watching .card-content,
 .courses .card-completed .card-content {
-    flex-basis: calc(100%);
+    // width: calc(100%);
 }
 
+
+@media(min-width:200px){
+    .courses .new-card .card-content,
+    .courses .card-watching .card-content,
+    .courses .card-completed .card-content {
+        width: 100%;
+        margin-bottom: 2em;
+        border-bottom: 1px solid #c4c4c4;
+        border-radius: 20px;
+    }
+    }
+    
 @media (min-width: 768px) {
     .courses .new-card .card-content,
     .courses .card-watching .card-content,
     .courses .card-completed .card-content {
-        flex-basis: calc(50% - 1em);
+        width: calc(50% - 1em);
         height: auto;
         display: flex;
         flex-direction: column;
@@ -200,18 +212,10 @@
     .courses .new-card .card-content,
     .courses .card-watching .card-content,
     .courses .card-completed .card-content {
-        flex-basis: calc(33.33% - 1em);
+        width: calc(33.33% - 1em);
     }
 }
 
-.courses .new-card .card-content,
-.courses .card-watching .card-content,
-.courses .card-completed .card-content {
-    width: 100%;
-    margin-bottom: 2em;
-    border-bottom: 1px solid #c4c4c4;
-    border-radius: 20px;
-}
 
 .courses .new-card .card-content .content-img,
 .courses .card-watching .card-content .content-img,
@@ -358,6 +362,9 @@
     font-size: 15px;
     font-weight: 300;
     margin-top: 2.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .courses .new-card .card-content .content-info .calificacion,

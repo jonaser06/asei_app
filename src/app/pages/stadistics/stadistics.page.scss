@@ -547,3 +547,22 @@ app-bulletin-list {
 .boletin-card .title-card .title {
     padding: 1rem !important;
 }
+
+input[type=file]::-webkit-file-upload-button {
+    border: 1px solid grey;
+    background: #FFFAAA;
+    opacity:0;
+    width:80px;
+}
+
+input[type=file]{
+    position:absolute;
+    height:42px;
+    padding-top:9px;
+}
+
+.icon-doc{
+    width:80px;
+    height:42px;
+    color:gray;
+}

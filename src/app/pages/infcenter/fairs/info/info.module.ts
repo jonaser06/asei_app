@@ -9,13 +9,16 @@ import { ComponentsModule } from 'src/app/components/components.module';
 
 import { InfoPage } from './info.page';
 
+import { IonicRatingModule } from 'ionic4-rating';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     InfoPageRoutingModule,
-    ComponentsModule
+    ComponentsModule,
+    IonicRatingModule
   ],
   declarations: [InfoPage]
 })

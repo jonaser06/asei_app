@@ -11,6 +11,8 @@ import { environment } from '../../../../../environments/environment.prod';
 })
 export class InfoPage implements OnInit {
 
+  dialogCalificacion: boolean = false;
+  isEdited = false;
   aniversarioData: any;
   URL = environment.url;
   NewsData : any;
@@ -25,10 +27,24 @@ export class InfoPage implements OnInit {
   }
 
   volverAnniversary(){
-    // this.dialogCreateNews= true;
-    // this.redireccionService.redireccion('/tabs/infcenter/anniversary')
     this.redireccionService.backpage();
   }
+
+  
+  //Info
+  openDialogCalificacion() {
+    this.dialogCalificacion = true;
+  }
+
+  closeDialogCalificacion() {
+    this.dialogCalificacion = false;
+    this.isEdited = false;
+  }
+
+  onRateChange(event) {
+    console.log('Your rate:', event);
+  }
+
 
   get_Aniversario(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');

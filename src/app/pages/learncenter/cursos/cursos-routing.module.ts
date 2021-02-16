@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'finish',
     loadChildren: () => import('./finish/finish.module').then( m => m.FinishPageModule)
+  },
+  {
+    path: 'edit',
+    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
   }
 ];
 

@@ -13,6 +13,8 @@ import { environment } from 'src/environments/environment';
 })
 export class InfoPage implements OnInit {
 
+  dialogCalificacion: boolean = false;
+  isEdited = false;
   NewData : any;
   NewsData : any;
   Title : String = 'Más noticias';
@@ -29,6 +31,20 @@ export class InfoPage implements OnInit {
     // this.dialogCreateNews= true;
     // this.redireccionService.redireccion('/tabs/infcenter/fairs')
     this.redireccionService.backpage();
+  }
+
+  //Info
+  openDialogCalificacion() {
+    this.dialogCalificacion = true;
+  }
+
+  closeDialogCalificacion() {
+    this.dialogCalificacion = false;
+    this.isEdited = false;
+  }
+
+  onRateChange(event) {
+    console.log('Your rate:', event);
   }
 
   get_news(){

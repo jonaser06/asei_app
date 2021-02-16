@@ -31,6 +31,10 @@ const routes: Routes = [
   {
     path: 'notifications',
     loadChildren: () => import('./notifications/notifications.module').then( m => m.NotificationsPageModule)
+  },
+  {
+    path: 'admin-boleta',
+    loadChildren: () => import('./admin-boleta/admin-boleta.module').then( m => m.AdminBoletaPageModule)
   }
 ];
 

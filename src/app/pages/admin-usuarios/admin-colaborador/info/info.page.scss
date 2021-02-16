@@ -640,7 +640,7 @@ ion-card.main{
     display:inline-block;
     border-radius:10px;
     padding:1em 2em;
-    margin:1.5em;
+    margin:1em;
     height:auto;
 }
 
@@ -673,13 +673,13 @@ ion-card.main{
     display: flex;
     align-items: center;
     justify-content: center;
-    width:50px;
-    height:40px;
+    width:45px;
+    height:35px;
     
 }
 
 .doc-user .cards-doc ion-card .cloud-btn ion-icon{
-    font-size:x-large;
+    font-size:large;
 }
 
 .doc-user .cards-doc ion-card .subtitle-doc{
@@ -873,7 +873,7 @@ align-items:center;
 }
 
 ion-card ion-card{
-    padding:1.3em .5em;
+    padding:1.1em .5em;
     background-color:white !important;
 }
 

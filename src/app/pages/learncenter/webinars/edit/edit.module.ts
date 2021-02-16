@@ -4,21 +4,19 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { InfoPageRoutingModule } from './info-routing.module';
+import { EditPageRoutingModule } from './edit-routing.module';
 
-import { InfoPage } from './info.page';
+import { EditPage } from './edit.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { IonicRatingModule } from 'ionic4-rating';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    InfoPageRoutingModule,
-    ComponentsModule,
-    IonicRatingModule
+    EditPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [InfoPage]
+  declarations: [EditPage]
 })
-export class InfoPageModule {}
+export class EditPageModule {}
