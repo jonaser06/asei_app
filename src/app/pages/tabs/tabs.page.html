@@ -15,30 +15,30 @@
 
         <div class="header-content-user">
             <button type="icon-start" class="tab-notify" (click)="goNotifications()">
-              <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
-              <ion-label class="no-margin label-tab" *ngIf="bubble"></ion-label>
-          </button>
+                <ion-icon class="no-margin notifications-icon" name="notifications"></ion-icon>
+                <ion-label class="no-margin label-tab" *ngIf="bubble"></ion-label>
+            </button>
             <div class="separator-header"></div>
             <button class="responsive-button responsive-profile-button" (click)="goProfile()">
-              <img draggable="false" src="../../../assets/img/default-user.png" >
-          </button>
+                <img draggable="false" src="../../../assets/img/default-user.png" >
+            </button>
             <div class="auth-user">
                 <img draggable="false" src="../../../assets/img/default-user.png">
                 <span class="user-name">{{ nombres }}</span>
                 <ion-icon slot="icon-only" name="caret-down"></ion-icon>
                 <div class="popover-menu-user">
                     <button (click)="goProfile()" class="item-menu">
-                      <ion-icon class="no-margin icon-menu" name="person-circle"></ion-icon>
-                      <span class="no-margin label-menu">Mi perfil</span>
-                  </button>
+                        <ion-icon class="no-margin icon-menu" name="person-circle"></ion-icon>
+                        <span class="no-margin label-menu">Mi perfil</span>
+                    </button>
                     <button (click)="logout()" href="/" class="item-menu">
-                      <ion-icon class="no-margin icon-menu" name="power"></ion-icon>
-                      <span class="label-menu">Cerrar sesión</span>
-                  </button>
+                        <ion-icon class="no-margin icon-menu" name="power"></ion-icon>
+                        <span class="label-menu">Cerrar sesión</span>
+                    </button>
                 </div>
             </div>
             <button (click)="logout()" class="responsive-button responsive-button-logout">
-              <ion-icon class="icon-menu" name="power"></ion-icon>
+                <ion-icon class="icon-menu" name="power"></ion-icon>
           </button>
         </div>
     </div>

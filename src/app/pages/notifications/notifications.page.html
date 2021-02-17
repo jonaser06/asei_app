@@ -17,7 +17,7 @@
           <div class="news-courses">
             <div class="search-courses">
               <div class="input-search no-user">
-                <input type="search" name="" id="" placeholder="Buscar por nombre o palabra clave">
+                <input type="search" name="" id="" class="busca_noti" placeholder="Buscar por nombre o palabra clave" (keyup.enter)="search_notification()">
                 <ion-icon class="search-btn" name="search-outline"></ion-icon>
               </div>
               
@@ -26,7 +26,7 @@
         </div> 
       </ion-grid>
 
-    <ion-card *ngFor="let notification of notifications?.data.content">
+    <ion-card *ngFor="let notification of notifications?.content">
       <ion-item (click)="openpush(notification.destino)">
         <div class="card-photo"  >
           <div class="content-img">
@@ -44,36 +44,7 @@
       </ion-item>    
     </ion-card>
     
-    <div class="number-option">
-      <div class="left-option">
-        <ion-icon name="chevron-back-outline"></ion-icon>
-      </div>
-
-      <div class="numbers-option">
-        <div class="number-one number-all">
-          <p>1</p>
-        </div>
-        <div class="number-two number-all">
-          <p>2</p>
-        </div>
-        <div class="number-three number-all">
-          <p>3</p>
-        </div>
-        <div class="number-four number-all">
-          <p>4</p>
-        </div>
-        <div class="number-five number-all">
-          <p>5</p>
-        </div>
-        <div class="number-six number-all">
-          <p>6</p>
-        </div>
-      </div>
-
-      <div class="right-option">
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </div>
-    </div>
+    <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
   </div>
   </div>
   <app-footer></app-footer>

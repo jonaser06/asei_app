@@ -53,7 +53,7 @@ export class InfoPage implements OnInit {
     .then(resp=>{
       this.NewData = resp;
       this.NewData = this.NewData.data;
-      console.log(this.NewData);
+      // console.log(this.NewData); 
     })
     .catch();
   }

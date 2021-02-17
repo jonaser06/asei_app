@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { exit } from 'process';
 import { AuthService } from 'src/app/services/auth.service';
 import { PushNotificationsService } from 'src/app/services/push-notifications.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
@@ -12,6 +13,11 @@ import { RedireccionService } from 'src/app/services/redireccion.service';
 export class NotificationsPage implements OnInit {
 
   notifications : any;
+  pages : any;
+  currentpage : any;
+  currentkey : any;
+  id: any;
+
   constructor( public pushNotificationsService : PushNotificationsService, public authService: AuthService , private router: Router, private redireccionService: RedireccionService) { }
 
   ngOnInit() {
@@ -37,24 +43,20 @@ export class NotificationsPage implements OnInit {
   // }
 
   load_notification(){
-
+    let pages = [];
     this.authService.get_data()
     .then(resp=>{
-      let id = resp['data']['user_id'];
-
-      let payload = {
-          "ID_US" : id,
-          "page": 1,
-          "limit": 6
-      };
-
+      this.id = resp['data']['user_id'];
+      let payload = {"ID_US" : this.id,"page": 1,"limit": 6};
       this.pushNotificationsService.get_notification(payload)
       .then(resp=>{
         console.log("bandeja de entrada");
         console.log(resp);
-        this.notifications = resp;
+        this.notifications = resp['data'];
+        for(let i = 1 ; i <= this.notifications.pages; i++ ){ pages.push(i)}
+        this.pages = pages;
+        this.currentpage = this.notifications.page;
       });
-
     });
   }
 
@@ -63,6 +65,35 @@ export class NotificationsPage implements OnInit {
     let path = url.split("/")[1];
     console.log(path);
     this.redireccionService.redireccion(`${path}/${destino}`);
+  }
+
+  changepage_(page){
+    let pages = [];
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    let payload = {"ID_US" : this.id,"page": page,"limit": 6};
+    console.log(payload);
+    this.pushNotificationsService.get_notification(payload)
+    .then(resp=>{
+      this.notifications = resp['data'];
+      for(let i = 1 ; i <= this.notifications.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.notifications.page;
+    });
+  }
+
+  search_notification(){
+    let input = (<HTMLInputElement>document.querySelector('.busca_noti')).value;
+    let pages = [];
+    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
+    let payload = {"ID_US" : this.id,"page": 1,"limit": 6, "match": input};
+    console.log(payload);
+    this.pushNotificationsService.get_notification(payload)
+    .then(resp=>{
+      this.notifications = resp['data'];
+      for(let i = 1 ; i <= this.notifications.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.notifications.page;
+    });
   }
 
 }

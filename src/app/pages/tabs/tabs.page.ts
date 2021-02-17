@@ -55,7 +55,7 @@ export class TabsPage implements OnInit {
     // this.navCtrol.navigateRoot("/")
   }
   goNotifications() {
-    // this.navCtrol.navigateRoot("/")
+    this.navCtrol.navigateRoot('tabs/notifications', { animated : true } );
   }
   logout (){
     if(this.authService.logout()){
