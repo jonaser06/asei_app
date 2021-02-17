@@ -17,6 +17,7 @@ export class NotificationsPage implements OnInit {
   currentpage : any;
   currentkey : any;
   id: any;
+  inputv: any;
 
   constructor( public pushNotificationsService : PushNotificationsService, public authService: AuthService , private router: Router, private redireccionService: RedireccionService) { }
 
@@ -69,8 +70,12 @@ export class NotificationsPage implements OnInit {
 
   changepage_(page){
     let pages = [];
-    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
-    let payload = {"ID_US" : this.id,"page": page,"limit": 6};
+    let payload;
+    if( this.inputv === undefined){
+      payload = {"ID_US" : this.id,"page": page,"limit": 6};
+    }else{
+      payload = {"ID_US" : this.id,"page": page,"limit": 6, "match": this.inputv };
+    }
     console.log(payload);
     this.pushNotificationsService.get_notification(payload)
     .then(resp=>{
@@ -83,8 +88,8 @@ export class NotificationsPage implements OnInit {
 
   search_notification(){
     let input = (<HTMLInputElement>document.querySelector('.busca_noti')).value;
+    this.inputv = input;
     let pages = [];
-    this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
     let payload = {"ID_US" : this.id,"page": 1,"limit": 6, "match": input};
     console.log(payload);
     this.pushNotificationsService.get_notification(payload)
