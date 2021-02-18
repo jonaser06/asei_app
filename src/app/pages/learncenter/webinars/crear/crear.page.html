@@ -28,17 +28,17 @@
 
             <div class="title-course">
               <label for="title-course">Título del webinar</label>
-              <textarea name="" id="title-course"></textarea>
+              <textarea name="" id="title-course" [(ngModel)]="webinar_data.titulo" name="titulo"></textarea>
             </div>
   
             <div class="summary">
               <label for="summary-course">Resumen del webinar</label>
-              <textarea name="" id="summary-course"></textarea>
+              <textarea name="" id="summary-course" [(ngModel)]="webinar_data.resumen" name="resumen"></textarea>
             </div>
   
             <div class="objective">
               <label for="objective-course">Objetivo del webinar</label>
-              <textarea name="" id="objective-course"></textarea>
+              <textarea name="" id="objective-course" [(ngModel)]="webinar_data.objetivo" name="objetivo"></textarea>
             </div>
             
 
@@ -47,7 +47,7 @@
                 <label for="time-course">Duración</label>
               </div>
               <div class="time">
-                <input type="time" id="time-course">
+                <input type="time" id="time-course" [(ngModel)]="webinar_data.duracion" name="duracion">
                 <p>Horas</p>
               </div>
             </div>
@@ -55,7 +55,7 @@
             <p class="foto">Seleccione imagen</p>
             <div class="img-course">
               <div class="content-img">
-                <img src="" alt="">
+                <img src="{{URL_BS}}/{{webinar_data.files[0].RUTA}}" alt="">
               </div>
               
               <div class="image">
@@ -181,12 +181,12 @@
 
               <div class="name">
                 <label for="name-session">Nombre de la sesión</label>
-                <textarea name="" id="name-session"></textarea>
+                <textarea name="" id="name-session" [(ngModel)]="webinar_data.sesiones[0].nombre" name="nombreSesion"></textarea>
               </div>
 
               <div class="link">
                 <label for="link-session">Link de la sesión</label>
-                <textarea name="" id="link-session"></textarea>
+                <textarea name="" id="link-session" [(ngModel)]="webinar_data.sesiones[0].link" name="linkSesion"></textarea>
               </div>
             </div>
             
