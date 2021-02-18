@@ -32,9 +32,30 @@ export class CrearPage implements OnInit {
   fileCapNombres : any;
   fileCapResumen : any;
 
-  constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { }
+
+  constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
+    // this.append_capacitador();
+  }
 
   ngOnInit() {
+  }
+
+  /* añadir capacitador */
+  append_capacitador(){
+    let addtrainer = document.querySelector('.addtrainer');
+    let alltrainer = document.querySelector('.all-trainer');
+    let clone = alltrainer.cloneNode(true);
+
+    addtrainer.appendChild(clone);
+  }
+
+  /* añadir sesiones */
+  append_sesion(){
+    let addsesion = document.querySelector('.addsesion');
+    let sesion = document.querySelector('.all-session');
+    let clone = sesion.cloneNode(true);
+
+    addsesion.appendChild(clone);
   }
 
   volverCursos(){
@@ -101,39 +122,40 @@ export class CrearPage implements OnInit {
   }
   createCursos(fCursos: NgForm){
     // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario una seccion');
-    if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
-    if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
-    if(!this.objetivo) return this.uiserviceService.alert_info('Es necesario el objetivo');
-    if(!this.duracion) return this.uiserviceService.alert_info('Es necesario la duracion');
-    if(!this.fileSesionNombre) return this.uiserviceService.alert_info('Es necesario una sesion');
-    if(!this.fileSesionLink) return this.uiserviceService.alert_info('Es necesario un link');
-    if(!this.fileCapNombres) return this.uiserviceService.alert_info('Es necesario el nombre');
-    if(!this.fileCapResumen) return this.uiserviceService.alert_info('Es necesario el resumen');
-    if(!this.fileImgCurso) return this.uiserviceService.alert_info('Es necesario la imagen');
-    if(!this.fileImgCap) return this.uiserviceService.alert_info('Es necesario la imagen');
+    console.log(this.fileSesionNombre);
+    // if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
+    // if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
+    // if(!this.objetivo) return this.uiserviceService.alert_info('Es necesario el objetivo');
+    // if(!this.duracion) return this.uiserviceService.alert_info('Es necesario la duracion');
+    // if(!this.fileSesionNombre) return this.uiserviceService.alert_info('Es necesario una sesion');
+    // if(!this.fileSesionLink) return this.uiserviceService.alert_info('Es necesario un link');
+    // if(!this.fileCapNombres) return this.uiserviceService.alert_info('Es necesario el nombre');
+    // if(!this.fileCapResumen) return this.uiserviceService.alert_info('Es necesario el resumen');
+    // if(!this.fileImgCurso) return this.uiserviceService.alert_info('Es necesario la imagen');
+    // if(!this.fileImgCap) return this.uiserviceService.alert_info('Es necesario la imagen');
    
    
 
-    let formdata = new FormData;
-    formdata.append('seccion','cursos');
-    formdata.append('titulo', this.titulo);
-    formdata.append('resumen', this.resumen);
-    formdata.append('objetivo', this.objetivo);
-    formdata.append('duracion', this.duracion);
-    formdata.append('sesion_nombres[]', this.fileSesionNombre);
-    formdata.append('sesion_links[]', this.fileSesionLink);
-    formdata.append('cap_nombres[]', this.fileCapNombres);
-    formdata.append('cap_resumen[]', this.fileCapResumen);
-    formdata.append('img_learn[]', this.fileImgCurso);
-    formdata.append('files[]', this.fileImgCap);
+    // let formdata = new FormData;
+    // formdata.append('seccion','cursos');
+    // formdata.append('titulo', this.titulo);
+    // formdata.append('resumen', this.resumen);
+    // formdata.append('objetivo', this.objetivo);
+    // formdata.append('duracion', this.duracion);
+    // formdata.append('sesion_nombres[]', this.fileSesionNombre);
+    // formdata.append('sesion_links[]', this.fileSesionLink);
+    // formdata.append('cap_nombres[]', this.fileCapNombres);
+    // formdata.append('cap_resumen[]', this.fileCapResumen);
+    // formdata.append('img_learn[]', this.fileImgCurso);
+    // formdata.append('files[]', this.fileImgCap);
 
     
 
-    this.learncenterService.create_learncenterCursos(formdata)
-    .then(resp=>{ 
-      console.log('SE CREO LA NOTA');
-      this.redireccionService.backpage();
-    })
-    .catch(); 
+    // this.learncenterService.create_learncenterCursos(formdata)
+    // .then(resp=>{ 
+    //   console.log('SE CREO LA NOTA');
+    //   this.redireccionService.backpage();
+    // })
+    // .catch(); 
   }
 }

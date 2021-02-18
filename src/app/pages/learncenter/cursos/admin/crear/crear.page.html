@@ -20,7 +20,7 @@
 
     <ion-grid class="section-grid">
       <div class="form-cursos"> 
-        <form action="" class="content-form" (ngSubmit)="createCursos(fCursos)" #fCursos="ngForm">
+        <form action="" class="content-form">
           <div class="first-form">
             <div class="subtitle">
               <h4>Datos del curso</h4>
@@ -28,17 +28,17 @@
 
             <div class="title-course">
               <label for="title-course">Título del curso</label>
-              <textarea name="titulo" id="title-course" [(ngModel)]="titulo"></textarea>
+              <textarea name="titulo" id="title-course"></textarea>
             </div>
   
             <div class="summary">
               <label for="summary-course">Resumen del curso</label>
-              <textarea name="resumen" id="summary-course" [(ngModel)]="resumen"></textarea>
+              <textarea name="resumen" id="summary-course"></textarea>
             </div>
   
             <div class="objective">
               <label for="objective-course">Objetivo del curso</label>
-              <textarea name="objetivo" id="objective-course" [(ngModel)]="objetivo"></textarea>
+              <textarea name="objetivo" id="objective-course"></textarea>
             </div>
             
 
@@ -47,7 +47,7 @@
                 <label for="time-course">Duración</label>
               </div>
               <div class="time">
-                <input type="time" id="time-course" name="duracion" [(ngModel)]="duracion">
+                <input type="time" id="time-course" name="duracion">
                 <p>Horas</p>
               </div>
             </div>
@@ -60,12 +60,13 @@
               
               <div class="image">
                 <p>Seleccione imagen</p>
-                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="crearImgCurso($event)">
+                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="">
               </div>
             </div>
           </div>
 
           <div class="second-form">
+
             <div class="subtitle second-subtitle">
               <h4>Datos del capacitador(es)</h4>
               <!-- web -->
@@ -75,7 +76,7 @@
                 </div>
   
                 <div class="actions-page">
-                  <button class="btn-new-item">
+                  <button class="btn-new-item" (click) = "append_capacitador();">
                       <span>Nuevo capacitador</span>
                       <ion-icon class="icon-btn" name="add"></ion-icon>
                   </button>
@@ -99,7 +100,7 @@
 
               <div class="name">
                 <label for="name-trainer">Nombre Completo</label>
-                <textarea name="capNombres" id="name-trainer" [(ngModel)]="capNombres" ></textarea>
+                <textarea name="capNombres" id="name-trainer"></textarea>
               </div>
 
               <div class="summary-trainer">
@@ -118,33 +119,12 @@
                   <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="crearImgCap($event)" >
                 </div>
               </div>
+
+              <hr>
             </div>
+
+            <div class="addtrainer"></div>
             
-            <!-- <div class="all-trainer">
-              <h5>Segundo capacitador</h5>
-
-              <div class="name">
-                <label for="name-trainer-2">Nombre Completo</label>
-                <textarea name="" id="name-trainer-2"></textarea>
-              </div>
-
-              <div class="summary-trainer">
-                <label for="summary-trainer-2">Resumen del capacitador</label>
-                <textarea name="" id="summary-trainer-2"></textarea>
-              </div>
-
-              <p class="foto">Foto de perfil</p>
-              <div class="img-trainer">
-                <div class="content-img">
-                  <img src="" alt="">
-                </div>
-                
-                <div class="image">
-                  <p>Seleccione imagen</p>
-                  <input type="file" title="Seleccione imagen" accept="image/*" name="" id="">
-                </div>
-              </div>
-            </div> -->
           </div>
 
           <div class="third-form">
@@ -157,7 +137,7 @@
                 </div>
   
                 <div class="actions-page">
-                  <button class="btn-new-item">
+                  <button class="btn-new-item" (click) = "append_sesion();">
                       <span>Nueva Sesión</span>
                       <ion-icon class="icon-btn" name="add"></ion-icon>
                   </button>
@@ -181,29 +161,18 @@
 
               <div class="name">
                 <label for="name-session">Nombre de la sesión</label>
-                <textarea name="sesionNombre" id="name-session" [(ngModel)]="sesionNombre"></textarea>
+                <textarea name="sesionNombre" id="name-session"></textarea>
                
               </div>
 
               <div class="link">
                 <label for="link-session">Link de la sesión</label>
-                <textarea name="sesionLink" id="link-session" [(ngModel)]="sesionLink"></textarea>
+                <textarea name="sesionLink" id="link-session"></textarea>
               </div>
+              <hr>
             </div>
-            
-            <!-- <div class="all-session">
-              <h5>Sesión 2</h5>
 
-              <div class="name">
-                <label for="name-session-2">Nombre de la sesión</label>
-                <textarea name="" id="name-session-2"></textarea>
-              </div>
-
-              <div class="link">
-                <label for="link-session-2">Link de la sesión</label>
-                <textarea name="" id="link-session-2"></textarea>
-              </div>
-            </div> -->
+            <div class="addsesion"></div>
 
             <div class="link-active">
               <label for="active-note-2">Enviar notificaciones push</label>
@@ -213,7 +182,7 @@
           </div>
 
           <div class="content-btn">
-            <button (change)="crearSesionNombre($event)" (change)="crearSesionLink($event)" type="submit">Guardar</button>
+            <button type="submit">Guardar</button>
           </div>
         </form>
       </div>
