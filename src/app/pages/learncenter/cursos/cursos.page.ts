@@ -59,4 +59,8 @@ slideNext(object, slideView) {
     this.redireccionService.backpage();
   }
 
+  cursosNuevos(){
+    this.redireccionService.redireccion('/tabs/learning-center/cursos/news')
+  }
+
 }

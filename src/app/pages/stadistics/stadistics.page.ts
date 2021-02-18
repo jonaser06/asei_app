@@ -11,12 +11,14 @@ import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../services/redireccion.service';
 import { InfcenterService } from '../../services/infcenter.service';
 import { IonSlides } from '@ionic/angular';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-stadistics',
   templateUrl: './stadistics.page.html',
   styleUrls: ['./stadistics.page.scss'],
+  providers: [DatePipe]
 })
 export class StadisticsPage implements OnInit {
 
@@ -74,7 +76,11 @@ export class StadisticsPage implements OnInit {
   // rol
   rol : String ;
   @Output() updateView = new EventEmitter();
+
+  mydate : any;
+
   constructor(
+    private datePipe: DatePipe,
     public authService: AuthService, 
     private uiserviceService: UiServiceService, 
     private statisticsService: StatisticsService, 
@@ -189,7 +195,10 @@ export class StadisticsPage implements OnInit {
     formdata.append('image', this.fileToUploadstat);
 
     this.statisticsService.new_statistics(formdata)
-    .then(resp=>{ 
+    .then(resp=>{
+      /* push notification */
+
+      /* fin push notification */
       this.closeDialogStat();
       this.load_statistics();
       this.fileToUploadstat = null;
@@ -205,6 +214,9 @@ export class StadisticsPage implements OnInit {
     if(this.monthstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
     if(this.yearstat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el año');
     
+    this.mydate = this.datePipe.transform(this.mydate, 'yyyy-MM-dd');
+    console.log(this.mydate);
+
     let formdata = new FormData;
     formdata.append('id', this.id_stat);
     formdata.append('title', this.titlestat);
@@ -215,6 +227,9 @@ export class StadisticsPage implements OnInit {
 
     this.statisticsService.edit_statistics(formdata)
     .then(resp=>{
+      /* push notification */
+      // let push = {'titulo': this.titlestat,'descripcion': this.descriptionstat,'fecha': ,'destino':'stadistics', 'categoria': 'stadistics'}
+      /* fin push notification */
       this.closeDialogStat();
       this.load_statistics();
     })
@@ -294,18 +309,6 @@ export class StadisticsPage implements OnInit {
       console.log('ocurrio un error');
     }
   }
-  // donwloadstat_(url){
-  //   console.log(url);
-  //   const img = url;
-  //   const fileTransfer: FileTransferObject = this.transfer.create();
-
-  //   fileTransfer.download(img, this.file.externalRootDirectory + 'image.jpg').then((entry) => {
-  //     console.log('download complete: ' + entry.toURL());
-  //   }, (error) => {
-  //     // handle error
-  //   });
-  // }
-
 
   //Indicador
   openDialogInd(){

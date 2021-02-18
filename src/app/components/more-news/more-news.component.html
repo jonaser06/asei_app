@@ -26,7 +26,7 @@
           <p>Dia : {{ item?.fecha_publicacion }}</p>
         </div>
 
-        <h5>{{ item?.resumen }}</h5>
+        <h5>{{ item?.resumen | slice:0:30}}</h5>
       </div>
     </div>
 

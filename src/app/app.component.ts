@@ -4,6 +4,7 @@ import { IonicSafeString, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { PushNotificationsService } from './services/push-notifications.service';
+import { RedireccionService } from './services/redireccion.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private pushService: PushNotificationsService
+    private pushService: PushNotificationsService,
+    private redireccionService: RedireccionService
   ) {
     this.initializeApp();
   }
@@ -30,9 +32,17 @@ export class AppComponent {
       if(this.platform.is('android')) {
         this.pushService.init();
         this.statusBar.styleBlackOpaque();
-        // this.platform.backButton.subscribe(()=>{
-        //   navigator['app'].exitApp();
-        // });
+        this.platform.backButton.subscribe(()=>{
+          let path = window.location.href;
+          let path2 = path.split('/');
+          console.log(path2.length);
+          if(path2.length < 6 ){
+            console.log('salir');
+            navigator['app'].exitApp();
+          }else{
+            this.redireccionService.backpage();
+          }
+        });
       }
 
     });

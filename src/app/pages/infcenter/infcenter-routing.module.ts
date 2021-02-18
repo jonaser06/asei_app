@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { InfCenterPage } from './infcenter.page';
 
 const routes: Routes = [
