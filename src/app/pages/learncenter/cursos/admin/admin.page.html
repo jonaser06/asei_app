@@ -47,7 +47,7 @@
 
           </div>
 
-          <div class="cards-news" >
+          <div class="new-card">
             <app-card-cursos *ngFor="let item of CursosData?.contenido" [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"> 
             </app-card-cursos>
           </div>

@@ -19,7 +19,9 @@ export class NotificationsPage implements OnInit {
   id: any;
   inputv: any;
 
-  constructor( public pushNotificationsService : PushNotificationsService, public authService: AuthService , private router: Router, private redireccionService: RedireccionService) { }
+  constructor( public pushNotificationsService : PushNotificationsService, public authService: AuthService , private router: Router, private redireccionService: RedireccionService) { 
+    this.pushNotificationsService.not_booble();
+  }
 
   ngOnInit() {
     console.log('0. ngOnInit');
