@@ -1,0 +1,37 @@
+<div class="new-card">
+  <div class="card-1 card-content">
+    <div class="content-img">
+      <img src="{{ URL + '/' + cursos_child.imagenes[0].RUTA }}">
+    </div>
+
+    <div class="content-info">
+      <h5> {{cursos_child.titulo}} </h5>
+
+      <div class="info-description">
+        <p>Dictado por {{ cursos_child.capacitadores[0].nombre}} </p>
+
+        <!-- Admin -->
+         <div class="admin-edit">
+          <div class="pencil-btn">
+            <ion-icon name="pencil-outline"></ion-icon>
+          </div>
+
+          <div class="delete-btn">
+            <ion-icon name="trash"></ion-icon>
+          </div>
+        </div> 
+
+        <!-- <div class="calificacion">
+          <p>Calificación</p>
+
+          <div class="stars">
+            <ion-icon class="stars-calificacion" name="star"></ion-icon>
+            <ion-icon class="stars-calificacion" name="star"></ion-icon>
+            <ion-icon class="stars-calificacion" name="star"></ion-icon>
+            <ion-icon class="stars-calificacion" name="star"></ion-icon>
+            <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>

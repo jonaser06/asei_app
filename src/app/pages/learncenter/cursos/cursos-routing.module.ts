@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { CursosPage } from './cursos.page';
 
 const routes: Routes = [
@@ -11,10 +10,6 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
-  },
-  {
-    path: 'crear',
-    loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
   },
   {
     path: 'info',
@@ -31,10 +26,6 @@ const routes: Routes = [
   {
     path: 'finish',
     loadChildren: () => import('./finish/finish.module').then( m => m.FinishPageModule)
-  },
-  {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
   }
 ];
 

@@ -18,6 +18,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     AdminPageRoutingModule,
     ComponentsModule
   ],
+  exports:[
+    AdminPage
+  ],
   declarations: [AdminPage]
 })
 export class AdminPageModule {}

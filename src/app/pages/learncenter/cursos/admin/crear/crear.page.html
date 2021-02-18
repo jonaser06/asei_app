@@ -19,8 +19,8 @@
     </div>
 
     <ion-grid class="section-grid">
-      <div class="form-cursos">
-        <form action="" class="content-form">
+      <div class="form-cursos"> 
+        <form action="" class="content-form" (ngSubmit)="createCursos(fCursos)" #fCursos="ngForm">
           <div class="first-form">
             <div class="subtitle">
               <h4>Datos del curso</h4>
@@ -28,17 +28,17 @@
 
             <div class="title-course">
               <label for="title-course">Título del curso</label>
-              <textarea name="" id="title-course"></textarea>
+              <textarea name="titulo" id="title-course" [(ngModel)]="titulo"></textarea>
             </div>
   
             <div class="summary">
               <label for="summary-course">Resumen del curso</label>
-              <textarea name="" id="summary-course"></textarea>
+              <textarea name="resumen" id="summary-course" [(ngModel)]="resumen"></textarea>
             </div>
   
             <div class="objective">
               <label for="objective-course">Objetivo del curso</label>
-              <textarea name="" id="objective-course"></textarea>
+              <textarea name="objetivo" id="objective-course" [(ngModel)]="objetivo"></textarea>
             </div>
             
 
@@ -47,7 +47,7 @@
                 <label for="time-course">Duración</label>
               </div>
               <div class="time">
-                <input type="time" id="time-course">
+                <input type="time" id="time-course" name="duracion" [(ngModel)]="duracion">
                 <p>Horas</p>
               </div>
             </div>
@@ -55,12 +55,12 @@
             <p class="foto">Seleccione imagen</p>
             <div class="img-course">
               <div class="content-img">
-                <img src="" alt="">
+                <img src="{{ imgCurso }}" alt="">
               </div>
               
               <div class="image">
                 <p>Seleccione imagen</p>
-                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="">
+                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="crearImgCurso($event)">
               </div>
             </div>
           </div>
@@ -99,23 +99,23 @@
 
               <div class="name">
                 <label for="name-trainer">Nombre Completo</label>
-                <textarea name="" id="name-trainer"></textarea>
+                <textarea name="capNombres" id="name-trainer" [(ngModel)]="capNombres" ></textarea>
               </div>
 
               <div class="summary-trainer">
                 <label for="summary-trainer">Resumen del capacitador</label>
-                <textarea name="" id="summary-trainer"></textarea>
+                <textarea name="capResumen" id="summary-trainer" [(ngModel)]="capResumen" ></textarea>
               </div>
 
               <p class="foto">Foto de perfil</p>
               <div class="img-trainer">
                 <div class="content-img">
-                  <img src="" alt="">
+                  <img src="{{ imgCap }}" alt="">
                 </div>
                 
                 <div class="image">
                   <p>Seleccione imagen</p>
-                  <input type="file" title="Seleccione imagen" accept="image/*" name="" id="">
+                  <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="crearImgCap($event)" >
                 </div>
               </div>
             </div>
@@ -181,12 +181,13 @@
 
               <div class="name">
                 <label for="name-session">Nombre de la sesión</label>
-                <textarea name="" id="name-session"></textarea>
+                <textarea name="sesionNombre" id="name-session" [(ngModel)]="sesionNombre"></textarea>
+               
               </div>
 
               <div class="link">
                 <label for="link-session">Link de la sesión</label>
-                <textarea name="" id="link-session"></textarea>
+                <textarea name="sesionLink" id="link-session" [(ngModel)]="sesionLink"></textarea>
               </div>
             </div>
             
@@ -212,7 +213,7 @@
           </div>
 
           <div class="content-btn">
-            <button>Guardar</button>
+            <button (change)="crearSesionNombre($event)" (change)="crearSesionLink($event)" type="submit">Guardar</button>
           </div>
         </form>
       </div>

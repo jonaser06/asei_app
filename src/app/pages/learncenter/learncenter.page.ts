@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RedireccionService } from '../../services/redireccion.service';
 
 
 @Component({
@@ -8,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LearncenterPage implements OnInit {
 
-  constructor() { }
+  constructor(private redireccionService: RedireccionService) { }
 
   ngOnInit() {
   }
+
+  cursos(){
+    this.redireccionService.redireccion('/tabs/learning-center/cursos')
+  }
+
+  webinars(){
+    this.redireccionService.redireccion('/tabs/learning-center/webinars')
+  }
+
+  certificados(){
+    this.redireccionService.redireccion('/tabs/learning-center/certificados')
+  }
+
+
 
 }

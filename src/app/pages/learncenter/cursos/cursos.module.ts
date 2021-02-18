@@ -18,6 +18,9 @@ import { ComponentsModule } from '../../../components/components.module';
     CursosPageRoutingModule,
     ComponentsModule
   ],
+  exports:[
+    CursosPage
+  ],
   declarations: [CursosPage]
 })
 export class CursosPageModule {}
