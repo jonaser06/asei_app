@@ -479,3 +479,29 @@
     background-color: #24344D;
     padding: 1em 3.5em;
 }
+@media (min-width: 200px) {
+    .card-content {
+        width: calc(98% - 5em);
+    }
+    app-card-items {
+        width: calc(98% - 0.5em);
+    }
+}
+
+@media (min-width: 700px) {
+    .card-content {
+        width: calc(47% - 5em);
+    }
+    app-card-items {
+        width: calc(47% - 0.5em);
+    }
+}
+
+@media (min-width: 850px) {
+    .card-content {
+        width: calc(33% - 5em);
+    }
+    app-card-items {
+        width: calc(33% - 0.5em);
+    }
+}

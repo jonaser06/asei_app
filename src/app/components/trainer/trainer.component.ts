@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 @Component({
   selector: 'app-trainer',
@@ -9,9 +10,12 @@ export class TrainerComponent implements OnInit {
 
   fileToUploadstat: any;
   imagestat: any;
-  constructor() { }
+  @Output() trainer = new EventEmitter();
+  constructor(private uiserviceService : UiServiceService) { }
 
   ngOnInit() {}
+
+  upimg(){ (document.querySelector('.input_img') as HTMLElement).click(); }
 
   handleFileInput(event){
     this.fileToUploadstat = event.target.files[0];
@@ -20,18 +24,22 @@ export class TrainerComponent implements OnInit {
     reader.onload = () => {
         this.imagestat = reader.result;
     };
-  }
+  } 
 
-  upimg(id){
-    (document.querySelector('.input_img') as HTMLElement).click();
-    // let fileImg = document.querySelectorAll('.imgfile');
-    // console.log(fileImg.length);
-    // this.fileImgCap = event.target.files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(this.fileImgCap);
-    // reader.onload = () => {
-    //     this.imgCap = reader.result;
-    // };
+  add_trainer(){
+    let name = (<HTMLInputElement>document.querySelector('.nametxt')).value;
+    let lastname = (<HTMLInputElement>document.querySelector('.lastname')).value;
+    if(this.imagestat == null ) return this.uiserviceService.alert_info('selecciona una imagen');
+    if(name.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un nombre');
+    if(lastname.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
+
+    let obj_trainer = { name, lastname, image: this.imagestat };
+    this.trainer.emit(obj_trainer);
+    
+    (<HTMLInputElement>document.querySelector('.nametxt')).value = '';
+    (<HTMLInputElement>document.querySelector('.lastname')).value = ''
+    this.imagestat = null;
+
   }
   
   

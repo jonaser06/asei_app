@@ -11,15 +11,15 @@
     <div class="col-md-6">
       <div class="name">
         <label for="name-trainer">Nombre Completo</label>
-        <input type="text" class="form-control name" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control nametxt" aria-describedby="basic-addon1">
       </div>
       <div class="summary-trainer">
         <label for="summary-trainer">Resumen del capacitador</label>
-        <input type="text" class="form-control lastname" placeholder="Resumen" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control lastname" aria-describedby="basic-addon1">
       </div>
     </div>
     <div class="col-md-2" style="padding-top: 30px;">
-      <button type="button" class="btn btn-primary" style="width: 100%;">Agregar</button>
+      <button type="button" class="btn btn-primary" style="width: 100%;padding-top: 8px;padding-bottom: 3px;" (click)="add_trainer()"> <ion-icon name="add-circle"></ion-icon></button>
     </div>
   </div>
   <hr>

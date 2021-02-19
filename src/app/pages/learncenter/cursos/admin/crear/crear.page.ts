@@ -32,33 +32,87 @@ export class CrearPage implements OnInit {
   fileCapNombres : any;
   fileCapResumen : any;
 
-  images : any;
-  capacitadorinit = 1;
+  /* curso */
+  trainer: any[];
+  sesion: any[];
+  imgcourse: any;
+  coursesrc: any;
   constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
-    
+    this.trainer = [];
+    this.sesion = [];
+    console.log(this.trainer.length);
   }
 
   ngOnInit() {
-    this.append_capacitador();
+  }
+
+  /* imagen del curso */
+  img_course(event){
+    this.imgcourse = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(this.imgcourse);
+    reader.onload = () => {
+        this.coursesrc = reader.result;
+    };
   }
   
   /* añadir capacitador */
-  append_capacitador(){
-    
+  add_trainer(event){
+    this.trainer.push(event);
+  }
+
+  add_sesion(event){
+    this.sesion.push(event);
+  }
+  rmv_btn_trainer(event){
+    this.trainer.splice(event, 1);
+  }
+  rmv_btn_sesion(event){
+    this.sesion.splice(event, 1);
   }
 
   /* añadir sesiones */
-  append_sesion(){
-    let addsesion = document.querySelector('.addsesion');
-    let sesion = document.querySelector('.all-session');
-    let clone = sesion.cloneNode(true);
+  add_course(){
+    let titlecourse = (<HTMLInputElement>document.querySelector('.title-course-tx')).value;
+    let summarycourse = (<HTMLInputElement>document.querySelector('.summary-course')).value;
+    let objectivecourse = (<HTMLInputElement>document.querySelector('.objective-course')).value;
+    let duracion = (<HTMLInputElement>document.querySelector('.duracion')).value;
 
-    addsesion.appendChild(clone);
-  }
+    if(titlecourse.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario el titulo de curso');
+    if(summarycourse.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
+    if(objectivecourse.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario el objetivo del curso');
+    if(duracion.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es especificar la duracion');
+    if(!this.imgcourse) return this.uiserviceService.alert_info('selecciona una imagen del curso');
 
+    if(this.trainer.length == 0) return this.uiserviceService.alert_info('Es necesario al menos un capacitador');
+    if(this.sesion.length == 0) return this.uiserviceService.alert_info('Es necesario al menos una sesion');
 
-  subirimagen(){
-    console.log('subido');
+    let formdata = new FormData();
+    formdata.append('titulo', titlecourse);
+    formdata.append('resumen', summarycourse);
+    formdata.append('objetivo', objectivecourse);
+    formdata.append('duracion', duracion);
+    formdata.append('img_learn[]', this.imgcourse);
+    /* cursos, */
+    formdata.append('seccion', 'cursos');
+
+    for(let i = 0 ; i < this.trainer.length ; i++){
+      formdata.append('cap_nombres[]', this.trainer[i]['name']);
+      formdata.append('cap_resumen[]', this.trainer[i]['lastname']);
+      formdata.append('cap_img[]', this.trainer[i]['image']);
+    }
+
+    for(let i = 0 ; i < this.sesion.length ; i++){
+      formdata.append('sesion_nombres[]', this.sesion[i]['namesession']);
+      formdata.append('sesion_links[]', this.sesion[i]['linksession']);
+    }
+
+    this.learncenterService.create_learncenterCursos(formdata)
+    .then(resp=>{
+      console.log(resp);
+    })
+    .catch();
+
   }
 
 
@@ -138,12 +192,12 @@ export class CrearPage implements OnInit {
     let capNombre = document.querySelectorAll(".capNombres");
     let capResume = document.querySelectorAll(".capResumen");
 
-    console.log("==Guardando capNombre==");
+    
     for (let i = 0; i < capNombre.length; i++) {
       let stringElement = (capNombre[i] as HTMLTextAreaElement).value;
       console.log(stringElement);
     }
-    console.log("==Guardando capResume==");
+    
     for (let i = 0; i < capResume.length; i++) {
       let stringElement = (capNombre[i] as HTMLTextAreaElement).value;
       console.log(stringElement);

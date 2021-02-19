@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sesion-get',
@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SesionGetComponent implements OnInit {
 
+  @Input() sesion : any;
+  @Input() index : any;
+
+  @Output() indx = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
+  btn_rmv(index){
+    this.indx.emit(index);
+  }
 
 }

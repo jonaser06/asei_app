@@ -28,17 +28,17 @@
 
             <div class="title-course">
               <label for="title-course">Título del curso</label>
-              <textarea name="titulo" id="title-course"></textarea>
+              <input type="text" class="form-control title-course-tx" aria-describedby="basic-addon1">
             </div>
   
             <div class="summary">
               <label for="summary-course">Resumen del curso</label>
-              <textarea name="resumen" id="summary-course"></textarea>
+              <textarea class="form-control summary-course" aria-label="With textarea"></textarea>
             </div>
   
             <div class="objective">
               <label for="objective-course">Objetivo del curso</label>
-              <textarea name="objetivo" id="objective-course"></textarea>
+              <textarea class="form-control objective-course" aria-label="With textarea"></textarea>
             </div>
             
 
@@ -47,7 +47,7 @@
                 <label for="time-course">Duración</label>
               </div>
               <div class="time">
-                <input type="time" id="time-course" name="duracion">
+                <input type="time" id="time-course" class="duracion">
                 <p>Horas</p>
               </div>
             </div>
@@ -55,12 +55,12 @@
             <p class="foto">Seleccione imagen</p>
             <div class="img-course">
               <div class="content-img">
-                <img src="{{ imgCurso }}" alt="">
+                <img src="{{ coursesrc }}" alt="">
               </div>
               
               <div class="image">
                 <p>Seleccione imagen</p>
-                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="">
+                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="img_course($event)">
               </div>
             </div>
           </div>
@@ -69,22 +69,12 @@
 
             <div class="subtitle second-subtitle">
               <h4>Datos del capacitador(es)</h4>
-  
-              <div class="actions-page plus-btn">
-                <div class="delete">
-                  <ion-icon name="trash"></ion-icon>
-                </div>
-  
-                <button class="btn-new-item">
-                    <ion-icon class="icon-btn" name="add"></ion-icon>
-                </button>
-              </div>
             </div>
             <hr>
-            <app-trainer></app-trainer>
+            <app-trainer (trainer)="add_trainer($event);"></app-trainer>
 
             <div class="addtrainer">
-              <app-trainer-get></app-trainer-get>
+              <app-trainer-get *ngFor="let item of trainer; index as i;" [trainer]="item" [index]="i" (indx)="rmv_btn_trainer($event)"></app-trainer-get>
             </div>
             
           </div>
@@ -118,30 +108,19 @@
               </div>
             </div>
 
-            <div class="all-session">
-              <h5>Sesión 1</h5>
+            <app-sesion (sesion)="add_sesion($event);"></app-sesion>
 
-              <div class="name">
-                <label for="name-session">Nombre de la sesión</label>
-                <textarea name="sesionNombre" id="name-session"></textarea>
-               
-              </div>
-
-              <div class="link">
-                <label for="link-session">Link de la sesión</label>
-                <textarea name="sesionLink" id="link-session"></textarea>
-              </div>
-              <hr>
+            <div class="addsesion">
+              <app-sesion-get *ngFor="let item of sesion; index as i;" [sesion]="item" [index]="i" (indx)="rmv_btn_sesion($event)"></app-sesion-get>
             </div>
-
-            <div class="addsesion"></div>
 
             <app-send-notification></app-send-notification>
 
           </div>
 
           <div class="content-btn">
-            <button type="submit" (click)="createCursos()">Guardar</button>
+            <!-- <button type="submit" (click)="createCursos()">Guardar</button> -->
+            <button type="button" class="btn btn-lg btn-primary" (click)="add_course();">Guardar</button>
           </div>
         </form>
       </div>

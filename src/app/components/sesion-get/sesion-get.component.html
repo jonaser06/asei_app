@@ -1,3 +1,18 @@
-<p>
-  sesion-get works!
-</p>
+<div class="all-session">
+  <div class="row">
+    <div class="col-md-10">
+      <div class="name">
+        <h4>{{sesion?.namesession}}</h4>
+      </div>
+      <div class="link">
+        <h4>{{sesion?.linksession}}</h4>
+      </div>
+    </div>
+    <div class="col-md-2" style="padding-top: 30px;">
+      <div class="delete" (click)="btn_rmv(index);">
+        <ion-icon name="trash"></ion-icon>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>

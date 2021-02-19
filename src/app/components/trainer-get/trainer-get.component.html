@@ -3,21 +3,22 @@
   <div class="row">
     <div class="col-md-4" style="text-align: center;">
       <div class="containerimg">
-        <img src="http://api.blogingenieria.site/uploads/img/esbwqkwxmaaasb5.jpg" alt="">
+        <img src="{{trainer.image}}" alt="">
       </div>
     </div>
     <div class="col-md-6">
       <div class="name">
         <label for="name-trainer">Nombre Completo:</label>
-        <h2>Jose manrique</h2>
+        <h2>{{trainer.name}}</h2>
       </div>
       <div class="summary-trainer">
         <label for="summary-trainer">Resumen del capacitador:</label>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eligendi perferendis, sapiente placeat iure sed molestias ipsum beatae eveniet quo officia earum, maxime quam tenetur nostrum dolorum vero quae voluptatem?</p>
+        <p>{{trainer.lastname}}</p>
+        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eligendi perferendis, sapiente placeat iure sed molestias ipsum beatae eveniet quo officia earum, maxime quam tenetur nostrum dolorum vero quae voluptatem?</p> -->
       </div>
     </div>
     <div class="col-md-2" style="padding-top: 30px;">
-      <div class="delete">
+      <div class="delete" (click)="btn_rmv(index);">
         <ion-icon name="trash"></ion-icon>
       </div>
     </div>

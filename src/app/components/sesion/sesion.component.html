@@ -1,15 +1,18 @@
 <div class="all-session">
-  <h5>Sesión 1</h5>
-
-  <div class="name">
-    <label for="name-session">Nombre de la sesión</label>
-    <textarea name="sesionNombre" id="name-session"></textarea>
-   
-  </div>
-
-  <div class="link">
-    <label for="link-session">Link de la sesión</label>
-    <textarea name="sesionLink" id="link-session"></textarea>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="name">
+        <label for="name-session">Nombre de la sesión</label>
+        <input type="text" class="form-control name-session" aria-describedby="basic-addon1">
+      </div>
+      <div class="link">
+        <label for="link-session">Link de la sesión</label>
+        <input type="text" class="form-control link-session" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    <div class="col-md-2" style="padding-top: 30px;">
+      <button type="button" class="btn btn-primary" style="width: 100%;padding-top: 8px;padding-bottom: 3px;" (click)="add_sesion()"> <ion-icon name="add-circle"></ion-icon></button>
+    </div>
   </div>
   <hr>
 </div>
