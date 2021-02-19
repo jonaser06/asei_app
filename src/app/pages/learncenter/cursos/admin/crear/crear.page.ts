@@ -32,21 +32,19 @@ export class CrearPage implements OnInit {
   fileCapNombres : any;
   fileCapResumen : any;
 
-
+  images : any;
+  capacitadorinit = 1;
   constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
-    // this.append_capacitador();
+    
   }
 
   ngOnInit() {
+    this.append_capacitador();
   }
-
+  
   /* añadir capacitador */
   append_capacitador(){
-    let addtrainer = document.querySelector('.addtrainer');
-    let alltrainer = document.querySelector('.all-trainer');
-    let clone = alltrainer.cloneNode(true);
-
-    addtrainer.appendChild(clone);
+    
   }
 
   /* añadir sesiones */
@@ -57,6 +55,18 @@ export class CrearPage implements OnInit {
 
     addsesion.appendChild(clone);
   }
+
+
+  subirimagen(){
+    console.log('subido');
+  }
+
+
+
+
+
+
+
 
   volverCursos(){
     this.redireccionService.backpage();
@@ -71,12 +81,15 @@ export class CrearPage implements OnInit {
     };
   }
   crearImgCap(event){
-    this.fileImgCap = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(this.fileImgCap);
-    reader.onload = () => {
-        this.imgCap = reader.result;
-    };
+    console.log('Hola')
+    // let fileImg = document.querySelectorAll('.imgfile');
+    // console.log(fileImg.length);
+    // this.fileImgCap = event.target.files[0];
+    // const reader = new FileReader();
+    // reader.readAsDataURL(this.fileImgCap);
+    // reader.onload = () => {
+    //     this.imgCap = reader.result;
+    // };
   }
 
   crearSesionNombre(event){
@@ -121,34 +134,20 @@ export class CrearPage implements OnInit {
     this.redireccionService.backpage();
   }
   createCursos(fCursos: NgForm){
-    // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario una seccion');
-    console.log(this.fileSesionNombre);
-    // if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
-    // if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
-    // if(!this.objetivo) return this.uiserviceService.alert_info('Es necesario el objetivo');
-    // if(!this.duracion) return this.uiserviceService.alert_info('Es necesario la duracion');
-    // if(!this.fileSesionNombre) return this.uiserviceService.alert_info('Es necesario una sesion');
-    // if(!this.fileSesionLink) return this.uiserviceService.alert_info('Es necesario un link');
-    // if(!this.fileCapNombres) return this.uiserviceService.alert_info('Es necesario el nombre');
-    // if(!this.fileCapResumen) return this.uiserviceService.alert_info('Es necesario el resumen');
-    // if(!this.fileImgCurso) return this.uiserviceService.alert_info('Es necesario la imagen');
-    // if(!this.fileImgCap) return this.uiserviceService.alert_info('Es necesario la imagen');
-   
-   
+    
+    let capNombre = document.querySelectorAll(".capNombres");
+    let capResume = document.querySelectorAll(".capResumen");
 
-    // let formdata = new FormData;
-    // formdata.append('seccion','cursos');
-    // formdata.append('titulo', this.titulo);
-    // formdata.append('resumen', this.resumen);
-    // formdata.append('objetivo', this.objetivo);
-    // formdata.append('duracion', this.duracion);
-    // formdata.append('sesion_nombres[]', this.fileSesionNombre);
-    // formdata.append('sesion_links[]', this.fileSesionLink);
-    // formdata.append('cap_nombres[]', this.fileCapNombres);
-    // formdata.append('cap_resumen[]', this.fileCapResumen);
-    // formdata.append('img_learn[]', this.fileImgCurso);
-    // formdata.append('files[]', this.fileImgCap);
-
+    console.log("==Guardando capNombre==");
+    for (let i = 0; i < capNombre.length; i++) {
+      let stringElement = (capNombre[i] as HTMLTextAreaElement).value;
+      console.log(stringElement);
+    }
+    console.log("==Guardando capResume==");
+    for (let i = 0; i < capResume.length; i++) {
+      let stringElement = (capNombre[i] as HTMLTextAreaElement).value;
+      console.log(stringElement);
+    }
     
 
     // this.learncenterService.create_learncenterCursos(formdata)

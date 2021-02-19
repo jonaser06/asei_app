@@ -1,0 +1,45 @@
+.link-active {
+    margin-top: 0.8em;
+    margin-bottom: 1em;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .link-active {
+        width: 40%;
+    }
+}
+
+.link-active label {
+    color: #828282;
+    font-size: 0.9em;
+    font-weight: normal;
+    font-family: Calibri;
+}
+
+
+.link-active .check-note {
+    border-radius: 10px;
+    width: 35px;
+    height: 15px;
+    border: 1px solid #C4C4C4;
+    transition: 0.5s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.link-active .check-note::after {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    border-radius: 10px;
+    background-color: #DF8708;
+    border: 1px solid #c4c4c4;
+    width: 18px;
+    height: 18px;
+    transition: 2s ease;
+}

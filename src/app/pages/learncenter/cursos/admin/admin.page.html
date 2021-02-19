@@ -18,12 +18,12 @@
           </div>
 
           <!-- Admin -->
-          <div class="actions-page no-web">
+          <!-- <div class="actions-page no-web">
             <button class="btn-new-item" (click)="iraCrear()">
                 <span>Nuevo Curso</span>
                 <ion-icon class="icon-btn" name="add"></ion-icon>
             </button>
-          </div>   
+          </div> -->   
       </div>
 
       <ion-grid class="section-grid">
@@ -32,8 +32,8 @@
             <div class="content-search">
               <!-- no-user es para admin, user es para usuario -->
               <div class="input-search no-user">
-                <input type="search" name="" id="" placeholder="Buscar cursos por nombre">
-                <ion-icon class="search-btn" name="search-outline"></ion-icon>
+                <input type="search" name="" id="" placeholder="Buscar cursos por nombre" class="bsccurso" (keyup.enter)="search_course()">
+                <ion-icon class="search-btn" name="search-outline" (click)="search_course()"></ion-icon>
               </div>
     
     
@@ -52,36 +52,7 @@
             </app-card-cursos>
           </div>
  
-          <div class="number-option">
-            <div class="left-option">
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </div>
-  
-            <div class="numbers-option">
-              <div class="number-one number-all">
-                <p>1</p>
-              </div>
-              <div class="number-two number-all">
-                <p>2</p>
-              </div>
-              <div class="number-three number-all">
-                <p>3</p>
-              </div>
-              <div class="number-four number-all">
-                <p>4</p>
-              </div>
-              <div class="number-five number-all">
-                <p>5</p>
-              </div>
-              <div class="number-six number-all">
-                <p>6</p>
-              </div>
-            </div>
-  
-            <div class="right-option">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </div>
-          </div>
+          <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 
         </div> 
       </ion-grid>

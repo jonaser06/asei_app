@@ -17,6 +17,7 @@ export class AdminPage implements OnInit {
   CursosData:any;
   currentpage : any;
   currentkey : any;
+  search : any;
 
   constructor(private redireccionService: RedireccionService, private learncenterService: LearncenterService) {
     this.getcursos();
@@ -52,6 +53,37 @@ export class AdminPage implements OnInit {
     })
     .catch();
   }
+
+  changepage_(page){
+    let pages = [];
+    let input;
+    if(this.search === 'undefined'){
+      input  = '';
+    }else{
+      input  = this.search;
+    }
+    this.learncenterService.get_learncenterCursos(page,input)
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
+
+  search_course(){
+    let input = (<HTMLInputElement>document.querySelector('.bsccurso')).value;
+    this.search = input;
+    let pages = [];
+    this.learncenterService.get_learncenterCursos(1,input) 
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
+
   openCursos_(ID_CO){
     this.redireccionService.redireccion('/tabs/learning-center/cursos/info'+ID_CO);
   }
@@ -70,27 +102,8 @@ export class AdminPage implements OnInit {
     })
     .catch();
   }
-
-
-  // changepage_(page){
-  //   let pages = [];
-  //   this.currentkey = ( this.currentkey === undefined ) ? '':this.currentkey;
-  //   this.learncenterService.search_learncenter('noticias', page, this.currentkey)
-  //   .then(resp=>{
-  //     this.CursosData = resp['data'];
-  //     if(resp['status']){
-  //       for(let i = 1 ; i <= this.CursosData.pages; i++ ){pages.push(i)}
-  //       this.pages = pages;
-  //       this.currentpage = this.CursosData.page;
-  //     }
-  //   })
-  //   .catch(err=>{
-  //     console.log('ocurrio un error');
-  //   });
-  // }
-
   
-  }
+}
 
  
 

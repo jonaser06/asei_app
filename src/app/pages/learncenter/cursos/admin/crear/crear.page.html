@@ -69,21 +69,7 @@
 
             <div class="subtitle second-subtitle">
               <h4>Datos del capacitador(es)</h4>
-              <!-- web -->
-              <div class="btn">
-                <div class="delete">
-                  <ion-icon name="trash"></ion-icon>
-                </div>
   
-                <div class="actions-page">
-                  <button class="btn-new-item" (click) = "append_capacitador();">
-                      <span>Nuevo capacitador</span>
-                      <ion-icon class="icon-btn" name="add"></ion-icon>
-                  </button>
-                </div>
-              </div>
-  
-              <!-- mobil -->
               <div class="actions-page plus-btn">
                 <div class="delete">
                   <ion-icon name="trash"></ion-icon>
@@ -94,36 +80,12 @@
                 </button>
               </div>
             </div>
+            <hr>
+            <app-trainer></app-trainer>
 
-            <div class="all-trainer">
-              <h5>Primer capacitador</h5>
-
-              <div class="name">
-                <label for="name-trainer">Nombre Completo</label>
-                <textarea name="capNombres" id="name-trainer"></textarea>
-              </div>
-
-              <div class="summary-trainer">
-                <label for="summary-trainer">Resumen del capacitador</label>
-                <textarea name="capResumen" id="summary-trainer" [(ngModel)]="capResumen" ></textarea>
-              </div>
-
-              <p class="foto">Foto de perfil</p>
-              <div class="img-trainer">
-                <div class="content-img">
-                  <img src="{{ imgCap }}" alt="">
-                </div>
-                
-                <div class="image">
-                  <p>Seleccione imagen</p>
-                  <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="crearImgCap($event)" >
-                </div>
-              </div>
-
-              <hr>
+            <div class="addtrainer">
+              <app-trainer-get></app-trainer-get>
             </div>
-
-            <div class="addtrainer"></div>
             
           </div>
 
@@ -174,15 +136,12 @@
 
             <div class="addsesion"></div>
 
-            <div class="link-active">
-              <label for="active-note-2">Enviar notificaciones push</label>
-              <input type="checkbox" name="" id="active-note-2">
-              <label class="check-note" for="active-note-2"></label>
-            </div>
+            <app-send-notification></app-send-notification>
+
           </div>
 
           <div class="content-btn">
-            <button type="submit">Guardar</button>
+            <button type="submit" (click)="createCursos()">Guardar</button>
           </div>
         </form>
       </div>

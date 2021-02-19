@@ -1,0 +1,22 @@
+.inputimg{
+    background: #F15642;
+    border: #F15642;
+}
+.input_img{
+    display: none;
+}
+
+.containerimg{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #fff;
+    overflow: hidden;
+}
+.containerimg img{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border-radius: 50%;
+}
