@@ -34,7 +34,7 @@ export class LearncenterService {
     /* Cursos */
   get_learncenterCursos(page = 1, input = '',limit = 9){
     return new Promise (resolve => {
-      this.http.get(`${URL}/learn/cursos?page=${page}&limit=${limit}&search=${input}`)
+      this.http.get(`${URL}/learn/cursos?page=${page}&limit=${limit}&search=${input}`) 
       .subscribe( resp =>{
         console.log();
         if(resp['status']){
