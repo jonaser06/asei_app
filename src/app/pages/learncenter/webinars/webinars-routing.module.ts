@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'crear',
+    path: 'crear/:id',
     loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
   },
   {

@@ -47,260 +47,41 @@
 
           </div>
 
-          <div class="new-card">
-            <div class="card-1 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/webinar-1.png" alt="">
-              </div>
-
-              <div class="content-info">
-                <h5>Webinar I: Modelo de Prevención de Delitos para Inmobiliarias | ASEI Learning Center</h5>
-
-                <div class="info-description">
-                  <p>Dictado por Maria Mendoza</p>
-
-                  <!-- Admin -->
-                   <div class="admin-edit">
-                    <div class="pencil-btn">
-                      <ion-icon name="pencil-outline"></ion-icon>
+          <ion-grid class="section-grid">
+            <ion-row>
+                <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="12" size-xs="12" *ngFor="let webinar of webinars_data">
+                  <div class="new-card">
+                  <div class="card-1 card-content">
+                    <div class="content-img">
+                      <img src="{{URL_BASE}}/{{webinar.imagenes[0].RUTA}}" alt="">
                     </div>
-
-                    <div class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
-                    </div>
-                  </div> 
-
-                  <!-- <div class="calificacion">
-                    <p>Calificación</p>
-
-                    <div class="stars">
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="card-2 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/webinar-2.png" alt="">
-              </div>
-
-              <div class="content-info">
-                <h5>Webinar II: Protección de datos personales en el negocio inmobiliario | ASEI LEARNING CENTER</h5>
-
-                <div class="info-description">
-                  <p>Dictado por Maria Mendoza</p>
-
-                  <!-- Admin -->
-                  <div class="admin-edit">
-                    <div class="pencil-btn">
-                      <ion-icon name="pencil-outline"></ion-icon>
-                    </div>
-
-                    <div class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
+      
+                    <div class="content-info">
+                      <h5>{{webinar.titulo}}</h5>
+      
+                      <div class="info-description">
+                        <p>Dictado por {{webinar.capacitadores[0].nombre}}</p>
+      
+                        <!-- Admin -->
+                         <div class="admin-edit" >
+                          <div class="pencil-btn" (click)="updateWebinar(webinar)">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                          </div>
+      
+                          <div class="delete-btn" (click)="deleteWebinar(webinar)">
+                            <ion-icon name="trash"></ion-icon>
+                          </div>
+                        </div> 
+                      </div>
                     </div>
                   </div>
-
-                  <!-- <div class="calificacion">
-                    <p>Calificación</p>
-
-                    <div class="stars">
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                    </div>
-                  </div> -->
                 </div>
-              </div>
-            </div>
+                    <!-- <app-stat-card (editItemEv)="editStat($event)" (deleteItemEv)="removeStat($event)" [card_child]="statistics" (imgFile)="donwloadstat_($event)"></app-stat-card> -->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
 
-            <div class="card-3 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/webinar-3.png" alt="">
-              </div>
-
-              <div class="content-info">
-                <h5>Webinar III: Igualdad Salarial y Hostigamiento Sexual | ASEI Learning Center</h5>
-
-                <div class="info-description">
-                  <p>Dictado por Maria Mendoza</p>
-
-                  <!-- Admin -->
-                  <div class="admin-edit">
-                    <div class="pencil-btn">
-                      <ion-icon name="pencil-outline"></ion-icon>
-                    </div>
-
-                    <div class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
-                    </div>
-                  </div>
-
-                  <!-- <div class="calificacion">
-                    <p>Calificación</p>
-
-                    <div class="stars">
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="card-4 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/webinar-1.png" alt="">
-              </div>
-
-              <div class="content-info">
-                <h5>Webinar I: Modelo de Prevención de Delitos para Inmobiliarias | ASEI Learning Center</h5>
-
-                <div class="info-description">
-                  <p>Dictado por Maria Mendoza</p>
-
-                  <!-- Admin -->
-                  <div class="admin-edit">
-                    <div class="pencil-btn">
-                      <ion-icon name="pencil-outline"></ion-icon>
-                    </div>
-
-                    <div class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
-                    </div>
-                  </div>
-
-                  <!-- <div class="calificacion">
-                    <p>Calificación</p>
-
-                    <div class="stars">
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="card-5 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/webinar-2.png" alt="">
-              </div>
-
-              <div class="content-info">
-                <h5>Webinar II: Protección de datos personales en el negocio inmobiliario | ASEI LEARNING CENTER</h5>
-
-                <div class="info-description">
-                  <p>Dictado por Maria Mendoza</p>
-
-                  <!-- Admin -->
-                  <div class="admin-edit">
-                    <div class="pencil-btn">
-                      <ion-icon name="pencil-outline"></ion-icon>
-                    </div>
-
-                    <div class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
-                    </div>
-                  </div>
-
-                  <!-- <div class="calificacion">
-                    <p>Calificación</p>
-
-                    <div class="stars">
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="card-6 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/webinar-3.png" alt="">
-              </div>
-
-              <div class="content-info">
-                <h5>Webinar III: Igualdad Salarial y Hostigamiento Sexual | ASEI Learning Center</h5>
-
-                <div class="info-description">
-                  <p>Dictado por Maria Mendoza</p>
-
-                  <!-- Admin -->
-                  <div class="admin-edit">
-                    <div class="pencil-btn">
-                      <ion-icon name="pencil-outline"></ion-icon>
-                    </div>
-
-                    <div class="delete-btn">
-                      <ion-icon name="trash"></ion-icon>
-                    </div>
-                  </div>
-
-                  <!-- <div class="calificacion">
-                    <p>Calificación</p>
-
-                    <div class="stars">
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                      <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                    </div>
-                  </div> -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="number-option">
-            <div class="left-option">
-              <ion-icon name="chevron-back-outline"></ion-icon>
-            </div>
-  
-            <div class="numbers-option">
-              <div class="number-one number-all">
-                <p>1</p>
-              </div>
-              <div class="number-two number-all">
-                <p>2</p>
-              </div>
-              <div class="number-three number-all">
-                <p>3</p>
-              </div>
-              <div class="number-four number-all">
-                <p>4</p>
-              </div>
-              <div class="number-five number-all">
-                <p>5</p>
-              </div>
-              <div class="number-six number-all">
-                <p>6</p>
-              </div>
-            </div>
-  
-            <div class="right-option">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
-            </div>
-          </div>
+          <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 
         </div> 
       </ion-grid>
