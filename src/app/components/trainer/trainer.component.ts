@@ -11,6 +11,7 @@ export class TrainerComponent implements OnInit {
   fileToUploadstat: any;
   imagestat: any;
   @Output() trainer = new EventEmitter();
+  @Output() imagfile = new EventEmitter();
   constructor(private uiserviceService : UiServiceService) { }
 
   ngOnInit() {}
@@ -34,7 +35,9 @@ export class TrainerComponent implements OnInit {
     if(lastname.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
 
     let obj_trainer = { name, lastname, image: this.imagestat };
+    let image = this.fileToUploadstat;
     this.trainer.emit(obj_trainer);
+    this.imagfile.emit(image);
     
     (<HTMLInputElement>document.querySelector('.nametxt')).value = '';
     (<HTMLInputElement>document.querySelector('.lastname')).value = ''

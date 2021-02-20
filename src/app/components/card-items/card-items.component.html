@@ -1,4 +1,4 @@
-<div class="card-1 card-all">
+<!-- <div class="card-1 card-all">
     <div class="img-content">
         <img class="img-web" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
     </div>
@@ -26,8 +26,6 @@
             </div>
         </div>
 
-        <!-- Admin -->
-
         <div class="btn-like">
 
             <div class="stars-btn">
@@ -38,22 +36,44 @@
                 <ion-icon class="stars" name="star"></ion-icon>
                 <ion-icon class="stars" name="star-outline"></ion-icon>
                 <p class="number-stars">4.5</p>
-                <!-- <form>
-                  <p class="clasificacion">
-                    <input id="radio1" type="radio" name="estrellas" value="5">
-                        <label for="radio1" class="stars">★</label>
-                        <input id="radio2" type="radio" name="estrellas" value="4">
-                        <label for="radio2" class="stars">★</label>
-                        <input id="radio3" type="radio" name="estrellas" value="3">
-                        <label for="radio3" class="stars">★</label>
-                        <input id="radio4" type="radio" name="estrellas" value="2">
-                        <label for="radio4" class="stars">★</label>
-                        <input id="radio5" type="radio" name="estrellas" value="1">
-                        <label for="radio5" class="stars">★</label>
-                  </p>
-                </form> -->
             </div>
         </div>
     </div>
 
-</div>
+</div> -->
+
+<ion-card class="md hydrated card-course">
+    <img class="card_img" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
+    <ion-card-header class="ion-inherit-color md hydrated">
+        <ion-card-subtitle>
+            <ion-icon name="calendar-clear-outline"></ion-icon>
+            Publicado : {{ news_child.fecha_publicacion }}
+        </ion-card-subtitle>
+        <ion-card-title role="heading" aria-level="2" class="ion-inherit-color md hydrated" (click)="openNote(news_child.ID_NO)">{{ news_child.titulo }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="md card-content-md hydrated">
+        {{ news_child.resumen | slice:0:193 }}
+        <p>
+            <ion-button color="light" class="btn-create" (click)="editNew(news_child.ID_NO)">
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 15.2501V19.0001H3.75L14.81 7.94006L11.06 4.19006L0 15.2501ZM17.71 5.04006C18.1 4.65006 18.1 4.02006 17.71 3.63006L15.37 1.29006C14.98 0.900059 14.35 0.900059 13.96 1.29006L12.13 3.12006L15.88 6.87006L17.71 5.04006Z" fill="#24344D"/>
+                </svg>          
+            </ion-button>
+            <ion-button color="danger" (click)="removeNew(news_child.ID_NO)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
+        </p>
+        <hr>
+        <div class="btn-like">
+
+            <div class="stars-btn">
+                <p>Calificación
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star"></ion-icon>
+                    <ion-icon class="stars" name="star-outline"></ion-icon>
+                    4.5
+                </p>
+            </div>
+        </div>
+    </ion-card-content>
+  </ion-card>

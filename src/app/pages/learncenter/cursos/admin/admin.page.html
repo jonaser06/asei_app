@@ -47,10 +47,16 @@
 
           </div>
 
-          <div class="new-card">
+          <ion-row>
+            <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CursosData?.contenido">
+              <app-card-cursos [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"></app-card-cursos>
+            </ion-col>
+          </ion-row>
+          
+          <!-- <div class="new-card">
             <app-card-cursos *ngFor="let item of CursosData?.contenido" [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"> 
             </app-card-cursos>
-          </div>
+          </div> -->
  
           <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 

@@ -71,7 +71,7 @@
               <h4>Datos del capacitador(es)</h4>
             </div>
             <hr>
-            <app-trainer (trainer)="add_trainer($event);"></app-trainer>
+            <app-trainer (trainer)="add_trainer($event);" (imagfile)="add_image($event);"></app-trainer>
 
             <div class="addtrainer">
               <app-trainer-get *ngFor="let item of trainer; index as i;" [trainer]="item" [index]="i" (indx)="rmv_btn_trainer($event)"></app-trainer-get>

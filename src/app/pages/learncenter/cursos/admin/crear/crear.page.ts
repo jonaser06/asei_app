@@ -35,11 +35,13 @@ export class CrearPage implements OnInit {
   /* curso */
   trainer: any[];
   sesion: any[];
+  imagfile: any[];
   imgcourse: any;
   coursesrc: any;
   constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
     this.trainer = [];
     this.sesion = [];
+    this.imagfile = [];
     console.log(this.trainer.length);
   }
 
@@ -60,7 +62,10 @@ export class CrearPage implements OnInit {
   add_trainer(event){
     this.trainer.push(event);
   }
-
+  add_image(event){
+    this.imagfile.push(event);
+  }
+  /* añadir sesiones */
   add_sesion(event){
     this.sesion.push(event);
   }
@@ -71,7 +76,7 @@ export class CrearPage implements OnInit {
     this.sesion.splice(event, 1);
   }
 
-  /* añadir sesiones */
+  /* añadir curso */
   add_course(){
     let titlecourse = (<HTMLInputElement>document.querySelector('.title-course-tx')).value;
     let summarycourse = (<HTMLInputElement>document.querySelector('.summary-course')).value;
@@ -99,12 +104,14 @@ export class CrearPage implements OnInit {
     for(let i = 0 ; i < this.trainer.length ; i++){
       formdata.append('cap_nombres[]', this.trainer[i]['name']);
       formdata.append('cap_resumen[]', this.trainer[i]['lastname']);
-      formdata.append('cap_img[]', this.trainer[i]['image']);
     }
 
     for(let i = 0 ; i < this.sesion.length ; i++){
       formdata.append('sesion_nombres[]', this.sesion[i]['namesession']);
       formdata.append('sesion_links[]', this.sesion[i]['linksession']);
+    }
+    for(let i = 0 ; i < this.imagfile.length ; i++){
+      formdata.append('cap_img[]', this.imagfile[i]);
     }
 
     this.learncenterService.create_learncenterCursos(formdata)

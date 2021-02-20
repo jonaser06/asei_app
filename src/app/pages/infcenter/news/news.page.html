@@ -33,30 +33,18 @@
                     <app-buscador (buscatxt)="search_($event)"></app-buscador>
                 </div>
 
-                <!-- Solo usuarios -->
-                <div class="recent-news">
-                    <h3></h3>
-                </div>
-
-
-                <div class="cards-news">
-                    <app-card-items *ngFor="let item of NewsData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)">
-                    </app-card-items>
-                </div>
-
-                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
-
-                <!-- <app-card-slider></app-card-slider> -->
-
-                <!-- <div class="recent-news">
-                    <h3>Noticias Pasadas</h3>
-                </div> -->
+                <ion-row>
+                    <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of NewsData?.notes">
+                        <app-card-items [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)"></app-card-items>
+                    </ion-col>
+                </ion-row>
 
                 <!-- <div class="cards-news">
-                    <app-card-items *ngFor="let item of OldData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)">
+                    <app-card-items *ngFor="let item of NewsData?.notes" [news_child]="item" (idNews)="openNew_($event)" (idNewsE)="editNew_($event)" (idNewsR)="removeNew_($event)">
                     </app-card-items>
-                </div>
-                <app-paginador [paginas]="pagesOld" [pagina]="currentpageOld" (number_page)="changepage_Old($event)"></app-paginador> -->
+                </div> -->
+
+                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 
 
             </div>
