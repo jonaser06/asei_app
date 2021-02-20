@@ -11,6 +11,10 @@ export class StatisticsService {
 
   constructor(private http: HttpClient) { }
 
+  donwloadimg(file){
+    return this.http.get(file,{responseType:'blob'})
+  }
+
   get_statistics(page = 1, limit = 6){
     return new Promise ( resolve => {
       this.http.get(`${URL}/getchart?limit=${limit}&page=${page}`)

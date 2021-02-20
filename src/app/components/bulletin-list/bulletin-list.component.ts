@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BulletinService } from 'src/app/services/bulletin.service';
+import { Platform } from '@ionic/angular';
 import { environment } from 'src/environments/environment';
 import { AuthService } from '../../services/auth.service';
+import { StatisticsService } from 'src/app/services/statistics.service';
+import { saveAs } from 'file-saver';
 
 
 @Component({
@@ -19,11 +21,22 @@ export class BulletinListComponent implements OnInit {
 
   URL = environment.url;
   rol: String;
-  constructor(public authService: AuthService ) { 
+  constructor(public authService: AuthService, private platform: Platform, private statisticsService : StatisticsService ) { 
     this.current_rol();
   }
 
   ngOnInit() {}
+
+  downloadfile(j){
+    let files = this.bulletin_child;
+    files = files[j].file
+    // console.log(this.bulletin_child);
+    if(this.platform.is('android')) {
+      window.location.href = files;
+    }else{
+      this.statisticsService.donwloadimg(files).subscribe(data=>saveAs(data, 'file.pdf'))
+    }
+  }
    
   current_rol(){
     this.authService.get_data()

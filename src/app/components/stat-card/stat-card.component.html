@@ -1,23 +1,10 @@
-<div class="card card-stat">
+<!-- <div class="card card-stat">
     <div class="top-card-stat">
         <div *ngIf="rol == 'admin'" class="drop-menu">
-            <!-- <span>
-            Opciones
-        </span> -->
             <img draggable="false" src="../../../assets/icon/dots.png" alt="mdi-dots">
             <div class="popover">
-                <!-- <button class="item">
-                    <span class="no-margin label-menu" (click)="download(URL + '/' + card_child.image)">Descargar</span>
-                    <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
-                </button> -->
-                <a class="enlace-descarga" href="{{ URL + '/' + card_child.image }}" target="_blank" >   <button class="item">
-                    <span class="no-margin label-menu">
-                        Descargar<!-- <a href="{{ URL + '/' + card_child.image }}" download="image.jpg" target="_blank" style="text-decoration: none; padding: 0px !important;" class="item">
-                            Descargar
-                        </a> -->
-                    </span>
-                    <ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon>
-                </button>
+                <a class="enlace-descarga" href="{{ URL + '/' + card_child.image }}" target="_blank" >  
+                    <button class="item"><span class="no-margin label-menu">Descargar</span><ion-icon class="no-margin icon-menu" name="cloud-download-outline"></ion-icon></button>
                 </a>
                 <button (click)="editItem(card_child.id, card_child.title, card_child.description, card_child.image, card_child.month, card_child.year)" class="item">
                     <span class="no-margin label-menu">Editar</span>
@@ -43,4 +30,19 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+<ion-card class="md hydrated card-course">
+    <ion-toolbar class="toolbarcard">
+        <ion-buttons slot="end" (click)="presentPopover($event);">
+            <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+        </ion-buttons>
+    </ion-toolbar>
+    <img class="card_img" src="{{ URL + '/' + card_child.image }}">
+    <ion-card-header class="ion-inherit-color md hydrated title">
+        <ion-card-title role="heading" aria-level="2" class="ion-inherit-color md hydrated">{{ card_child.title | slice:0:20 | titlecase}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="md card-content-md hydrated">
+        {{ card_child.description | slice:0:193 }}
+    </ion-card-content>
+</ion-card>

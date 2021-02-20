@@ -1,3 +1,6 @@
+/* .item{
+    overflow: auto;
+} */
 .container-list-bulletin {
     box-sizing: border-box;
     height: 100%;
@@ -55,7 +58,7 @@
             opacity: 0;
             transition: all ease-in-out .35s;
             .sub-item {
-                padding: 3px 25px 3px 70px;
+                padding: 3px 25px 3px 40px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;

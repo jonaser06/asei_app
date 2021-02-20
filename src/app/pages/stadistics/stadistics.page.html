@@ -8,31 +8,6 @@
                     <p class="subtitle-section">Encontrarás gráficos actualizados sobre nuestras últimas actividades del mes.</p>
                 </div>
                 <div class="actions-page">
-
-                    <!-- <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
-                          <option disabled selected>Año</option>
-                          <option value=" ">Option 1</option>
-                          <option value=" ">Option 2</option>
-                          <option value=" ">Option 3</option>
-                      </select>
-
-                    <select class="select-module padding-1 select-color-2 select-border-none" name="" id="">
-                          <option disabled selected>Mes</option>
-                          <option value=" ">Enero</option>
-                          <option value=" ">Febrero</option>
-                          <option value=" ">Marzo</option>
-                          <option value=" ">Abril</option>
-                          <option value=" ">Mayo</option>
-                          <option value=" ">Junio</option>
-                          <option value=" ">Julio</option>
-                          <option value=" ">Agosto</option>
-                          <option value=" ">Septiembre</option>
-                          <option value=" ">Octubre</option>
-                          <option value=" ">Noviembre</option>
-                          <option value=" ">Diciembre</option>
-                      </select> -->
-
-
                     <button *ngIf='rol == "admin"' (click)="openDialogStat()" class="btn-new-item">
                       <span>Nuevo gráfico</span>
                       <ion-icon class="icon-btn" name="add"></ion-icon>
@@ -88,40 +63,6 @@
                               <ion-icon class="icon-btn" name="add"></ion-icon>
                             </button>
                         </div>
-                        <ion-row>
-
-                            <!-- <div class="indicators" >
-                                <div class="left-arrow">
-                                    <ion-icon class="left-btn" name="chevron-back-outline"></ion-icon>
-                                </div>
-                             
-
-                                <div class="target-indicator">
-                                    
-                                    <ion-col size-xl="3" size-lg="6" size-md="6" size-sm="12" size-xs="12" class="pt-0 pb-0" *ngFor="let indicador of indicador_data">
-                                        <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
-                                    </ion-col>
-                                   
-                                </div>
-                                 
-                                <div class="right-arrow">
-                                    <ion-icon class="right-btn" name="chevron-forward-outline"></ion-icon>
-                                </div>
-
-                                <div class="buttons">
-                                    <div class="content-btn"></div>
-                                    <div class="content-btn"></div>
-                                </div>
-                            </div> -->
-
-                        </ion-row>
-
-                        <!-- <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-                            
-                            <div ngxSlickItem class="slide" *ngFor="let indicador of indicador_data">
-                                <app-percent-card (editItemEv)="editInd($event)" (deleteItemEv)="removeInd($event)" [card_ind]="indicador"></app-percent-card>
-                            </div>
-                        </ngx-slick-carousel> -->
 
                         <button class="slick-prev slick-arrow" aria-label="Previous" type="button" (click)="prevSlide()">Previous</button>
                         <ion-slides pager="true" [options]="slideOpts" #Slides>

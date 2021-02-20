@@ -11,16 +11,14 @@
                     Boletin {{ year }}
                 </div>
             </div>
-            <div class="sub-menu" *ngFor="let bulletin of bulletin_child">
+            <div class="sub-menu" *ngFor="let bulletin of bulletin_child; index as j">
                 <div *ngIf="bulletin.year == year">
                     <div class="sub-item">
                         <span>{{ bulletin.title }}</span>
                         <div class="actions">
-                            <a href="{{ bulletin.file }}" download="FileName" target="_blank">
-                                <button class="btn-outline-primary btn-bulletin-download">
-                                    <ion-icon name="cloud-download-outline"></ion-icon>
-                                </button>
-                            </a>
+                            <button class="btn-outline-primary btn-bulletin-download" (click)="downloadfile(j)">
+                                <ion-icon name="cloud-download-outline"></ion-icon>
+                            </button>
                             <a href="{{ bulletin.file }}" download="FileName" target="_blank">
                                 <button class="btn-outline-primary btn-bulletin-download">
                                     <ion-icon name="eye-outline"></ion-icon> 
