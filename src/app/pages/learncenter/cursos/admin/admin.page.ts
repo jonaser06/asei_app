@@ -84,17 +84,17 @@ export class AdminPage implements OnInit {
   }
 
   openCursos_(ID_CO){
-    this.redireccionService.redireccion('/tabs/learning-center/cursos/info'+ID_CO);
+    this.redireccionService.redireccion('/tabs/learning-center/cursos/info/'+ID_CO);
   }
   
   editCursos_(ID_NO){
     console.log('EDITAR CURSO : '+ID_NO);
     // this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO);
-    this.redireccionService.redireccion('/tabs/learning-center/cursos/edit/'+ID_NO);
+    this.redireccionService.redireccion('/tabs/learning-center/cursos/admin/edit/'+ID_NO);
   }
 
   removeCursos_(ID_CO){
-    this.learncenterService.delete_learncenterCursos(ID_CO)
+    this.learncenterService.delete_learncenterCursos(ID_CO,'cursos')
     .then(resp=>{ 
       console.log('ELIMINAR CURSO : '+ID_CO);
       this.getcursos();

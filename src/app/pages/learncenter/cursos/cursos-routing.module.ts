@@ -12,20 +12,8 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'info',
+    path: 'info/:id',
     loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
-  },
-  {
-    path: 'news',
-    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
-  },
-  {
-    path: 'keep',
-    loadChildren: () => import('./keep/keep.module').then( m => m.KeepPageModule)
-  },
-  {
-    path: 'finish',
-    loadChildren: () => import('./finish/finish.module').then( m => m.FinishPageModule)
   }
 ];
 
