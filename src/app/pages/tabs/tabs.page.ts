@@ -39,7 +39,7 @@ export class TabsPage implements OnInit {
   current_session(){
     this.authService.get_data()
     .then(resp=>{
-      console.log(resp);
+      // console.log(resp);
       this.nombres = resp['data']['nombres']; 
       this.rol = resp['data']['rol'] 
       this.menues = resp['data']['permisos'];

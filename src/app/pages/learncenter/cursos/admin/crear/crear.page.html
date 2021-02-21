@@ -114,7 +114,7 @@
               <app-sesion-get *ngFor="let item of sesion; index as i;" [sesion]="item" [index]="i" (indx)="rmv_btn_sesion($event)"></app-sesion-get>
             </div>
 
-            <app-send-notification></app-send-notification>
+            <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
 
           </div>
 

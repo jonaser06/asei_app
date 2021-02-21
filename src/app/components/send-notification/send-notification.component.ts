@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-send-notification',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SendNotificationComponent implements OnInit {
 
   pepperoni = false;
+  @Output() toggle = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
@@ -19,8 +20,8 @@ export class SendNotificationComponent implements OnInit {
     }else{
       this.pepperoni = true;
     }
-
-    console.log(this.pepperoni);
+    // console.log(this.pepperoni);
+    this.toggle.emit(this.pepperoni);
   }
 
 }

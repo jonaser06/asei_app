@@ -1,4 +1,36 @@
 <ion-content class="content-section">
+  <ion-row>
+    <ion-col size="12" size-lg="6" class="header-course left-header">
+      <div class="title-section-container">
+        <div class="title-arrow">
+          <ion-row>
+            <ion-col size="1">
+              <!-- Flecha a la izquierda -->
+              <div class="left-arrow" (click)="volverCursos()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="title">
+                <h3 class="title-section color-news">Cursos</h3>
+                <p class="subtitle-section color-news">Todos los cursos de ASEI</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" size-lg="6" class="header-course left-header">
+      <ion-searchbar placeholder="Buscar por nombre o palabra clave"></ion-searchbar>
+    </ion-col>
+    <ion-col size="12" size-lg="6">
+
+    </ion-col>
+  </ion-row>
+
   <div class="layout-section">
       <div class="container">
           <div class="row-actions-top">
