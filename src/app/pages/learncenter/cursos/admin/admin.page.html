@@ -24,61 +24,17 @@
 
   <ion-row>
     <ion-col size="12" size-lg="6" class="header-course left-header">
-      <ion-searchbar placeholder="Buscar por nombre o palabra clave"></ion-searchbar>
+      <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
     </ion-col>
-    <ion-col size="12" size-lg="6">
-
+    <ion-col size="12" size-lg="6" class="header-course">
+      <ion-button expand="block" class="crear_curso" (click)="iraCrear()">Nuevo Curso <ion-icon name="add-circle" class="more-icon"></ion-icon></ion-button>
     </ion-col>
   </ion-row>
 
   <div class="layout-section">
-      <div class="container">
-          <div class="row-actions-top">
-              <div class="title-section-container">
-                <div class="title-arrow">
-                  <!-- Flecha a la izquierda -->
-                  <div class="left-arrow" (click)="volverCursos()">
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                  </div>
-  
-                  <div class="title">
-                    <h3 class="title-section color-news">Cursos</h3>
-                    <p class="subtitle-section color-news">Todos los cursos de ASEI</p>
-                  </div>
-                </div>
-              </div>
-          </div>
-
-          <!-- Admin -->
-          <!-- <div class="actions-page no-web">
-            <button class="btn-new-item" (click)="iraCrear()">
-                <span>Nuevo Curso</span>
-                <ion-icon class="icon-btn" name="add"></ion-icon>
-            </button>
-          </div> -->   
-      </div>
 
       <ion-grid class="section-grid">
         <div class="courses">
-          <div class="news-courses">
-            <div class="content-search">
-              <!-- no-user es para admin, user es para usuario -->
-              <div class="input-search no-user">
-                <input type="search" name="" id="" placeholder="Buscar cursos por nombre" class="bsccurso" (keyup.enter)="search_course()">
-                <ion-icon class="search-btn" name="search-outline" (click)="search_course()"></ion-icon>
-              </div>
-    
-    
-              <div class="actions-page no-mobil">
-                <button class="btn-new-item" (click)="iraCrear()">
-                    <span>Nuevo Curso</span>
-                    <ion-icon class="icon-btn" name="add-circle"></ion-icon>
-                </button>
-              </div>   
-            </div>
-
-          </div>
-
           <ion-row>
             <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CursosData?.contenido">
               <app-card-cursos [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"></app-card-cursos>

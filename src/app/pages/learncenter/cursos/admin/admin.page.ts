@@ -25,6 +25,18 @@ export class AdminPage implements OnInit {
 
   ngOnInit() {
   }
+  onSearchChange(event){
+    let input = event.detail.value;
+    this.search = input;
+    let pages = [];
+    this.learncenterService.get_learncenterCursos(1,input) 
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
 
   volverCursos(){
     this.redireccionService.backpage();
@@ -63,19 +75,6 @@ export class AdminPage implements OnInit {
       input  = this.search;
     }
     this.learncenterService.get_learncenterCursos(page,input)
-    .then(resp=>{
-      this.CursosData = resp['data'];
-      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.CursosData.page;
-    });
-  }
-
-  search_course(){
-    let input = (<HTMLInputElement>document.querySelector('.bsccurso')).value;
-    this.search = input;
-    let pages = [];
-    this.learncenterService.get_learncenterCursos(1,input) 
     .then(resp=>{
       this.CursosData = resp['data'];
       for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
