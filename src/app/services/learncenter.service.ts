@@ -90,7 +90,7 @@ export class LearncenterService {
   
   delete_learncenterCursos(id,section){
     return new Promise ( resolve => {
-      this.http.get(`${URL}/learn/${section}/${id}/delete`)
+      this.http.get(`${URL}/learn/${section}/${id}/delete`) 
       .subscribe( resp => {
         if(resp['status']){
           resolve(resp);
