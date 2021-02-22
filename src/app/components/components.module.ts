@@ -21,6 +21,7 @@ import { TrainerGetComponent } from './trainer-get/trainer-get.component';
 import { SesionGetComponent } from './sesion-get/sesion-get.component';
 import { SesionComponent } from './sesion/sesion.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
+import { CardListAdminComponent } from './card-list-admin/card-list-admin.component';
 
 
 
@@ -45,7 +46,8 @@ import { SendNotificationComponent } from './send-notification/send-notification
     TrainerGetComponent,
     SesionGetComponent,
     SesionComponent,
-    SendNotificationComponent
+    SendNotificationComponent,
+    CardListAdminComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -67,7 +69,8 @@ import { SendNotificationComponent } from './send-notification/send-notification
     TrainerGetComponent,
     SesionGetComponent,
     SesionComponent,
-    SendNotificationComponent
+    SendNotificationComponent,
+    CardListAdminComponent
   ],
   imports: [
     CommonModule,
