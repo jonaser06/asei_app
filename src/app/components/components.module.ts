@@ -21,6 +21,8 @@ import { TrainerGetComponent } from './trainer-get/trainer-get.component';
 import { SesionGetComponent } from './sesion-get/sesion-get.component';
 import { SesionComponent } from './sesion/sesion.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
+import { VideoplayerComponent } from './videoplayer/videoplayer.component';
+import { PlaylistComponent } from './playlist/playlist.component';
 
 
 
@@ -45,7 +47,9 @@ import { SendNotificationComponent } from './send-notification/send-notification
     TrainerGetComponent,
     SesionGetComponent,
     SesionComponent,
-    SendNotificationComponent
+    SendNotificationComponent,
+    VideoplayerComponent,
+    PlaylistComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -67,7 +71,9 @@ import { SendNotificationComponent } from './send-notification/send-notification
     TrainerGetComponent,
     SesionGetComponent,
     SesionComponent,
-    SendNotificationComponent
+    SendNotificationComponent,
+    VideoplayerComponent,
+    PlaylistComponent
   ],
   imports: [
     CommonModule,
