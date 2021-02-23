@@ -12,25 +12,6 @@ export class LearncenterService {
 
   constructor(private http: HttpClient) { }
 
-    /* buscador */
-
-    // redurect() {
-    //   console.log('re');
-    // }
-  
-    // search_learncenter(section, page = 1, key){
-    //   return new Promise (resolve => {
-    //     this.http.get(`${URL}/notes/search/${section}?search=${key}&page=${page}`)
-    //     .subscribe( resp =>{
-    //       if(resp['status']){
-    //         resolve(resp);
-    //       }else{
-    //         resolve(resp);
-    //       }
-    //     });
-    //   });
-    // }
-
     /* Cursos */
   get_learncenterCursos(page = 1, input = '',limit = 9){
     return new Promise (resolve => {
@@ -50,7 +31,6 @@ export class LearncenterService {
     return new Promise ( resolve =>{
       this.http.get(`${URL}/learn/cursos/${id}`)
       .subscribe( resp =>{
-        console.log(resp);
         if(resp['status']){
           resolve(resp);
         }else{
@@ -91,6 +71,71 @@ export class LearncenterService {
   delete_learncenterCursos(id,section){
     return new Promise ( resolve => {
       this.http.get(`${URL}/learn/${section}/${id}/delete`) 
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  add_capacitador(formdata, tipo, id){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/learn/${tipo}/${id}/capacitador`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_capacitador(id){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/capacitadores/${id}/delete`) 
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  add_sesion(formdata, tipo, id){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/learn/${tipo}/${id}/sesion`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_sesion(id){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/sesiones/${id}/delete`) 
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  update_course(tipo, id, formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/learn/${tipo}/${id}`, formdata)
       .subscribe( resp => {
         if(resp['status']){
           resolve(resp);

@@ -1,5 +1,25 @@
+.resumen_tab,
+.objetivos_tab,
+.capacitadores_tab{
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 40px;
+}
+.resumen_tab h1,
+.objetivos_tab h1,
+.capacitadores_tab h1{
+    font-size: 35px;
+    font-weight: bold;
+    color: #3c3b37 !important;
+}
 ion-row{
     background: #f5f5f5;
+}
+.display-none{
+    display: none !important;
+}
+.content_tab__{
+    --background: #f5f5f5;
 }
 .header-course{
     padding-left: 80px;
@@ -37,6 +57,15 @@ ion-row{
     top: 60px;
     display: block;
 }
+.playlist_tab{
+    display: none ;
+}
+.objetivos_tab,
+.capacitadores_tab,
+.playlist_tab{
+    position: relative;
+    top: 60px;
+}
 @media screen and (max-width: 600px) {
     .player_section{
         padding-left: 0px;
@@ -61,12 +90,21 @@ ion-row{
         display: block;
     }
     .playlist_tab{
-        display: block !important;
+        display: block;
     }
-}
-
-@media screen and (max-width: 990px) {
-
+    .resumen_tab,
+    .objetivos_tab,
+    .capacitadores_tab{
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 20px;
+    }
+    .resumen_tab h1,
+    .objetivos_tab h1,
+    .capacitadores_tab h1{
+        font-size: 25px;
+        font-weight: bold;
+    }
 }
 
 /* altura */
@@ -77,7 +115,6 @@ ion-row{
     .playlist_tab{
         position: relative;
         top: 56px;
-        display: block !important;
     }
 }
 @media screen and (min-height: 640px){
@@ -87,7 +124,6 @@ ion-row{
     .playlist_tab{
         position: relative;
         top: 56px;
-        display: block !important;
     }
 }
 @media screen and (min-height: 667px){
@@ -96,7 +132,6 @@ ion-row{
     }.playlist_tab{
         position: relative;
         top: 56px;
-        display: block !important;
     }
 }
 @media screen and (min-height: 731px){
@@ -105,7 +140,6 @@ ion-row{
     }.playlist_tab{
         position: relative;
         top: 56px;
-        display: block !important;
     }
 }
 @media screen and (min-height: 812px){
@@ -114,6 +148,5 @@ ion-row{
     }.playlist_tab{
         position: relative;
         top: 56px;
-        display: block !important;
     }
 }

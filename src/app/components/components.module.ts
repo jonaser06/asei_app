@@ -23,6 +23,7 @@ import { SesionComponent } from './sesion/sesion.component';
 import { SendNotificationComponent } from './send-notification/send-notification.component';
 import { VideoplayerComponent } from './videoplayer/videoplayer.component';
 import { PlaylistComponent } from './playlist/playlist.component';
+import { CardListAdminComponent } from './card-list-admin/card-list-admin.component';
 
 
 
@@ -49,7 +50,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
     SesionComponent,
     SendNotificationComponent,
     VideoplayerComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    CardListAdminComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -73,7 +75,8 @@ import { PlaylistComponent } from './playlist/playlist.component';
     SesionComponent,
     SendNotificationComponent,
     VideoplayerComponent,
-    PlaylistComponent
+    PlaylistComponent,
+    CardListAdminComponent
   ],
   imports: [
     CommonModule,

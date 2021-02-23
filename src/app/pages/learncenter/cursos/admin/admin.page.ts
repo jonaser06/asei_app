@@ -4,6 +4,7 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 import { LearncenterService } from '../../../../services/learncenter.service';
 import { environment } from '../../../../../environments/environment.prod';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 @Component({
   selector: 'app-admin',
@@ -19,7 +20,7 @@ export class AdminPage implements OnInit {
   currentkey : any;
   search : any;
 
-  constructor(private redireccionService: RedireccionService, private learncenterService: LearncenterService) {
+  constructor(private redireccionService: RedireccionService, private learncenterService: LearncenterService, private uiServiceService: UiServiceService) {
     this.getcursos();
    }
 
@@ -44,11 +45,6 @@ export class AdminPage implements OnInit {
 
   iraCrear(){
     this.redireccionService.redireccion('/tabs/learning-center/cursos/admin/crear')
-  }
-
-  openDialogCursos(){
-    // this.dialogReadNews = true;
-    this.redireccionService.redireccion('/tabs/learning-center/cursos/info');
   }
 
   getcursos(){
@@ -94,12 +90,18 @@ export class AdminPage implements OnInit {
   }
 
   removeCursos_(ID_CO){
-    this.learncenterService.delete_learncenterCursos(ID_CO,'cursos')
-    .then(resp=>{ 
-      console.log('ELIMINAR CURSO : '+ID_CO);
-      this.getcursos();
-    })
-    .catch();
+    this.uiServiceService.presentAlertConfirm('Eliminar', 'Estas seguro que desea eliminar el curso')
+    .then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
+        this.learncenterService.delete_learncenterCursos(ID_CO,'cursos')
+        .then(resp=>{ 
+          console.log('ELIMINAR CURSO : '+ID_CO);
+          this.getcursos();
+        })
+        .catch();
+      }
+    });
   }
   
 }

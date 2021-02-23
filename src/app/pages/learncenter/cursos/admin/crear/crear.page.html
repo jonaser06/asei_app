@@ -82,30 +82,6 @@
           <div class="third-form">
             <div class="subtitle third-subtitle">
               <h4>Sesiones</h4>
-              <!-- web -->
-              <div class="btn">
-                <div class="delete">
-                  <ion-icon name="trash"></ion-icon>
-                </div>
-  
-                <div class="actions-page">
-                  <button class="btn-new-item" (click) = "append_sesion();">
-                      <span>Nueva Sesión</span>
-                      <ion-icon class="icon-btn" name="add"></ion-icon>
-                  </button>
-                </div>
-              </div>
-  
-              <!-- mobil -->
-              <div class="actions-page plus-btn">
-                <div class="delete">
-                  <ion-icon name="trash"></ion-icon>
-                </div>
-  
-                <button class="btn-new-item">
-                    <ion-icon class="icon-btn" name="add"></ion-icon>
-                </button>
-              </div>
             </div>
 
             <app-sesion (sesion)="add_sesion($event);"></app-sesion>
@@ -119,7 +95,6 @@
           </div>
 
           <div class="content-btn">
-            <!-- <button type="submit" (click)="createCursos()">Guardar</button> -->
             <button type="button" class="btn btn-lg btn-primary" (click)="add_course();">Guardar</button>
           </div>
         </form>

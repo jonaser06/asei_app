@@ -18,6 +18,38 @@ export class UiServiceService {
     await alert.present();
   }
 
+  async presentAlertConfirm(title, message) {
+    let confirm;
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: title,
+      message: message,
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            console.log('Confirm Cancel: blah');
+            alert.dismiss(true)
+            return {resp:false};
+          }
+        }, {
+          text: 'OK',
+          handler: () => {
+            console.log('Confirm Okay');
+            alert.dismiss(false)
+            return {resp:true};
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+    await alert.onDidDismiss().then((data) => {
+      confirm = data
+    })
+    return confirm;
+  }
+
   stripHtml(html: string) {
     var div = document.createElement("DIV");
 

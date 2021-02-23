@@ -29,34 +29,45 @@
         <ion-tabs>
           <!-- Tab bar -->
           <ion-tab-bar slot="top">
-            <ion-tab-button tab="account" class="sesiones_tab">
+            <ion-tab-button class="sesiones_tab" (click)="playlist();">
               <ion-label>Sesiones</ion-label>
             </ion-tab-button>
-            <ion-tab-button tab="account">
+            <ion-tab-button (click)="resumen();">
               <ion-label>Resumen</ion-label>
             </ion-tab-button>
-            <ion-tab-button tab="contact">
+            <ion-tab-button (click)="objetivos();">
               <ion-label>Objetivos</ion-label>
             </ion-tab-button>
-            <ion-tab-button tab="settings">
+            <ion-tab-button  (click)="capacitadores();">
               <ion-label>Capacitadores</ion-label>
             </ion-tab-button>
           </ion-tab-bar>
         </ion-tabs>
         <div class="contenido">
-          <div class="sesiones" style="display: none;" class="playlist_tab">
+          <div class="playlist_tab">
             <app-playlist></app-playlist>
           </div>
-          <div class="resumen" class="resumen_tab">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi nam laboriosam ipsa totam voluptatem eveniet iure, facilis, error enim aperiam sint laborum, veritatis similique neque. Aliquam dolore ad architecto ducimus.
+          <div class="resumen_tab">
+            <h1>{{info_curso?.data.titulo}}</h1>
+            {{info_curso?.data.resumen}}
           </div>
-          <div class="objetivos" style="display: none;">
+          <div class="objetivos_tab">
             <h1>Objetivos</h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium cupiditate veniam, ipsa autem eos eveniet dolorem maiores recusandae hic! Dolor, dicta. Corrupti odit quas dolore mollitia molestiae sapiente doloremque repellendus.
+            {{info_curso?.data.objetivo}}
           </div>
-          <div class="capacitadores" style="display: none;">
+          <div class="capacitadores_tab">
             <h1>Capacitadores</h1>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, sunt beatae cupiditate eveniet sequi possimus culpa odio. Odio, rem laudantium nesciunt architecto repellat adipisci distinctio sunt ex illo qui praesentium!
+            <ion-list>
+              <ion-item *ngFor="let item of info_curso?.data.capacitadores">
+                <ion-avatar slot="start">
+                  <img src="{{ URL + '/' + item.foto }}" alt="">
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{ item.nombre }}</h2>
+                  <p>{{ item.resumen }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
           </div>
         </div>
       </ion-content>
