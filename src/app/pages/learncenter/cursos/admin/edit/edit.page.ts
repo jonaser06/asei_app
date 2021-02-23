@@ -135,7 +135,7 @@ export class EditPage implements OnInit {
     formdata.append('objetivo', objectivecourse);
     formdata.append('duracion', duracion);
 
-    (!!this.imgcourse) && formdata.append('img_learn[]', this.imgcourse);
+    (!!this.imgcourse) && formdata.append('img_learn[]', this.imgcourse); 
 
     this.learncenterService.update_course('cursos', id, formdata)
     .then(resp=>{
