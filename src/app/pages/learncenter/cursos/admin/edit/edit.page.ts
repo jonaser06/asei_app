@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LearncenterService } from 'src/app/services/learncenter.service';
+import { RedireccionService } from 'src/app/services/redireccion.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -31,7 +32,7 @@ export class EditPage implements OnInit {
   nombre_ : any;
 
 
-  constructor( public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { 
+  constructor( private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { 
     this.trainer = [];
     this.sesion = [];
     this.imagfile = [];
@@ -139,6 +140,7 @@ export class EditPage implements OnInit {
 
     this.learncenterService.update_course('cursos', id, formdata)
     .then(resp=>{
+      this.redireccionService.redireccion('/tabs/learning-center/cursos/admin');
       console.log(resp);
     })
     .catch();

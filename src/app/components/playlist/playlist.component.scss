@@ -1,6 +1,8 @@
 ion-item-divider{
     border-bottom: 1px solid #666;
-    
+    margin-bottom: 5px;
+    border-right: 1px solid #666;
+    cursor: pointer;
 }
 ion-item-divider:first-child{
     border-top: 1px solid #666;

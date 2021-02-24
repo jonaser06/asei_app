@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-playlist',
@@ -7,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistComponent implements OnInit {
 
+  @Input() sesion : any;
+  @Output() viewsesion = new EventEmitter();
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
 
+  }
+
+  verclase(link){
+    this.viewsesion.emit(link);
+  }
 }

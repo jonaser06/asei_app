@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-videoplayer',
@@ -7,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoplayerComponent implements OnInit {
 
-  constructor() { }
+  @Input() link : any;
 
-  ngOnInit() {}
+  constructor() { 
+    
+  }
+
+  ngOnInit() {
+    // let porciones = this.link;
+    // console.log(porciones);
+    // console.log(this.link);
+    // console.log(porciones[porciones.length])
+    // this.youtube = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/vXf5gaozWcc");
+  }
 
 }

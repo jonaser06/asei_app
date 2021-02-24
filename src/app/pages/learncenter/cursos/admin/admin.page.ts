@@ -19,9 +19,11 @@ export class AdminPage implements OnInit {
   currentpage : any;
   currentkey : any;
   search : any;
+  visible : any
 
   constructor(private redireccionService: RedireccionService, private learncenterService: LearncenterService, private uiServiceService: UiServiceService) {
     this.getcursos();
+    this.visible = true;
    }
 
   ngOnInit() {

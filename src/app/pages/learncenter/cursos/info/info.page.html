@@ -24,7 +24,7 @@
   <!-- content -->
   <ion-row>
     <ion-col size="12" size-md="12" size-lg="9" class="player_section">
-      <app-videoplayer></app-videoplayer>
+      <app-videoplayer [link]="player"></app-videoplayer>
       <ion-content class="content_tab__">
         <ion-tabs>
           <!-- Tab bar -->
@@ -45,7 +45,7 @@
         </ion-tabs>
         <div class="contenido">
           <div class="playlist_tab">
-            <app-playlist></app-playlist>
+            <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
           </div>
           <div class="resumen_tab">
             <h1>{{info_curso?.data.titulo}}</h1>
@@ -73,7 +73,7 @@
       </ion-content>
     </ion-col>
     <ion-col size-lg="3" class="playlist">
-      <app-playlist></app-playlist>
+      <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
     </ion-col>
   </ion-row>
 

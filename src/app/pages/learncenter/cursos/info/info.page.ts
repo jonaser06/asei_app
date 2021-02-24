@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { RedireccionService } from '../../../../services/redireccion.service';
 import { LearncenterService } from '../../../../services/learncenter.service';
 import { environment } from 'src/environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -16,8 +17,10 @@ import { environment } from 'src/environments/environment';
 export class InfoPage implements OnInit {
 
   info_curso: any;
+  play_list: any;
+  player: any;
   URL = environment.url
-  constructor(public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService ) { 
+  constructor(private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService ) { 
     
   }
 
@@ -46,10 +49,23 @@ export class InfoPage implements OnInit {
   get_curso(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.learncenterService.get_learncenterCursosID(id)
-    .then(resp=>{
+    .then( ( resp:any )=>{
       this.info_curso = resp;
+      this.play_list = resp.data.sesiones;
+      this.player = this.play_list[0].link.toString();
+      this.player = this.player.split("=");
+      this.player = 'https://www.youtube.com/embed/'+this.player[1]
+      this.player = this.sanitizer.bypassSecurityTrustResourceUrl(this.player);
+      // console.log(this.player);
     })
     .catch();
+  }
+  verclase_(event){
+    this.player = event.toString();
+    this.player = this.player.split("=");
+    this.player = 'https://www.youtube.com/embed/'+this.player[1]
+    this.player = this.sanitizer.bypassSecurityTrustResourceUrl(this.player);
+    console.log(this.player);
   }
 
   playlist(){
