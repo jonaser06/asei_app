@@ -24,6 +24,10 @@ import { SendNotificationComponent } from './send-notification/send-notification
 import { VideoplayerComponent } from './videoplayer/videoplayer.component';
 import { PlaylistComponent } from './playlist/playlist.component';
 import { CardListAdminComponent } from './card-list-admin/card-list-admin.component';
+import { InfouserComponent } from './infouser/infouser.component';
+import { DocumentosComponent } from './documentos/documentos.component';
+import { MenuAdminComponent } from './menu-admin/menu-admin.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -51,7 +55,10 @@ import { CardListAdminComponent } from './card-list-admin/card-list-admin.compon
     SendNotificationComponent,
     VideoplayerComponent,
     PlaylistComponent,
-    CardListAdminComponent
+    CardListAdminComponent,
+    InfouserComponent,
+    DocumentosComponent,
+    MenuAdminComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -76,11 +83,15 @@ import { CardListAdminComponent } from './card-list-admin/card-list-admin.compon
     SendNotificationComponent,
     VideoplayerComponent,
     PlaylistComponent,
-    CardListAdminComponent
+    CardListAdminComponent,
+    InfouserComponent,
+    DocumentosComponent,
+    MenuAdminComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
+    RouterModule
   ]
 })
 export class ComponentsModule { }

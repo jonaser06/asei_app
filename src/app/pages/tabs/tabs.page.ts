@@ -43,7 +43,7 @@ export class TabsPage implements OnInit {
       this.nombres = resp['data']['nombres']; 
       this.rol = resp['data']['rol'] 
       this.menues = resp['data']['permisos'];
-      // console.log(this.menues);
+      // console.log(this.rol);
     });
   }
   setCurrentActive(path: string){
@@ -52,10 +52,13 @@ export class TabsPage implements OnInit {
     this.navCtrol.navigateRoot(`/tabs/${path}`);
   }
   goProfile(){
-    // this.navCtrol.navigateRoot("/")
+    this.navCtrol.navigateRoot('tabs/perfil', { animated : true } );
   }
   goNotifications() {
     this.navCtrol.navigateRoot('tabs/notifications', { animated : true } );
+  }
+  goConfig(){
+    this.navCtrol.navigateRoot('tabs/usuarios/colaborador', { animated : true } );
   }
   logout (){
     if(this.authService.logout()){
