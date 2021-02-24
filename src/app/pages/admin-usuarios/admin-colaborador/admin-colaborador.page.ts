@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { mockData } from "./mock/mockdata.testdata";
 import { UserService } from '../../../services/user.service';
 import { environment } from '../../../../environments/environment.prod';
+import { RedireccionService } from '../../../services/redireccion.service';
 
 @Component({
   selector: 'app-admin-colaborador',
@@ -17,7 +18,7 @@ export class AdminColaboradorPage implements OnInit {
   currentkey : any;
   search : any;
 
-  constructor(private userService: UserService) { 
+  constructor(private userService: UserService, private redireccionService: RedireccionService) { 
     this.get_colaborador();
   }
 
@@ -26,26 +27,15 @@ export class AdminColaboradorPage implements OnInit {
   loadingIndicator: boolean = true;
 
   
-  public columns = [
-    { prop: "nombre", name: "Name" },
-    { prop: "cargo", name: "Cargo" },
-    { prop: "correo", name: "Correo" },
-    { prop: "fecha", name: "Fecha"},
-    { prop: "estado", name: "Estado" },
-    { prop: "modulo", name: "Modulo" },
-    { prop: "opciones", name: "Opciones" }
-  ];
-
   ngOnInit() {
-    this.loadTable();
+    ;
   }
 
-  loadTable() {
-    this.rows = mockData;
-    setInterval(() => {
-      this.loadingIndicator = false;
-    }, 4000);
+
+  iraCrear(){
+    this.redireccionService.redireccion('/tabs/admin/admin-colaborador/create')
   }
+
 
   onSearchChange(event){
     let input = event.detail.value;

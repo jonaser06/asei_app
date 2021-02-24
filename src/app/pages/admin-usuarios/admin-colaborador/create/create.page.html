@@ -10,8 +10,8 @@
             <div class="title-section-container">
               <div class="title-arrow">
                 <!-- Flecha a la izquierda -->
-                <div class="left-arrow cll">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
+                <div class="left-arrow cll" (click)="volverCursos()" >
+                  <ion-icon name="arrow-back-outline" ></ion-icon>
                 </div>
 
                 <div class="title">
@@ -34,19 +34,17 @@
       <ion-icon name="call"></ion-icon>
       <ion-icon name="location"></ion-icon>
       <ion-icon name="business"></ion-icon> -->
-  <form action="" class="inputs-create">
+  <form action="" class="inputs-create"  (ngSubmit)="add_colaborador(fUserCol)" #fUserCol="ngForm">
     <ion-card class="main">
       <ion-item class="imagen">
         <div class="content-img">
-          <!-- <img src="../../../../../assets/img/webinar-pr1.png" alt=""> -->
+          <img src="{{ imagencol }}" alt="">
           <ion-icon name="image"></ion-icon>
           <div class="mini-camera">
-            <!-- <img src="../../../../../assets/img/webinar-pr1.png" alt=""> -->
-            <ion-icon name="camera"></ion-icon>
+            <!-- <input type="file" title="" accept="image/*" name="" id="" (change)="handleFileInput($event)"> -->
+            <ion-icon name="camera" type="file" title="" accept="image/*" name="" id="" (change)="handleFileInput($event)"></ion-icon>
           </div>
-        </div>
-
-        
+        </div> 
       </ion-item>   
       
         <ion-card class="pnombre">
@@ -56,7 +54,7 @@
                 <label>Primer nombre*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="nombres">
               </div>
             </div>
           </ion-item>
@@ -69,7 +67,7 @@
                 <label>Segundo nombre*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" >
               </div>
             </div>
           </ion-item>
@@ -84,7 +82,7 @@
                 <label>Apellido paterno*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="ap_pat">
               </div>
             </div>
           </ion-item>
@@ -96,7 +94,7 @@
                 <label>Apellido materno*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="ap_mat">
               </div>
             </div>
           </ion-item>
@@ -109,7 +107,7 @@
                 <label>Cargo*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="cargo">
               </div>
             </div>
           </ion-item>
@@ -121,7 +119,7 @@
                 <label>Correo electrónico*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="email">
               </div>
             </div>
           </ion-item>
@@ -134,7 +132,7 @@
                 <label>Fecha de ingreso*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="fecha_ingreso">
               </div>
             </div>
           </ion-item>
@@ -146,7 +144,7 @@
                 <label>Teléfono*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="telefono">
               </div>
             </div>
           </ion-item>
@@ -161,7 +159,7 @@
                 <label>Dirección*</label>
               </div>
               <div class="title-arrow npt">
-                <input type="text" style="width:100%;">
+                <input type="text" style="width:100%;" [(ngModel)]="direccion">
               </div>
             </div>
           </ion-item>
@@ -182,7 +180,7 @@
      
       <ion-item>
         <div class="actions-page no-mobil">
-          <button class="btn-new-item">
+          <button (click)="add_colaborador();" class="btn-new-item" type="submit">
               <span>Guardar</span>
           </button>
         </div>
