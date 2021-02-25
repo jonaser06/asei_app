@@ -76,11 +76,11 @@ export class CreatePage implements OnInit {
     formdata.append('img_learn[]', this.imgcolaborador);
     
     this.userService.create_userCol(formdata)
-  .then(resp=>{ 
-    console.log('SE CREO LA NOTA');
-    this.redireccionService.backpage();
-  })
-  .catch();
+    .then(resp=>{ 
+      console.log('SE CREO LA NOTA');
+      this.redireccionService.backpage();
+    })
+    .catch();
 
-}
+  }
 }

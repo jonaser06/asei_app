@@ -10,6 +10,7 @@ import { PushNotificationsService } from 'src/app/services/push-notifications.se
 })
 export class TabsPage implements OnInit {
 
+  user_id : any;
   nombres : any;
   menues : any;
   rol : any;
@@ -43,7 +44,8 @@ export class TabsPage implements OnInit {
       this.nombres = resp['data']['nombres']; 
       this.rol = resp['data']['rol'] 
       this.menues = resp['data']['permisos'];
-      // console.log(this.rol);
+      this.user_id = resp['data']['user_id'];
+      console.log(resp);
     });
   }
   setCurrentActive(path: string){

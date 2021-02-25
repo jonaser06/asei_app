@@ -52,7 +52,7 @@ export class ColaboradorPage implements OnInit {
     let pages = [];
     this.userService.get_colaboradorUser()
     .then(resp=>{
-      console.log();
+      console.log(resp);
       this.UserData = resp['data'];
       for(let i = 1 ; i <= this.UserData.pages; i++ ){ pages.push(i)}
       this.pages = pages;

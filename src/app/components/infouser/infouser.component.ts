@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-infouser',
@@ -8,8 +9,25 @@ import { Component, Input, OnInit } from '@angular/core';
 export class InfouserComponent implements OnInit {
 
   @Input() userdata : any;
-  constructor() { }
+
+  @Output() edit = new EventEmitter();
+
+  iduser: any;
+  constructor(public authService: AuthService) { 
+    this.current_session();
+  }
 
   ngOnInit() {}
+
+  editar(){
+    this.edit.emit(this.iduser);
+  }
+
+  current_session(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.iduser = resp['data']['user_id'];
+    });
+  }
 
 }
