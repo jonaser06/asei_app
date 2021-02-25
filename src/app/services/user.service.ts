@@ -16,11 +16,10 @@ export class UserService {
 
   /*colaboradores*/
 
-  get_colaboradorUser(page = 1, input = '',limit = 9){
-    return new Promise (resolve => {
-      this.http.get(`${URL}/users/colaborador?page=${page}&limit=${limit}&search=${input}`) 
-      .subscribe( resp =>{
-        console.log();
+  update_user(id, formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/user/${id}/update`, formdata)
+      .subscribe( resp => {
         if(resp['status']){
           resolve(resp);
         }else{
@@ -30,19 +29,31 @@ export class UserService {
     });
   }
 
-  // get_userColID(id){
-  //   return new Promise ( resolve =>{
-  //     this.http.get(`${URL}/notes/${id}`)
-  //     .subscribe( resp =>{
-  //       console.log(resp);
-  //       if(resp['status']){
-  //         resolve(resp);
-  //       }else{
-  //         resolve(resp);
-  //       }
-  //     });
-  //   });
-  // }
+  get_userService(id){
+    return new Promise (resolve => {
+      this.http.get(`${URL}/user/${id}`) 
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  get_colaboradorUser(page = 1, input = '',limit = 9){
+    return new Promise (resolve => {
+      this.http.get(`${URL}/users/colaborador?page=${page}&limit=${limit}&search=${input}`) 
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
 
   create_userCol(formdata){
     return new Promise ( resolve => {
@@ -56,34 +67,6 @@ export class UserService {
       });
     });
   }
-
-  // update_userCol(formdata, id){
-  //   return new Promise ( resolve => {
-  //     this.http.post(`${URL}/notes/${id}/update`, formdata)
-  //     .subscribe( resp => {
-  //       console.log(resp);
-  //       if(resp['status']){
-  //         resolve(resp);
-  //       }else{
-  //         resolve(resp);
-  //       }
-  //     });
-  //   });
-  // }
-
-  // delete_userCol(id){
-  //   return new Promise ( resolve => {
-  //     this.http.get(`${URL}/notes/${id}/delete`)
-  //     .subscribe( resp => {
-  //       if(resp['status']){
-  //         resolve(resp);
-  //       }else{
-  //         resolve(resp);
-  //       }
-  //     });
-  //   });
-  // }
-
 
 
 }

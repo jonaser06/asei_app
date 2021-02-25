@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 
@@ -11,7 +12,7 @@ export class PerfilPage implements OnInit {
 
   userdata: any;
   title: any;
-  constructor(private authService: AuthService, private redireccionService: RedireccionService) { 
+  constructor(private authService: AuthService, private redireccionService: RedireccionService, private navCtrol : NavController) { 
     this.current_session();
   }
 
@@ -31,7 +32,7 @@ export class PerfilPage implements OnInit {
         this.title = 'ADMINISTRADOR ASOCIADO';
       }
       
-      let nombres = resp.data.nombres + ' ' + resp.data.apellidos;
+      let nombres = resp.data.nombres;
       this.userdata = {
         nombre: nombres,
         cargo: 'Administrador',
@@ -41,9 +42,13 @@ export class PerfilPage implements OnInit {
         direccion: 'Lima'
       }
 
-      console.log(resp);
+      // console.log(resp);
       
     });
+  }
+
+  edituser(id){
+    this.navCtrol.navigateRoot('tabs/usuarios/edit/'+id, { animated : true } );
   }
 
   volverCursos(){
