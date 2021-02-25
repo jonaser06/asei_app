@@ -30,13 +30,14 @@ content:"" !important;
 .slick-next:before {
 position:absolute;
 margin-top: -250px;   
-right: 0.3em;
+// right: 0.3em;
+right:-4px;
 }
 
 .slick-prev:before {
 position:absolute;
-margin-top:11em;
-margin-left:-25%;
+margin-top:228px;
+margin-left:-10px;
 }
 
 .slick-next {
@@ -294,6 +295,7 @@ margin-left:-25%;
 .courses .card-watching,
 .courses .card-completed {
     margin-top: 0.5em;
+    padding:0 0.3em;
 }
 
 

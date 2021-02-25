@@ -86,7 +86,7 @@ export class StadisticsPage implements OnInit {
     private statisticsService: StatisticsService, 
     private indicadorService: IndicadorService, 
     private bulletinService: BulletinService, 
-    private infcenterService: InfcenterService, 
+    private infcenterService: InfcenterService,
     // private transfer: FileTransfer, 
     // private file: File
     ) {
@@ -99,6 +99,7 @@ export class StadisticsPage implements OnInit {
     this.load_indicador();
     this.load_bulletin();
     this.current_rol();
+    
   }
 
   slideConfig : any;
@@ -168,6 +169,7 @@ export class StadisticsPage implements OnInit {
     }
   }
   handleFileInput(event){
+
     this.fileToUploadstat = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(this.fileToUploadstat);

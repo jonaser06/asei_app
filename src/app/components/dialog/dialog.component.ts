@@ -27,7 +27,7 @@ export class DialogComponent implements OnInit {
     dialogs.forEach(d => {
       d.addEventListener("click", (ev: any) => {
         if (ev.target.classList.value === "overlay-dialog") {
-          this.closeDialog();
+          //this.closeDialog();
         }
       })
     })
