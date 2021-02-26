@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ApplicationRef, Component, OnInit } from '@angular/core';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
@@ -18,20 +18,42 @@ export class ColaboradorPage implements OnInit {
   search : any;
 
   location : any;
-  constructor(private userService: UserService, private redireccionService: RedireccionService) { 
+  constructor(private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef) { 
+    // this.applicationRef.tick();
     this.get_colaborador();
     this.location = window.location.pathname.split("/").pop();
   }
 
   ngOnInit() {
+    console.log('0. ngOnInit');
   }
+  // ionViewDidEnter(){
+  //   console.log('1. ionViewDidEnter');
+  // }
+  // ionViewDidLoad(){
+  //   console.log('2. ionViewDidLoad');
+  // }
+  ionViewWillEnter(){
+    this.get_colaborador();
+    // console.log('3. ionViewWillEnter');
+  }
+  // ionViewWillLeave(){
+  //   console.log('4. ionViewWillLeave');
+  // }
+  // ionViewDidLeave(){
+  //   console.log('5. ionViewDidLeave');
+  // }
+  // ionViewWillUnload(){
+  //   console.log('6. ionViewWillUnload');  
+  // }
+
   rows = [];
   reorderable: boolean = true;
   loadingIndicator: boolean = true;
 
 
   iraCrear(){
-    this.redireccionService.redireccion('/tabs/admin/admin-colaborador/create')
+    this.redireccionService.redireccion('/tabs/usuarios/create')
   }
 
 

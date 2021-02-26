@@ -28,6 +28,19 @@ export class UserService {
       });
     });
   }
+  
+  create_user(formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/register`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
 
   get_userService(id){
     return new Promise (resolve => {
@@ -55,10 +68,10 @@ export class UserService {
     });
   }
 
-  create_userCol(formdata){
-    return new Promise ( resolve => {
-      this.http.post(`${URL}/register`, formdata)
-      .subscribe( resp => {
+  get_asociadoUser(page = 1, input = '',limit = 9){
+    return new Promise (resolve => {
+      this.http.get(`${URL}/users/asociado?page=${page}&limit=${limit}&search=${input}`) 
+      .subscribe( resp =>{
         if(resp['status']){
           resolve(resp);
         }else{

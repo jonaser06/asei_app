@@ -75,7 +75,7 @@ export class CreatePage implements OnInit {
     formdata.append('empresa', this.empresa);
     formdata.append('img_learn[]', this.imgcolaborador);
     
-    this.userService.create_userCol(formdata)
+    this.userService.create_user(formdata)
     .then(resp=>{ 
       console.log('SE CREO LA NOTA');
       this.redireccionService.backpage();

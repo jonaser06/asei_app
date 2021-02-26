@@ -8,36 +8,31 @@ import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.page.html',
-  styleUrls: ['./edit.page.scss'],
+  selector: 'app-create',
+  templateUrl: './create.page.html',
+  styleUrls: ['./create.page.scss'],
 })
-export class EditPage implements OnInit {
-  URL = environment.url;
+export class CreatePage implements OnInit {
+    URL = environment.url;
 
-  /* usuarios/edit */
-  name_1 : any;
-  lastname_1 : any;
-  lastname_2 : any;
-  cargo : any;
-  email : any;
-  fecha : any;
-  phone : any;
-  direccion : any;
-  inmobiliaria : any;
-  password : any;
+   /* usuarios/create */
+    name_1 : any;
+    lastname_1 : any;
+    lastname_2 : any;
+    cargo : any;
+    email : any;
+    fecha : any;
+    phone : any;
+    direccion : any;
+    inmobiliaria : any;
+    password : any;
 
-  imgcolaborador : any;
-  imagencol : any;
-
-  constructor( private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
-    this.get_user();
-    this.imgcolaborador = '';
-  }
+    imgcolaborador : any;
+    imagencol : any;
+  constructor(private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService ) { }
 
   ngOnInit() {
   }
-
   subirimg(){ (document.querySelector('.img_') as HTMLElement).click(); }
 
   volverCursos(){
@@ -53,26 +48,7 @@ export class EditPage implements OnInit {
     };
   }
 
-  get_user(){
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.userService.get_userService(id)
-    .then(resp=>{ 
-      this.name_1     = resp['data']['NOMBRES'];
-      this.lastname_1 = resp['data']['APELLIDO_PATERNO'];
-      this.lastname_2 = resp['data']['APELLIDO_MATERNO'];
-      this.cargo      = resp['data']['CARGO'];
-      this.email      = resp['data']['EMAIL'];
-      this.fecha      = resp['data']['FECHA_INGRESO'];
-      this.phone      = resp['data']['TELEFONO'];
-      this.direccion  = resp['data']['DIRECCION'];
-      this.inmobiliaria = resp['data']['EMPRESA'];
-      this.imagencol =  this.URL + '/' + resp['data']['imagenes'][0]['RUTA'];
-    })
-    .catch();
-  }
-
-
-  update_profile(fUserCol: NgForm){
+  create_profile(fUserCol: NgForm){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     // if(!this.imgcolaborador) return this.uiServiceService.alert_info('selecciona una imagen');
     if(this.name_1.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese sus nombres');
@@ -89,6 +65,7 @@ export class EditPage implements OnInit {
     
     let formdata = new FormData();
     formdata.append('nombres', this.name_1);
+    formdata.append('perfil', 'colaborador');
     formdata.append('apellido_paterno', this.lastname_1);
     formdata.append('apellido_materno', this.lastname_2);
     formdata.append('direccion', this.direccion);
@@ -98,13 +75,19 @@ export class EditPage implements OnInit {
     formdata.append('fecha_ingreso', this.fecha);
     formdata.append('empresa', this.inmobiliaria);
     formdata.append('user_img[]', this.imgcolaborador);
+    formdata.append('estado', '1');
     if(this.password !== undefined){
       formdata.append('clave', this.password);
     }
     
-    this.userService.update_user(id, formdata)
+    this.userService.create_user(formdata)
     .then(resp=>{ 
-      this.navCtrol.navigateRoot('tabs/usuarios/colaborador', { animated : true } );
+      console.log(resp['status']);
+      if(resp){
+        this.navCtrol.navigateRoot('tabs/usuarios/colaborador', { animated : true } );
+      }else{
+        this.uiServiceService.alert_info(resp['message']);
+      }
     })
     .catch();
 
