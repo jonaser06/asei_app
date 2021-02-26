@@ -39,6 +39,7 @@ export class StadisticsPage implements OnInit {
   dialogBulletin: boolean = false;
   dialogNewInd: boolean = false;
   titleDialog: string = "";
+  tipostat: string = "";
   subtitleDialog: string = "";
   titleDialogRemove: string ="";
   isEdited = false;
@@ -173,12 +174,22 @@ export class StadisticsPage implements OnInit {
     this.fileToUploadstat = event.target.files[0];
     const reader = new FileReader();
     reader.readAsDataURL(this.fileToUploadstat);
+    this.tipostat=this.fileToUploadstat.type.split("/", 1);
+    if(this.tipostat != "image") 
+    {
+      this.fileToUploadstat=false;
+      return this.uiserviceService.alert_info('Selecciona un formato válido');
+    }
     reader.onload = () => {
         this.imagestat = reader.result;
     };
   }
   adjuntfile(event){
     this.filebull = event.target.files[0];
+    if(this.filebull.type.split("/", 2)[1] != "pdf"){
+      this.filebull=false;
+      return this.uiserviceService.alert_info('Selecciona un archivo de formato PDF');
+    }
     this.filebull_=this.filebull.name;
     console.log(this.filebull.name);
   }
@@ -254,6 +265,7 @@ export class StadisticsPage implements OnInit {
   closeDialogStat() {
     this.dialogNewStat = false;
     this.isEdited = false;
+    this.fileToUploadstat=false;
   }
   editStat(objstat){
     this.id_stat = objstat.id;

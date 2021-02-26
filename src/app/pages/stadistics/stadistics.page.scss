@@ -581,3 +581,9 @@ input[type=file]{
 .añadir-st::-webkit-file-upload-button {
     cursor:pointer;
   }
+
+
+ .inputs-boletin input[type="file"] {
+    width:80px;
+    height:42px;
+}
