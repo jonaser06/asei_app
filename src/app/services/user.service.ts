@@ -28,6 +28,19 @@ export class UserService {
       });
     });
   }
+
+  delete_user(id){
+    return new Promise (resolve => {
+      this.http.get(`${URL}/user/${id}/delete`) 
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
   
   create_user(formdata){
     return new Promise ( resolve => {

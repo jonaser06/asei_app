@@ -32,7 +32,17 @@ export class AsociadoPage implements OnInit {
 
 
   iraCrear(){
-    this.redireccionService.redireccion('/tabs/usuarios/create')
+    this.redireccionService.redireccion('/tabs/usuarios/create?rol=asociado')
+  }
+
+  removeuser(id){
+  
+    this.userService.delete_user(id)
+    .then(resp=>{
+      this.get_asociado();
+
+    })
+    .catch();
   }
 
 

@@ -29,7 +29,13 @@ export class CreatePage implements OnInit {
 
     imgcolaborador : any;
     imagencol : any;
-  constructor(private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService ) { }
+
+    rol : any;
+  constructor(private route: ActivatedRoute, private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService ) { 
+    const firstParam: string = this.route.snapshot.queryParamMap.get('rol');
+    this.rol = firstParam;
+    console.log(this.rol);
+  }
 
   ngOnInit() {
   }
@@ -65,7 +71,7 @@ export class CreatePage implements OnInit {
     
     let formdata = new FormData();
     formdata.append('nombres', this.name_1);
-    formdata.append('perfil', 'colaborador');
+    formdata.append('perfil', this.rol);
     formdata.append('apellido_paterno', this.lastname_1);
     formdata.append('apellido_materno', this.lastname_2);
     formdata.append('direccion', this.direccion);

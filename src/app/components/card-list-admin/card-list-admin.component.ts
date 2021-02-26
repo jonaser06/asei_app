@@ -13,8 +13,6 @@ export class CardListAdminComponent implements OnInit {
   @Input() user_child : any;
 
   @Output() idUsers = new EventEmitter();
-  @Output() idUsersE = new EventEmitter();
-  @Output() idUsersR = new EventEmitter();
 
   URL = environment.url;
 
@@ -22,18 +20,8 @@ export class CardListAdminComponent implements OnInit {
 
   ngOnInit() {}
 
-  openNote (ID_US) {
-    const { url } = this.router;
-    this.redireccionService.redireccion(`${url}/info/${ID_US}`)
-  }
-  openCursos(ID_US){
+  removeUser(ID_US){
     this.idUsers.emit(ID_US);
-  }
-  editCursos(ID_US){
-    this.idUsersE.emit(ID_US);
-  }
-  removeCursos(ID_US){
-    this.idUsersR.emit(ID_US);
   }
 
 }

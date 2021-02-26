@@ -53,7 +53,17 @@ export class ColaboradorPage implements OnInit {
 
 
   iraCrear(){
-    this.redireccionService.redireccion('/tabs/usuarios/create')
+    this.redireccionService.redireccion('/tabs/usuarios/create?rol=colaborador')
+  }
+
+  removeuser(id){
+    
+    this.userService.delete_user(id)
+    .then(resp=>{
+      this.get_colaborador();
+
+    })
+    .catch();
   }
 
 

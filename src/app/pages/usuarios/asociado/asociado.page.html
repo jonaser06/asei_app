@@ -34,9 +34,8 @@
       </ion-row>
   
       
-        <app-card-list-admin class="card_col" [user_child]="item" *ngFor="let item of UserData?.users" ></app-card-list-admin>
+      <app-card-list-admin class="card_col" [user_child]="item" *ngFor="let item of UserData?.users" (idUsers)="removeuser($event)"></app-card-list-admin>
       
-   
       <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
       
     </div>
