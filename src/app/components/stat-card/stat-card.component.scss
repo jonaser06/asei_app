@@ -28,3 +28,13 @@ ion-card-title{
     height: 250px;
     width: 100%;
 }
+
+.t-pts{
+    cursor:pointer;
+}
+
+ion-card-content, ion-card-title{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+}
