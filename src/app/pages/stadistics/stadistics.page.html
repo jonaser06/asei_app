@@ -195,8 +195,8 @@
                             <p>Añade data del boletin</p>
                             <input type="file" accept="application/pdf" (change)="adjuntfile($event)">
                             <ion-icon class="icon-doc" name="document-attach-outline"></ion-icon>
-                            <label *ngIf="filebull">Archivo cargado: {{ filebull_ }}</label>
-                            <label *ngIf="!filebull">Ningun archivo seleccionado</label>
+                            <label *ngIf="filebull || isEdited">Archivo cargado: {{ filebull_ }}</label>
+                            <label *ngIf="!filebull && !isEdited">Ningun archivo seleccionado</label>
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
 

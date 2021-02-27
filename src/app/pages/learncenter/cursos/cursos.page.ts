@@ -44,6 +44,18 @@ export class CursosPage implements OnInit {
     })
     .catch();
   }
+  onSearchChange(event){
+    let input = event.detail.value;
+    this.search = input;
+    let pages = [];
+    this.learncenterService.get_learncenterCursos(1,input) 
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
 
   openCursos_(ID_CO){
     this.redireccionService.redireccion('/tabs/learning-center/cursos/info/'+ID_CO);
