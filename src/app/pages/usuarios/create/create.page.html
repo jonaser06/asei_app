@@ -1,0 +1,197 @@
+<ion-content class="content-section">
+  <app-navigation-tabs></app-navigation-tabs>
+  
+  <div class="layout-section">  
+
+    <div class="courses">
+      <div class="container">
+          <div class="row-actions-top">
+            <div class="title-section-container">
+              <div class="title-arrow">
+                <!-- Flecha a la izquierda -->
+                <div class="left-arrow cll" (click)="volverCursos()" >
+                  <ion-icon name="arrow-back-outline" ></ion-icon>
+                </div>
+
+                <div class="title">
+                  <h3 class="title-section color-news">NUEVO {{ rol }}</h3>
+                  <p class="subtitle-section color-news">Completa la información correspondiente al nuevo colaborador </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <form action="" class="inputs-create"  (ngSubmit)="create_profile(fUserCol)" #fUserCol="ngForm">
+        <ion-card class="main">
+
+          <ion-item class="imagen">
+            <div class="content-img">
+              <img src="{{ imagencol }}" alt="" style="height: 100%;">
+              <ion-icon name="image"></ion-icon>
+              <div class="mini-camera">
+                <input type="file" title="" accept="image/*" class="img_" (change)="img_colaborador($event)" style="display: none;">
+                <div class="input_photo" (click)="subirimg()">
+                  <ion-icon name="camera"></ion-icon>
+                </div>
+              </div>
+            </div>
+          </ion-item>
+
+          <ion-card class="pnombre">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Nombres*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="name_1" [(ngModel)]="name_1">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="apaterno">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Apellido paterno*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="lastname_1" [(ngModel)]="lastname_1">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="amaterno">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Apellido materno*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="lastname_2" [(ngModel)]="lastname_2">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="cargo">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Cargo*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="cargo" [(ngModel)]="cargo">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="correo">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Correo electrónico*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="email" [(ngModel)]="email">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="fecha">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Fecha de ingreso*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="fecha" [(ngModel)]="fecha">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="telefono">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Teléfono*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="phone" [(ngModel)]="phone">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="direccion">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Dirección*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="text" style="width:100%;" name="direccion" [(ngModel)]="direccion">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="inmobiliaria">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Inmobiliaria*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <select name="inmobiliaria" [(ngModel)]="inmobiliaria">
+                    <option value="" disabled selected>Inmobiliarias</option>
+                    <option value="Inmobilaria A">Inmobiliaria A</option>
+                    <option value="Inmobilaria B">Inmobiliaria B</option>
+                  </select>
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="contrasena">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Contraseña*</label>
+                </div>
+                <div class="title-arrow npt">
+                  <input type="password" style="width:100%;" name="password" [(ngModel)]="password">
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-card class="campob">
+            <ion-item>
+              <div class="title-section-container tcard">
+                <div class="title-arrow">
+                  <label>Campos obligatorios(*)</label>
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+
+          <ion-item>
+            <div class="actions-page no-mobil">
+              <button class="btn-new-item" type="submit">
+                  <span>Guardar</span>
+              </button>
+            </div>
+          </ion-item>
+
+        </ion-card>
+      </form>
+  </div>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

@@ -28,13 +28,13 @@ export class TrainerComponent implements OnInit {
   } 
 
   add_trainer(){
-    let name = (<HTMLInputElement>document.querySelector('.nametxt')).value;
-    let lastname = (<HTMLInputElement>document.querySelector('.lastname')).value;
+    let nombre = (<HTMLInputElement>document.querySelector('.nametxt')).value;
+    let resumen = (<HTMLInputElement>document.querySelector('.lastname')).value;
     if(this.imagestat == null ) return this.uiserviceService.alert_info('selecciona una imagen');
-    if(name.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un nombre');
-    if(lastname.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
+    if(nombre.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un nombre');
+    if(resumen.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
 
-    let obj_trainer = { name, lastname, image: this.imagestat };
+    let obj_trainer = { nombre, resumen, foto: this.imagestat };
     let image = this.fileToUploadstat;
     this.trainer.emit(obj_trainer);
     this.imagfile.emit(image);

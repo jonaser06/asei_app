@@ -1,0 +1,19 @@
+ion-item-divider{
+    border-bottom: 1px solid #666;
+    margin-bottom: 5px;
+    border-right: 1px solid #666;
+    cursor: pointer;
+}
+ion-item-divider:first-child{
+    border-top: 1px solid #666;
+}
+ion-label{
+    font-weight: 600;
+    color: #3c3b37 !important;
+}
+ion-icon{
+    position: relative;
+    color: #24344c !important;
+    font-size: 20px;
+    top: 5px;
+}

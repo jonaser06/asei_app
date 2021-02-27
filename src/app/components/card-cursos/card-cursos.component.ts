@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CardCursosComponent implements OnInit {
 
   @Input() cursos_child : any;
+  @Input() visible : any;
 
   @Output() idCursos = new EventEmitter();
   @Output() idCursosE = new EventEmitter();

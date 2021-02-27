@@ -14,12 +14,12 @@ export class SesionComponent implements OnInit {
   ngOnInit() {}
 
   add_sesion(){
-    let namesession = (<HTMLInputElement>document.querySelector('.name-session')).value;
-    let linksession = (<HTMLInputElement>document.querySelector('.link-session')).value;
-    if(namesession.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un nombre');
-    if(linksession.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
+    let nombre = (<HTMLInputElement>document.querySelector('.name-session')).value;
+    let link = (<HTMLInputElement>document.querySelector('.link-session')).value;
+    if(nombre.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un nombre');
+    if(link.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
 
-    let obj_sesion = { namesession, linksession };
+    let obj_sesion = { nombre, link };
     this.sesion.emit(obj_sesion);
 
     (<HTMLInputElement>document.querySelector('.name-session')).value = '';

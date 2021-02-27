@@ -1,0 +1,492 @@
+
+input, select{
+    outline: none;
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container .btn-new-item {
+        width: 100%;
+    }
+}
+
+@media (min-width: 500px) {
+    .courses {
+        padding: 0 1em;
+    }
+}
+
+@media (min-width: 700px) {
+    .courses {
+        padding: 0 1.5em;
+    }
+}
+
+@media (min-width: 768px) {
+    .courses {
+        padding: 0 2.5em;
+    }
+}
+
+@media (min-width: 1300px) {
+    .courses {
+        padding: 0 3.5em;
+    }
+}
+
+@media (min-width: 1500px) {
+    .courses {
+        padding: 0 4.5em;
+    }
+}
+
+@media (min-width: 1800px) {
+    .courses {
+        padding: 0 5.5em;
+    }
+}
+
+@media (min-width: 2100px) {
+    .courses {
+        padding: 0 6.5em;
+    }
+}
+
+@media (min-width: 2500px) {
+    .courses {
+        padding: 0 7.5em;
+    }
+}
+
+.btn-new-item span,select{
+    font-size:12px;
+}
+
+.courses .card-watching .card-content .content-img .description,
+.courses .card-completed .card-content .content-img .description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 1em;
+    padding: 0.5em 1em;
+    color: #fff;
+    background-color: #F15642;
+}
+
+.courses .card-watching .card-content .content-img .description p,
+.courses .card-completed .card-content .content-img .description p {
+    padding: 0;
+    margin: 0;
+}
+
+ion-card ion-item .content-img img{
+    border-radius:100%;
+}
+
+.title-arrow .left-arrow{
+    display:flex;
+    align-items:flex-start;
+    font-size:1.8em;
+    color:black;
+    margin-top:-7%;
+}
+
+.title-arrow .cll{
+    display:flex;
+    align-items:flex-start;
+    font-size:1.6em;
+    color:black;
+    margin-top:-7%;
+}
+
+@media (max-width: 600px) {
+    .container .title-section{
+        font-size:17px !important;
+    }
+    .container .subtitle-section{
+        font-size:11px !important;
+    }
+
+    .title-arrow .left-arrow{
+        display:flex;
+        align-items:flex-start;
+        font-size:1em;
+        color:black;
+        margin-top:-7%;
+    }
+    
+}
+
+@media (min-width: 992px){
+.container{
+    max-width:1140px !important;
+}
+}
+
+
+@media (min-width: 1200px){
+    .container{
+        max-width:98% !important;
+    }
+
+}
+
+.title-section-container{
+    padding-left:1em;
+}
+
+.layout-section{
+    padding:1.5em 0em;
+}
+
+.actions-page.no-mobil{
+    margin:auto;
+}
+
+.container .title-section{
+    font-size:28px;
+    font-family:'Raleway',sans-serif;
+    font-weight:700;
+}
+
+.subtitle-section{
+    color:#000000;
+    font-style:italic;
+}
+
+.container .subtitle-section{
+    color:#828282;
+    font-style:italic;
+}
+
+
+.content-img{
+    margin:2% auto;
+    text-align:center;
+    background-color:#f5f5f5;
+    width:150px;
+    height:150px;
+    border-radius:100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    // padding:1em;
+}
+
+.content-img ion-icon{
+    height:100%;
+    width:80%;
+    color:#c4c4c4 !important;
+}
+
+.content-img img{
+    height:100%;
+    margin-bottom:1em;
+}
+
+ion-card.main{
+    padding:2em 5em;
+    background-color:white !important;
+    color:black !important;
+    border-radius:0px;   
+    margin:1em 18em;
+}
+
+.main ion-card{
+    margin:0% 0%;
+    // width:48%;
+    display:inline-flex;
+    height:7.5em;
+    border-radius:0%;
+    margin-bottom:0%;
+}
+
+.snombre,.amaterno,.cargo,.apaterno,.correo,.fecha,.telefono,.inmobiliaria,.direccion{
+    width:49%;
+    box-shadow:none !important;
+}
+.direccion,.inmobiliaria,.campob{
+    // width:98%;
+    box-shadow:none !important;
+}
+.contrasena,.pnombre{
+    width:98%;
+    box-shadow: none !important;
+}
+
+.main .campob{
+    height:100%;
+    margin-bottom:2%;
+}
+
+ion-card input,ion-card select{
+    border: 1px solid #C4C4C4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    height:3.2em;
+}
+
+select{
+    width:100%;
+}
+
+.main .tcard{
+    height:7.2em;
+}
+
+ion-card ion-item,ion-card ion-item .tcard{
+    width:100%;
+}
+
+
+.content-img img{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.aceptarcambio1,.aceptarcambio2
+{
+    visibility:hidden;
+    right:0.5%;
+    position:absolute;
+}
+
+@media (max-width: 1500px){
+ion-card.main{
+    margin:2em 15em;    
+}
+.content-img img{
+    height: 10em;
+}
+
+}
+
+@media (max-width: 1350px){
+    ion-card.main{
+        margin:2em 12em;
+    }
+    .content-img img{
+        height: 10em;
+    }
+}
+
+@media (max-width: 1200px){
+    ion-card.main{
+        margin:1em 8em;
+        padding:2em 3em;
+    }
+    .content-img img{
+        height: 10em;
+    }
+}
+
+@media (max-width: 1000px){
+    ion-card.main{
+        margin:1em 5em;
+        padding:2em 2em;
+    }
+    .content-img img{
+        height: 9em;
+    }
+}
+
+@media (max-width: 800px){
+    ion-card.main{
+        margin:1em 3em;
+        padding:2em 1em;
+    }
+    .main ion-card{
+        width:98%;
+    }
+
+    .content-img img{
+        height: 9em;
+    }
+
+    .main h4{
+        font-size:1.2rem;
+    }
+
+
+    
+}
+
+@media (max-width: 600px){
+    ion-card.main{
+        margin:1em 1em;
+        padding:2em 1em;
+    }
+    .main ion-card{
+        width:98%;
+    }
+
+    .content-img img{
+        height: 7em;
+    }
+
+    .checkk p{
+        font-size:11px;
+    }
+    ion-checkbox{
+        width:.9em;
+        height:.9em;
+    }
+
+    .actions-page.no-mobil{
+        width:100%;
+    }
+    .actions-page.no-mobil button{
+        width:100% !important;
+    }
+}
+
+
+
+
+
+ion-item ion-icon{
+    color:#24344D !important;
+}
+
+
+.title-arrow{
+    display:flex;
+    align-items:center;
+}
+
+
+.title-arrow .title{
+    margin-left:.5em;
+}
+
+.tcard::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 0px !important;
+}
+
+ion-card ion-card{
+    padding:0em 0em;
+    background-color:white !important;
+    padding-bottom:0em;
+}
+
+.main .tcard {
+    padding-left:0%;
+}
+
+
+
+.npt{
+    height:3.5em;
+}
+
+.main .title-arrow{
+    display:block;
+}
+
+.npt input, select{
+    height:3em;
+    padding:1em;
+}
+
+select{
+    height: 4em !important;
+}
+
+.tcard{
+    height:100% !important;
+}
+
+.tcard label{
+    font-family:Calibri;
+    font-weight:400;
+    font-size:medium;
+}
+
+
+
+.main h4{
+    font-family:Calibri;
+}
+
+.main .title-section-container .title-section{
+    font-weight:400;
+}
+.main .title-section-container{
+    margin-bottom:0px;
+}
+
+ion-checkbox:hover{
+    color:black !important;
+}
+
+ion-checkbox{
+    margin:2em 0%;
+    --background:white;
+    --border-color:#828282;
+    --border-width:1px;
+    --color:black;
+    --checkmark-color:black;
+    --background-checked:white;
+    --border-color-checked:#828282;
+    
+}
+
+ion-item:hover{
+--color:black;
+--background-color:white;
+}
+
+.actions-page.no-mobil{
+    display:flex;
+    margin-left:0%;
+}
+
+.actions-page.no-mobil button{
+    justify-content: center;
+    width:9em;
+    margin-right:1.5%;
+}
+
+
+
+.subtitle-section
+{
+    font-family:'Calibri',sans-serif;
+}
+
+.main .title-section-container .title-section{
+    font-size:17px;
+    text-transform:none;
+}
+
+.imagen{
+    margin-bottom:1em;
+}
+.mini-camera{
+    position:absolute;
+    border-radius:100%;
+    margin-left:6em;
+    margin-top:6em;
+}
+
+.mini-camera ion-icon{
+    color: white !important;
+    background-color:#24344D;
+    width:1.5em;
+    height:1.5em;
+
+    border-radius:10px;
+    padding:.5em;
+}
+
+.content-img{
+    display: inline-flex;
+    justify-content: center;
+}
+

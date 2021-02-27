@@ -1,29 +1,43 @@
-// @import "../../../../../node_modules/@swimlane/ngx-datatable/themes/bootstrap.css";
-// @import "../../../../../node_modules/@swimlane/ngx-datatable/themes/material.css";
-// @import "../../../../../node_modules/@swimlane/ngx-datatable/themes/dark.css";
-// @import "../../../../../node_modules/@swimlane/ngx-datatable/index.css";
-// @import "../../../../../node_modules/@swimlane/ngx-datatable/assets/icons.css";
+ion-row{
+    background: #f5f5f5;
+}
+
+.header-course{
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.estado{
+    --border-radius: 10px;
+    --background: #24344D;
+    padding: 0.2em 1em !important;
+    right: 5px;
+    bottom: 5px;
+    margin:5px;
+}
+.more-icon{
+    margin-left: 10px;
+}
+@media (max-width: 600px) {
+    .header-course{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+.left-header{
+    text-align: left;
+}
+.right-header{
+    text-align: right;
+}
+
+.ion-menu{
+
+    --background: white;
+}
 
 a{
     text-decoration: none;
 }
-
-.ngx-datatable.fixed-header .datatable-header .datatable-header-inner .datatable-header-cell{
-    font-weight: 400;
-    font-size: 1em;
-    color:black;
-    font-family: 'Lucida Sans',sans-serif;
-}
-
-.ngx-datatable.material{
-    margin:2.5vh;
-    padding:2.4vh;
-    border:1px solid darkgray;
-    color:black;
-}
-
-
-
 
 
 @media (min-width: 768px) {
@@ -565,7 +579,7 @@ ion-card ion-item .content-img img{
     }
 
     .options2 .actions-page.no-mobil{
-        width:50% !important;
+        width:33% !important;
         font-size:12px !important;
     }
 
@@ -599,7 +613,7 @@ ion-card ion-item .content-img img{
 .options2{
     display:flex;
     width:50%;
-    padding-left:5vw;
+    // padding-left:5vw;
 }
 
 @media (min-width: 1200px){
@@ -607,9 +621,9 @@ ion-card ion-item .content-img img{
         max-width:98% !important;
     }
 
-    .options2{
-        padding-left:15vw !important;
-    }
+    // .options2{
+    //     padding-left:5vw !important;
+    // }
 }
 
 .title-section-container{
@@ -696,7 +710,7 @@ select{
     .options2{
         display:flex;
         width:50%;
-        padding-left:10vw;
+        //padding-left:5vw;
     }
 }
 

@@ -1,0 +1,11 @@
+<div class="options">
+  <!-- desktop -->
+  <ion-button class="mod1 {{ location=='modulos' ? 'active' : 'noactive' }}" routerLink="/tabs/usuarios/modulos">Admin. de módulos</ion-button>
+  <ion-button class="asoc1 {{ location=='asociado' ? 'active' : 'noactive' }}" routerLink="/tabs/usuarios/asociado" >Admin. de asociados</ion-button>
+  <ion-button class="colab1 {{ location=='colaborador' ? 'active' : 'noactive' }}" routerLink="/tabs/usuarios/colaborador">Admin. de colaboradores</ion-button>
+  <!-- mobil -->
+  <ion-button class="mod2 {{ location=='modulos' ? 'active' : 'noactive' }}" routerLink="/tabs/usuarios/modulos">A. de módulos</ion-button>
+  <ion-button class="asoc2 {{ location=='asociado' ? 'active' : 'noactive' }}" routerLink="/tabs/usuarios/asociado" >A. de asociados</ion-button>
+  <ion-button class="colab2 {{ (location=='colaborador') ? 'active' : '' }}" routerLink="/tabs/usuarios/colaborador">A. de colaboradores</ion-button>
+
+</div>

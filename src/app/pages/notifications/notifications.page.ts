@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { exit } from 'process';
 import { AuthService } from 'src/app/services/auth.service';
 import { PushNotificationsService } from 'src/app/services/push-notifications.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';

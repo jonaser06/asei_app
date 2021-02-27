@@ -91,9 +91,9 @@
                     <div class="card-modal-1">
                         <div class="img-graphic">
                             <div class="left-img">
-                                <div class="insert-img">
+                                <div class="insert-img a-st">
                                     <p>Añadir imagen*</p>
-                                    <input type="file" title="Añadir imagen" accept="image/*" name="image" (change)="handleFileInput($event)" required>
+                                    <input class="añadir-st" type="file" title="Añadir imagen" accept="image/*" name="image" (change)="handleFileInput($event)" required>
                                 </div>
 
                                 <div class="content-img">
@@ -151,7 +151,7 @@
         <!-- Fin Dialogo nueva stat -->
 
         <!-- Dialogo boletin -->
-        <app-dialog *ngIf="dialogBulletin" [dialog]="dialogBulletin" [width]="400" [height]="420" (closeDialogEv)="closeDialogBulletin()">
+        <app-dialog *ngIf="dialogBulletin" [dialog]="dialogBulletin" [width]="400" [height]="420" (closeDialogEv)="closeDialogBulletin()" data-backdrop="static" data-keyboard="false">
             <div class="header-dialog">
                 <div class="title-section-container">
                     <h3 class="title-section"> {{ isEdited ? 'Editar Boletín' : 'Nuevo Boletín' }}</h3>
@@ -193,9 +193,10 @@
                             </div>
 
                             <p>Añade data del boletin</p>
-                            <label *ngIf="isEdited">Archivo cargado: {{ filebull_ }}</label>
                             <input type="file" accept="application/pdf" (change)="adjuntfile($event)">
                             <ion-icon class="icon-doc" name="document-attach-outline"></ion-icon>
+                            <label *ngIf="filebull">Archivo cargado: {{ filebull_ }}</label>
+                            <label *ngIf="!filebull">Ningun archivo seleccionado</label>
                             <input type="hidden" name="id" [(ngModel)]="idbull">
                         </div>
 

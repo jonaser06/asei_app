@@ -14,8 +14,9 @@ export class SesionGetComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {}
-  btn_rmv(index){
-    this.indx.emit(index);
+  btn_rmv(index, ID_SE){
+    let objsesion = {index, ID_SE}
+    this.indx.emit(objsesion);
   }
 
 }

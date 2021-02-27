@@ -1,0 +1,34 @@
+<ion-content class="content-section">
+  
+  <div class="layout-section">
+    <div class="courses">
+      <div class="container">
+        <div class="row-actions-top">
+          <div class="title-section-container">
+            <div class="title-arrow">
+              <div class="left-arrow cll" (click)="volverCursos()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </div>
+
+              <div class="title">
+                <h3 class="title-section color-news">PERFIL DE {{ title }}</h3>
+                <p class="subtitle-section color-news">Gestiona el perfil de cada colaborador </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-infouser [userdata]="userdata" (edit)="edituser($event);"></app-infouser>
+
+      <!-- <div class="doc-user">
+        <span class="title-doc-user">Mis documentos</span>
+
+        <app-documentos></app-documentos>
+
+      </div> -->
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>

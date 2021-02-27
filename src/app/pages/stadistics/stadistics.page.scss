@@ -566,3 +566,24 @@ input[type=file]{
     height:42px;
     color:gray;
 }
+
+.añadir-st{
+    width:100%;
+    cursor:pointer;
+    padding:0px;
+}
+
+.a-st,.a-st p{
+    cursor:pointer;
+}
+
+
+.añadir-st::-webkit-file-upload-button {
+    cursor:pointer;
+  }
+
+
+ .inputs-boletin input[type="file"] {
+    width:80px;
+    height:42px;
+}

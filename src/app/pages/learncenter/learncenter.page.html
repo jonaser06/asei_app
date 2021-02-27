@@ -8,27 +8,43 @@
                 </div>
             </div>
         </div>
-
-        <ion-grid class="section-grid">
-            <div class="cards-section">
-                <div class="cards-content metting-section" (click)="cursos()">
-                    <img class="img-part1" src="../../../assets/img/mettings.png">
-                    <img class="logo-learning" src="../../../assets/img/logo-learning.png">
-                    <h5>ASEI metting</h5>
-                </div>
-    
-                <div class="cards-content webinars-section" (click)="webinars()">
-                    <img class="img-part1" src="../../../assets/img/webinar.png">
-                    <img class="logo-learning" src="../../../assets/img/logo-learning.png">
-                    <h5>Webinars</h5>
-                </div>
-    
-                <div class="cards-content certificados-section" (click)="certificados()">
-                    <img class="img-part1" src="../../../assets/img/certificados.png">
-                    <img class="logo-learning" src="../../../assets/img/logo-learning.png">
-                    <h5>Mis certificados</h5>
-                </div>
-            </div>
+        
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="cursos()">
+                        <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header>
+                        <ion-card-content>
+                            ASEI metting
+                        </ion-card-content>
+                        <img src="../../../assets/img/mettings.png" alt="">
+                    </ion-card>
+                </ion-col>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="webinars()">
+                        <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header>
+                        <ion-card-content>
+                            Webinars
+                        </ion-card-content>
+                        <img src="../../../assets/img/webinar.png" alt="" class="img_card">
+                    </ion-card>
+                </ion-col>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="certificados()">
+                        <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header>
+                        <ion-card-content>
+                            Mis certificados
+                        </ion-card-content>
+                        <img src="../../../assets/img/certificados.png" alt="">
+                    </ion-card>
+                </ion-col>
+            </ion-row>
         </ion-grid>
     </div>
     <app-footer></app-footer>
