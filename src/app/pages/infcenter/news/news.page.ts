@@ -18,6 +18,8 @@ export class NewsPage implements OnInit {
   URL = environment.url;
   currentkey : any;
   currentkeyOld : any;
+  buscatxt : any;
+  search: any;
   
 
   dialogReadNews: boolean = false;
@@ -108,10 +110,23 @@ export class NewsPage implements OnInit {
       this.NewsData = resp['data'];
       if(resp['status']){
         for(let i = 1 ; i <= this.NewsData.pages; i++ ){pages.push(i)}
-        this.pagesOld = pages;
+        this.pages = pages;
       }
     })
     .catch();
+  }
+
+  onSearchChange(event){
+    let key = event.detail.value;
+    this.search = key;
+    let page = [];
+    this.infcenterService.search_infcenter('noticias',1,key) 
+    .then(resp=>{
+      this.NewsData = resp['data'];
+      for(let i = 1 ; i <= this.NewsData.pages; i++ ){ page.push(i)}
+      this.pages = page;
+      this.currentpage = this.NewsData.page;
+    });
   }
 
   volverInfo(){

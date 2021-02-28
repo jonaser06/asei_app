@@ -17,7 +17,8 @@ export class InfcenterService {
     console.log('re');
   }
 
-  search_infcenter(section, page = 1, key){
+  
+  search_infcenter(section, page = 1, key=''){
     return new Promise (resolve => {
       this.http.get(`${URL}/notes/search/${section}?search=${key}&page=${page}`)
       .subscribe( resp =>{

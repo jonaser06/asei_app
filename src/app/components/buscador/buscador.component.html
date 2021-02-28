@@ -3,10 +3,14 @@
 <div class="content-search">
 
     <div class="input-search">
-        <input type="search"name="" id="" class="w" placeholder="Buscar" (keyup.enter)="search()">
+        <input type="search"name="" id="" class="w" placeholder="Buscar " (keyup.enter)="search()">
         <button (click)="search()">
       <ion-icon class="search-btn" name="search-outline"></ion-icon>
     </button>
+
+    <ion-col size="12" size-lg="6" class="header-course left-header">
+        <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
+    </ion-col>
     </div>
     <!-- <div class="date-start no-mobil">
         <input type="date" name="" id="">
