@@ -116,19 +116,6 @@ export class NewsPage implements OnInit {
     .catch();
   }
 
-  onSearchChange(event){
-    let key = event.detail.value;
-    this.search = key;
-    let page = [];
-    this.infcenterService.search_infcenter('noticias',1,key) 
-    .then(resp=>{
-      this.NewsData = resp['data'];
-      for(let i = 1 ; i <= this.NewsData.pages; i++ ){ page.push(i)}
-      this.pages = page;
-      this.currentpage = this.NewsData.page;
-    });
-  }
-
   volverInfo(){
     // this.dialogCreateNews= true;
     // this.redireccionService.redireccion('/tabs/infcenter/fairs')

@@ -12,7 +12,7 @@ export class BuscadorComponent implements OnInit {
 
   location : any;
 
-  @Output() buscar = new EventEmitter();
+  @Output() buscatxt = new EventEmitter();
 
   constructor(private router: Router,private redireccionService: RedireccionService) { 
     
@@ -22,9 +22,9 @@ export class BuscadorComponent implements OnInit {
 
  
 
-  onSearchChange( ){
-    let key = (<HTMLInputElement>document.querySelector('.buscar')).value;
-    this.buscar.emit(key);
+  onSearchChange(event){
+    let key = event.detail.value;
+    this.buscatxt.emit(key);
   }
   
   createSection(){
