@@ -17,14 +17,31 @@ export class CreatePage implements OnInit {
   texto : any;
   seccion : any;
   link : any;
+  link_ : any;
   fecha_publicacion : any;
   hora_publicacion : any;
   fileToUploadstat: any;
   imagestat: any;
 
-  constructor( private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { }
+  links : any[];
+
+  constructor( private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
+    this.links = [];
+    this.link_ = ''
+  }
 
   ngOnInit() {
+  }
+
+  addlink(){
+    if(this.link.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se puede agregar un enlace vacio');
+    this.links.push(this.link);
+    console.log(this.links);
+    this.link='';
+  }
+  removelink(item){
+    this.links = this.links.filter(e=>e !== item)
+    console.log(item);
   }
 
   handleFileInput(event){
@@ -40,11 +57,16 @@ export class CreatePage implements OnInit {
     this.redireccionService.backpage();
   }
   createNews(fNews: NgForm){
+    let coma = '';
+    this.links.forEach((e, i) => {
+      if(i != 0) { coma = ','}
+      this.link_ += coma + e;
+    });
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
-    if(!this.link) return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
+    if(this.link_.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
 
@@ -54,7 +76,7 @@ export class CreatePage implements OnInit {
     formdata.append('texto', this.texto);
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('hora_publicacion', this.hora_publicacion);
-    formdata.append('link', this.link);
+    formdata.append('link', this.link_);
     formdata.append('seccion', 'noticias');
     formdata.append("files[]", this.fileToUploadstat);
 

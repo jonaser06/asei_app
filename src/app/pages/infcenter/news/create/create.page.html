@@ -44,12 +44,18 @@
               <!-- <textarea name="" id="link-note"></textarea> -->
             </div>
   
-            <div class="delete-link">
-              <ion-icon name="trash"></ion-icon>
-            </div>
-  
-            <div class="add-link">
+            <div class="add-link" style="margin: 0 0.5em;" (click)="addlink();">
               <ion-icon name="add-outline"></ion-icon>
+            </div>
+          </div>
+
+          <div class="link-content-btn" *ngFor="let item of links" style="margin-top: 10px;">
+            <div class="link-input">
+              <ion-icon class="link-btn" name="link-outline"></ion-icon>
+              <input type="text" id="" class="link-class" disabled style="background:#dfdfdf;" value="{{item}}">
+            </div>
+            <div class="delete-link" (click)="removelink(item);">
+              <ion-icon name="trash"></ion-icon>
             </div>
           </div>
         </div>

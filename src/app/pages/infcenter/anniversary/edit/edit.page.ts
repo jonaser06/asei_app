@@ -28,13 +28,26 @@ export class EditPage implements OnInit {
   fileToUploadstat: any;
   imagestat: any;
   link: any;
- 
+
+  link_: any;
+  links: any[];
 
   constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
-    this.get_aniversariosid(); 
+    this.get_aniversariosid();
+    this.links = [];
+    this.link_ = ''
   }
 
   ngOnInit() {
+  }
+
+  addlink(){
+    if(this.link.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se puede agregar un enlace vacio');
+    this.links.push(this.link);
+    this.link='';
+  }
+  removelink(item){
+    this.links = this.links.filter(e=>e !== item)
   }
 
   get_aniversariosid(){
@@ -49,7 +62,8 @@ export class EditPage implements OnInit {
       this.hora_publicacion = resp.data.hora_publicacion;
       this.fecha_inicio = resp.data.fecha_inicio;
       this.hora_inicio = resp.data.hora_inicio;
-      this.link = resp.data.link;
+      // this.link = resp.data.link;
+      this.links = resp.data.link.split(',');
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
@@ -69,11 +83,17 @@ export class EditPage implements OnInit {
   }
 
   editAniversario(fAniversario: NgForm){
+    let coma = '';
+    this.links.forEach((e, i) => {
+      if(i != 0) { coma = ','}
+      this.link_ += coma + e;
+    });
     // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
     // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(this.link_.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
     if(!this.fecha_inicio) return this.uiserviceService.alert_info('Es necesario la fecha de inicio');
@@ -91,7 +111,7 @@ export class EditPage implements OnInit {
     formdata.append('hora_inicio', this.hora_inicio);
     formdata.append('fecha_fin', this.fecha_inicio);
     formdata.append('hora_fin', this.hora_inicio);
-    formdata.append('link', this.link);
+    formdata.append('link', this.link_);
     formdata.append('seccion', 'aniversarios');
     formdata.append("file", this.fileToUploadstat);
 

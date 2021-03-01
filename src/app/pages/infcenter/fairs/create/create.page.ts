@@ -26,11 +26,25 @@ export class CreatePage implements OnInit {
    fileToUploadstat: any;
    imagestat: any;
    link: any;
+   link_: any;
+   links: any[];
 
 
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService) { }
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService) { 
+    this.links = [];
+    this.link_ = ''
+  }
 
   ngOnInit() {
+  }
+
+  addlink(){
+    if(this.link.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se puede agregar un enlace vacio');
+    this.links.push(this.link);
+    this.link='';
+  }
+  removelink(item){
+    this.links = this.links.filter(e=>e !== item)
   }
 
   handleFileInput(event){
@@ -48,11 +62,18 @@ export class CreatePage implements OnInit {
     this.redireccionService.backpage();
   }
   createFerias(fFerias: NgForm){
+    let coma = '';
+    this.links.forEach((e, i) => {
+      if(i != 0) { coma = ','}
+      this.link_ += coma + e;
+    });
+
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
     // if(!this.seccion) return this.uiserviceService.alert_info('Es necesario la descripcion');
+    if(this.link_.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
     if(!this.fecha_inicio) return this.uiserviceService.alert_info('Es necesario la fecha de inicio');
@@ -70,7 +91,7 @@ export class CreatePage implements OnInit {
     formdata.append('fecha_fin', this.fecha_fin);
     formdata.append('hora_inicio', this.hora_inicio);
     formdata.append('hora_fin', this.hora_fin);
-    formdata.append('link', this.link);
+    formdata.append('link', this.link_);
     formdata.append('seccion', 'ferias');
     formdata.append("files[]", this.fileToUploadstat);
 
