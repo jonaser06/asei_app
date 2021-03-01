@@ -32,14 +32,14 @@ export class PerfilPage implements OnInit {
         this.title = 'ADMINISTRADOR ASOCIADO';
       }
       
-      let nombres = resp.data.nombres;
+      let nombres = resp.data.nombres + ' ' + resp.data.apellidos;
       this.userdata = {
         nombre: nombres,
-        cargo: 'Administrador',
+        cargo: resp.data.cargo,
         correo: 'admin@asei.com',
-        fecha: '27/12/2019',
-        telefono: 931081386,
-        direccion: 'Lima'
+        fecha: resp.data.fecha_ingreso,
+        telefono: resp.data.telefono,
+        direccion: resp.data.direccion
       }
 
       // console.log(resp);

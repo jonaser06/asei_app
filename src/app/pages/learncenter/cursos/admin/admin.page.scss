@@ -1,10 +1,20 @@
 ion-row{
     background: #f5f5f5;
 }
+ion-button{
+    --padding-bottom: 5px;
+    --padding-top: 5px;
+    height: 40px;
+    margin-top: 9px;
+}
 .header-course{
     padding-left: 80px;
+    padding-right: 0px;
+}
+.right-header{
     padding-right: 80px;
 }
+
 .crear_curso{
     --border-radius: 10px;
     --background: #24344D;
