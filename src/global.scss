@@ -16,8 +16,6 @@
 @import "../node_modules/@swimlane/ngx-datatable/themes/material.css";
 @import "../node_modules/@swimlane/ngx-datatable/index.css";
 @import "../node_modules/@swimlane/ngx-datatable/assets/icons.css";
-
-
 @import "~@ionic/angular/css/core.css";
 
 /* Basic CSS for apps built with Ionic */
@@ -62,55 +60,45 @@ $white-color: "#fff";
     margin-bottom: 10px;
 }
 
-ion-icon{
+ion-icon {
     pointer-events: none;
 }
 
-.title-section-container{
-    padding-left:1em;
+.title-section-container {
+    padding-left: 1em;
 }
 
 .section-grid .news-courses .input-search.no-user {
     margin: 0.7em 0;
-    margin-right:1.5vw;
+    margin-right: 1.5vw;
 }
 
-
-.container{
+.container {
     margin: 0vw 4.5vw;
     padding: 0px !important;
 }
 
 @media (max-width: 600px) {
-    
-   
-    .container .title-section{
-        font-size:17px !important;
+    .container .title-section {
+        font-size: 17px !important;
     }
-    .container .subtitle-section{
-        font-size:11px !important;
+    .container .subtitle-section {
+        font-size: 11px !important;
     }
-
-    .container{
-    margin: 0vw 0vw;
-}
-    
+    .container {
+        margin: 0vw 0vw;
+    }
 }
 
-
-
-
-    .container{
-        max-width:92% !important;
-    }
-
-@media(max-width:500px){
-    .container{
-        max-width:100% !important;
-    }    
+.container {
+    max-width: 92% !important;
 }
 
-
+@media(max-width:500px) {
+    .container {
+        max-width: 100% !important;
+    }
+}
 
 .container {
     margin: 0 auto;
@@ -364,7 +352,7 @@ ion-icon{
     height: auto;
     padding: .5em 0;
     top: 100%;
-    left:-128px !important;
+    left: -128px !important;
     flex-flow: column nowrap;
     z-index: 200;
     background: #fff;
@@ -677,114 +665,122 @@ option {
     font-size: 1em;
 }
 
+
 /**** Slide ****/
-.slick-dots li button{
-    width:18px !important;
-    height:5px !important;
-    border-radius:0px !important;
-    padding:0px !important;
-    background-color:darkgrey !important;
+
+.slick-dots li button {
+    width: 18px !important;
+    height: 5px !important;
+    border-radius: 0px !important;
+    padding: 0px !important;
+    background-color: darkgrey !important;
 }
 
-.slick-dots li button:before{
-content:"" !important;
+.slick-dots li button:before {
+    content: "" !important;
 }
 
-.slick-dots .slick-active button{
-    background-color:#DF8708 !important;
+.slick-dots .slick-active button {
+    background-color: #DF8708 !important;
 }
 
-.slick-prev:before, .slick-next:before{
-    opacity:1 !important;
-    color:#DF8708 !important;
-    font-size:24px !important;
+.slick-prev:before,
+.slick-next:before {
+    opacity: 1 !important;
+    color: #DF8708 !important;
+    font-size: 24px !important;
 }
 
-.slick-prev,.slick-next{
-    top:190px !important;
+.slick-prev,
+.slick-next {
+    top: 190px !important;
 }
 
-.courses .slick-prev,.courses .slick-next{
-    top:50% !important;
+.courses .slick-prev,
+.courses .slick-next {
+    top: 50% !important;
 }
 
 .slick-next {
     right: -20px !important;
 }
 
-@media (max-width:794px){
-    .slick-prev,.slick-next{
-        top:255px !important;
-    }   
+@media (max-width:794px) {
+    .slick-prev,
+    .slick-next {
+        top: 255px !important;
+    }
 }
 
-@media (max-width:600px){
-    .slick-prev,.slick-next{
-        top:270px !important;
-    }   
+@media (max-width:600px) {
+    .slick-prev,
+    .slick-next {
+        top: 270px !important;
+    }
 }
 
-@media (max-width:300px){
-    .slick-prev,.slick-next{
-        top:295px !important;
-    }   
+@media (max-width:300px) {
+    .slick-prev,
+    .slick-next {
+        top: 295px !important;
+    }
 }
 
-
-.slick-slide{
-    margin:9px !important;
+.slick-slide {
+    margin: 9px !important;
 }
 
 ion-item {
-    --background:white !important; 
-    color:black !important;
-    border-color:transparent !important;
-    --border-color:transparent !important;
-  }
-
-  ion-item ion-icon{
-      color:black !important;
-      --border-color:transparent !important;
-  }
-
-  .item-inner{
-    border-color:transparent !important;
-  }
-
-
-  .swiper-pagination.swiper-pagination-bullets{
-    position:relative !important;
-}
-  
-
-.swiper-pagination-bullet-active
-{
-    background:#DF8708;
+    --background: white !important;
+    color: black !important;
+    border-color: transparent !important;
+    --border-color: transparent !important;
 }
 
-.swiper-pagination-bullet{
-    width:18px;
-    height:5px;
-    border-radius:0%;
+ion-item ion-icon {
+    color: black !important;
+    --border-color: transparent !important;
 }
 
-input,select{
-    background:white;
+.item-inner {
+    border-color: transparent !important;
+}
+
+.swiper-pagination.swiper-pagination-bullets {
+    position: relative !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #DF8708;
+}
+
+.swiper-pagination-bullet {
+    width: 18px;
+    height: 5px;
+    border-radius: 0%;
+}
+
+input,
+select {
+    background: white;
 }
 
 .searchbar-input.sc-ion-searchbar-md {
     background-color: white;
     color: black;
-    border-radius:10px;
+    border-radius: 10px;
 }
 
-.item-searchbar .item-inner,.item-searchar .item-native{
-    --inner-padding-end:0px;
+.item-searchbar .item-inner,
+.item-searchar .item-native {
+    --inner-padding-end: 0px;
 }
 
-.dialog-body{
-    height:auto !important; 
+.dialog-body {
+    overflow-y: auto;
+    height: auto !important;
 }
 
-.checkbox-checked.checkbox-icon { padding:2px; }
-
+.checkbox-checked.checkbox-icon {
+    padding: 2px;
+}

@@ -1,31 +1,31 @@
 <ion-content class="content-section">
-  <app-navigation-tabs></app-navigation-tabs>
+    <app-navigation-tabs></app-navigation-tabs>
 
-  <div class="layout-section">
-    <div class="courses">
-      <div class="options">
-        <ion-button class="mod1" routerLink="/tabs/admin/admin-modulo">Admin. de módulos</ion-button>
-        <ion-button class="asoc1" routerLink="/tabs/admin/admin-asociado" >Admin. de asociados</ion-button>
-        <ion-button class="colab1 active" routerLink="/tabs/admin/admin-colaborador">Admin. de colaboradores</ion-button>  
-        <ion-button class="mod2" routerLink="/tabs/admin/admin-modulo">A. de módulos</ion-button>
-        <ion-button class="asoc2" routerLink="/tabs/admin/admin-asociado" >A. de asociados</ion-button>
-        <ion-button class="colab2 active" routerLink="/tabs/admin/admin-colaborador">A. de colaboradores</ion-button> 
-      </div>
-
-      <div class="container" >
-        <div class="row-actions-top">
-            <div class="title-section-container">
-                <h3 class="title-section">ADMINISTRADOR DE COLABORADOR</h3>
-                <p class="subtitle-section">Gestiona la información de los colaboradores de ASEI</p>
+    <div class="layout-section">
+        <div class="courses">
+            <div class="options">
+                <ion-button class="mod1" routerLink="/tabs/admin/admin-modulo">Admin. de módulos</ion-button>
+                <ion-button class="asoc1" routerLink="/tabs/admin/admin-asociado">Admin. de asociados</ion-button>
+                <ion-button class="colab1 active" routerLink="/tabs/admin/admin-colaborador">Admin. de colaboradores</ion-button>
+                <ion-button class="mod2" routerLink="/tabs/admin/admin-modulo">A. de módulos</ion-button>
+                <ion-button class="asoc2" routerLink="/tabs/admin/admin-asociado">A. de asociados</ion-button>
+                <ion-button class="colab2 active" routerLink="/tabs/admin/admin-colaborador">A. de colaboradores</ion-button>
             </div>
-        </div>
-      </div>
-      
-      <ion-row >
-        <ion-col size="12" size-lg="6" class="header-course left-header">
-          <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
-        </ion-col>
-        <ion-col size="6" size-lg="3" class="header-course">
+
+            <div class="container">
+                <div class="row-actions-top">
+                    <div class="title-section-container">
+                        <h3 class="title-section">ADMINISTRADOR DE COLABORADOR</h3>
+                        <p class="subtitle-section">Gestiona la información de los colaboradores de ASEI</p>
+                    </div>
+                </div>
+            </div>
+
+            <ion-row>
+                <ion-col size="12" size-lg="6" class="header-course left-header">
+                    <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
+                </ion-col>
+                <!-- <ion-col size="6" size-lg="3" class="header-course">
           <ion-item expand="block" class="estado">
             <ion-label>Estado</ion-label>
             <ion-select interface="popover" >
@@ -33,19 +33,21 @@
               <ion-select-option value="n64">Deshabilitado</ion-select-option>
             </ion-select>
           </ion-item>
-        </ion-col>
-        <ion-col  size="6" size-lg="3" class="header-course">
-          <ion-button expand="block" class="btn-new-item" (click)="iraCrear()">Nuevo <ion-icon name="add-circle" class="more-icon"></ion-icon></ion-button>
-        </ion-col>
-      </ion-row>
-  
-      <ion-col size="1" size-md="2" size-lg="4" *ngFor="let item of UserData?.users" lass="header-course">
-        <app-card-list-admin class="card_col" [user_child]="item" ></app-card-list-admin>
-      </ion-col>
-   
-      <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
-      
+        </ion-col> -->
+                <ion-col size="12" size-lg="6" class="header-course">
+                    <ion-button expand="block" class="btn-new-item" (click)="iraCrear()">Nuevo
+                        <ion-icon name="add-circle" class="more-icon"></ion-icon>
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
+            <ion-col size="1" size-md="2" size-lg="4" *ngFor="let item of UserData?.users" lass="header-course">
+                <app-card-list-admin class="card_col" [user_child]="item"></app-card-list-admin>
+            </ion-col>
+
+            <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
+
+        </div>
     </div>
-  </div>
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 </ion-content>

@@ -1,105 +1,111 @@
 <ion-card class="main">
 
-  <ion-item >
-    <div class="content-img">
-      <img src="{{ userdata?.image }}" alt="">
-      <h4>{{ userdata?.nombre }}</h4>
-    </div>
-  </ion-item>   
-  
-  <ion-card class="cargo">
     <ion-item>
-      <div class="title-section-container tcard">
-        <div class="title-arrow">
-          <div class="left-arrow">
-            <ion-icon name="people"></ion-icon>
-          </div>
-
-          <div class="title">
-            <h3 class="title-section color-news">Cargo</h3>
-            <p class="subtitle-section color-news">{{ userdata?.cargo }}</p>
-          </div>
-        </div>
-      </div>
-    </ion-item>
-  </ion-card>
-
-  <ion-card class="correo">
-    <ion-item>
-        <div class="title-section-container tcard">
-          <div class="title-arrow">
-            <div class="left-arrow">
-              <ion-icon name="mail"></ion-icon>
-            </div>
-
-            <div class="title">
-              <h3 class="title-section color-news">Correo</h3>
-              <p class="subtitle-section color-news">{{ userdata?.correo }}</p>
-            </div>
-          </div>
+        <div class="content-img">
+            <img src="{{ userdata?.image }}" alt="">
+            <h4>{{ userdata?.nombre }}</h4>
         </div>
     </ion-item>
-  </ion-card>
 
-  <ion-card class="fecha">
-    <ion-item><div class="title-section-container tcard">
-      <div class="title-arrow">
-        <div class="left-arrow">
-          <ion-icon name="calendar"></ion-icon>
-        </div>
+    <ion-card class="cargo">
+        <ion-item>
+            <div class="title-section-container tcard">
+                <div class="title-arrow">
+                    <div class="left-arrow">
+                        <ion-icon name="people"></ion-icon>
+                    </div>
 
-        <div class="title">
-          <h3 class="title-section color-news">Fecha de Ingreso</h3>
-          <p class="subtitle-section color-news">{{ userdata?.fecha }}</p>
-        </div>
-      </div>
-    </div></ion-item>
-  </ion-card>
+                    <div class="title">
+                        <h3 class="title-section color-news">Cargo</h3>
+                        <p class="subtitle-section color-news">{{ userdata?.cargo }}</p>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-card>
 
-  <ion-card class="telefono">
-    <ion-item><div class="title-section-container tcard">
-      <div class="title-arrow">
-        <div class="left-arrow">
-          <ion-icon name="call"></ion-icon>
-        </div>
+    <ion-card class="correo">
+        <ion-item>
+            <div class="title-section-container tcard">
+                <div class="title-arrow">
+                    <div class="left-arrow">
+                        <ion-icon name="mail"></ion-icon>
+                    </div>
 
-        <div class="title">
-          <h3 class="title-section color-news">Teléfono</h3>
-          <p class="subtitle-section color-news">{{ userdata?.telefono }}</p>
-        </div>
-      </div>
-    </div></ion-item>
-  </ion-card>
+                    <div class="title">
+                        <h3 class="title-section color-news">Correo</h3>
+                        <p class="subtitle-section color-news">{{ userdata?.correo }}</p>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-card>
 
-  <ion-card class="direccion">
-    <ion-item><div class="title-section-container tcard">
-      <div class="title-arrow">
-        <div class="left-arrow cll">
-          <ion-icon name="location"></ion-icon>
-        </div>
+    <ion-card class="fecha">
+        <ion-item>
+            <div class="title-section-container tcard">
+                <div class="title-arrow">
+                    <div class="left-arrow">
+                        <ion-icon name="calendar"></ion-icon>
+                    </div>
 
-        <div class="title">
-          <h3 class="title-section color-news">Dirección</h3>
-          <p class="subtitle-section color-news">{{ userdata?.direccion }}</p>
-        </div>
-      </div>
-    </div></ion-item>
-  </ion-card>
+                    <div class="title">
+                        <h3 class="title-section color-news">Fecha de Ingreso</h3>
+                        <p class="subtitle-section color-news">{{ userdata?.fecha }}</p>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-card>
 
-  <!-- <ion-item class="one-column checkk">
+    <ion-card class="telefono">
+        <ion-item>
+            <div class="title-section-container tcard">
+                <div class="title-arrow">
+                    <div class="left-arrow">
+                        <ion-icon name="call"></ion-icon>
+                    </div>
+
+                    <div class="title">
+                        <h3 class="title-section color-news">Teléfono</h3>
+                        <p class="subtitle-section color-news">{{ userdata?.telefono }}</p>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <ion-card class="direccion">
+        <ion-item>
+            <div class="title-section-container tcard">
+                <div class="title-arrow">
+                    <div class="left-arrow cll">
+                        <ion-icon name="location"></ion-icon>
+                    </div>
+
+                    <div class="title">
+                        <h3 class="title-section color-news">Dirección</h3>
+                        <p class="subtitle-section color-news">{{ userdata?.direccion }}</p>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-card>
+
+    <!-- <ion-item class="one-column checkk">
     <ion-checkbox value="option" (click)="onChange($option)"></ion-checkbox>
     <p>Deshabilitar usuario</p>
   </ion-item> -->
 
-  <ion-item>
-    <div class="actions-page no-mobil">
-      <button class="btn-new-item" (click)="editar();">
+    <ion-item>
+        <div class="actions-page no-mobil">
+            <button class="btn-new-item" (click)="editar();">
           <span>Editar</span>
       </button>
-      <!-- <button class="btn-new-item">
+            <!-- <button class="btn-new-item">
         <span>Eliminar</span>
       </button> -->
-    </div>
-  </ion-item>
+        </div>
+    </ion-item>
 
 </ion-card>
