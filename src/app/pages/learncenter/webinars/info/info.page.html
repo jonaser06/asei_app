@@ -1,157 +1,80 @@
-<ion-content class="content-section">
-  <div class="layout-section">
-    <div class="container">
-        <div class="row-actions-top">
-            <div class="title-section-container">
-              <div class="title-arrow">
-                <!-- Flecha a la izquierda -->
-                <div class="left-arrow" (click)="volverWebinars()">
-                  <ion-icon name="arrow-back-outline"></ion-icon>
-                </div>
-
-                <div class="title">
-                  <h3 class="title-section color-news">Webinars</h3>
-                  <p class="subtitle-section color-news">Revisa en esta sección los webinar ASEI</p>
-                </div>
+<ion-content>
+  <ion-row>
+    <ion-col size="12" size-lg="6" class="header-course left-header" style="padding-bottom: 0px;">
+      <div class="title-section-container">
+        <div class="title-arrow">
+          <ion-row>
+            <ion-col size="1">
+              <!-- Flecha a la izquierda -->
+              <div class="left-arrow" (click)="volverWebinars()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
               </div>
-            </div>
-        </div>
-    </div>
-
-    <ion-grid class="section-grid">
-      <div class="info-courses">
-        <div class="content-info-trainers">
-          <div class="content-description">
-            <div class="courses-title">
-              <h4>Webinar I: Modelo de Prevención de Delitos para Inmobiliarias | ASEI Learning Center</h4>
-            </div>
-  
-            <div class="content-img">
-              <img src="../../../../../assets/img/course-1.png" alt="">
-            </div>
-  
-            <div class="content-info">
-              <div class="data-course">
-                <p>Datos del Webinar</p>
-              </div>
-    
-              <div class="content-text">
-                <h5>Resumen</h5>
-                <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's 
-                standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
-                it to make a type specimen book. It has survived not only five centuries, but also the leap into 
-                electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the 
-                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
-                software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                <h5>Objetivo</h5>
-                <p>Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker 
-                  including versions of Lorem Ipsum</p>
-                <div class="clasificacion">
-                  <h5>Clasificación</h5>
-                  <div class="stars">
-                    <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                    <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                    <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                    <ion-icon class="stars-calificacion" name="star"></ion-icon>
-                    <ion-icon class="stars-calificacion" name="star-outline"></ion-icon>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="trainers">
-            <h4>Capacitadores</h4>
-  
-            <div class="card-trainer">
-              <div class="card-1 content-card">
-                <div class="content-img">
-                  <img src="../../../../../assets/img/trainer-1.png" alt="">
-                </div>
-    
-                <div class="content-info">
-                  <div>
-                    <h5>Mariella Pierina Rosmeri</h5>
-                  </div>
-                  
-                  <div>
-                    <p>ive centuries, but also the leap into electronic typesetting, remaining essentially 
-                    unchanged. It was popularised in the 1960s with  including versions of Lorem Ipsum</p>
-                  </div>
-                </div>
-              </div>
-    
-              <div class="card-2 content-card">
-                <div class="content-img">
-                  <img src="../../../../../assets/img/trainer-2.png" alt="">
-                </div>
-    
-                <div class="content-info">
-                  <div>
-                    <h5>Mariella Pierina Rosmeri</h5>
-                  </div>
-                  
-                  <div>
-                    <p>ive centuries, but also the leap into electronic typesetting, remaining essentially 
-                    unchanged. It was popularised in the 1960s with  including versions of Lorem Ipsum</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="content-courses-video">
-          <div class="course-sessions" (click)="openDialogCalificacion()">
-            <h4>Contenido del webinar</h4>
-          </div>
-  
-          <div class="all-session">
-            <div class="session-1 content-session">
+            </ion-col>
+            <ion-col>
               <div class="title">
-                <p>Curso: Protección al consumidor inmobiliario</p>
-                <ion-icon class="icon-btn" (click)="watchVideo(0)" name="chevron-down-outline"></ion-icon>
+                <h3 class="title-section color-news">Webinars</h3>
+                <p class="subtitle-section color-news">Revisa en esta sección los webinar ASEI</p>
               </div>
-  
-              <div class="content-video">
-                <iframe src="https://www.youtube.com/embed/2bvoe3sJpqM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
+            </ion-col>
+          </ion-row>
         </div>
       </div>
-    </ion-grid>
-
-    <!-- Dialogo Calificacion - aparece cuando culminó el curso -->
-    <app-dialog *ngIf="dialogCalificacion" [dialog]="dialogCalificacion" [width]="300" [height]="270" (closeDialogEv)="closeDialogCalificacion()">
-      <div class="body-dialog">
-        <div class="modal-stars">
-          <p class="mainn">¡Felicitaciones, terminaste el webinar!</p>
-          <p>Calificar curso</p>
-
-
-          <rating [rate]="rate"
-        readonly="false"
-        size="default" 
-        (rateChange)="onRateChange($event)"
-        (ngModelChange)="onRateChange($event)">
-          </rating>
-
-          
-          <!-- <div class="stars">
-            <ion-icon class="stars-btn" name="star"></ion-icon>
-            <ion-icon class="stars-btn" name="star"></ion-icon>
-            <ion-icon class="stars-btn" name="star"></ion-icon>
-            <ion-icon class="stars-btn" name="star"></ion-icon>
-            <ion-icon class="stars-btn" name="star-outline"></ion-icon>
-          </div> -->
-
-          <div class="content-btn">
-            <button>Guardar</button>
+    </ion-col>
+  </ion-row>
+  <!-- content -->
+  <ion-row>
+    <ion-col size="12" size-md="12" size-lg="9" class="player_section">
+      <app-videoplayer [link]="player"></app-videoplayer>
+      <ion-content class="content_tab__">
+        <ion-tabs>
+          <!-- Tab bar -->
+          <ion-tab-bar slot="top">
+            <ion-tab-button class="sesiones_tab" (click)="playlist();">
+              <ion-label>Sesiones</ion-label>
+            </ion-tab-button>
+            <ion-tab-button (click)="resumen();">
+              <ion-label>Resumen</ion-label>
+            </ion-tab-button>
+            <ion-tab-button (click)="objetivos();">
+              <ion-label>Objetivos</ion-label>
+            </ion-tab-button>
+            <ion-tab-button  (click)="capacitadores();">
+              <ion-label>Capacitadores</ion-label>
+            </ion-tab-button>
+          </ion-tab-bar>
+        </ion-tabs>
+        <div class="contenido">
+          <div class="playlist_tab">
+            <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
+          </div>
+          <div class="resumen_tab">
+            <h1>{{info_curso?.data.titulo}}</h1>
+            {{info_curso?.data.resumen}}
+          </div>
+          <div class="objetivos_tab">
+            <h1>Objetivos</h1>
+            {{info_curso?.data.objetivo}}
+          </div>
+          <div class="capacitadores_tab">
+            <h1>Capacitadores</h1>
+            <ion-list>
+              <ion-item *ngFor="let item of info_curso?.data.capacitadores">
+                <ion-avatar slot="start">
+                  <img src="{{ URL + '/' + item.foto }}" alt="">
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{ item.nombre }}</h2>
+                  <p>{{ item.resumen }}</p>
+                </ion-label>
+              </ion-item>
+            </ion-list>
           </div>
         </div>
-      </div>
-    </app-dialog>
-  </div>
-  <app-footer></app-footer>
+      </ion-content>
+    </ion-col>
+    <ion-col size-lg="3" class="playlist">
+      <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

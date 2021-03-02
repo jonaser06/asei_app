@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-
 import { RedireccionService } from '../../../../services/redireccion.service';
+import { LearncenterService } from '../../../../services/learncenter.service';
+import { environment } from 'src/environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-info',
@@ -10,64 +13,80 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 })
 export class InfoPage implements OnInit {
 
-   ngOnInit(){
-   
-   }
+  info_curso: any;
+  play_list: any;
+  player: any;
+  URL = environment.url
+  constructor(private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { }
 
-   dialogRemove: boolean = false;
-  dialogCalificacion: boolean = false;
-  titleDialog: string = "";
-  subtitleDialog: string = "";
-  titleDialogRemove: string ="";
-  isEdited = false;
-
-  constructor(public authService: AuthService,private redireccionService: RedireccionService) { 
-    this.dialogRemove = false;
-  }
-
-  watchVideo(n) {
-    let contentVideo = document.querySelectorAll('.all-session .content-session .content-video');
-
-    if (contentVideo[n].getAttribute('style') == null) {
-      contentVideo[n].setAttribute('style','height: 15em;');
-    } else if (contentVideo[n].getAttribute('style') == 'height: 0em;') {
-      contentVideo[n].setAttribute('style','height: 15em;');
-    } else {
-      contentVideo[n].setAttribute('style','height: 0em;');
+  ngOnInit(){
+    this.get_webinnars();
+    document.querySelector('.playlist_tab').classList.add("display-none");
+    document.querySelector('.resumen_tab').classList.remove("display-none");
+    document.querySelector('.objetivos_tab').classList.add("display-none");
+    document.querySelector('.capacitadores_tab').classList.add("display-none");
+    window.onresize = function(event) {
+      let playerw = window.innerWidth;
+      if(playerw > 990){
+        document.querySelector('.playlist_tab').classList.add("display-none");
+        document.querySelector('.resumen_tab').classList.remove("display-none");
+        document.querySelector('.objetivos_tab').classList.add("display-none");
+        document.querySelector('.capacitadores_tab').classList.add("display-none");
+      }else if(playerw < 990){
+        document.querySelector('.playlist_tab').classList.remove("display-none");
+        document.querySelector('.resumen_tab').classList.add("display-none");
+        document.querySelector('.objetivos_tab').classList.add("display-none");
+        document.querySelector('.capacitadores_tab').classList.add("display-none");
+      }
     }
   }
 
-  //Info
-  openDialogCalificacion() {
-    this.dialogCalificacion = true;
+  get_webinnars(){
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.learncenterService.get_webinnars_id(id)
+    .then( ( resp:any )=>{
+      this.info_curso = resp;
+      this.play_list = resp.data.sesiones;
+      this.player = this.play_list[0].link.toString();
+      this.player = this.player.split("=");
+      this.player = 'https://www.youtube.com/embed/'+this.player[1]
+      this.player = this.sanitizer.bypassSecurityTrustResourceUrl(this.player);
+      // console.log(this.player);
+    })
+    .catch();
   }
 
-  closeDialogCalificacion() {
-    this.dialogCalificacion = false;
-    this.isEdited = false;
+  verclase_(event){
+    this.player = event.toString();
+    this.player = this.player.split("=");
+    this.player = 'https://www.youtube.com/embed/'+this.player[1]
+    this.player = this.sanitizer.bypassSecurityTrustResourceUrl(this.player);
+    console.log(this.player);
   }
 
-  editCalificacion(item){
-    this.isEdited = true;
-    this.openDialogCalificacion();
+  playlist(){
+    document.querySelector('.playlist_tab').classList.remove("display-none");
+    document.querySelector('.resumen_tab').classList.add("display-none");
+    document.querySelector('.objetivos_tab').classList.add("display-none");
+    document.querySelector('.capacitadores_tab').classList.add("display-none");
   }
-
-  removeCalificacion(){
-    this.openDialogRemove();
-    this.titleDialogRemove = "ELIMINAR INDICADOR";
+  resumen(){
+    document.querySelector('.playlist_tab').classList.add("display-none");
+    document.querySelector('.resumen_tab').classList.remove("display-none");
+    document.querySelector('.objetivos_tab').classList.add("display-none");
+    document.querySelector('.capacitadores_tab').classList.add("display-none");
   }
-
-  //Dialogo eliminar
-  openDialogRemove() {
-    this.dialogRemove = true;
+  objetivos(){
+    document.querySelector('.playlist_tab').classList.add("display-none");
+    document.querySelector('.resumen_tab').classList.add("display-none");
+    document.querySelector('.objetivos_tab').classList.remove("display-none");
+    document.querySelector('.capacitadores_tab').classList.add("display-none");
   }
-
-  closeDialogRemove() {
-    this.dialogRemove = false;
-  }
-
-  onRateChange(event) {
-    console.log('Your rate:', event);
+  capacitadores(){
+    document.querySelector('.playlist_tab').classList.add("display-none");
+    document.querySelector('.resumen_tab').classList.add("display-none");
+    document.querySelector('.objetivos_tab').classList.add("display-none");
+    document.querySelector('.capacitadores_tab').classList.remove("display-none");
   }
 
   volverWebinars(){

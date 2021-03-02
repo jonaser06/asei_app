@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {IonSlides}  from '@ionic/angular';
+import { LearncenterService } from 'src/app/services/learncenter.service';
+import { UiServiceService } from 'src/app/services/ui-service.service';
+import { environment } from 'src/environments/environment';
 
 import { RedireccionService } from '../../../services/redireccion.service';
 
@@ -10,49 +12,51 @@ import { RedireccionService } from '../../../services/redireccion.service';
 })
 export class WebinarsPage implements OnInit {
 
-  constructor(private redireccionService: RedireccionService) { }
+  URL = environment.url;
+  pages : any;
+  CursosData:any;
+  currentpage : any;
+  currentkey : any;
+  search : any;
+  visible: any;
+
+  constructor(private redireccionService: RedireccionService, private learncenterService: LearncenterService, private uiServiceService: UiServiceService) { 
+    this.getwebinnars();
+    this.visible = false;
+  }
 
   ngOnInit() {
   }
 
-  
-slideOpts={
-    initialSlide: 1,
-    speed: 400,
-    breakpoints: {
-      400: {
-        
-        slidesPerView: 1,
-    
-      
-      },
-      768: {
-        
-        slidesPerView: 2,
-    
-      
-      },
-      1000: {
-        
-          slidesPerView: 2,
-          
-        
-      },
-      1200:{
-          slidesPerView: 3,
-          
-      }
-    }
-  };
-  
-  
-slideNext(object, slideView) {
-    slideView.slideNext(500);
+  getwebinnars(){
+    let pages = [];
+    this.learncenterService.get_webinnars()
+    .then(resp=>{
+      console.log();
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+
+    })
+    .catch();
   }
 
-  //Move to previous slide
-  slidePrev(object, slideView) {
-    slideView.slidePrev(500);
+  onSearchChange(event){
+    let input = event.detail.value;
+    this.search = input;
+    let pages = [];
+    this.learncenterService.get_webinnars(1,input) 
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
+
+  openCursos_(ID_CO){
+    this.redireccionService.redireccion('/tabs/learning-center/webinars/info/'+ID_CO);
   }
 
   volverLearn(){

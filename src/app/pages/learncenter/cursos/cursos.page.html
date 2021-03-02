@@ -37,11 +37,6 @@
               <app-card-cursos [visible]="visible" [cursos_child]="item" (idCursos)="openCursos_($event)" [visible]="visible"></app-card-cursos>
             </ion-col>
           </ion-row>
-          
-          <!-- <div class="new-card">
-            <app-card-cursos *ngFor="let item of CursosData?.contenido" [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"> 
-            </app-card-cursos>
-          </div> -->
  
           <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 

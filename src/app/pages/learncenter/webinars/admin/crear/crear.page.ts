@@ -4,7 +4,6 @@ import { RedireccionService } from '../../../../../services/redireccion.service'
 import { LearncenterService } from '../../../../../services/learncenter.service';
 import { UiServiceService } from '../../../../../services/ui-service.service';
 
-
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.page.html',
@@ -19,7 +18,6 @@ export class CrearPage implements OnInit {
   imgcourse: any;
   coursesrc: any;
   noti: any;
-
   constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
     this.trainer = [];
     this.sesion = [];
@@ -29,8 +27,8 @@ export class CrearPage implements OnInit {
 
   ngOnInit() {
   }
-
-  /* imagen del curso */
+  
+  /* imagen del webinars */
   img_course(event){
     this.imgcourse = event.target.files[0];
     const reader = new FileReader();
@@ -65,7 +63,7 @@ export class CrearPage implements OnInit {
     console.log(this.noti);
   }
 
-  /* añadir curso */
+  /* añadir webinars */
   add_course(){
     let titlecourse = (<HTMLInputElement>document.querySelector('.title-course-tx')).value;
     let summarycourse = (<HTMLInputElement>document.querySelector('.summary-course')).value;
@@ -87,8 +85,8 @@ export class CrearPage implements OnInit {
     formdata.append('objetivo', objectivecourse);
     formdata.append('duracion', duracion);
     formdata.append('img_learn[]', this.imgcourse);
-    /* cursos, */
-    formdata.append('seccion', 'cursos');
+    /* webinars */
+    formdata.append('seccion', 'webinnars');
 
     for(let i = 0 ; i < this.trainer.length ; i++){
       formdata.append('cap_nombres[]', this.trainer[i]['nombre']);
@@ -105,7 +103,7 @@ export class CrearPage implements OnInit {
 
     this.learncenterService.create_learncenterCursos(formdata)
     .then(resp=>{
-      this.redireccionService.redireccion('/tabs/learning-center/cursos/admin');
+      this.redireccionService.redireccion('/tabs/learning-center/webinars/admin');
       console.log(resp);
     })
     .catch();

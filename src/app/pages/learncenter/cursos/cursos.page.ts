@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import {IonSlides}  from '@ionic/angular';
 import { LearncenterService } from 'src/app/services/learncenter.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { environment } from 'src/environments/environment';
@@ -44,6 +42,7 @@ export class CursosPage implements OnInit {
     })
     .catch();
   }
+
   onSearchChange(event){
     let input = event.detail.value;
     this.search = input;
@@ -56,8 +55,6 @@ export class CursosPage implements OnInit {
       this.currentpage = this.CursosData.page;
     });
   }
-
- 
 
   openCursos_(ID_CO){
     this.redireccionService.redireccion('/tabs/learning-center/cursos/info/'+ID_CO);

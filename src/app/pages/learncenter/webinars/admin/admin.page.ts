@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { WebinarsService } from 'src/app/services/webinars.service';
+import { LearncenterService } from 'src/app/services/learncenter.service';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 import { environment } from 'src/environments/environment';
+
 import { RedireccionService } from '../../../../services/redireccion.service';
 
 @Component({
@@ -11,17 +12,46 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 })
 export class AdminPage implements OnInit {
 
-  webinars_data : any;
-  pages: any;
-  currentpage: any;
-  URL_BASE = environment.url;
+  URL = environment.url;
+  pages : any;
+  CursosData:any;
+  currentpage : any;
+  currentkey : any;
+  search : any;
+  visible: any;
 
-  constructor(private redireccionService: RedireccionService,
-              private webinarsService: WebinarsService,
-              private router: Router) { }
+  constructor(private redireccionService: RedireccionService, private learncenterService: LearncenterService, private uiServiceService: UiServiceService) { }
 
   ngOnInit() {
-    this.load_webinars()
+    this.getwebinnars();
+    this.visible = true;
+  }
+
+  getwebinnars(){
+    let pages = [];
+    this.learncenterService.get_webinnars()
+    .then(resp=>{
+      console.log();
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+
+    })
+    .catch();
+  }
+
+  onSearchChange(event){
+    let input = event.detail.value;
+    this.search = input;
+    let pages = [];
+    this.learncenterService.get_webinnars(1,input) 
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
   }
 
   volverWebinars(){
@@ -29,50 +59,28 @@ export class AdminPage implements OnInit {
   }
 
   iraCrear(){
-    this.redireccionService.redireccion('/tabs/learning-center/webinars/crear/0')
+    this.redireccionService.redireccion('/tabs/learning-center/webinars/admin/crear')
   }
 
-  load_webinars(){
-    let pages = [];
-    this.webinarsService.get_cursos()
-    .then(resp=>{
-      this.webinars_data = resp['data']['contenido'];
-      for(let i = 1 ; i <= resp['data'].pages; i++ ){ pages.push(i)}
-      this.pages = pages;
-      this.currentpage = resp['data'].page;
-    
-    })
-    .catch();
+  editCursos_(ID_NO){
+    console.log('EDITAR webinnars : '+ID_NO);
+    // this.redireccionService.redireccion('/tabs/infcenter/news/info/'+ID_NO);
+    this.redireccionService.redireccion('/tabs/learning-center/webinars/admin/edit/'+ID_NO);
   }
 
-  changepage_(page){
-    let pages = [];
-    this.webinarsService.get_cursos(page)
-    .then(resp=>{
-      this.webinars_data = resp['data']['content'];
-      for(let i = 1 ; i <= resp['data'].pages; i++ ){ pages.push(i)}
-      this.pages = pages;
-      this.currentpage = resp['data'].page;
-    })
-    .catch();
-  }
-
-  updateWebinar(webinar: any){
-    this.router.navigate(['/tabs/learning-center/webinars/crear', webinar.ID_CO])
-  }
-
-  deleteWebinar(webinar: any){
-    this.webinarsService.delete_curso(webinar.ID_CO)
-    .then(resp=>{
-      if(resp['status']){
-        this.load_webinars();
-      }else{
-        console.log('No se pudo eliminar ', resp['message']);
+  removeCursos_(ID_CO){
+    this.uiServiceService.presentAlertConfirm('Eliminar', 'Estas seguro que desea eliminar el webinnars')
+    .then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
+        this.learncenterService.delete_webinnars(ID_CO,'webinnars')
+        .then(resp=>{ 
+          console.log('ELIMINAR webinnars : '+ID_CO);
+          this.getwebinnars();
+        })
+        .catch();
       }
-    })
-    .catch();
+    });
   }
-
-  
 
 }
