@@ -2,6 +2,7 @@ import { ApplicationRef, Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { PushNotificationsService } from 'src/app/services/push-notifications.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tabs',
@@ -16,7 +17,8 @@ export class TabsPage implements OnInit {
   rol : any;
   bubble : false;
 
-
+  userdata: any;
+  URL = environment.url;
   constructor(public authService: AuthService, private navCtrol : NavController, public pushNotification: PushNotificationsService, private applicationRef: ApplicationRef) {
     this.current_session();
   }
@@ -39,13 +41,24 @@ export class TabsPage implements OnInit {
 
   current_session(){
     this.authService.get_data()
-    .then(resp=>{
+    .then((resp : any)=>{
       // console.log(resp);
       this.nombres = resp['data']['nombres']; 
       this.rol = resp['data']['rol'] 
       this.menues = resp['data']['permisos'];
       this.user_id = resp['data']['user_id'];
-      console.log(resp);
+      
+      let nombres = resp.data.nombres + ' ' + resp.data.apellidos;
+      let img = this.URL + '/' + resp.data.imagenes[0].RUTA;
+      this.userdata = {
+        nombre: nombres,
+        cargo: resp.data.cargo,
+        correo: resp.data.email,
+        fecha: resp.data.fecha_ingreso,
+        telefono: resp.data.telefono,
+        direccion: resp.data.direccion,
+        image: img
+      }
     });
   }
   setCurrentActive(path: string){

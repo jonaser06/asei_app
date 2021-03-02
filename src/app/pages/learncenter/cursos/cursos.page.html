@@ -26,9 +26,6 @@
     <ion-col size="12" size-lg="6" class="header-course left-header">
       <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
     </ion-col>
-    <ion-col size="12" size-lg="6" class="header-course">
-      <ion-button expand="block" class="crear_curso" (click)="iraCrear()">Nuevo Curso <ion-icon name="add-circle" class="more-icon"></ion-icon></ion-button>
-    </ion-col>
   </ion-row>
 
   <div class="layout-section">
@@ -37,14 +34,9 @@
         <div class="courses">
           <ion-row>
             <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CursosData?.contenido">
-              <app-card-cursos [cursos_child]="item" (idCursos)="openCursos_($event)" [visible]="visible"></app-card-cursos>
+              <app-card-cursos [visible]="visible" [cursos_child]="item" (idCursos)="openCursos_($event)" [visible]="visible"></app-card-cursos>
             </ion-col>
           </ion-row>
-          
-          <!-- <div class="new-card">
-            <app-card-cursos *ngFor="let item of CursosData?.contenido" [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"> 
-            </app-card-cursos>
-          </div> -->
  
           <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 

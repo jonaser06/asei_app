@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil',
@@ -12,6 +13,7 @@ export class PerfilPage implements OnInit {
 
   userdata: any;
   title: any;
+  URL = environment.url;
   constructor(private authService: AuthService, private redireccionService: RedireccionService, private navCtrol : NavController) { 
     this.current_session();
   }
@@ -31,18 +33,17 @@ export class PerfilPage implements OnInit {
       }else if(resp.data.rol == 'admin asociado'){
         this.title = 'ADMINISTRADOR ASOCIADO';
       }
-      
-      let nombres = resp.data.nombres;
+      let nombres = resp.data.nombres + ' ' + resp.data.apellidos;
+      let img = this.URL + '/' + resp.data.imagenes[0].RUTA;
       this.userdata = {
         nombre: nombres,
-        cargo: 'Administrador',
-        correo: 'admin@asei.com',
-        fecha: '27/12/2019',
-        telefono: 931081386,
-        direccion: 'Lima'
+        cargo: resp.data.cargo,
+        correo: resp.data.email,
+        fecha: resp.data.fecha_ingreso,
+        telefono: resp.data.telefono,
+        direccion: resp.data.direccion,
+        image: img
       }
-
-      // console.log(resp);
       
     });
   }

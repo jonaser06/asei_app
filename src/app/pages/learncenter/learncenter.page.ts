@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { RedireccionService } from '../../services/redireccion.service';
 
 
@@ -9,17 +10,35 @@ import { RedireccionService } from '../../services/redireccion.service';
 })
 export class LearncenterPage implements OnInit {
 
-  constructor(private redireccionService: RedireccionService) { }
+  userdata : any;
+  constructor(public authService: AuthService, private redireccionService: RedireccionService) { 
+    this.current_session();
+  }
 
   ngOnInit() {
   }
+  current_session(){
+    this.authService.get_data()
+    .then((resp : any)=>{
+      this.userdata = resp;
+      console.log(this.userdata);
+    });
+  }
 
   cursos(){
-    this.redireccionService.redireccion('/tabs/learning-center/cursos')
+    if(this.userdata.data.rol == 'admin'){
+      this.redireccionService.redireccion('/tabs/learning-center/cursos/admin')
+    }else{
+      this.redireccionService.redireccion('/tabs/learning-center/cursos')
+    }
   }
 
   webinars(){
-    this.redireccionService.redireccion('/tabs/learning-center/webinars')
+    if(this.userdata.data.rol == 'admin'){
+      this.redireccionService.redireccion('/tabs/learning-center/webinars/admin')
+    }else{
+      this.redireccionService.redireccion('/tabs/learning-center/webinars')
+    }
   }
 
   certificados(){

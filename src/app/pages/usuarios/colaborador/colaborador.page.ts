@@ -2,6 +2,7 @@ import { ApplicationRef, Component, OnInit } from '@angular/core';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-colaborador',
@@ -18,7 +19,7 @@ export class ColaboradorPage implements OnInit {
   search : any;
 
   location : any;
-  constructor(private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef) { 
+  constructor(private popoverController : PopoverController, private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef) { 
     // this.applicationRef.tick();
     this.get_colaborador();
     this.location = window.location.pathname.split("/").pop();
@@ -58,7 +59,7 @@ export class ColaboradorPage implements OnInit {
 
   removeuser(id){
     
-    this.userService.delete_user(id)
+    this.userService.get_colaboradorUser(id)
     .then(resp=>{
       this.get_colaborador();
 

@@ -21,66 +21,25 @@
     font-style: italic;
 }
 
-@media (min-width: 500px) {
-    .form-cursos {
-        padding: 0 1.2em;
-    }
-}
+@media (min-width: 500px) { .form-cursos { padding: 0 1.2em; } }
 
-@media (min-width: 760px) {
-    .form-cursos {
-        padding: 0 1.8em;
-    }
-}
+@media (min-width: 760px) { .form-cursos { padding: 0 1.8em; } }
 
-@media (min-width: 900px) {
-    .form-cursos {
-        padding: 0 2.6em;
-    }
-}
+@media (min-width: 900px) { .form-cursos { padding: 0 2.6em; } }
 
-@media (min-width: 1150px) {
-    .form-cursos {
-        padding: 0 3.8em;
-    }
-}
+@media (min-width: 1150px) { .form-cursos { padding: 0 3.8em; } }
 
-@media (min-width: 1600px) {
-    .form-cursos {
-        padding: 0 4.6em;
-    }
-}
+@media (min-width: 1600px) { .form-cursos { padding: 0 4.6em; } }
 
-@media (min-width: 1870px) {
-    .form-cursos {
-        padding: 0 5.8em;
-    }
-}
+@media (min-width: 1870px) { .form-cursos { padding: 0 5.8em; } }
 
-@media (min-width: 2280px) {
-    .form-cursos {
-        padding: 0 6.6em;
-    }
-}
+@media (min-width: 2280px) { .form-cursos { padding: 0 6.6em; } }
 
-@media (min-width: 2530px) {
-    .form-cursos {
-        padding: 0 7.4em;
-    }
-}
+@media (min-width: 2530px) { .form-cursos { padding: 0 7.4em; } }
 
-@media (min-width: 768px) {
-    .form-cursos .content-form {
-        width: 90%;
-        margin: auto;
-    }
-}
+@media (min-width: 768px) { .form-cursos .content-form { width: 90%; margin: auto; } }
 
-@media (min-width: 950px) {
-    .form-cursos .content-form {
-        width: 70%;
-    }
-}
+@media (min-width: 950px) { .form-cursos .content-form { width: 70%; } }
 
 .form-cursos .content-form label {
     color: #828282;
@@ -99,8 +58,9 @@
 
 .form-cursos .content-form .first-form {
     padding: 1em 1.5em;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
 }
+
+@media (min-width: 768px) { .form-cursos .content-form .first-form { box-shadow: 0 4px 4px rgba(0,0,0,0.25); } }
 
 .form-cursos .content-form .first-form .title-course {
     display: flex;
@@ -324,9 +284,15 @@
 
 .form-cursos .content-form .second-form,
 .form-cursos .content-form .third-form {
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
     padding: 1em 1.5em;
     margin-top: 1em;
+}
+
+@media (min-width: 768px) {
+    .form-cursos .content-form .second-form,
+    .form-cursos .content-form .third-form {
+        box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    }
 }
 
 .form-cursos .content-form .second-form .all-trainer h5 {

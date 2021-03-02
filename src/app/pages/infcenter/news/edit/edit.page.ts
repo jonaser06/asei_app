@@ -19,19 +19,31 @@ export class EditPage implements OnInit {
   texto : any;
   seccion : any;
   link : any;
+  link_ : any;
   fecha_publicacion : any;
   hora_publicacion: any;
   fileToUploadstat: any;
   imagestat: any;
 
+  links : any[];
+
   constructor( public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) {
     this.get_newsid();
+    this.links = [];
+    this.link_ = ''
   }
 
   ngOnInit() {
   }
 
-  
+  addlink(){
+    if(this.link.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se puede agregar un enlace vacio');
+    this.links.push(this.link);
+    this.link='';
+  }
+  removelink(item){
+    this.links = this.links.filter(e=>e !== item)
+  }
 
   get_newsid(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -41,7 +53,8 @@ export class EditPage implements OnInit {
       
       this.titulo = resp.data.titulo;
       this.resumen = resp.data.resumen;
-      this.link = resp.data.link;
+      // this.link = resp.data.link;
+      this.links = resp.data.link.split(',');
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
       this.fecha_publicacion = resp.data.fecha_publicacion;
       this.hora_publicacion = resp.data.hora_publicacion;
@@ -65,11 +78,18 @@ export class EditPage implements OnInit {
   }
 
   editNews(fNews: NgForm){
+    let coma = '';
+    this.links.forEach((e, i) => {
+      if(i != 0) { coma = ','}
+      this.link_ += coma + e;
+    });
+    // console.log(this.link_);
+    // return;
     // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
     if(!this.texto) return this.uiserviceService.alert_info('Es necesario el texto');
-    if(!this.link) return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
+    if(this.link_.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario la direccion de enlace');
     if(!this.fecha_publicacion) return this.uiserviceService.alert_info('Es necesario la fecha de publicacion');
     if(!this.hora_publicacion) return this.uiserviceService.alert_info('Es necesario la hora de publicacion');
 
@@ -82,7 +102,7 @@ export class EditPage implements OnInit {
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('hora_publicacion', this.hora_publicacion);
     formdata.append('seccion', 'noticias');
-    formdata.append('link', this.link);
+    formdata.append('link', this.link_);
     formdata.append("file", this.fileToUploadstat);
 
     this.infcenterService.update_infcenterNews(formdata, id)

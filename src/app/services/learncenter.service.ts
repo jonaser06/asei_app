@@ -12,7 +12,7 @@ export class LearncenterService {
 
   constructor(private http: HttpClient) { }
 
-    /* Cursos */
+  /* Cursos */
   get_learncenterCursos(page = 1, input = '',limit = 9){
     return new Promise (resolve => {
       this.http.get(`${URL}/learn/cursos?page=${page}&limit=${limit}&search=${input}`) 
@@ -67,7 +67,6 @@ export class LearncenterService {
     });
   }
 
-  
   delete_learncenterCursos(id,section){
     return new Promise ( resolve => {
       this.http.get(`${URL}/learn/${section}/${id}/delete`) 
@@ -146,5 +145,58 @@ export class LearncenterService {
     });
   }
 
+  /* Webinnars */
+  get_webinnars(page = 1, input = '',limit = 9){
+    return new Promise (resolve => {
+      this.http.get(`${URL}/learn/webinnars?page=${page}&limit=${limit}&search=${input}`) 
+      .subscribe( resp =>{
+        console.log();
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  get_webinnars_id(id){
+    return new Promise ( resolve =>{
+      this.http.get(`${URL}/learn/webinnars/${id}`)
+      .subscribe( resp =>{
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  update_webinnars(tipo, id, formdata){
+    return new Promise ( resolve => {
+      this.http.post(`${URL}/learn/${tipo}/${id}`, formdata)
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
+
+  delete_webinnars(id,section){
+    return new Promise ( resolve => {
+      this.http.get(`${URL}/learn/${section}/${id}/delete`) 
+      .subscribe( resp => {
+        if(resp['status']){
+          resolve(resp);
+        }else{
+          resolve(resp);
+        }
+      });
+    });
+  }
 
 }

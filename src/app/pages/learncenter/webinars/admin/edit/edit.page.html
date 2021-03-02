@@ -1,0 +1,105 @@
+<ion-content class="content-section">
+  <div class="layout-section">
+    <div class="container">
+        <div class="row-actions-top">
+            <div class="title-section-container">
+              <div class="title-arrow">
+                <!-- Flecha a la izquierda -->
+                <div class="left-arrow" (click)="volverCursos()">
+                  <ion-icon name="arrow-back-outline"></ion-icon>
+                </div>
+
+                <div class="title">
+                  <h3 class="title-section color-news">Crear Curso</h3>
+                  <p class="subtitle-section color-news">Completa la información correspondiente al curso</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-grid class="section-grid">
+      <div class="form-cursos"> 
+        <form action="" class="content-form">
+          <div class="first-form">
+            <div class="subtitle">
+              <h4>Datos del curso</h4>
+            </div>
+
+            <div class="title-course">
+              <label for="title-course">Título del curso</label>
+              <input type="text" class="form-control title-course-tx" aria-describedby="basic-addon1" value="{{ info_curso?.titulo }}">
+            </div>
+  
+            <div class="summary">
+              <label for="summary-course">Resumen del curso</label>
+              <textarea class="form-control summary-course" aria-label="With textarea" value="{{ info_curso?.resumen }}"></textarea>
+            </div>
+  
+            <div class="objective">
+              <label for="objective-course">Objetivo del curso</label>
+              <textarea class="form-control objective-course" aria-label="With textarea" value="{{ info_curso?.objetivo }}"></textarea>
+            </div>
+            
+
+            <div class="duration">
+              <div class="label">
+                <label for="time-course">Duración</label>
+              </div>
+              <div class="time">
+                <input type="time" id="time-course" class="duracion" value="{{ info_curso?.duracion }}">
+                <p>Horas</p>
+              </div>
+            </div>
+
+            <p class="foto">Seleccione imagen</p>
+            <div class="img-course">
+              <div class="content-img">
+                <img src="{{ coursesrc }}" alt="">
+              </div>
+              
+              <div class="image">
+                <p>Seleccione imagen</p>
+                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="img_course($event)">
+              </div>
+            </div>
+          </div>
+
+          <div class="second-form">
+
+            <div class="subtitle second-subtitle">
+              <h4>Datos del capacitador(es)</h4>
+            </div>
+            <hr>
+            <app-trainer (trainer)="add_trainer($event);" (imagfile)="add_image($event);"></app-trainer>
+
+            <div class="addtrainer">
+              <app-trainer-get *ngFor="let item of trainer; index as i;" [trainer]="item" [index]="i" (indx)="rmv_btn_trainer($event)"></app-trainer-get>
+            </div>
+            
+          </div>
+
+          <div class="third-form">
+            <div class="subtitle third-subtitle">
+              <h4>Sesiones</h4>
+            </div>
+
+            <app-sesion (sesion)="add_sesion($event);"></app-sesion>
+
+            <div class="addsesion">
+              <app-sesion-get *ngFor="let item of sesion; index as i;" [sesion]="item" [index]="i" (indx)="rmv_btn_sesion($event)"></app-sesion-get>
+            </div>
+
+            <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
+
+          </div>
+
+          <div class="content-btn">
+            <button type="button" class="btn btn-lg btn-primary" (click)="add_course();">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </ion-grid>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

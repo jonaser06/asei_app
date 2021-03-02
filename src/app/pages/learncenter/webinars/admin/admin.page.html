@@ -1,86 +1,45 @@
 <ion-content class="content-section">
-  <div class="layout-section">
-      <div class="container">
-          <div class="row-actions-top">
-              <div class="title-section-container">
-                <div class="title-arrow">
-                  <!-- Flecha a la izquierda -->
-                  <div class="left-arrow" (click)="volverWebinars()">
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                  </div>
-  
-                  <div class="title">
-                    <h3 class="title-section color-news">Webinars</h3>
-                    <p class="subtitle-section color-news">Todos los webinars de ASEI</p>
-                  </div>
-                </div>
+  <ion-row>
+    <ion-col size="12" size-lg="6" class="header-course left-header">
+      <div class="title-section-container">
+        <div class="title-arrow">
+          <ion-row>
+            <ion-col size="1">
+              <!-- Flecha a la izquierda -->
+              <div class="left-arrow" (click)="volverCursos()">
+                <ion-icon name="arrow-back-outline"></ion-icon>
               </div>
-          </div>
-
-          <!-- Admin -->
-          <div class="actions-page no-web">
-            <button class="btn-new-item" (click)="iraCrear()">
-                <span>Nuevo Webinar</span>
-                <ion-icon class="icon-btn" name="add"></ion-icon>
-            </button>
-          </div>   
+            </ion-col>
+            <ion-col>
+              <div class="title">
+                <h3 class="title-section color-news">Webinnars</h3>
+                <p class="subtitle-section color-news">Todos los Webinnars de ASEI</p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </div>
       </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12" size-lg="7" class="header-course left-header">
+      <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
+    </ion-col>
+    <ion-col size="12" size-lg="5" class="header-course right-header">
+      <ion-button expand="block" class="crear_curso" (click)="iraCrear()">Nuevo Webinnar <ion-icon name="add-circle" class="more-icon"></ion-icon></ion-button>
+    </ion-col>
+  </ion-row>
+
+  <div class="layout-section">
 
       <ion-grid class="section-grid">
         <div class="courses">
-          <div class="news-courses">
-            <div class="content-search">
-              <!-- no-user es para admin, user es para usuario -->
-              <div class="input-search no-user">
-                <input type="search" name="" id="" placeholder="Buscar webinar por nombre">
-                <ion-icon class="search-btn" name="search-outline"></ion-icon>
-              </div>
-    
-    
-              <div class="actions-page no-mobil">
-                <button class="btn-new-item" (click)="iraCrear()">
-                    <span>Nuevo Webinar</span>
-                    <ion-icon class="icon-btn" name="add-circle"></ion-icon>
-                </button>
-              </div>   
-            </div>
-
-          </div>
-
-          <ion-grid class="section-grid">
-            <ion-row>
-                <ion-col size-xl="4" size-lg="4" size-md="6" size-sm="12" size-xs="12" *ngFor="let webinar of webinars_data">
-                  <div class="new-card">
-                  <div class="card-1 card-content">
-                    <div class="content-img">
-                      <img src="{{URL_BASE}}/{{webinar.imagenes[0].RUTA}}" alt="">
-                    </div>
-      
-                    <div class="content-info">
-                      <h5>{{webinar.titulo}}</h5>
-      
-                      <div class="info-description">
-                        <p>Dictado por {{webinar.capacitadores[0].nombre}}</p>
-      
-                        <!-- Admin -->
-                         <div class="admin-edit" >
-                          <div class="pencil-btn" (click)="updateWebinar(webinar)">
-                            <ion-icon name="pencil-outline"></ion-icon>
-                          </div>
-      
-                          <div class="delete-btn" (click)="deleteWebinar(webinar)">
-                            <ion-icon name="trash"></ion-icon>
-                          </div>
-                        </div> 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                    <!-- <app-stat-card (editItemEv)="editStat($event)" (deleteItemEv)="removeStat($event)" [card_child]="statistics" (imgFile)="donwloadstat_($event)"></app-stat-card> -->
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-
+          <ion-row>
+            <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CursosData?.contenido">
+              <app-card-cursos [visible]="visible" [cursos_child]="item" (idCursos)="openCursos_($event)" (idCursosE)="editCursos_($event)" (idCursosR)="removeCursos_($event)"></app-card-cursos>
+            </ion-col>
+          </ion-row>
           <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 
         </div> 

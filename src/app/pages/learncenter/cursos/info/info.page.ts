@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
 import { AuthService } from 'src/app/services/auth.service';
-
 import { RedireccionService } from '../../../../services/redireccion.service';
 import { LearncenterService } from '../../../../services/learncenter.service';
 import { environment } from 'src/environments/environment';

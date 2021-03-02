@@ -13,29 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
-    path: 'crear/:id',
-    loadChildren: () => import('./crear/crear.module').then( m => m.CrearPageModule)
-  },
-  {
-    path: 'info',
+    path: 'info/:id',
     loadChildren: () => import('./info/info.module').then( m => m.InfoPageModule)
-  },
-  {
-    path: 'finish',
-    loadChildren: () => import('./finish/finish.module').then( m => m.FinishPageModule)
-  },
-  {
-    path: 'keep',
-    loadChildren: () => import('./keep/keep.module').then( m => m.KeepPageModule)
-  },
-  {
-    path: 'news',
-    loadChildren: () => import('./news/news.module').then( m => m.NewsPageModule)
-  },
-  {
-    path: 'edit',
-    loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
   }
+
 ];
 
 @NgModule({

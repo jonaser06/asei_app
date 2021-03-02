@@ -10,15 +10,21 @@ import { Router } from '@angular/router';
 })
 export class BuscadorComponent implements OnInit {
 
+  location : any;
 
   @Output() buscatxt = new EventEmitter();
-  constructor(private router: Router,private redireccionService: RedireccionService) { }
+
+  constructor(private router: Router,private redireccionService: RedireccionService) { 
+    
+  }
 
   ngOnInit() {}
 
-  search(){
-    let input = (<HTMLInputElement>document.querySelector('.buscatxt')).value;
-    this.buscatxt.emit(input);
+ 
+
+  onSearchChange(event){
+    let key = event.detail.value;
+    this.buscatxt.emit(key);
   }
   
   createSection(){
