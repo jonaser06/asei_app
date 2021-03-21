@@ -12,30 +12,36 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 })
 export class CreatePage implements OnInit {
 
-   /*nueva Feria */
-   titulo : any;
-   resumen : any;
-   texto : any;
-   // seccion : any;
-   fecha_publicacion: any;
-   hora_publicacion: any;
-   fecha_inicio : any;
-   fecha_fin : any;
-   hora_inicio: any;
-   hora_fin: any;
-   fileToUploadstat: any;
-   imagestat: any;
-   link: any;
-   link_: any;
-   links: any[];
+  /*nueva Feria */
+  titulo : any;
+  resumen : any;
+  texto : any;
+  // seccion : any;
+  fecha_publicacion: any;
+  hora_publicacion: any;
+  fecha_inicio : any;
+  fecha_fin : any;
+  hora_inicio: any;
+  hora_fin: any;
+  fileToUploadstat: any;
+  imagestat: any;
+  link: any;
+  link_: any;
+  links: any[];
 
-
+  noti: any;
   constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService) { 
     this.links = [];
     this.link_ = ''
   }
 
   ngOnInit() {
+  }
+
+  /* toggle notificacion */
+  notificacion(event){
+    this.noti = event
+    console.log(this.noti);
   }
 
   addlink(){
@@ -94,6 +100,11 @@ export class CreatePage implements OnInit {
     formdata.append('link', this.link_);
     formdata.append('seccion', 'ferias');
     formdata.append("files[]", this.fileToUploadstat);
+
+    if(this.noti){
+      formdata.append('notificacion',`{ message: 'Se publico la Feria:  ${this.titulo}', type:'fairs' }`);
+      console.log(`{ message: 'Se publico la Feria:  ${this.titulo}', type:'fairs' }`);
+    }
 
     this.infcenterService.create_infcenterNews(formdata)
     .then(resp=>{ 

@@ -85,19 +85,9 @@
           </div>
         </div>
       </div>
-
       
+      <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
 
-      <!-- <div class="link-active">
-        <label for="active-note">Esta nota se vinculará con el calendario</label>
-        <input type="checkbox" name="" id="active-note">
-        <label class="check-note" for="active-note"></label>
-      </div> -->
-      <div class="link-active">
-          <label for="active-note-2">Enviar notificaciones push</label>
-          <input type="checkbox" name="" id="active-note-2">
-          <label class="check-note" for="active-note-2"></label>
-      </div>
       <div class="btn-create">
         <div>
             <input value="Volver" class="btn-return_" (click)="volvernews()">

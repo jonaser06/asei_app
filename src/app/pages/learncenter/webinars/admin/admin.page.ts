@@ -83,4 +83,8 @@ export class AdminPage implements OnInit {
     });
   }
 
+  openCursos_(ID_CO){
+    this.redireccionService.redireccion('/tabs/learning-center/webinars/info/'+ID_CO);
+  }
+
 }

@@ -136,6 +136,11 @@ export class EditPage implements OnInit {
     formdata.append('objetivo', objectivecourse);
     formdata.append('duracion', duracion);
 
+    if(this.noti){
+      formdata.append('notificacion',`{ id: ${id}, message: 'El webinnar ${titlecourse} se actualizó', type:'cursos' }`);
+      console.log(`{ id: ${id}, message: 'El webinnar ${titlecourse} se actualizó', type:'cursos' }`);
+    }
+
     (!!this.imgcourse) && formdata.append('img_learn[]', this.imgcourse); 
 
     this.learncenterService.update_course('cursos', id, formdata)

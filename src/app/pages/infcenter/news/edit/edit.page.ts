@@ -27,6 +27,7 @@ export class EditPage implements OnInit {
 
   links : any[];
 
+  noti: any;
   constructor( public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) {
     this.get_newsid();
     this.links = [];
@@ -34,6 +35,12 @@ export class EditPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  /* toggle notificacion */
+  notificacion(event){
+    this.noti = event
+    console.log(this.noti);
   }
 
   addlink(){
@@ -104,6 +111,11 @@ export class EditPage implements OnInit {
     formdata.append('seccion', 'noticias');
     formdata.append('link', this.link_);
     formdata.append("file", this.fileToUploadstat);
+
+    if(this.noti){
+      formdata.append('notificacion',`{ id: ${id}, message: 'Se actualizo la noticia:  ${this.titulo}', type:'news' }`);
+      console.log(`{ id: ${id}, message: 'Se actualizo la noticia:  ${this.titulo}', type:'news' }`);
+    }
 
     this.infcenterService.update_infcenterNews(formdata, id)
     .then(resp=>{ 

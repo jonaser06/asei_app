@@ -90,6 +90,11 @@ export class CrearPage implements OnInit {
     /* cursos, */
     formdata.append('seccion', 'cursos');
 
+    if(this.noti){
+      formdata.append('notificacion',`{ message: 'Se publico un el curso  ${titlecourse}', type:'cursos' }`);
+      console.log(`{ message: 'Se publico un el curso  ${titlecourse}', type:'cursos' }`);
+    }
+
     for(let i = 0 ; i < this.trainer.length ; i++){
       formdata.append('cap_nombres[]', this.trainer[i]['nombre']);
       formdata.append('cap_resumen[]', this.trainer[i]['resumen']);

@@ -81,10 +81,10 @@ export class AuthService {
     return new Promise<boolean>( resolve =>{
       this.storage.get('UserData').then((val)=>{
         if(val){
-          val = JSON.parse(val);
-          resolve(true);
+          // val = JSON.parse(val);
+          resolve(val);
         }else{
-          this.navCtrol.navigateRoot('/login', { animated : true } ); 
+          // this.navCtrol.navigateRoot('/login', { animated : true } ); 
           resolve(false);
         }
       })

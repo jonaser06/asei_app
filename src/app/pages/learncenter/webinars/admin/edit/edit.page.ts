@@ -80,6 +80,10 @@ export class EditPage implements OnInit {
       console.log(resp);
     });
     this.sesion.push(event);
+    if( this.sesion.length == 1 ){
+      (document.querySelector('.sesion_w') as HTMLElement).style.display = 'none';
+    }
+    console.log('longitud: '+this.sesion.length);
   }
   rmv_btn_sesion(event){
     this.ID_SE = event.ID_SE;
@@ -88,6 +92,9 @@ export class EditPage implements OnInit {
       console.log(resp);
     });
     this.sesion.splice(event.index, 1);
+    if( this.sesion.length < 1 ){
+      (document.querySelector('.sesion_w') as HTMLElement).style.display = 'block';
+    }
   }
 
   /* toggle notificacion */
@@ -108,7 +115,9 @@ export class EditPage implements OnInit {
         return {...trainer, foto }
       });
       this.sesion = resp.data.sesiones;
-      console.log(this.info_curso);
+      if( this.sesion.length == 1 ){
+        (document.querySelector('.sesion_w') as HTMLElement).style.display = 'none';
+      }
     })
     .catch();
   }
@@ -135,6 +144,11 @@ export class EditPage implements OnInit {
     formdata.append('resumen', summarycourse);
     formdata.append('objetivo', objectivecourse);
     formdata.append('duracion', duracion);
+
+    if(this.noti){
+      formdata.append('notificacion',`{ id: ${id}, message: 'El webinnar ${titlecourse} se actualizó', type:'webinnars' }`);
+      console.log(`{ id: ${id}, message: 'El webinnar ${titlecourse} se actualizó', type:'webinnars' }`);
+    }
 
 
     (!!this.imgcourse) && formdata.append('img_learn[]', this.imgcourse); 

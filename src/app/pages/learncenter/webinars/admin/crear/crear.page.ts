@@ -88,6 +88,11 @@ export class CrearPage implements OnInit {
     /* webinars */
     formdata.append('seccion', 'webinnars');
 
+    if(this.noti){
+      formdata.append('notificacion',`{ message: 'Se publico un el webinnar ${titlecourse}', type:'webinnars' }`);
+      console.log(`{ message: 'Se publico un el webinnar ${titlecourse}', type:'webinnars' }`);
+    }
+
     for(let i = 0 ; i < this.trainer.length ; i++){
       formdata.append('cap_nombres[]', this.trainer[i]['nombre']);
       formdata.append('cap_resumen[]', this.trainer[i]['resumen']);

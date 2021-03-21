@@ -84,7 +84,7 @@
               <h4>Sesiones</h4>
             </div>
 
-            <app-sesion (sesion)="add_sesion($event);"></app-sesion>
+            <app-sesion class="sesion_w" (sesion)="add_sesion($event);"></app-sesion>
 
             <div class="addsesion">
               <app-sesion-get *ngFor="let item of sesion; index as i;" [sesion]="item" [index]="i" (indx)="rmv_btn_sesion($event)"></app-sesion-get>

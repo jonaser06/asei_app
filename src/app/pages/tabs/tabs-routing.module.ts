@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsuarioGuard } from 'src/app/guards/usuario.guard';
 
 import { TabsPage } from './tabs.page';
 import { LearncenterPageModule } from '../learncenter/learncenter.module';

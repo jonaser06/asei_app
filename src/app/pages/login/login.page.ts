@@ -16,16 +16,15 @@ export class LoginPage implements OnInit {
     password: ''
   };
 
-  constructor( private authService: AuthService, private navCtrol : NavController, private uiserviceService: UiServiceService) { ;
-  }
-
-  ngOnInit() {
-    /* sesion */
+  constructor( private authService: AuthService, private navCtrol : NavController, private uiserviceService: UiServiceService) { 
     this.authService.valida_user()
     .then(resp=>{
       if(resp) this.navCtrol.navigateRoot('tabs/infcenter', { animated : true } );
     })
     .catch()
+  }
+
+  ngOnInit() {
   }
 
   

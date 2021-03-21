@@ -7,12 +7,13 @@
 }
 
 .containerimg{
-    display: inline-block;
+    display: block;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     background: #fff;
     overflow: hidden;
+    margin: auto;
 }
 .containerimg img{
     width: 100%;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { RedireccionService } from '../../services/redireccion.service';
 
 @Component({
@@ -8,13 +9,20 @@ import { RedireccionService } from '../../services/redireccion.service';
 })
 export class InfCenterPage implements OnInit {
 
-  constructor( private redireccionService : RedireccionService) { }
+  constructor( private redireccionService : RedireccionService, private authService: AuthService) { 
+    // this.redirect_login();
+    this.authService.valida_user().then((r)=>{
+      if(!r) this.redirect_login();
+    })
+  }
 
   ngOnInit() {
     
   }
 
-  //redireccionamiento de secciones
+  redirect_login(){
+    this.redireccionService.redireccion('/login');
+  }
   noticias(){
     this.redireccionService.redireccion('/tabs/infcenter/news')
   }
