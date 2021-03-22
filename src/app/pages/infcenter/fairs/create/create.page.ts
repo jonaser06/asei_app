@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AngularDelegate } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { RedireccionService } from '../../../../services/redireccion.service';
@@ -30,9 +31,13 @@ export class CreatePage implements OnInit {
   links: any[];
 
   noti: any;
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService) { 
+  idus: any;
+  constructor(public authService: AuthService, private infcenterService: InfcenterService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService) { 
     this.links = [];
     this.link_ = ''
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
   }
 
   ngOnInit() {
@@ -102,7 +107,7 @@ export class CreatePage implements OnInit {
     formdata.append("files[]", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion','{ "message": "Se publicó la Feria:  '+this.titulo+'", "type":"fairs" }');
+      formdata.append('notificacion','{ "message": "Se publicó la Feria:  '+this.titulo+'", "type":"fairs", "idus":"'+this.idus+'" }');
       console.log(`{ message: 'Se publico la Feria:  ${this.titulo}', type:'fairs' }`);
     }
 

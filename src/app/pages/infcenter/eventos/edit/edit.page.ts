@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
@@ -32,8 +33,12 @@ export class EditPage implements OnInit {
   link_: any;
 
   noti: any;
-  constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
+  idus: any;
+  constructor(public authService: AuthService, public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
     this.get_eventosid();
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
     this.links = [];
     this.link_ = ''
   }
@@ -129,7 +134,7 @@ export class EditPage implements OnInit {
     formdata.append("file", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el evento: '+this.titulo+'", "type":"eventos" }');
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el evento: '+this.titulo+'", "type":"eventos", "idus":"'+this.idus+'" }');
       console.log(`{ id: ${id}, message: 'Se actualizo el evento:  ${this.titulo}', type:'eventos' }`);
     }
 

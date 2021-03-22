@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { RedireccionService } from '../../../../services/redireccion.service';
 import { InfcenterService } from '../../../../services/infcenter.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create',
@@ -26,9 +27,13 @@ export class CreatePage implements OnInit {
   links : any[];
 
   noti: any;
-  constructor( private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
+  idus: any;
+  constructor( public authService: AuthService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
     this.links = [];
     this.link_ = ''
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
   }
 
   ngOnInit() {
@@ -88,7 +93,7 @@ export class CreatePage implements OnInit {
     formdata.append("files[]", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion','{ "message": "Se publicó la noticia:  '+this.titulo+'", "type":"news" }');
+      formdata.append('notificacion','{ "message": "Se publicó la noticia:  '+this.titulo+'", "type":"news", "idus":"'+this.idus+'" }');
       console.log(`{ message: 'Se publico la noticia:  ${this.titulo}', type:'news' }`);
     }
 

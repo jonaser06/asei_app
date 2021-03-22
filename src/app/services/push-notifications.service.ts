@@ -55,11 +55,11 @@ export class PushNotificationsService {
   }
 
   not_booble(){
-    this.nn_bubble.emit('{"notification":false}');
+    this.nn_bubble.emit('{"notification":false}'); 
   }
 
   save_notification(payload){
-
+    console.log('guardando.')
     this.http.post(`${URL}/setNotification`, payload)
     .subscribe( resp => {
       console.log("respuesta del api");

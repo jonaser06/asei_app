@@ -5,6 +5,7 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 import { InfcenterService } from '../../../../services/infcenter.service';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edit',
@@ -28,8 +29,12 @@ export class EditPage implements OnInit {
   links : any[];
 
   noti: any;
-  constructor( public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) {
+  idus: any;
+  constructor( public authService: AuthService, public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) {
     this.get_newsid();
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
     this.links = [];
     this.link_ = ''
   }
@@ -113,7 +118,7 @@ export class EditPage implements OnInit {
     formdata.append("file", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó la noticia: '+this.titulo+'", "type":"news" }');
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó la noticia: '+this.titulo+'", "type":"news", "idus":"'+this.idus+'"}');
       console.log(`{ id: ${id}, message: 'Se actualizo la noticia:  ${this.titulo}', type:'news' }`);
     }
 
