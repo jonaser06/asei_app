@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { InfcenterService } from '../../../services/infcenter.service';
+import { RedireccionService } from '../../../services/redireccion.service';
 
 @Component({
   selector: 'app-calendario',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarioPage implements OnInit {
 
-  constructor() { }
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+  }
+
+  volverInfo(){
+    
+    this.redireccionService.backpage();
   }
 
 }
