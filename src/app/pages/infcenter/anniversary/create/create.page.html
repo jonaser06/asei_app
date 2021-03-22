@@ -95,37 +95,32 @@
                     </div>
                 </div>
 
-        
-                
-                <div class="link-active">
-                    <label for="active-note">Enviar notificaciones push</label>
-                    <input type="checkbox" name="" id="active-note">
-                    <label class="check-note" for="active-note"></label>
-                </div>
-                <div class="link-active">
+                <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
+
+                <!-- <div class="link-active">
                     <label for="active-note-2">Vincular con el calendario</label>
                     <input type="checkbox" name="" id="active-note-2">
                     <label class="check-note" for="active-note-2"></label>
-                </div>
+                </div> -->
 
-                <div class="content-date-admin-2">
+                <!-- <div class="content-date-admin-2">
                     <div class="date">
                       <label for="date-note-3">Fecha calendario</label>
                       <input type="date" name="" id="date-note-3">
                     </div>
-                  </div>
+                </div>
           
-                  <div class="content-date-admin">
-                    <div class="date">
-                      <label for="date-note-4">Hora inicio calendario</label>
-                      <input type="time" name="" id="date-note-4">
-                    </div>
-          
-                    <div class="date">
-                      <label for="date-note-5">Hora fin calendario</label>
-                      <input type="time" name="" id="date-note-5">
-                    </div>
+                <div class="content-date-admin">
+                  <div class="date">
+                    <label for="date-note-4">Hora inicio calendario</label>
+                    <input type="time" name="" id="date-note-4">
                   </div>
+        
+                  <div class="date">
+                    <label for="date-note-5">Hora fin calendario</label>
+                    <input type="time" name="" id="date-note-5">
+                  </div>
+                </div> -->
 
                 <div class="btn-create">
                     <div class="btn-return">

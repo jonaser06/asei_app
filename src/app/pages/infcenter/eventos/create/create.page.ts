@@ -29,12 +29,19 @@ export class CreatePage implements OnInit {
     link_: any;
     links: any[];
 
+    noti: any;
   constructor(private redireccionService: RedireccionService, private infcenterService: InfcenterService, private uiserviceService: UiServiceService) { 
     this.links = [];
     this.link_ = ''
   }
 
   ngOnInit() {
+  }
+
+  /* toggle notificacion */
+  notificacion(event){
+    this.noti = event
+    console.log(this.noti);
   }
 
   addlink(){
@@ -93,6 +100,11 @@ export class CreatePage implements OnInit {
     formdata.append('link', this.link_);
     formdata.append('seccion', 'eventos');
     formdata.append("files[]", this.fileToUploadstat);
+
+    if(this.noti){
+      formdata.append('notificacion','{"message": "Se publicó el evento: '+this.titulo+'", "type":"eventos" }');
+      console.log(`{ message: 'Se publico el evento:  ${this.titulo}', type:'eventos' }`);
+    }
 
     this.infcenterService.create_infcenterNews(formdata)
     .then(resp=>{ 

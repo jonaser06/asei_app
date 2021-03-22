@@ -113,7 +113,7 @@ export class EditPage implements OnInit {
     formdata.append("file", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion',`{ id: ${id}, message: 'Se actualizo la noticia:  ${this.titulo}', type:'news' }`);
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó la noticia: '+this.titulo+'", "type":"news" }');
       console.log(`{ id: ${id}, message: 'Se actualizo la noticia:  ${this.titulo}', type:'news' }`);
     }
 

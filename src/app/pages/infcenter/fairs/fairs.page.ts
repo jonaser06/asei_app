@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { RedireccionService } from '../../../services/redireccion.service';
-import { environment } from '../../../../environments/environment.prod';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-fairs',

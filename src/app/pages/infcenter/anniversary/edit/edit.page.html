@@ -96,22 +96,14 @@
           <img src="{{ imagestat }}" alt="">
         </div>
 
-        <!-- <div class="link-active">
-          <label for="active-note">Esta nota se vinculará con el calendario</label>
-          <input type="checkbox" name="" id="active-note">
-          <label class="check-note" for="active-note"></label>
-        </div> -->
+        <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
 
-        <div class="link-active">
+        <!-- <div class="link-active">
             <label for="active-note">Esta publicación se vinculará con el calendario</label>
             <input type="checkbox" name="" id="active-note">
             <label class="check-note" for="active-note"></label>
-        </div>
-        <div class="link-active">
-            <label for="active-note-2">Se enviara a notificación push por esta publicación</label>
-            <input type="checkbox" name="" id="active-note-2">
-            <label class="check-note" for="active-note-2"></label>
-        </div>
+        </div> -->
+        
         <div class="btn-create">
           <div class="btn-return">
             <!-- <button (click)="volverFerias()">Volver</button> -->

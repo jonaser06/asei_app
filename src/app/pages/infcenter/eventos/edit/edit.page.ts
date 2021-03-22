@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-edit',
@@ -13,24 +13,25 @@ import { environment } from '../../../../../environments/environment.prod';
 })
 export class EditPage implements OnInit {
 
-   /* editar eventos */
-   titulo : any;
-   resumen : any;
-   texto : any;
-   // seccion : any;
-   fecha_publicacion: any;
-   hora_publicacion: any;
-   fecha_inicio : any;
-   fecha_fin : any;
-   hora_inicio : any;
-   hora_fin : any;
-   fileToUploadstat: any;
-   imagestat: any;
-   link: any;
+  /* editar eventos */
+  titulo : any;
+  resumen : any;
+  texto : any;
+  // seccion : any;
+  fecha_publicacion: any;
+  hora_publicacion: any;
+  fecha_inicio : any;
+  fecha_fin : any;
+  hora_inicio : any;
+  hora_fin : any;
+  fileToUploadstat: any;
+  imagestat: any;
+  link: any;
 
-   links: any[];
-   link_: any;
+  links: any[];
+  link_: any;
 
+  noti: any;
   constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
     this.get_eventosid();
     this.links = [];
@@ -38,6 +39,13 @@ export class EditPage implements OnInit {
   }
   ngOnInit() {
   }
+
+  /* toggle notificacion */
+  notificacion(event){
+    this.noti = event
+    console.log(this.noti);
+  }
+
   addlink(){
     if(this.link.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('No se puede agregar un enlace vacio');
     this.links.push(this.link);
@@ -119,6 +127,11 @@ export class EditPage implements OnInit {
     formdata.append('link', this.link_);
     formdata.append('seccion', 'eventos');
     formdata.append("file", this.fileToUploadstat);
+
+    if(this.noti){
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el evento: '+this.titulo+'", "type":"eventos" }');
+      console.log(`{ id: ${id}, message: 'Se actualizo el evento:  ${this.titulo}', type:'eventos' }`);
+    }
 
     this.infcenterService.update_infcenterEventos (formdata, id)
     .then(resp=>{ 

@@ -105,17 +105,16 @@
                             <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
                         </div>
                     </div>
-                </div>    
-                <div class="link-active">
+                </div>  
+
+                <!-- <div class="link-active">
                     <label for="active-note">Vincular con el calendario</label>
                     <input type="checkbox" name="" id="active-note">
                     <label class="check-note" for="active-note"></label>
-                </div>
-                <div class="link-active">
-                    <label for="active-note-2">Enviar notificaciones push</label>
-                    <input type="checkbox" name="" id="active-note-2">
-                    <label class="check-note" for="active-note-2"></label>
-                </div>
+                </div> -->
+                
+                <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
+
                 <div class="btn-create">
                     <div class="btn-return">
                         <!-- <button (click)="volverEventos()">Volver</button> -->

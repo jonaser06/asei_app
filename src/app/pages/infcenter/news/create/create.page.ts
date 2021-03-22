@@ -88,7 +88,7 @@ export class CreatePage implements OnInit {
     formdata.append("files[]", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion',`{ message: 'Se publico la noticia:  ${this.titulo}', type:'news' }`);
+      formdata.append('notificacion','{ "message": "Se publicó la noticia:  '+this.titulo+'", "type":"news" }');
       console.log(`{ message: 'Se publico la noticia:  ${this.titulo}', type:'news' }`);
     }
 

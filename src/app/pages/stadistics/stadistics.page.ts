@@ -142,7 +142,7 @@ export class StadisticsPage implements OnInit {
 
   nextSlide() {
     this.slides.slideNext();
-   }
+  }
 
   prevSlide() {
     this.slides.slidePrev();
@@ -169,6 +169,7 @@ export class StadisticsPage implements OnInit {
       this.yearstat = '';
     }
   }
+
   handleFileInput(event){
 
     this.fileToUploadstat = event.target.files[0];
@@ -184,6 +185,7 @@ export class StadisticsPage implements OnInit {
         this.imagestat = reader.result;
     };
   }
+
   adjuntfile(event){
     this.filebull = event.target.files[0];
     if(this.filebull.type.split("/", 2)[1] != "pdf"){
@@ -193,6 +195,7 @@ export class StadisticsPage implements OnInit {
     this.filebull_=this.filebull.name;
     console.log(this.filebull.name);
   }
+
   stat(fStat: NgForm){
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(this.titlestat.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
@@ -206,6 +209,9 @@ export class StadisticsPage implements OnInit {
     formdata.append('month', this.monthstat);
     formdata.append('year', this.yearstat);
     formdata.append('image', this.fileToUploadstat);
+
+    formdata.append('notificacion','{ "message": "Tienes una nueva estadistica:  '+this.titlestat+'", "type":"estadistica" }');
+    console.log(`{ message: 'Tienes una nueva estadistica:  ${this.titlestat}', type:'estadistica' }`);
 
     this.statisticsService.new_statistics(formdata)
     .then(resp=>{
@@ -236,6 +242,9 @@ export class StadisticsPage implements OnInit {
     formdata.append('description', this.descriptionstat);
     formdata.append('month', this.monthstat);
     formdata.append('year', this.yearstat);
+
+    formdata.append('notificacion','{ "message": "Se actualizo la estadistica:  '+this.titlestat+'", "type":"estadistica" }');
+
     if(this.fileToUploadstat!==undefined) formdata.append('image', this.fileToUploadstat);
 
     this.statisticsService.edit_statistics(formdata)
@@ -267,6 +276,7 @@ export class StadisticsPage implements OnInit {
     this.isEdited = false;
     this.fileToUploadstat=false;
   }
+
   editStat(objstat){
     this.id_stat = objstat.id;
     this.imagestat = environment.url + '/' + objstat.image;
@@ -278,6 +288,7 @@ export class StadisticsPage implements OnInit {
     this.isEdited = true;
     this.openDialogStat();
   }
+
   removeStat(id){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR GRÁFICO";
@@ -343,14 +354,16 @@ export class StadisticsPage implements OnInit {
     if( this.percentageind.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el porcentaje');
     if( this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
-    let formdatas = new FormData;
-    formdatas.append('id', this.id_ind);
-    formdatas.append('title', this.titleind);
-    formdatas.append('description', this.descriptionind);
-    formdatas.append('percentage', this.percentageind);
-    formdatas.append('type', this.typeind);
+    let formdata = new FormData;
+    formdata.append('id', this.id_ind);
+    formdata.append('title', this.titleind);
+    formdata.append('description', this.descriptionind);
+    formdata.append('percentage', this.percentageind);
+    formdata.append('type', this.typeind);
+    formdata.append('notificacion','{ "message": "Se actualizo el indicador:  '+this.titleind+'", "type":"indicador" }');
+    console.log(`{ message: 'Se actualizo el indicador:  ${this.titleind}', type:'indicador' }`);
 
-    this.indicadorService.edit_indicador(formdatas)
+    this.indicadorService.edit_indicador(formdata)
     .then(resp=>{
       this.closeDialogind();
       this.load_indicador();
@@ -422,13 +435,16 @@ export class StadisticsPage implements OnInit {
     if(this.percentageind.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
     if(this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
-    let formdatas = new FormData;
-    formdatas.append('title', this.titleind);
-    formdatas.append('description', this.descriptionind);
-    formdatas.append('percentage', this.percentageind);
-    formdatas.append('type', this.typeind);
+    let formdata = new FormData;
+    formdata.append('title', this.titleind);
+    formdata.append('description', this.descriptionind);
+    formdata.append('percentage', this.percentageind);
+    formdata.append('type', this.typeind);
 
-    this.indicadorService.new_indicador(formdatas)
+    formdata.append('notificacion','{ "message": "Tienes un nuevo indicador:  '+this.titleind+'", "type":"indicador" }');
+    console.log(`{ message: 'Tienes un nuevo indicador:  ${this.titleind}', type:'indicador' }`);
+
+    this.indicadorService.new_indicador(formdata)
     .then(resp=>{
       this.closeDialogind();
       this.load_indicador();
@@ -465,10 +481,12 @@ export class StadisticsPage implements OnInit {
       this.titlebull = '';
     }
   }
+
   closeDialogBulletin() {
     this.dialogBulletin = false;
     this.isEdited = false;
   }
+
   editBulletin(objbull){
     this.idbull = objbull.id;
     this.titlebull = objbull.title;
@@ -482,6 +500,7 @@ export class StadisticsPage implements OnInit {
     this.openDialogBulletin();
 
   }
+
   removeBulletin(id){
     this.openDialogRemove();
     this.titleDialogRemove = "ELIMINAR BOLETÍN";
@@ -521,6 +540,9 @@ export class StadisticsPage implements OnInit {
     formdata.append('year', this.yearbull);
     formdata.append('file', this.filebull);
 
+    formdata.append('notificacion','{ "message": "Se actualizo el boletin:  '+this.titlebull+'", "type":"boletin" }');
+    console.log(`{ message: 'Se actualizo el boletin:  ${this.titlebull}', type:'boletin' }`);
+
     this.bulletinService.edit_bulletin(formdata)
     .then(resp=>{ 
       this.closeDialogBulletin();
@@ -529,6 +551,7 @@ export class StadisticsPage implements OnInit {
     .catch();
 
   }
+
   bullet(fbullet: NgForm){
     if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
     if(this.monthbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
@@ -541,6 +564,9 @@ export class StadisticsPage implements OnInit {
     formdata.append('year', this.yearbull);
     formdata.append('file', this.filebull);
 
+    formdata.append('notificacion','{ "message": "Tienes un nuevo boletin:  '+this.titlebull+'", "type":"boletin" }');
+    console.log(`{ message: 'Tienes un nuevo boletin:  ${this.titlebull}', type:'boletin' }`);
+
     this.bulletinService.new_bulletin(formdata)
     .then(resp=>{ 
       this.closeDialogBulletin();
@@ -552,11 +578,11 @@ export class StadisticsPage implements OnInit {
   }
 
   //Indicadores
- 
   //Dialogo eliminar
   openDialogRemove() {
     this.dialogRemove = true;
   }
+
   closeDialogRemove() {
     this.dialogRemove = false;
   }

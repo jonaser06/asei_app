@@ -5,7 +5,7 @@ import { identity } from 'rxjs';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
-import { environment } from '../../../../../environments/environment.prod';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-edit',
@@ -32,6 +32,7 @@ export class EditPage implements OnInit {
   link_: any;
   links: any[];
 
+  noti: any;
   constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
     this.get_aniversariosid();
     this.links = [];
@@ -39,6 +40,12 @@ export class EditPage implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  /* toggle notificacion */
+  notificacion(event){
+    this.noti = event
+    console.log(this.noti);
   }
 
   addlink(){
@@ -114,6 +121,10 @@ export class EditPage implements OnInit {
     formdata.append('link', this.link_);
     formdata.append('seccion', 'aniversarios');
     formdata.append("file", this.fileToUploadstat);
+
+    if(this.noti){
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el aniversario: '+this.titulo+'", "type":"aniversarios" }');
+    }
 
     this.infcenterService.update_infcenterAniversarios(formdata , id)
     .then(resp=>{ 

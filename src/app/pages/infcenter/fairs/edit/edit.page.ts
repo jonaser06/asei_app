@@ -130,7 +130,7 @@ export class EditPage implements OnInit {
     formdata.append("file", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion',`{ id: ${id}, message: 'Se actualizo la Feria:  ${this.titulo}', type:'fairs' }`);
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó la Feria: '+this.titulo+'", "type":"fairs" }');
       console.log(`{ id: ${id}, message: 'Se actualizo la Feria:  ${this.titulo}', type:'fairs' }`);
     }
 

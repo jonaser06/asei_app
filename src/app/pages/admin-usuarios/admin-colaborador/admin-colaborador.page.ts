@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mockData } from "./mock/mockdata.testdata";
 import { UserService } from '../../../services/user.service';
-import { environment } from '../../../../environments/environment.prod';
+import { environment } from '../../../../environments/environment';
 import { RedireccionService } from '../../../services/redireccion.service';
 
 @Component({

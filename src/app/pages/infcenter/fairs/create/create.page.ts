@@ -102,7 +102,7 @@ export class CreatePage implements OnInit {
     formdata.append("files[]", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion',`{ message: 'Se publico la Feria:  ${this.titulo}', type:'fairs' }`);
+      formdata.append('notificacion','{ "message": "Se publicó la Feria:  '+this.titulo+'", "type":"fairs" }');
       console.log(`{ message: 'Se publico la Feria:  ${this.titulo}', type:'fairs' }`);
     }
 

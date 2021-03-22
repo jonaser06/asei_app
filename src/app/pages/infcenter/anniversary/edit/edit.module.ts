@@ -15,7 +15,7 @@ import { ComponentsModule } from '../../../../components/components.module';
     FormsModule,
     IonicModule,
     EditPageRoutingModule,
-    
+    ComponentsModule
   ],
   declarations: [EditPage]
 })

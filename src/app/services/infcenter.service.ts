@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { promise } from 'protractor';
-import { environment } from '../../environments/environment.prod';
+import { environment } from '../../environments/environment';
 
 const URL = environment.url
 

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RedireccionService } from '../../../../services/redireccion.service';
-import { environment } from '../../../../../environments/environment.prod';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../../../services/user.service';
 import { UiServiceService } from '../../../../services/ui-service.service';

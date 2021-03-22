@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RedireccionService } from '../../../../services/redireccion.service';
 import { LearncenterService } from '../../../../services/learncenter.service';
-import { environment } from '../../../../../environments/environment.prod';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { environment } from '../../../../../environments/environment';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 
 @Component({

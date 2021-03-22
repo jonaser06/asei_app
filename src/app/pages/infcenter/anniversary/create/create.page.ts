@@ -29,12 +29,19 @@ export class CreatePage implements OnInit {
   link_: any;
   links: any[];
 
+  noti: any;
   constructor(private redireccionService: RedireccionService, private uiserviceService: UiServiceService, private infcenterService: InfcenterService) { 
     this.links = [];
     this.link_ = ''
   }
 
   ngOnInit() {
+  }
+
+  /* toggle notificacion */
+  notificacion(event){
+    this.noti = event
+    console.log(this.noti);
   }
 
   addlink(){
@@ -89,6 +96,11 @@ export class CreatePage implements OnInit {
     formdata.append('link', this.link);
     formdata.append('seccion', 'aniversarios');
     formdata.append("files[]", this.fileToUploadstat);
+
+    if(this.noti){
+      formdata.append('notificacion','{ "message": "Se publicó el aniversario:  '+this.titulo+'", "type":"aniversarios" }');
+      console.log(`{ message: 'Se publico el aniversario:  ${this.titulo}', type:'aniversarios' }`);
+    }
 
     this.infcenterService.create_infcenterNews(formdata)
     .then(resp=>{ 
