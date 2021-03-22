@@ -59,7 +59,7 @@ export class PushNotificationsService {
   }
 
   save_notification(payload){
-
+    console.log('guardando.')
     this.http.post(`${URL}/setNotification`, payload)
     .subscribe( resp => {
       console.log("respuesta del api");

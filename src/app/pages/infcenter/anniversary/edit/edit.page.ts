@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { identity } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
@@ -33,10 +34,14 @@ export class EditPage implements OnInit {
   links: any[];
 
   noti: any;
-  constructor(public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
+  idus: any;
+  constructor(public authService: AuthService, public activatedRoute: ActivatedRoute, private redireccionService: RedireccionService, private uiserviceService: UiServiceService , private infcenterService: InfcenterService ) { 
     this.get_aniversariosid();
     this.links = [];
-    this.link_ = ''
+    this.link_ = '';
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
   }
 
   ngOnInit() {
@@ -123,7 +128,7 @@ export class EditPage implements OnInit {
     formdata.append("file", this.fileToUploadstat);
 
     if(this.noti){
-      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el aniversario: '+this.titulo+'", "type":"aniversarios" }');
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el aniversario: '+this.titulo+'", "type":"aniversarios", "idus":"'+this.idus+'" }');
     }
 
     this.infcenterService.update_infcenterAniversarios(formdata , id)

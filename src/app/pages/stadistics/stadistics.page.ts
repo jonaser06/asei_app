@@ -80,6 +80,7 @@ export class StadisticsPage implements OnInit {
 
   mydate : any;
 
+  idus: any;
   constructor(
     private datePipe: DatePipe,
     public authService: AuthService, 
@@ -100,6 +101,9 @@ export class StadisticsPage implements OnInit {
     this.load_indicador();
     this.load_bulletin();
     this.current_rol();
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
     
   }
 
@@ -210,7 +214,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('year', this.yearstat);
     formdata.append('image', this.fileToUploadstat);
 
-    formdata.append('notificacion','{ "message": "Tienes una nueva estadistica:  '+this.titlestat+'", "type":"estadistica" }');
+    formdata.append('notificacion','{ "message": "Tienes una nueva estadistica:  '+this.titlestat+'", "type":"estadistica", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Tienes una nueva estadistica:  ${this.titlestat}', type:'estadistica' }`);
 
     this.statisticsService.new_statistics(formdata)
@@ -243,7 +247,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('month', this.monthstat);
     formdata.append('year', this.yearstat);
 
-    formdata.append('notificacion','{ "message": "Se actualizo la estadistica:  '+this.titlestat+'", "type":"estadistica" }');
+    formdata.append('notificacion','{ "message": "Se actualizo la estadistica:  '+this.titlestat+'", "type":"estadistica", "idus":"'+this.idus+'" }');
 
     if(this.fileToUploadstat!==undefined) formdata.append('image', this.fileToUploadstat);
 
@@ -360,7 +364,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('description', this.descriptionind);
     formdata.append('percentage', this.percentageind);
     formdata.append('type', this.typeind);
-    formdata.append('notificacion','{ "message": "Se actualizo el indicador:  '+this.titleind+'", "type":"indicador" }');
+    formdata.append('notificacion','{ "message": "Se actualizo el indicador:  '+this.titleind+'", "type":"indicador", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Se actualizo el indicador:  ${this.titleind}', type:'indicador' }`);
 
     this.indicadorService.edit_indicador(formdata)
@@ -441,7 +445,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('percentage', this.percentageind);
     formdata.append('type', this.typeind);
 
-    formdata.append('notificacion','{ "message": "Tienes un nuevo indicador:  '+this.titleind+'", "type":"indicador" }');
+    formdata.append('notificacion','{ "message": "Tienes un nuevo indicador:  '+this.titleind+'", "type":"indicador", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Tienes un nuevo indicador:  ${this.titleind}', type:'indicador' }`);
 
     this.indicadorService.new_indicador(formdata)
@@ -540,7 +544,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('year', this.yearbull);
     formdata.append('file', this.filebull);
 
-    formdata.append('notificacion','{ "message": "Se actualizo el boletin:  '+this.titlebull+'", "type":"boletin" }');
+    formdata.append('notificacion','{ "message": "Se actualizo el boletin:  '+this.titlebull+'", "type":"boletin", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Se actualizo el boletin:  ${this.titlebull}', type:'boletin' }`);
 
     this.bulletinService.edit_bulletin(formdata)
@@ -564,7 +568,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('year', this.yearbull);
     formdata.append('file', this.filebull);
 
-    formdata.append('notificacion','{ "message": "Tienes un nuevo boletin:  '+this.titlebull+'", "type":"boletin" }');
+    formdata.append('notificacion','{ "message": "Tienes un nuevo boletin:  '+this.titlebull+'", "type":"boletin", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Tienes un nuevo boletin:  ${this.titlebull}', type:'boletin' }`);
 
     this.bulletinService.new_bulletin(formdata)
