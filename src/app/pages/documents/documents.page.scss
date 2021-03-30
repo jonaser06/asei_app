@@ -1,0 +1,183 @@
+ion-card-content{
+    position: absolute;
+    background: #DF8708;
+    padding: 5px 20px;
+    width: 60%;
+    margin-left: 20px;
+    bottom: 25px;
+    color: #fff;;
+}
+ion-card-content::after{
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: #DF8708;
+    top: 5px;
+    right: -12px;
+    transform: rotate(45deg);
+}
+ion-card-header{
+    position: absolute;
+    right: 0;
+}
+ion-card{
+    margin: auto;
+    
+    border-radius: 25px;
+    cursor:pointer;
+    width:100%;
+    height:90%;
+}
+
+ion-card img{
+    height:100%;
+    width:100%;
+}
+
+.btn-new-item{
+    padding:.6em 1.5em;
+}
+
+ion-searchbar {
+    padding-left: 1em;
+}
+
+ion-button{
+    height: 40px;
+    margin-top: 9px;
+}
+
+.crear_categoria{
+    --border-radius: 10px;
+    --background: #24344D;
+}
+
+.header-categoria{
+    padding-left: 80px;
+    padding-right: 0px;
+}
+.right-header{
+    padding-right: 80px;
+}
+
+@media (max-width: 600px) {
+    .header-categoria{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+
+.card-modal-1 {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.card-modal-1 .inputs-categoria p {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    padding: 1em 0 0.5em 0;
+    font-size: 1em;
+    color: black;
+}
+
+.card-modal-1 .inputs-categoria input[type="text"] {
+    border-radius: 0.6em;
+    outline: none;
+    border: none;
+    border: 1px solid #828282;
+    background: #f0f0f0;
+    padding: 0.7em;
+    font-family: sans-serif;
+    width: 100%;
+    color: black;
+}
+
+.card-modal-1 .button {
+    margin-top: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-modal-1 .button button {
+    border: none;
+    outline: none;
+    background: #24344D;
+    text-align: center;
+    color: #fff;
+    border-radius: 0.6em;
+    padding: 1em;
+    width: 15em;
+    margin: 0 2em;
+}
+
+.card-modal-1 .img-graphic {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .card-modal-1 .img-graphic {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.card-modal-1 .img-graphic p {
+    margin: 0;
+    padding: 0;
+}
+
+.card-modal-1 .img-graphic .left-img {
+    flex-basis: calc(45% - 1em);
+}
+
+.card-modal-1 .img-graphic .left-img .insert-img {
+    position: relative;
+    width: 10em;
+}
+
+.card-modal-1 .img-graphic .left-img .insert-img p {
+    background: #f0f0f0;
+    border: 1px solid #828282;
+    border-radius: 0.5em;
+    padding: 0.5em 0.2em;
+    text-align: center;
+    color: black;
+}
+
+.card-modal-1 .img-graphic .left-img .insert-img input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.card-modal-1 .img-graphic .left-img .content-img {
+    height: 7em;
+    padding: 0.7em;
+    border: 1px solid #828282;
+    margin-top: 0.5em;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .card-modal-1 .img-graphic .left-img .content-img {
+        height: 18em;
+    }
+}
+
+.card-modal-1 .img-graphic .left-img .content-img img {
+    max-width: 100%;
+    height: 6em;
+}
