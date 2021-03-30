@@ -1,0 +1,20 @@
+.card-documents{
+    border-radius: 20px !important;
+}
+img{
+    width: 100%;
+    max-height: 290px;
+}
+ion-card{
+    margin: auto;
+    max-width: 400px;
+}
+ion-button{
+    --padding-end: 8px;
+    --padding-start: 8px;
+    --box-shadow: 0px;
+}
+.btn-create{
+    border: 1px solid #24344D;
+    border-radius: 5px;
+}
