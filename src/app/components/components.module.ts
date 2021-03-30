@@ -16,6 +16,7 @@ import { PaginadorComponent } from './paginador/paginador.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
 import { CardCursosComponent } from './card-cursos/card-cursos.component';
+import { CardDocumentsTiposComponent } from './card-documents-tipos/card-documents-tipos.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerGetComponent } from './trainer-get/trainer-get.component';
 import { SesionGetComponent } from './sesion-get/sesion-get.component';
@@ -48,6 +49,7 @@ import { RouterModule } from '@angular/router';
     BuscadorComponent,
     MoreNewsComponent,
     CardCursosComponent,
+    CardDocumentsTiposComponent,
     TrainerComponent,
     TrainerGetComponent,
     SesionGetComponent,
@@ -76,6 +78,7 @@ import { RouterModule } from '@angular/router';
     BuscadorComponent,
     MoreNewsComponent,
     CardCursosComponent,
+    CardDocumentsTiposComponent,
     TrainerComponent,
     TrainerGetComponent,
     SesionGetComponent,
