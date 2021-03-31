@@ -56,17 +56,19 @@ export class CreatePage implements OnInit {
 
   create_profile(fUserCol: NgForm){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    // if(!this.imgcolaborador) return this.uiServiceService.alert_info('selecciona una imagen');
-    if(this.name_1.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese sus nombres');
-    if(this.lastname_1.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su primer apellidos');
-    if(this.lastname_2.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su segundo apellidos');
-    if(this.cargo.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su segundo apellidos');
-    if(this.email.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su Email');
-    if(this.fecha.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su fecha');
-    if(this.phone.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su telefono');
-    if(this.direccion.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su direccion');
-    if(this.inmobiliaria.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('seleccione su inmobiliaria');
-    // if(this.password.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su contraseña');
+    // if(!this.imgcolaborador) return this.uiServiceService.alert_info('selecciona una imagen')
+    console.log(this.name_1);
+    
+    if(this.name_1 == undefined || this.name_1 == "") return this.uiServiceService.alert_info('Ingrese sus nombres');
+    if(this.lastname_1 == undefined || this.lastname_1 == "") return this.uiServiceService.alert_info('Ingrese su primer apellidos');
+    if(this.lastname_2 == undefined || this.lastname_2 == "") return this.uiServiceService.alert_info('Ingrese su segundo apellidos');
+    if(this.cargo == undefined || this.cargo == "") return this.uiServiceService.alert_info('Ingrese su segundo apellidos');
+    if(this.email == undefined || this.email == "") return this.uiServiceService.alert_info('Ingrese su Email');
+    if(this.fecha == undefined || this.fecha == "") return this.uiServiceService.alert_info('Ingrese su fecha');
+    if(this.phone == undefined || this.phone == "") return this.uiServiceService.alert_info('Ingrese su telefono');
+    if(this.direccion == undefined || this.direccion == "") return this.uiServiceService.alert_info('Ingrese su direccion');
+    if(this.inmobiliaria == undefined || this.inmobiliaria == "") return this.uiServiceService.alert_info('seleccione su inmobiliaria');
+    if(this.password  == undefined || this.password == "") return this.uiServiceService.alert_info('Ingrese su contraseña');
 
     
     let formdata = new FormData();
