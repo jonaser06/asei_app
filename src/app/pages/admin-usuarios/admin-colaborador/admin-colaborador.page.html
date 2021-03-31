@@ -41,8 +41,8 @@
                 </ion-col>
             </ion-row>
 
-            <ion-col size="1" size-md="2" size-lg="4" *ngFor="let item of UserData?.users" lass="header-course">
-                <app-card-list-admin class="card_col" [user_child]="item"></app-card-list-admin>
+            <ion-col size="1" size-md="2" size-lg="4" lass="header-course">
+                <app-card-list-admin class="card_col" *ngFor="let item of UserData?.users" [user_child]="item" (idUsersR)="removeColaborador_($event)"> </app-card-list-admin>
             </ion-col>
 
             <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
