@@ -64,13 +64,13 @@ export class EditPage implements OnInit {
     let titledocumentstipo = (<HTMLInputElement>document.querySelector('.title-documents-tipos-tx')).value;
 
     if(titledocumentstipo.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Por favor, seleccione un nombre para la categoría');
-    if(!this.imgdocumentstipos) return this.uiserviceService.alert_info('Por favor, seleccione una imagen para la categoría');
 
     let formdata = new FormData();
 
     formdata.append('area', titledocumentstipo);
-    formdata.append('imagen[]', this.imgdocumentstipos);
-    formdata.append('estado', 'activo' );
+    formdata.append('estado', '1' );
+
+    (!!this.imgdocumentstipos) && formdata.append('imagen[]', this.imgdocumentstipos); 
 
     this.documentsService.update_documentsTipos(formdata, id)
     .then(resp=>{
