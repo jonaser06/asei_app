@@ -58,11 +58,9 @@ export class ColaboradorPage implements OnInit {
   }
 
   removeuser(id){
-    
-    this.userService.get_colaboradorUser(id)
+    this.userService.delete_user(id)
     .then(resp=>{
       this.get_colaborador();
-
     })
     .catch();
   }
