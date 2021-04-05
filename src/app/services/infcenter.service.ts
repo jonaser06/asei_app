@@ -23,6 +23,7 @@ export class InfcenterService {
       this.http.get(`${URL}/notes/search/${section}?search=${key}&page=${page}`)
       .subscribe( resp =>{
         if(resp['status']){
+          console.log(resp);
           resolve(resp);
         }else{
           resolve(resp);

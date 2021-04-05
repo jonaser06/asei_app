@@ -67,6 +67,7 @@ export class FairsPage implements OnInit {
     this.infcenterService.search_infcenter('ferias', page, this.currentkey)
     .then(resp=>{
       this.feriasData = resp['data'];
+      console.log(this.feriasData);
       if(resp['status']){
         for(let i = 1 ; i <= this.feriasData.pages; i++ ){pages.push(i)}
         this.pages = pages;
