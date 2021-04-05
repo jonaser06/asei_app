@@ -84,7 +84,7 @@ export class EditPage implements OnInit {
     if(this.phone.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su telefono');
     if(this.direccion.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su direccion');
     if(this.inmobiliaria.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('seleccione su inmobiliaria');
-    // if(this.password.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('Ingrese su contraseña');
+    if(this.password == undefined || this.password == "") return this.uiServiceService.alert_info('Ingrese su contraseña');
 
     
     let formdata = new FormData();

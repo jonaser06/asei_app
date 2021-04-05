@@ -82,5 +82,14 @@ export class AdminColaboradorPage implements OnInit {
     });
   }
 
+  removeColaborador_(ID_US){
+    this.userService.delete_user(ID_US)
+    .then(resp=>{ 
+      console.log('ELIMINAR EVENTOS: '+ID_US);
+      this.get_colaborador();
+    })
+    .catch();
+  }
+
 
 }

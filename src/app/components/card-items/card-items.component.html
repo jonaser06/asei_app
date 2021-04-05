@@ -30,12 +30,12 @@
 
             <div class="stars-btn">
                 <p>Calificación</p>
-                <ion-icon class="stars" name="star"></ion-icon>
-                <ion-icon class="stars" name="star"></ion-icon>
-                <ion-icon class="stars" name="star"></ion-icon>
-                <ion-icon class="stars" name="star"></ion-icon>
-                <ion-icon class="stars" name="star-outline"></ion-icon>
-                <p class="number-stars">4.5</p>
+		<ion-icon class="stars" name="{{(  1 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                <ion-icon class="stars" name="{{(  2 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                <ion-icon class="stars" name="{{(  3 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                <ion-icon class="stars" name="{{(  4 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                <ion-icon class="stars" name="{{(  5 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                <p class="number-stars"> {{ news_child.promedio}} </p>
             </div>
         </div>
     </div>
