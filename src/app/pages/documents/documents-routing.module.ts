@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { DocumentsPage } from './documents.page';
 
 const routes: Routes = [
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
+  },
+  {
+    path: 'files/:id',
+    loadChildren: () => import('./files/documentsfiles.module').then( m => m.DocumentsFilesPageModule )
   }
 ];
 

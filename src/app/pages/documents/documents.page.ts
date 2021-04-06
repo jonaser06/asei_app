@@ -85,8 +85,25 @@ export class DocumentsPage implements OnInit {
     this.redireccionService.redireccion('/tabs/documents/edit/'+ID_NO);
   }
 
+  openDocumentsTipos_(id_ar){
+    this.redireccionService.redireccion('/tabs/documents/files/'+id_ar)
+  }
+
   iraCrear(){
     this.redireccionService.redireccion('/tabs/documents/crear');
   }
 
+  removeTipo_(id_ar){
+    this.uiServiceService.presentAlertConfirm('Eliminar Categoría','Al eliminar la categoría, se eliminarán también los archivos pertenecientes a esta, ¿Quieres continuar?').then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
+        this.documentsService.delete_tipo(id_ar)
+        .then(resp=>{ 
+          console.log('ELIMINAR CATEGORIA : '+id_ar);
+          this.getdocumentstipos();
+        })
+        .catch();
+      }
+    });
+  }
 }

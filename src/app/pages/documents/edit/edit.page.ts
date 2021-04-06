@@ -37,7 +37,7 @@ export class EditPage implements OnInit {
     this.documentsService.get_documentsTiposID(id)
     .then((resp: any)=>{
       this.info_document_tipo = resp.data;
-      this.documentstipossrc = this.URL + '/' + resp.data.imagen
+      this.documentstipossrc = this.URL + '/' + resp.data.imagen;
       console.log(this.info_document_tipo);
     })
     .catch();

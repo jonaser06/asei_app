@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { DocumentsService } from 'src/app/services/documents.service';
 import { UiServiceService } from '../../../services/ui-service.service';
+import { PassThrough } from 'node:stream';
+import { ValidatorFn } from '@angular/forms';
 
 
 @Component({
@@ -15,9 +17,13 @@ export class CrearPage implements OnInit {
 
   imgdocumentstipos: any;
   documentstipossrc: any;
+  DocumentsTiposData: any;
   noti: any;
   imagfile: any[];
   tipoimgdoc: string = "";
+  areas: any;
+  area: any;
+  message: any;
 
   constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private documentsService : DocumentsService, public activatedRoute: ActivatedRoute ) { 
     this.imagfile = [];
@@ -46,6 +52,7 @@ export class CrearPage implements OnInit {
     let titledocumentstipo = (<HTMLInputElement>document.querySelector('.title-documents-tipos-tx')).value;
 
     if(titledocumentstipo.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Por favor, seleccione un nombre para la categoría');
+
     if(!this.imgdocumentstipos) return this.uiserviceService.alert_info('Por favor, seleccione una imagen para la categoría');
 
     let formdata = new FormData();
@@ -56,7 +63,10 @@ export class CrearPage implements OnInit {
     this.documentsService.create_documentsTipos(formdata)
     .then(resp=>{
       this.redireccionService.redireccion('/tabs/documents');
-      console.log(resp);
+
+      const response = resp['message'];
+      this.uiserviceService.alert_info(response);
+      console.log(response);
       this.imgdocumentstipos = null;
     })
     .catch();
@@ -70,5 +80,7 @@ export class CrearPage implements OnInit {
   volverDocumentsTipos(){
     this.redireccionService.redireccion('/tabs/documents');
   }
+
+  
 }
 
