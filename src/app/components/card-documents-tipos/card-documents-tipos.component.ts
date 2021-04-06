@@ -16,6 +16,7 @@ export class CardDocumentsTiposComponent implements OnInit {
 
   @Output() idDocumentsTipos = new EventEmitter();
   @Output() idDocumentsTiposE = new EventEmitter();
+  @Output() idDocumentsTiposR = new EventEmitter();
   
   rol : String ;
 
@@ -33,6 +34,10 @@ export class CardDocumentsTiposComponent implements OnInit {
   
   editDocumentsTipo(id_ar){
     this.idDocumentsTiposE.emit(id_ar);
+  }
+
+  removeTipo(id_ar){
+    this.idDocumentsTiposR.emit(id_ar);
   }
   
   current_rol(){

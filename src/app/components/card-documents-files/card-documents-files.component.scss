@@ -1,0 +1,28 @@
+.item-avatar  {
+    --border-radius: 20%;
+    width: 50px !important;  
+    height : 50px !important;  
+    max-width: 50px !important;  //any size
+    max-height: 50px !important; //any size 
+}
+
+.itemlist{ 
+    --border-color: #F00; 
+}
+
+.download {
+    cursor: pointer;
+    margin-bottom: 0em;
+}
+
+.remove {
+    margin-left: 1em;
+    cursor: pointer;
+    margin-bottom: 0em;
+}
+
+.edit {
+    margin-left: 1em;
+    cursor: pointer;
+    margin-bottom: 0em;
+}
