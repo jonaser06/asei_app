@@ -17,7 +17,6 @@
                     </div>
                 </div>
             </div>
-
             <!-- Admin -->
             <!-- <div class="actions-page">
                 <button class="btn-new-item" (click)="createDialogAnniversary()">
@@ -26,18 +25,12 @@
                 </button>
             </div> -->
         </div>
-
         <ion-grid class="section-grid">
             <div class="news-grid">
                 <!-- <div class="date-year">
                     <h3>Enero 2021</h3>
                 </div> -->
-
                 <!-- <app-card-slider></app-card-slider> -->
-
-
-
-
                 <app-buscador (buscatxt)="search_($event)"></app-buscador>
 
                 <div class="recent-news">
@@ -46,16 +39,12 @@
 
                 <div class="cards-news">
                     <app-card-items *ngFor="let item of aniversarioData?.notes" [news_child]="item" (idNews)="openAniversarios_($event)" (idNewsE)="editAniversarios_($event)" (idNewsR)="removeAniversarios_($event)">
-
                     </app-card-items>
                 </div>
-
                 <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
             </div>
 
         </ion-grid>
-
-
     </div>
     <app-footer></app-footer>
 </ion-content>

@@ -1,0 +1,27 @@
+
+<ion-card class="md hydrated card-course">
+  <ion-card-header class="ion-inherit-color md hydrated">
+      <ion-card-title role="heading" aria-level="2" class="ion-inherit-color md hydrated" > 
+          {{ news_child.seccion | uppercase }}  
+         </ion-card-title>
+  </ion-card-header>
+  <ion-card-content class="md card-content-md hydrated">
+
+    <ion-card-subtitle>
+        <ion-item>
+            <ion-avatar slot="start">
+                <img [src]="image" />
+            </ion-avatar>
+            <ion-card-title>
+                <h2>{{ news_child.fecha_inicio | date: 'd \'DE\' MMMM \'DEL\' yyyy'| uppercase}}</h2>
+                <h2>{{ news_child.fecha_fin | date: 'd \'DE\' MMMM \'DEL\' yyyy'| uppercase }}</h2>
+                <h3>{{ news_child.fecha_inicio + ' ' + news_child.hora_inicio | date: 'h aa'}} - 
+                    {{news_child.fecha_fin + ' ' + news_child.hora_fin | date: 'h aa' }}</h3>
+            </ion-card-title>
+        </ion-item>          
+    </ion-card-subtitle>
+    <ion-card-subtitle>{{ news_child.titulo}}</ion-card-subtitle>
+
+  </ion-card-content>
+</ion-card>
+ 

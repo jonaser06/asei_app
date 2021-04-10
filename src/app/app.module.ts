@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -14,7 +14,12 @@ import { IonicStorageModule } from '@ionic/storage';
 // import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { ComponentsModule } from './components/components.module';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
-import { LocalNotifications } from '@ionic-native/local-notifications/ngx'
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
+//idioma
+import idiomalocal from '@angular/common/locales/es-PE';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData ( idiomalocal );
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,10 +33,13 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx'
     ComponentsModule
   ],
   providers: [
+    {
+      provide: LOCALE_ID, useValue: 'es-PE'
+    },
     StatusBar,
     SplashScreen,
     OneSignal,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
     LocalNotifications
     // File,
     // FileTransfer

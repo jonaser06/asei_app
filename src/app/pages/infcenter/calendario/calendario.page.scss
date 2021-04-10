@@ -345,9 +345,7 @@
 }
 
 .section-grid .news-grid .cards-news .card-1,
-.section-grid .news-grid .cards-news .card-2,
-.section-grid .news-grid .cards-news .card-3,
-.section-grid .news-grid .cards-news .card-4 {
+.section-grid .news-grid .cards-news .card-2 {
     width: 100%;
 }
 
@@ -487,99 +485,7 @@
     }
 }
 
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 0.5em;
-    position: relative;
-    bottom: 0;
-}
 
-@media (min-width: 490px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-like {
-        margin-top: 1.5em;
-    }
-}
-
-@media (min-width: 1175px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-like {
-        flex-direction: row;
-        align-items: center;
-    }
-}
-
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like button {
-    color: #DF8708;
-    border: none;
-    background-color: #fff;
-    padding: 0;
-    outline: none;
-    margin-top: 0.5em;
-}
-
-@media (min-width: 1175px) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-like button {
-        margin-top: 0;
-    }
-}
-
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like .like-btn {
-    display: flex;
-    align-items: center;
-    color: #24344D;
-    border: 1px solid #24344D;
-    padding: 0.5em;
-    background: #f0f0f0;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like .points {
-    padding: 0;
-    margin: 0;
-    color: #24344D;
-    margin-left: 0.4em;
-}
-
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit {
-    margin: 0.5em;
-    margin-left: 0;
-    display: flex;
-}
-
-@media (min-width: 1175) {
-    .section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit {
-        margin: 0;
-    }
-}
-
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit .edit {
-    padding: 0.4em;
-    border-radius: 10px;
-    background-color: #ffff;
-    color: #24344D;
-    border: 1px solid #24344D;
-    margin: 0.1em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.section-grid .news-grid .cards-news .card-all .text-content .btn-like .admin-edit .delete {
-    padding: 0.4em;
-    border-radius: 10px;
-    background-color: #24344D;
-    color: #fff;
-    border: 1px solid #24344D;
-    margin: 0.1em;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 
 /* Modal New */
