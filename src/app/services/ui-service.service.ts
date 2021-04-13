@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UiServiceService {
 
   constructor( private alertController : AlertController) { }
@@ -17,7 +18,7 @@ export class UiServiceService {
 
     await alert.present();
   }
-
+  
   async presentAlertConfirm(title, message) {
     let confirm;
     const alert = await this.alertController.create({

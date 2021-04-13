@@ -1,7 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { RedireccionService } from 'src/app/services/redireccion.service';
+import { CalificationService } from 'src/app/services/calification.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UiServiceService } from '../../services/ui-service.service';
 
 
 
@@ -19,11 +22,26 @@ export class CardItemsComponent implements OnInit {
   @Output() idNewsR = new EventEmitter();
 
   URL = environment.url;
-  
-  constructor(private redireccionService: RedireccionService, private router: Router) { }
+  iduser;
+  constructor(
+    private uiServiceService:UiServiceService,
+    private authService: AuthService,
+    private redireccionService: RedireccionService,
+    private calificationService : CalificationService,
+    private router: Router,
+    ) {
 
-  ngOnInit() {}
-  
+     }
+
+  ngOnInit() {
+    this.current_session();
+  }
+  current_session(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.iduser = resp['data']['user_id'];
+    });
+  }
   openNote (ID_NO) {
     const { url } = this.router;
     this.redireccionService.redireccion(`${url}/info/${ID_NO}`)
@@ -36,6 +54,14 @@ export class CardItemsComponent implements OnInit {
   }
   removeNew(ID_NO){
     this.idNewsR.emit(ID_NO);
+  }
+
+  dialogCalification (ID_NO) {
+    this.calificationService.comproved(ID_NO, this.iduser).then ( estado => {
+      if( ! estado ) return this.uiServiceService.alert_info('YA CALIFICASTE ESTE POST')
+      this.calificationService.modalSend(ID_NO, this.iduser )
+    })
+    
   }
 
 }

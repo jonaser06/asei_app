@@ -67,7 +67,7 @@
         <div class="btn-like">
 
             <div class="stars-btn">
-                <p>Calificación
+                <p (click)="dialogCalification(news_child.ID_NO)">Calificación
 
                     <ion-icon class="stars" name="{{(  1 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
                     <ion-icon class="stars" name="{{(  2 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
