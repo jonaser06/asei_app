@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-videoplayer',
@@ -9,8 +10,9 @@ export class VideoplayerComponent implements OnInit {
 
   @Input() link : any;
 
-  constructor() { 
-    
+  youtube : any;
+  constructor(private sanitizer: DomSanitizer) { 
+
   }
 
   ngOnInit() {
@@ -18,7 +20,7 @@ export class VideoplayerComponent implements OnInit {
     // console.log(porciones);
     // console.log(this.link);
     // console.log(porciones[porciones.length])
-    // this.youtube = this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/vXf5gaozWcc");
+    this.youtube = this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
   }
 
 }

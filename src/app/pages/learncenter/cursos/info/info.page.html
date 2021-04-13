@@ -1,3 +1,15 @@
+<div class="overlay-1">
+  <div class="modal-template">
+      <div class="close-modal">
+          <ion-icon class="close-btn" name="close-circle-outline" (click)="closemodal();"></ion-icon>
+      </div>
+      <h1 style="font-size: 2rem;font-weight: bold;">¡Felicitaciones por completar <span style="color:#df8708">{{info_curso?.data.titulo}}</span> !</h1>
+      <img width="200px" src="./../../../../../assets/img/logo-asei.png" alt="">
+      <h3 style="font-size: 1rem;">Puedes seguir aprendiendo con los otros cursos disponibles:</h3>
+      <ion-button style="text-transform: none;">Ver más Cursos</ion-button>
+  </div>
+</div>
+
 <ion-content>
   <ion-row>
     <ion-col size="12" size-lg="6" class="header-course left-header" style="padding-bottom: 0px;">
@@ -24,7 +36,9 @@
   <!-- content -->
   <ion-row>
     <ion-col size="12" size-md="12" size-lg="9" class="player_section">
-      <app-videoplayer [link]="player"></app-videoplayer>
+      <div *ngIf="player">
+        <app-videoplayer [link]="player"></app-videoplayer>
+      </div>
       <ion-content class="content_tab__">
         <ion-tabs>
           <!-- Tab bar -->
@@ -73,7 +87,7 @@
       </ion-content>
     </ion-col>
     <ion-col size-lg="3" class="playlist">
-      <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
+      <app-playlist *ngFor="let sesion of play_list ; let last = last;" [sesion]="sesion" (viewsesion)="verclase_($event)" (click)="finish(last)"></app-playlist>
     </ion-col>
   </ion-row>
 

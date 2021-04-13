@@ -1,3 +1,14 @@
+<div class="overlay-1">
+  <div class="modal-template">
+      <div class="close-modal">
+          <ion-icon class="close-btn" name="close-circle-outline" (click)="closemodal();"></ion-icon>
+      </div>
+      <h1 style="font-size: 2rem;font-weight: bold;">¡Felicitaciones por completar <span style="color:#df8708">{{info_curso?.data.titulo}}</span> !</h1>
+      <img width="200px" src="./../../../../../assets/img/logo-asei.png" alt="">
+      <h3 style="font-size: 1rem;">Puedes seguir aprendiendo con los otros Webinars disponibles:</h3>
+      <ion-button style="text-transform: none;">Ver más Webinars</ion-button>
+  </div>
+</div>
 <ion-content>
   <ion-row>
     <ion-col size="12" size-lg="6" class="header-course left-header" style="padding-bottom: 0px;">
