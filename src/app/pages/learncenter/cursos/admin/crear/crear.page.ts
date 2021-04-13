@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { RedireccionService } from '../../../../../services/redireccion.service';
 import { LearncenterService } from '../../../../../services/learncenter.service';
 import { UiServiceService } from '../../../../../services/ui-service.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -20,11 +21,15 @@ export class CrearPage implements OnInit {
   coursesrc: any;
   noti: any;
 
-  constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
+  idus: any;
+  constructor( public authService: AuthService, private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private learncenterService : LearncenterService ) { 
     this.trainer = [];
     this.sesion = [];
     this.imagfile = [];
     this.noti = false;
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
   }
 
   ngOnInit() {
@@ -91,8 +96,7 @@ export class CrearPage implements OnInit {
     formdata.append('seccion', 'cursos');
 
     if(this.noti){
-      formdata.append('notificacion',`{ message: 'Se publico un el curso  ${titlecourse}', type:'cursos' }`);
-      console.log(`{ message: 'Se publico un el curso  ${titlecourse}', type:'cursos' }`);
+      formdata.append('notificacion','{ "message": "Se publico un el curso: '+titlecourse+' se actualizó", "type":"cursos", "idus":"'+this.idus+'"}');
     }
 
     for(let i = 0 ; i < this.trainer.length ; i++){

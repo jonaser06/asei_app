@@ -28,6 +28,7 @@ import { InfouserComponent } from './infouser/infouser.component';
 import { DocumentosComponent } from './documentos/documentos.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { RouterModule } from '@angular/router';
+import { CardCalendarioComponent } from './card-calendario/card-calendario.component';
 
 
 
@@ -58,7 +59,8 @@ import { RouterModule } from '@angular/router';
     CardListAdminComponent,
     InfouserComponent,
     DocumentosComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    CardCalendarioComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -86,7 +88,8 @@ import { RouterModule } from '@angular/router';
     CardListAdminComponent,
     InfouserComponent,
     DocumentosComponent,
-    MenuAdminComponent
+    MenuAdminComponent,
+    CardCalendarioComponent
   ],
   imports: [
     CommonModule,

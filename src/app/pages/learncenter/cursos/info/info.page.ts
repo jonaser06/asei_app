@@ -44,6 +44,18 @@ export class InfoPage implements OnInit {
     }
   }
 
+  closemodal(){
+    (document.querySelector('.overlay-1') as HTMLElement).style.display = "none";
+  }
+
+  finish(value){
+    if(value){
+      setTimeout(() => {
+        (document.querySelector('.overlay-1') as HTMLElement).style.display = "block";
+      }, 5000);
+    }
+  }
+
   get_curso(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.learncenterService.get_learncenterCursosID(id)
@@ -63,7 +75,7 @@ export class InfoPage implements OnInit {
     this.player = this.player.split("=");
     this.player = 'https://www.youtube.com/embed/'+this.player[1]
     this.player = this.sanitizer.bypassSecurityTrustResourceUrl(this.player);
-    console.log(this.player);
+    // console.log(this.player);
   }
 
   playlist(){

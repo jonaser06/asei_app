@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from '../../../services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
+import { CalendarioService } from '../../../services/calendario.service';
 
 @Component({
   selector: 'app-calendario',
@@ -10,7 +11,13 @@ import { RedireccionService } from '../../../services/redireccion.service';
 })
 export class CalendarioPage implements OnInit {
 
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { }
+  calendarioData : any;
+  pages : any;
+  currentpage : any;
+
+  constructor(private calendarioService: CalendarioService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) {
+    this.getevent();
+   }
 
   ngOnInit() {
   }
@@ -20,4 +27,17 @@ export class CalendarioPage implements OnInit {
     this.redireccionService.backpage();
   }
 
+  getevent(){
+    let pages = [];
+    this.calendarioService.get_calendario()
+    .then(rspt=>{
+      console.log(rspt);
+      this.calendarioData = rspt['data'];
+      for (let i = 1 ; i <= this.calendarioData.pages; i++ ){pages.push(i)} 
+      this.pages = pages;
+      this.currentpage = this.calendarioData.page;
+    })
+    .catch();
+
+}
 }

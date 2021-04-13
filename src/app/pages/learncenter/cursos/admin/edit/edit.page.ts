@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { LearncenterService } from 'src/app/services/learncenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { environment } from 'src/environments/environment';
@@ -32,15 +33,22 @@ export class EditPage implements OnInit {
   nombre_ : any;
 
 
-  constructor( private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { 
+  idus: any;
+  constructor( public authService: AuthService, private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { 
     this.trainer = [];
     this.sesion = [];
     this.imagfile = [];
+    this.authService.get_data().then((resp:any)=>{
+      this.idus = resp.data.user_id;
+    });
     this.get_curso();
   }
 
   ngOnInit() {
 
+  }
+  volverCursos(){
+    this.redireccionService.backpage();
   }
   /* añadir capacitador */
   add_trainer(event){
@@ -137,8 +145,7 @@ export class EditPage implements OnInit {
     formdata.append('duracion', duracion);
 
     if(this.noti){
-      formdata.append('notificacion',`{ id: ${id}, message: 'El webinnar ${titlecourse} se actualizó', type:'cursos' }`);
-      console.log(`{ id: ${id}, message: 'El webinnar ${titlecourse} se actualizó', type:'cursos' }`);
+      formdata.append('notificacion','{ "id": "'+id+'", "message": "El Curso: '+titlecourse+' se actualizó", "type":"cursos", "idus":"'+this.idus+'"}');
     }
 
     (!!this.imgcourse) && formdata.append('img_learn[]', this.imgcourse); 

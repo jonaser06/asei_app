@@ -39,6 +39,16 @@ export class InfoPage implements OnInit {
         document.querySelector('.capacitadores_tab').classList.add("display-none");
       }
     }
+    this.finish();
+  }
+  closemodal(){
+    (document.querySelector('.overlay-1') as HTMLElement).style.display = "none";
+  }
+
+  finish(){
+    setTimeout(() => {
+      (document.querySelector('.overlay-1') as HTMLElement).style.display = "block";
+    }, 15000);
   }
 
   get_webinnars(){
