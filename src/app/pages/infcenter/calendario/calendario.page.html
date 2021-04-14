@@ -30,11 +30,19 @@
             <ion-datetime displayFormat="DD MM YYYY" placeholder="dd/mm/aaaa" ></ion-datetime>
               <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
           </ion-button>
+
+          <ion-button size="small" color="light" slot="primary">
+              <ion-icon slot="start" name="search-outline"></ion-icon>
+          </ion-button>
+        
         <div class="cards-news">
          <app-card-calendario *ngFor="let item of calendarioData?.notes" [news_child]="item" (idCalendar)="openCalendario_($event)">
          </app-card-calendario>
         </div>
     </div>
+    <div>
+    <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
+  </div>
     </ion-grid>
   </div>
   <app-footer></app-footer>
