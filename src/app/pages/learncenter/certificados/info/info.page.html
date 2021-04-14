@@ -1,58 +1,79 @@
 <ion-content class="content-section">
-  <div class="layout-section">
-      <div class="container">
-          <div class="row-actions-top">
-              <div class="title-section-container">
-                <div class="title-arrow">
-                  <div class="left-arrow" (click)="volverCerti()">
-                    <ion-icon name="arrow-back-outline"></ion-icon>
-                  
-                  </div>
-                  <div class="title">
-                <h3 class="title-section">MIS CERTIFICADOS</h3>
-                  <p class="subtitle-section">Revisa en esta sección lo cursos webinar y certificados ASEI</p>
-                  </div>
-              </div>
-                  </div>
-                </div>      
-      </div>
+    <div class="layout-section">
+        <div class="container">
+            <div class="row-actions-top">
+                <div class="title-section-container">
+                    <div class="title-arrow">
+                        <div class="left-arrow" (click)="volverCerti()">
+                            <ion-icon name="arrow-back-outline"></ion-icon>
 
-      <ion-grid class="section-grid">
-        <div class="courses">
-          
-
-          <div class="new-card">
-            <div class="card-1 card-content">
-              <div class="content-img">
-                <img src="../../../../assets/img/certified1.png" alt="">
-              </div>
-
-              
-
-                <!--<div class="admin-edit">
-                  <div class="cloud-btn">
-                    <ion-icon name="cloud-download"></ion-icon>
-                  </div>
-                </div>-->
+                        </div>
+                        <div class="title">
+                            <h3 class="title-section">MIS CERTIFICADOS</h3>
+                            <p class="subtitle-section">Revisa en esta sección lo cursos webinar y certificados ASEI</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+        </div>
 
-          <div class="number-option">
+        <ion-grid class="section-grid">
+            <div class="courses">
 
-            <div class="actions-page">
-              <button class="">
-                  <span>Descargar</span>
-                  <ion-icon class="icon-btn" name="cloud-download"></ion-icon>
-              </button>
-            </div>  
 
-            
-          </div>
+                <div class="new-card">
+                    <div class="card-1 card-content" #canvas_render style=" padding: .9rem;border-radius: 0%;border: 1px solid #DF8708;">
 
-                   
-        </div> 
-      </ion-grid>
-  </div>
-  <app-footer></app-footer>
+                        <div class="panel2" #contain>
+                            <div class="panel">
+                                <article class="certificate">
+                                    <header class="certificate__header">
+                                        <div class="certificate__header__content">
+                                            <img class="certificate__logo" src="../../../../../assets/icon/certificate.PNG" alt="logo__asei">
+                                            <h1 class="certificate__title">Learning <br>Center</h1>
+                                        </div>
+
+                                        <h2 class="certificate__sub">Producto de la asociación <br>de Empresas Inmobiliarias del Perú ,ASEI</h2>
+                                    </header>
+                                    <section class="certificate__info">
+                                        <div class="certificate__info__text">Otorga la presente constancia a :</div>
+                                        <p class="certificate__user">
+                                            {{certificado?.user | titlecase}}
+                                        </p>
+                                        <div class="certificate__detail">
+                                            <p>Por su destacada participación en el Curso Online:</p>
+                                            <p>{{certificado?.curse_name}}</p>
+                                            <p>Realizado el día : {{certificado?.curse_inicio | date: 'd \'de\' MMMM \'del\' yyyy'}}</p>
+                                        </div>
+                                    </section>
+                                    <footer class="certificate__footer">
+                                        <small class="certificate__firma">David Vargas</small>
+                                        <small>Gerente General ASEI</small>
+                                        <p class="certificado__date">Lima ,{{certificado?.fecha_emited | date: 'd \'de\' MMMM \'del\' yyyy'}}</p>
+                                    </footer>
+                                </article>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="number-option">
+
+                    <div class="actions-page">
+                        <button class="">
+                <span (click)="downloadCertificate()">Descargar</span>
+                <ion-icon    class="icon-btn" name="cloud-download"></ion-icon>
+            </button>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </ion-grid>
+    </div>
+    <app-footer></app-footer>
 </ion-content>
-

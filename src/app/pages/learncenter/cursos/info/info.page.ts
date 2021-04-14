@@ -5,6 +5,7 @@ import { RedireccionService } from '../../../../services/redireccion.service';
 import { LearncenterService } from '../../../../services/learncenter.service';
 import { environment } from 'src/environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CertificadosService } from '../../../../services/certificados.service';
 
 
 @Component({
@@ -13,17 +14,21 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./info.page.scss'],
 })
 export class InfoPage implements OnInit {
-
+ user: any;
   info_curso: any;
   play_list: any;
   player: any;
   URL = environment.url
-  constructor(private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService ) { 
+
+  constructor(private certificadosService : CertificadosService,private authservice : AuthService,private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService ) { 
     
   }
 
   ngOnInit(){
+    this.authservice.get_data().then( resp => this.user = resp)
+
     this.get_curso();
+    console.log(this.info_curso);
     document.querySelector('.playlist_tab').classList.add("display-none");
     document.querySelector('.resumen_tab').classList.remove("display-none");
     document.querySelector('.objetivos_tab').classList.add("display-none");
@@ -48,8 +53,35 @@ export class InfoPage implements OnInit {
     (document.querySelector('.overlay-1') as HTMLElement).style.display = "none";
   }
 
+  sendInfoCertificate () {
+    
+    let { user_id , nombres , apellidos  }               = this.user.data;
+    let { ID_CO , duracion , titulo,fecha_publicacion ,capacitadores } = this.info_curso.data;
+    const formCertificate = new FormData();
+
+    const nombreFirst   = nombres.trim().split(' ')[0]
+    const apellidoFirst = apellidos.trim().split(' ')[0]
+    const capacitador = capacitadores[0].nombre;
+
+    ID_CO = parseInt(ID_CO)
+    user_id = parseInt(user_id)
+    formCertificate.append('user',`${nombreFirst} ${apellidoFirst}`);
+    formCertificate.append('curse_name', titulo);
+    formCertificate.append('curse_inicio', fecha_publicacion);
+    formCertificate.append('curse_duration',duracion);
+    formCertificate.append('capacitador',capacitador);
+    // formCertificate.append('capacitador',duracion);
+    this.certificadosService.newCertificate( ID_CO ,user_id , formCertificate )
+    .then( resp => {
+      console.log(resp);
+    }).catch( err => console.log(err))
+    
+  }
   finish(value){
     if(value){
+     
+      this.sendInfoCertificate()
+
       setTimeout(() => {
         (document.querySelector('.overlay-1') as HTMLElement).style.display = "block";
       }, 5000);
@@ -61,6 +93,8 @@ export class InfoPage implements OnInit {
     this.learncenterService.get_learncenterCursosID(id)
     .then( ( resp:any )=>{
       this.info_curso = resp;
+      console.log(this.info_curso)
+
       this.play_list = resp.data.sesiones;
       this.player = this.play_list[0].link.toString();
       this.player = this.player.split("=");

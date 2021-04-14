@@ -1,0 +1,24 @@
+<div class="card-1 card-content">
+    <div class="content-img">
+        <img src="../../../../assets/img/certified1.png" alt="">
+    </div>
+
+    <div class="content-info">
+        <h5>{{ certificados_child.curse_name}}</h5>
+
+        <div class="info-description">
+            <p>{{ certificados_child?.capacitador |titlecase}}</p>
+
+            <div class="calificacion">
+                <p>Duración: {{certificados_child.curse_duration}} </p>
+            </div>
+        </div>
+
+        <div class="admin-edit">
+            <div class="cloud-btn" (click)="openCertificados(certificados_child.ID_CER)">
+                <ion-icon name="cloud-download"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+</div>

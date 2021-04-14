@@ -29,6 +29,8 @@ import { DocumentosComponent } from './documentos/documentos.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { RouterModule } from '@angular/router';
 import { CardCalendarioComponent } from './card-calendario/card-calendario.component';
+import { CertificadosComponent } from './certificados/certificados.component';
+import { CardCertificadoComponent } from './card-certificado/card-certificado.component';
 
 
 
@@ -60,7 +62,9 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
     InfouserComponent,
     DocumentosComponent,
     MenuAdminComponent,
-    CardCalendarioComponent
+    CardCalendarioComponent,
+    CertificadosComponent,
+    CardCertificadoComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -89,7 +93,8 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
     InfouserComponent,
     DocumentosComponent,
     MenuAdminComponent,
-    CardCalendarioComponent
+    CardCalendarioComponent,
+    CertificadosComponent,CardCertificadoComponent
   ],
   imports: [
     CommonModule,
