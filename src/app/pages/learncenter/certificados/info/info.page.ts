@@ -34,9 +34,9 @@ export class InfoPage implements OnInit {
   downloadCertificate () {
     const $render_canvas = this.canvas_render.nativeElement;
     const $contain = this.contain.nativeElement;
-    $contain.style.width = '700px'
-    $render_canvas.style.width = '730px'
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent)){
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent)){
+        $contain.style.width = '700px'
+        $render_canvas.style.width = '730px'
           const options = { height:$render_canvas.height , width: $render_canvas.width};
          domtoimage.toPng($render_canvas ,options )
          .then( dataUrl => {
