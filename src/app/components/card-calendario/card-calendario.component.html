@@ -8,20 +8,34 @@
   <ion-card-content class="md card-content-md hydrated">
 
     <ion-card-subtitle>
-        <ion-item>
-            <ion-avatar slot="start">
-                <img [src]="image" />
-            </ion-avatar>
-            <ion-card-title>
-                <h2>{{ news_child.fecha_inicio | date: 'd \'DE\' MMMM \'DEL\' yyyy'| uppercase}}</h2>
-                <h2>{{ news_child.fecha_fin | date: 'd \'DE\' MMMM \'DEL\' yyyy'| uppercase }}</h2>
-                <h3>{{ news_child.fecha_inicio + ' ' + news_child.hora_inicio | date: 'h aa'}} - 
-                    {{news_child.fecha_fin + ' ' + news_child.hora_fin | date: 'h aa' }}</h3>
+        <ion-list>
+            <ion-item >
+              <ion-thumbnail slot="start">
+                <ion-img src="../../../assets/img/schedule.png"></ion-img>
+              </ion-thumbnail>
+              <ion-card-title>
+                <div *ngIf="news_child.seccion == 'noticias'">
+                    <h2>{{ news_child.fecha_publicacion | date: 'd \'de\' MMMM \'del\' yyyy'| uppercase}}</h2>
+                </div>
+                <div *ngIf="news_child.seccion == 'ferias'">
+                    <h2>{{ news_child.fecha_inicio | date: 'd \'de\' MMMM \'del\' yyyy'| uppercase}}</h2>
+                    <h2>{{ news_child.fecha_fin | date: 'd \'de\' MMMM \'del\' yyyy'| uppercase }}</h2>
+                </div>
+                <div *ngIf="news_child.seccion == 'eventos'" > 
+                    <h2>{{ news_child.fecha_inicio | date: 'd \'de\' MMMM \'del\' yyyy'| uppercase}}</h2>
+                    <h3>{{ news_child.fecha_inicio + ' ' + news_child.hora_inicio | date: 'h aa'}} - 
+                        {{news_child.fecha_fin + ' ' + news_child.hora_fin | date: 'h aa' }}</h3>
+                </div>
+                <div *ngIf="news_child.seccion == 'aniversarios'" > 
+                    <h2>{{ news_child.fecha_inicio | date: 'd \'de\' MMMM \'del\' yyyy'| uppercase}}</h2>
+                    <h3>{{ news_child.fecha_inicio + ' ' + news_child.hora_inicio | date: 'h aa'}} - 
+                        {{news_child.fecha_fin + ' ' + news_child.hora_fin | date: 'h aa' }}</h3>
+                </div>
             </ion-card-title>
-        </ion-item>          
+            </ion-item>
+          </ion-list>         
     </ion-card-subtitle>
     <ion-card-subtitle>{{ news_child.titulo}}</ion-card-subtitle>
-
   </ion-card-content>
 </ion-card>
  

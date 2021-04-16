@@ -18,32 +18,31 @@
             </div>
         </div>   
     </div>
-    <ion-grid class="section-grid">
-      <div class="news-grid">
-      <ion-label>Desde: </ion-label>
+    <div >
+      <ion-label class="item-input-inset" >Desde: </ion-label>
         <ion-button size="small" color="light" slot="secondary">
-          <ion-datetime displayFormat="DD MM YYYY" placeholder="dd/mm/aaaa" ></ion-datetime>
+          <ion-datetime class="picker-wrapper" class="sc-ion-picker-md" displayFormat="DD-MM-YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaInicioTxt($event)" ></ion-datetime>
             <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
         </ion-button>
-        <ion-label>Hasta: </ion-label>
+        <ion-label class="item-input-inset" >Hasta: </ion-label>
           <ion-button size="small" color="light" slot="secondary">
-            <ion-datetime displayFormat="DD MM YYYY" placeholder="dd/mm/aaaa" ></ion-datetime>
+            <ion-datetime displayFormat="DD MM YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaFinTxt($event)" ></ion-datetime>
               <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
           </ion-button>
 
-          <ion-button size="small" color="light" slot="primary">
+          <ion-button size="small" color="light" slot="primary" (click)="search_()" >
               <ion-icon slot="start" name="search-outline"></ion-icon>
           </ion-button>
-        
-        <div class="cards-news">
+    </div>
+    <ion-grid >
+        <div >
          <app-card-calendario *ngFor="let item of calendarioData?.notes" [news_child]="item" (idCalendar)="openCalendario_($event)">
          </app-card-calendario>
         </div>
-    </div>
-    <div>
-    <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
-  </div>
     </ion-grid>
+      <div>
+      <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
+      </div>
   </div>
   <app-footer></app-footer>
 </ion-content>
