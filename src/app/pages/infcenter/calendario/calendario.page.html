@@ -18,22 +18,34 @@
             </div>
         </div>   
     </div>
-    <div >
-      <ion-label class="item-input-inset" >Desde: </ion-label>
-        <ion-button size="small" color="light" slot="secondary">
-          <ion-datetime class="picker-wrapper" class="sc-ion-picker-md" displayFormat="DD-MM-YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaInicioTxt($event)" ></ion-datetime>
-            <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
-        </ion-button>
-        <ion-label class="item-input-inset" >Hasta: </ion-label>
-          <ion-button size="small" color="light" slot="secondary">
+    <ion-grid>
+      <ion-row >
+        <ion-item > 
+          <ion-label class="search"> Desde: </ion-label>
+        </ion-item>
+          <ion-item>
+            <ion-button >
+            <ion-datetime displayFormat="DD-MM-YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaInicioTxt($event)" ></ion-datetime>
+             <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+       <ion-item>
+         <ion-label>Hasta: </ion-label>
+       </ion-item>
+        <ion-item>
+          <ion-button>
             <ion-datetime displayFormat="DD MM YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaFinTxt($event)" ></ion-datetime>
-              <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
+             <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
+         </ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="search_()" >
+           <ion-icon slot="start" name="search-outline"></ion-icon>
           </ion-button>
-
-          <ion-button size="small" color="light" slot="primary" (click)="search_()" >
-              <ion-icon slot="start" name="search-outline"></ion-icon>
-          </ion-button>
-    </div>
+        </ion-item> 
+     
+      </ion-row>
+    </ion-grid>
     <ion-grid >
         <div >
          <app-card-calendario *ngFor="let item of calendarioData?.notes" [news_child]="item" (idCalendar)="openCalendario_($event)">

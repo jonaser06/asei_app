@@ -16,7 +16,7 @@
         visibility: visible;
     }
     .actions-page.no-mobil .btn-new-item {
-        background-color: #f0f0f0;
+       
         color: #24344D;
     }
     .content-search .actions-page.no-mobil .icon-btn {
@@ -132,7 +132,7 @@
 .section-grid .news-grid .slider-img .img-slider .admin-edit .edit {
     padding: 0.4em;
     border-radius: 10px;
-    background-color: #ffff;
+   
     color: #24344D;
     border: 1px solid #24344D;
     margin: 0.1em;
@@ -146,7 +146,7 @@
     padding: 0.4em;
     border-radius: 10px;
     background-color: #24344D;
-    color: #fff;
+   
     border: 1px solid #24344D;
     margin: 0.1em;
     cursor: pointer;
@@ -172,7 +172,7 @@
     align-items: center;
     font-size: 1.8em;
     margin-left: 0.5em;
-    color: #FFFFFF;
+    
     cursor: pointer;
 }
 
@@ -185,7 +185,7 @@
     align-items: center;
     font-size: 1.8em;
     margin-right: 0.5em;
-    color: #FFFFFF;
+  
     cursor: pointer;
 }
 
@@ -199,7 +199,7 @@
     width: 100%;
     text-align: center;
     margin-bottom: 0.7em;
-    color: #ffff;
+   
 }
 
 .section-grid .news-grid .slider-img .circle-slider .btn-slider {
@@ -268,26 +268,10 @@
     border: none;
     outline: none;
     color: #DF8708;
-    background-color: #fff;
+   
 }
 
-.section-grid .news-grid .slider-img .content-text .btn-like .like-btn {
-    display: flex;
-    align-items: center;
-    color: #24344D;
-    border: 1px solid #24344D;
-    padding: 0.5em;
-    background: #f0f0f0;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
-.section-grid .news-grid .slider-img .content-text .btn-like .points {
-    padding: 0;
-    margin: 0;
-    color: #24344D;
-    margin-left: 0.4em;
-}
 
 .section-grid .news-grid .recent-news h3 {
     font-family: 'Lucida Sans';
@@ -311,25 +295,10 @@
     }
 }
 
-.section-grid .news-grid .input-search input[type="search"] {
-    border-radius: 10px;
-    border: 1px solid #c4c4c4;
-    outline: none;
-    padding: 0.6em;
-    font-family: Calibri;
-    flex: 1;
-}
 
-.section-grid .news-grid .input-search button {
-    padding: 0.8em;
-    border-radius: 10px;
-    background-color: #24344D;
-    margin-left: 0.8em;
-}
 
-.section-grid .news-grid .input-search button .search-btn {
-    color: #fff;
-}
+
+
 
 .section-grid .news-grid .cards-news {
     display: flex;
@@ -581,9 +550,9 @@
 .modal-anniversary .content-button button {
     border: none;
     outline: none;
-    background: #24344D;
+   
     text-align: center;
-    color: #fff;
+   
     border-radius: 0.6em;
     padding: 1em;
     width: 15em;
@@ -597,8 +566,6 @@
     top: 50;
   }
 
-  .item-input-inset  {
-    
-    justify-content:center;
-  
-  }
+.search{
+    background: none !important;
+}
