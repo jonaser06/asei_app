@@ -2,56 +2,42 @@
   <app-navigation-tabs></app-navigation-tabs>
   <div class="layout-section">
     <div class="container">
-        <div class="row-actions-top">
-            <div class="title-section-container">
+            <div class="row-actions-top">
+              <div class="title-section-container">
                 <div class="title-arrow">
                   <!-- Flecha a la izquierda -->
                   <div class="left-arrow" (click)="volverInfo()">
                     <ion-icon name="arrow-back-outline"></ion-icon>
                   </div>
-  
                   <div class="title">
                     <h3 class="title-section color-news">Calendario</h3>
                     <p class="subtitle-section color-news">Revisa aqui el cronograma de las ultimas actividades</p>
                   </div>
                 </div>
-            </div>
-        </div>   
-    </div>
-    <ion-grid>
-      <ion-row >
-        <ion-item > 
-          <ion-label class="search"> Desde: </ion-label>
-        </ion-item>
-          <ion-item>
-            <ion-button >
-            <ion-datetime displayFormat="DD-MM-YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaInicioTxt($event)" ></ion-datetime>
-             <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
-            </ion-button>
-          </ion-item>
-       <ion-item>
-         <ion-label>Hasta: </ion-label>
-       </ion-item>
-        <ion-item>
-          <ion-button>
-            <ion-datetime displayFormat="DD MM YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaFinTxt($event)" ></ion-datetime>
-             <ion-icon slot="end" name="calendar-clear-outline"></ion-icon>
-         </ion-button>
-        </ion-item>
-        <ion-item>
-          <ion-button (click)="search_()" >
-           <ion-icon slot="start" name="search-outline"></ion-icon>
-          </ion-button>
-        </ion-item> 
-     
-      </ion-row>
-    </ion-grid>
-    <ion-grid >
+              </div>
+           </div>
+           
+           <div class="actions-page">
+             <div class="start-date">
+              <ion-label for="start-date"> Desde: </ion-label>
+                <ion-datetime class="date" displayFormat="DD-MM-YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaInicioTxt($event)" > </ion-datetime>
+                  <ion-icon  name="calendar-clear-outline" ></ion-icon> 
+             </div>
+             <div class="end-date">
+              <ion-label for="end-date">Hasta: </ion-label>
+               <ion-datetime class="date" displayFormat="DD MM YYYY" placeholder="dd-mm-aaaa" (ionChange) = "fechaFinTxt($event)" ></ion-datetime>
+                <ion-icon name="calendar-clear-outline" ></ion-icon> 
+              </div>
+              <button class="end-date" (click)="search_()">
+                <ion-icon name="search-outline" id="end-date" ></ion-icon>
+                </button>
+           </div>
+  </div>
+
         <div >
          <app-card-calendario *ngFor="let item of calendarioData?.notes" [news_child]="item" (idCalendar)="openCalendario_($event)">
          </app-card-calendario>
         </div>
-    </ion-grid>
       <div>
       <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
       </div>
