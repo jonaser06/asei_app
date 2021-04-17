@@ -23,6 +23,7 @@ export class CardItemsComponent implements OnInit {
 
   URL = environment.url;
   iduser;
+  rol;
   constructor(
     private uiServiceService:UiServiceService,
     private authService: AuthService,
@@ -39,6 +40,8 @@ export class CardItemsComponent implements OnInit {
   current_session(){
     this.authService.get_data()
     .then(resp=>{
+      console.log(resp);
+      this.rol = resp['data']['rol']
       this.iduser = resp['data']['user_id'];
     });
   }

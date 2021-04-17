@@ -171,6 +171,16 @@
                         </ion-item>
                     </ion-card>
 
+                    <ion-card class="admin-asociado" *ngIf="rol=='asociado'">
+                        <ion-item style="width: 50%;">
+                            <ion-label class="toggle-admin">Admin</ion-label>
+                            <ion-toggle (ionChange)='changePerfil()'></ion-toggle>
+
+                        </ion-item>
+                        <div #msg class="text-admin"></div>
+
+                    </ion-card>
+                    <br>
                     <ion-card class="campob">
                         <ion-item>
                             <div class="title-section-container tcard">

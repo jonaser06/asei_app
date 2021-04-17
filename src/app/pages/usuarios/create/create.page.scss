@@ -211,6 +211,7 @@ ion-card.main {
 .fecha,
 .telefono,
 .inmobiliaria,
+.admin-asociado,
 .direccion {
     width: 49%;
     box-shadow: none !important;
@@ -218,6 +219,7 @@ ion-card.main {
 
 .direccion,
 .inmobiliaria,
+.admin-asociado,
 .campob {
     // width:98%;
     box-shadow: none !important;
@@ -481,4 +483,25 @@ ion-item:hover {
 .content-img {
     display: inline-flex;
     justify-content: center;
+}
+
+.toggle-admin {
+    font-family: Calibri;
+    font-weight: 400;
+    font-size: medium;
+}
+
+.text-admin {
+    padding-left: 1rem;
+    display: block;
+    font-family: Calibri;
+    font-weight: 100;
+    font-style: italic;
+    font-size: small;
+    color: #828282;
+}
+
+.admin-asociado {
+    display: flex;
+    flex-direction: column;
 }

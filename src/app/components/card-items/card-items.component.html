@@ -66,7 +66,22 @@
         <hr>
         <div class="btn-like">
 
-            <div class="stars-btn">
+            <div class="stars-btn" *ngIf="rol=='admin'">
+                <p>Calificación.
+
+                    <ion-icon class="stars" name="{{(  1 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                    <ion-icon class="stars" name="{{(  2 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                    <ion-icon class="stars" name="{{(  3 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                    <ion-icon class="stars" name="{{(  4 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+                    <ion-icon class="stars" name="{{(  5 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
+
+                    {{ news_child.promedio}}
+
+
+
+                </p>
+            </div>
+            <div class="stars-btn" *ngIf="rol !='admin'">
                 <p (click)="dialogCalification(news_child.ID_NO)">Calificación.
 
                     <ion-icon class="stars" name="{{(  1 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
@@ -81,6 +96,7 @@
 
                 </p>
             </div>
+
 
         </div>
     </ion-card-content>

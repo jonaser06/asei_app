@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -6,6 +6,7 @@ import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-edit',
@@ -30,8 +31,20 @@ export class EditPage implements OnInit {
   imgcolaborador : any;
   imagencol : any;
 
-  constructor( private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
+  rol:any;
+  isAdmin  : boolean = false;
+  currentUser: any;
+  user_id : any;
+  @ViewChild('msg') msg : ElementRef;
+
+  constructor( private authservice : AuthService,private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
+    
+    
     this.get_user();
+    this.authservice.get_data().then( resp => {
+      this.currentUser =  resp['data']['ID_US'] == this.user_id ? true : false
+      this.currentUser =  '1608532826' == this.user_id ? true : false
+    })
     this.imgcolaborador = '';
   }
 
@@ -55,6 +68,7 @@ export class EditPage implements OnInit {
 
   get_user(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.user_id = id;
     this.userService.get_userService(id)
     .then(resp=>{ 
       this.name_1     = resp['data']['NOMBRES'];
@@ -66,7 +80,12 @@ export class EditPage implements OnInit {
       this.phone      = resp['data']['TELEFONO'];
       this.direccion  = resp['data']['DIRECCION'];
       this.inmobiliaria = resp['data']['EMPRESA'];
+      this.rol = resp['data']['TIPO'];
+      this.isAdmin = resp['data']['admin_asociado'] == 1 ? true :false;
+
       this.imagencol =  this.URL + '/' + resp['data']['imagenes'][0]['RUTA'];
+
+      
     })
     .catch();
   }
@@ -86,8 +105,11 @@ export class EditPage implements OnInit {
     if(this.inmobiliaria.toString().replace(/\s/g, "") === "") return this.uiServiceService.alert_info('seleccione su inmobiliaria');
     if(this.password == undefined || this.password == "") return this.uiServiceService.alert_info('Ingrese su contraseña');
 
-    
     let formdata = new FormData();
+    if( this.cargo == 'asociado') {
+      const adminAsociado = this.isAdmin ? '1': '0';
+      formdata.append('admin_asociado',adminAsociado);
+    }
     formdata.append('nombres', this.name_1);
     formdata.append('apellido_paterno', this.lastname_1);
     formdata.append('apellido_materno', this.lastname_2);
@@ -109,5 +131,9 @@ export class EditPage implements OnInit {
     .catch();
 
   }
-
+  changePerfil () {
+    this.isAdmin = !this.isAdmin 
+    const $mensaje:HTMLElement = this.msg.nativeElement
+    $mensaje.textContent = this.isAdmin ?  'Este asociado tendra privilegios de administrador':''
+}
 }

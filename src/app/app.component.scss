@@ -18,7 +18,7 @@
     vertical-align: middle;
     max-width: 300px;
     background: #ffffff;
-    margin-top: 12vh;
+    margin-top: 25vh;
     text-align: center;
     border-radius: 5px;
     color: #000;
@@ -65,5 +65,14 @@ ion-icon {
 }
 
 .star-outline {
-    color: red;
+    color: #f1f1f1;
+}
+
+.container-stars {
+    margin-top: 15px;
+}
+
+.container-stars>* {
+    height: 35px !important;
+    width: 35px
 }
