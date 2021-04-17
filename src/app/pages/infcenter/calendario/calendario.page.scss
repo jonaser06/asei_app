@@ -1,14 +1,63 @@
-@media (min-width: 900px) {
-    .actions-page.no-web {
-        display: none;
-        visibility: hidden;
+
+
+.container .actions-page {
+    display: flex;
+    align-items: center;
+}
+
+.container .actions-page .start-date,
+.container .actions-page .end-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container .actions-page .end-date {
+    margin-left: 1em;
+}
+
+.container .actions-page .date .icon-btn{
+    margin: 0.3em 1em;
+    padding: 0.2em;
+    outline: none;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.5);
+    font-family: Calibri;
+    margin-left: 0.3em;
+}
+
+@media (min-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .container .btn-new-item {
+        width: 100%;
+    }
+
+    .container .actions-page {
+        display: flex;
+        align-items: center;
+    }
+    
+    .container .actions-page .start-date,
+    .container .actions-page .end-date {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }    
+    
+}
+
+@media (min-width: 960px) {
+    .container .actions-page {
+        flex-direction: row;
     }
 }
 
-.actions-page.no-mobil {
-    display: none;
-    visibility: hidden;
-}
 
 @media (min-width: 900px) {
     .actions-page.no-mobil {
@@ -16,7 +65,7 @@
         visibility: visible;
     }
     .actions-page.no-mobil .btn-new-item {
-        background-color: #f0f0f0;
+       
         color: #24344D;
     }
     .content-search .actions-page.no-mobil .icon-btn {
@@ -24,6 +73,8 @@
         font-size: 20px !important;
     }
 }
+
+
 
 .row-actions-top .title-section-container .title-arrow {
     display: flex;
@@ -132,7 +183,7 @@
 .section-grid .news-grid .slider-img .img-slider .admin-edit .edit {
     padding: 0.4em;
     border-radius: 10px;
-    background-color: #ffff;
+   
     color: #24344D;
     border: 1px solid #24344D;
     margin: 0.1em;
@@ -146,7 +197,7 @@
     padding: 0.4em;
     border-radius: 10px;
     background-color: #24344D;
-    color: #fff;
+   
     border: 1px solid #24344D;
     margin: 0.1em;
     cursor: pointer;
@@ -172,7 +223,7 @@
     align-items: center;
     font-size: 1.8em;
     margin-left: 0.5em;
-    color: #FFFFFF;
+    
     cursor: pointer;
 }
 
@@ -185,7 +236,7 @@
     align-items: center;
     font-size: 1.8em;
     margin-right: 0.5em;
-    color: #FFFFFF;
+  
     cursor: pointer;
 }
 
@@ -199,7 +250,7 @@
     width: 100%;
     text-align: center;
     margin-bottom: 0.7em;
-    color: #ffff;
+   
 }
 
 .section-grid .news-grid .slider-img .circle-slider .btn-slider {
@@ -268,26 +319,10 @@
     border: none;
     outline: none;
     color: #DF8708;
-    background-color: #fff;
+   
 }
 
-.section-grid .news-grid .slider-img .content-text .btn-like .like-btn {
-    display: flex;
-    align-items: center;
-    color: #24344D;
-    border: 1px solid #24344D;
-    padding: 0.5em;
-    background: #f0f0f0;
-    border-radius: 10px;
-    cursor: pointer;
-}
 
-.section-grid .news-grid .slider-img .content-text .btn-like .points {
-    padding: 0;
-    margin: 0;
-    color: #24344D;
-    margin-left: 0.4em;
-}
 
 .section-grid .news-grid .recent-news h3 {
     font-family: 'Lucida Sans';
@@ -311,25 +346,10 @@
     }
 }
 
-.section-grid .news-grid .input-search input[type="search"] {
-    border-radius: 10px;
-    border: 1px solid #c4c4c4;
-    outline: none;
-    padding: 0.6em;
-    font-family: Calibri;
-    flex: 1;
-}
 
-.section-grid .news-grid .input-search button {
-    padding: 0.8em;
-    border-radius: 10px;
-    background-color: #24344D;
-    margin-left: 0.8em;
-}
 
-.section-grid .news-grid .input-search button .search-btn {
-    color: #fff;
-}
+
+
 
 .section-grid .news-grid .cards-news {
     display: flex;
@@ -581,9 +601,9 @@
 .modal-anniversary .content-button button {
     border: none;
     outline: none;
-    background: #24344D;
+   
     text-align: center;
-    color: #fff;
+   
     border-radius: 0.6em;
     padding: 1em;
     width: 15em;
@@ -591,4 +611,12 @@
     cursor: pointer;
 }
 
+/** Ionic CSS Variables **/
+.picker-wrapper.sc-ion-picker-md {
+    bottom: auto;
+    top: 50;
+  }
 
+.search{
+    background: none !important;
+}
