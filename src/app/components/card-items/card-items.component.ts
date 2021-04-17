@@ -58,8 +58,10 @@ export class CardItemsComponent implements OnInit {
 
   dialogCalification (ID_NO) {
     this.calificationService.comproved(ID_NO, this.iduser).then ( estado => {
-      if( ! estado ) return this.uiServiceService.alert_info('YA CALIFICASTE ESTE POST')
-      this.calificationService.modalSend(ID_NO, this.iduser )
+      if( ! estado ) return this.uiServiceService.alert_info('YA CALIFICASTE ESTE POST');
+      
+
+      this.calificationService.modalCalificar(ID_NO, this.iduser )
     })
     
   }

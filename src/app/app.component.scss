@@ -1,0 +1,69 @@
+/* modal */
+
+.overlay-10 {
+    position: absolute;
+    display: none;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 37, 45, .75);
+    backdrop-filter: blur(4px);
+}
+
+.modal-template {
+    position: relative;
+    box-shadow: 0 12px 22px 2px rgb(0 0 0 / 50%);
+    padding: 20px;
+    margin: auto;
+    vertical-align: middle;
+    max-width: 300px;
+    background: #ffffff;
+    margin-top: 12vh;
+    text-align: center;
+    border-radius: 5px;
+    color: #000;
+}
+
+.modal-title,
+.modal-subtitle {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+}
+
+.modal-content ion-button {
+    --background: #f25115;
+}
+
+.modal-content ion-button ion-icon {
+    margin-right: 10px;
+}
+
+.modal-title a,
+.modal-subtitle a {
+    color: #f25115;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.close-modal {
+    position: absolute;
+    width: 260px;
+    text-align: right;
+}
+
+ion-icon {
+    pointer-events: all !important;
+}
+
+.close-btn {
+    cursor: pointer !important;
+}
+
+.star {
+    color: #DF8708
+}
+
+.star-outline {
+    color: red;
+}

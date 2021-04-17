@@ -36,6 +36,7 @@
     "ionic4-rating": "^1.0.9",
     "jquery": "^3.5.1",
     "jspdf": "^2.3.1",
+    "material-ui-rating": "^4.0.0-beta.2",
     "ngx-slick-carousel": "^0.5.1",
     "rxjs": "~6.5.5",
     "slick-carousel": "^1.8.1",

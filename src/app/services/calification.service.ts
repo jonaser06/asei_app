@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 
@@ -12,7 +12,9 @@ const URL = environment.url;
 })
 export class CalificationService {
   cal_user:string;
-  constructor( private router: Router,private alertController : AlertController,private http: HttpClient) { }
+  ID_NO:any;
+  ID_US:any;
+  constructor( private nav: NavController,private router: Router,private alertController : AlertController,private http: HttpClient) { }
 
   calificar(ID_NO, ID_US , formDataCalification){
     return new Promise ( resolve => {
@@ -39,6 +41,23 @@ export class CalificationService {
     });
   }
 
+  async modalCalificar ( ID_NO,ID_US) {
+    this.ID_NO = ID_NO;
+    this.ID_US = ID_US;
+    (document.querySelector('.overlay-10') as HTMLElement).style.display = "block";
+
+    // const formData = new FormData()
+    // formData.append('calificacion',calification);
+    
+  //   this.calificar(ID_NO ,_ID_US ,formData).then( resp => {
+
+  //     // if( resp['status']) {
+  //     //     this.modalResponse('GRACIAS POR TU CALIFICACIÓN')
+  //     //     setTimeout(() => this.nav.navigateRoot('tabs/inicio'), 1500);
+  //     // }
+
+  // })
+  }
   async modalSend(ID_NO, ID_US ) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
