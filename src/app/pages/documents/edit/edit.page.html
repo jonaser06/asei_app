@@ -1,0 +1,55 @@
+<ion-content class="content-section">
+  <div class="layout-section">
+    <div class="container">
+        <div class="row-actions-top">
+            <div class="title-section-container">
+              <div class="title-arrow">
+                <!-- Flecha a la izquierda -->
+                <div class="left-arrow" (click)="volverDocumentsTipos()">
+                  <ion-icon name="arrow-back-outline"></ion-icon>
+                </div>
+                <div class="title">
+                  <h3 class="title-section color-news">Editar Categoria</h3>
+                  <p class="subtitle-section color-news">Completa la información correspondiente a la categoria</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-grid class="section-grid">
+      <div class="form-documents-tipos"> 
+        <form action="" class="content-form">
+          <div class="first-form">
+            <div class="subtitle">
+              <h4>Datos de la categoria</h4>
+            </div>
+
+            <div class="title-document-tipo">
+              <label for="title-document-tipo">Nombre de la categoria</label>
+              <input type="text" class="form-control title-documents-tipos-tx" aria-describedby="basic-addon1" value="{{ info_document_tipo?.area }}" (change)="handleFileInput($event)">
+            </div>
+
+            <p class="foto">Seleccione imagen</p>
+            <div class="img-documents-tipos" >
+              <div class="content-img">
+                <img src="{{ documentstipossrc }}" alt="">
+              </div>
+              
+              <div class="image">
+                <p>Seleccione imagen</p>
+                <input type="file" title="Seleccione imagen" accept="image/*" name="" id="" (change)="img_documents_tipos($event)">
+              </div>
+            </div>
+            <app-send-notification (toggle)="notificacion($event);">
+            </app-send-notification>
+          </div>
+          <div class="content-btn">
+            <button type="button" class="btn btn-lg btn-primary" (click)="add_documents_tipos();">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </ion-grid>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

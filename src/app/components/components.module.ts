@@ -16,6 +16,8 @@ import { PaginadorComponent } from './paginador/paginador.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
 import { CardCursosComponent } from './card-cursos/card-cursos.component';
+import { CardDocumentsTiposComponent } from './card-documents-tipos/card-documents-tipos.component';
+import { CardDocumentsfilesComponent } from './card-documents-files/card-documents-files.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerGetComponent } from './trainer-get/trainer-get.component';
 import { SesionGetComponent } from './sesion-get/sesion-get.component';
@@ -51,6 +53,8 @@ import { CardCertificadoComponent } from './card-certificado/card-certificado.co
     BuscadorComponent,
     MoreNewsComponent,
     CardCursosComponent,
+    CardDocumentsTiposComponent,
+    CardDocumentsfilesComponent,
     TrainerComponent,
     TrainerGetComponent,
     SesionGetComponent,
@@ -82,6 +86,8 @@ import { CardCertificadoComponent } from './card-certificado/card-certificado.co
     BuscadorComponent,
     MoreNewsComponent,
     CardCursosComponent,
+    CardDocumentsTiposComponent,
+    CardDocumentsfilesComponent,
     TrainerComponent,
     TrainerGetComponent,
     SesionGetComponent,

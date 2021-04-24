@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./edit/edit.module').then( m => m.EditPageModule)
   },
   {
+    path: 'personalfiles/:id',
+    loadChildren: () => import('./personalfiles/documentsfiles.module').then( m => m.DocumentsFilesPageModule)
+  },
+  {
     path: 'create',
     loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
   }

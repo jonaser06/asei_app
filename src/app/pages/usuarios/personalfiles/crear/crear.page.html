@@ -1,0 +1,52 @@
+<ion-content class="content-section">
+  <div class="layout-section">
+    <div class="container">
+        <div class="row-actions-top">
+            <div class="title-section-container">
+              <div class="title-arrow">
+                <!-- Flecha a la izquierda -->
+                <div class="left-arrow" (click)="volverDocumentsFiles()">
+                  <ion-icon name="arrow-back-outline"></ion-icon>
+                </div>
+
+                <div class="title">
+                  <h3 class="title-section color-news">Subir archivo personal</h3>
+                  <p class="subtitle-section color-news">Completa la información correspondiente al archivo que deseas subir</p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-grid class="section-grid" >
+      <div class="form-documents-tipos"> 
+        <form action="" class="content-form">
+          <div class="first-form">
+            <div class="subtitle">
+              <h4>Datos del archivo</h4>
+            </div>
+
+            <div class="title-document-tipo">
+              <label for="title-document-tipo">Nombre del archivo</label>
+              <input type="text" class="form-control title-documents-files-tx" aria-describedby="basic-addon1">
+            </div>
+            <div class="inputs-files">
+              <p>Subir archivo</p>
+              <input type="file" (change)="adjuntfile($event)">
+              <ion-icon class="icon-doc" name="document-attach-outline"></ion-icon>
+              <label *ngIf="filebull || isEdited">Archivo cargado: {{ filebull_ }}</label>
+              <label *ngIf="!filebull && !isEdited">Ningun archivo seleccionado</label>
+              <input type="hidden" name="id" [(ngModel)]="idbull">
+            </div>
+            <app-send-notification (toggle)="notificacion($event);">
+            </app-send-notification>
+          </div>
+          <div class="content-btn">
+            <button type="button" class="btn btn-lg btn-primary" (click)="add_documents_files();">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </ion-grid>
+  </div>
+  <app-footer></app-footer>
+</ion-content>

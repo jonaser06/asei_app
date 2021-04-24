@@ -13,6 +13,7 @@ export class CardListAdminComponent implements OnInit {
   @Input() user_child : any;
 
   @Output() idUsers = new EventEmitter();
+  @Output() idUsersDoc = new EventEmitter();
 
   URL = environment.url;
 
@@ -22,6 +23,10 @@ export class CardListAdminComponent implements OnInit {
 
   removeUser(ID_US){
     this.idUsers.emit(ID_US);
+  }
+
+  iraperso(ID_US){
+    this.idUsersDoc.emit(ID_US);
   }
 
 }

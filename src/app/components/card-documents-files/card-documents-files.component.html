@@ -1,0 +1,92 @@
+<ion-list class="item-list" >
+  <ion-item-sliding id="item100" >
+    <ion-item class="itemlist">
+      <ion-avatar slot="start" class="item-avatar">
+        <div *ngIf="documentsfiles_child.TIPO=='.xlsx' || documentsfiles_child.TIPO=='.xls'">
+          <img src="../../../assets/img/xls.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.avi'">
+          <img src="../../../assets/img/avi.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.csv'">
+          <img src="../../../assets/img/csv.png" alt="">
+        </div>
+        
+        <div *ngIf="documentsfiles_child.TIPO=='.doc' || documentsfiles_child.TIPO=='.docx'">
+          <img src="../../../assets/img/doc.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.dwg'">
+          <img src="../../../assets/img/dwg.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.exe'">
+          <img src="../../../assets/img/exe.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.iso'">
+          <img src="../../../assets/img/iso.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.jpg' || documentsfiles_child.TIPO=='.jpeg'">
+          <img src="../../../assets/img/jpg.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.mp3'">
+          <img src="../../../assets/img/mp3.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.mp4'">
+          <img src="../../../assets/img/mp4.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.pdf'">
+          <img src="../../../assets/img/pdf.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.png'">
+          <img src="../../../assets/img/png.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.ppt' || documentsfiles_child.TIPO=='.pptx'">
+          <img src="../../../assets/img/ppt.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.psd'">
+          <img src="../../../assets/img/psd.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.txt'">
+          <img src="../../../assets/img/txt.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.zip'">
+          <img src="../../../assets/img/zip.png" alt="">
+        </div>
+
+        <div *ngIf="documentsfiles_child.TIPO=='.rar';else other_content">
+          <img src="../../../assets/img/rar.png" alt="">
+        </div>
+        <ng-template #other_content><img src="../../../assets/img/file.png" alt=""></ng-template>
+      </ion-avatar>
+      <ion-label slot="start">
+        <h2>{{documentsfiles_child.nombre}}</h2>
+        <p>{{documentsfiles_child.TIPO}}</p>
+      </ion-label>
+      <a class="download" slot="end" target="_blank" href="{{URL}}/{{documentsfiles_child.RUTA}}">
+        <ion-icon color="Primary" name="download-outline" >
+        </ion-icon>
+      </a>
+      <a class="edit" slot="end" *ngIf='rol == "admin"' (click)="editDocumentsfile(documentsfiles_child.ID_DOC)">
+        <ion-icon color="Tertiary" name="create-outline">
+        </ion-icon> 
+      </a>
+      <a class="remove" slot="end" *ngIf='rol == "admin"' (click)="removeFile(documentsfiles_child.ID_DOC)">
+        <ion-icon color="danger" name="trash-outline">
+        </ion-icon>
+      </a>
+    </ion-item>
+  </ion-item-sliding>
+</ion-list>

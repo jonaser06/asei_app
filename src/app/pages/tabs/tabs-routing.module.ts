@@ -42,7 +42,10 @@ const routes: Routes = [
         path: 'admin',
         loadChildren: () => import('../admin-usuarios/admin-usuarios.module').then( m => m.AdminUsuariosPageModule )
       },
-      
+      {
+        path: 'documents',
+        loadChildren: () => import('../documents/documents.module').then( m => m.DocumentsPageModule )
+      },
     ]
   }
 ];

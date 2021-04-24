@@ -57,6 +57,10 @@ export class ColaboradorPage implements OnInit {
     this.redireccionService.redireccion('/tabs/usuarios/create?rol=colaborador')
   }
 
+  irapersonal(id){
+    this.redireccionService.redireccion('/tabs/usuarios/personalfiles/'+id);
+  }
+
   removeuser(id){
     this.userService.delete_user(id)
     .then(resp=>{
