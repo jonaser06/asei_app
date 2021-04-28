@@ -141,4 +141,7 @@ export class InfoPage implements OnInit {
     this.redireccionService.backpage();
   }
 
+  iraCursos(){
+    this.redireccionService.backpage();
+  }
 }

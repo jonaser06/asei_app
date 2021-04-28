@@ -103,5 +103,8 @@ export class InfoPage implements OnInit {
     this.redireccionService.backpage();
   }
 
+  irawebinars(){
+    this.redireccionService.backpage();
+  }
 
 }
