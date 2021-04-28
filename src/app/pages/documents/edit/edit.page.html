@@ -30,7 +30,10 @@
               <input type="text" class="form-control title-documents-tipos-tx" aria-describedby="basic-addon1" value="{{ info_document_tipo?.area }}" (change)="handleFileInput($event)">
             </div>
 
-            <p class="foto">Seleccione imagen</p>
+            <p class="imagen">Seleccione imagen</p>
+            <div class="sugerencia">
+              <p><b>Tamaño recomendado: </b>300 x 250 <br> <b>Peso máximo: </b>2 Mb</p>
+            </div>
             <div class="img-documents-tipos" >
               <div class="content-img">
                 <img src="{{ documentstipossrc }}" alt="">

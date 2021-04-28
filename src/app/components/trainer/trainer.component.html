@@ -5,6 +5,9 @@
       <div class="containerimg" *ngIf="imagestat">
         <img src="{{imagestat}}" alt="">
       </div>
+      <div class="sugerencia">
+        <p><b>Tamaño recomendado: </b>200 x 200 <br> <b>Peso máximo: </b>2 Mb</p>
+      </div>
       <input class="btn btn-primary input_img" type="file" accept="image/*" value="Selecciona imagen" (change)="handleFileInput($event)">
       <button type="button" class="inputimg btn btn-primary" (click)="upimg();">Selecciona imagen</button>
     </div>
