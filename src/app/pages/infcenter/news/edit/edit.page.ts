@@ -119,7 +119,7 @@ export class EditPage implements OnInit {
 
     if(this.noti){
       formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó la noticia: '+this.titulo+'", "type":"news", "idus":"'+this.idus+'"}');
-      console.log(`{ id: ${id}, message: 'Se actualizo la noticia:  ${this.titulo}', type:'news' }`);
+      console.log(`{ id: ${id}, message: 'Se actualizó la noticia:  ${this.titulo}', type:'news' }`);
     }
 
     this.infcenterService.update_infcenterNews(formdata, id)
