@@ -1,26 +1,21 @@
 <ion-content class="content-section">
-  <ion-row>
-    <ion-col size="12" size-lg="6" class="header-course left-header">
-      <div class="title-section-container">
-        <div class="title-arrow">
-          <ion-row>
-            <ion-col size="1">
-              <!-- Flecha a la izquierda -->
-              <div class="left-arrow" (click)="volverCursos()">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-              </div>
-            </ion-col>
-            <ion-col>
-              <div class="title">
-                <h3 class="title-section color-news">Webinnars</h3>
-                <p class="subtitle-section color-news">Todos los Webinnars de ASEI</p>
-              </div>
-            </ion-col>
-          </ion-row>
+  <div class="layout-section">
+    <div class="container">
+      <div class="row-actions-top">
+        <div class="title-section-container">
+          <div class="title-arrow">
+            <!-- Flecha a la izquierda -->
+            <div class="left-arrow" (click)="volverWebinars()">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </div>
+            <div class="title">
+              <h3 class="title-section color-news">Webinars</h3>
+              <p class="subtitle-section color-news">Todos los Webinars de ASEI</p>
+            </div>
+          </div>
         </div>
       </div>
-    </ion-col>
-  </ion-row>
+    </div>
 
   <ion-row>
     <ion-col size="12" size-lg="7" class="header-course left-header">
@@ -30,8 +25,6 @@
       <ion-button expand="block" class="crear_curso" (click)="iraCrear()">Nuevo Webinnar <ion-icon name="add-circle" class="more-icon"></ion-icon></ion-button>
     </ion-col>
   </ion-row>
-
-  <div class="layout-section">
 
       <ion-grid class="section-grid">
         <div class="courses">

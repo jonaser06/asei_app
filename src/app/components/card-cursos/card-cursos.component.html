@@ -2,10 +2,12 @@
   <!-- <img src="{{ URL + '/' + cursos_child.imagenes[0].RUTA }}"> -->
   <img src="{{ URL + '/' + cursos_child.imagenes[0].RUTA }}">
   <ion-card-header class="ion-inherit-color md hydrated">
-    <ion-card-title role="heading" aria-level="2" class="ion-inherit-color md hydrated" (click)="openCursos(cursos_child.ID_CO)">{{cursos_child.titulo}}</ion-card-title>
+    <ion-card-title role="heading" aria-level="2" class="ion-inherit-color md hydrated  title-curso" (click)="openCursos(cursos_child.ID_CO)">{{cursos_child.titulo}}</ion-card-title>
   </ion-card-header>
   <ion-card-content class="md card-content-md hydrated">
+    <div class="capac-curso">
     Dictado por {{ cursos_child.capacitadores[0].nombre}}
+    </div>
     <p *ngIf="visible">
       <ion-button color="light" class="btn-create" (click)="editCursos(cursos_child.ID_CO)">
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">

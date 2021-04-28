@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RedireccionService } from '../../../services/redireccion.service';
 import { InfcenterService } from '../../../services/infcenter.service';
 import { environment } from 'src/environments/environment';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 @Component({
   selector: 'app-news',
@@ -29,7 +30,7 @@ export class NewsPage implements OnInit {
   NewsData : any;
   OldData : any;
   
-  constructor(private redireccionService: RedireccionService, private infcenterService: InfcenterService) { 
+  constructor(private redireccionService: RedireccionService, private infcenterService: InfcenterService, private uiServiceService: UiServiceService) { 
     this.getnoticia();
   
   }
@@ -94,12 +95,17 @@ export class NewsPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/news/edit/'+ID_NO);
   }
   removeNew_(ID_NO){
+    this.uiServiceService.presentAlertConfirm('Eliminar noticia','Se eliminará la noticia, ¿Quieres continuar?').then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
     this.infcenterService.delete_infcenterNews(ID_NO)
     .then(resp=>{ 
       console.log('ELIMINAR NOTA : '+ID_NO);
       this.getnoticia();
     })
     .catch();
+      }
+    });
   }
   search_(buscatxt){
     let pages = [];

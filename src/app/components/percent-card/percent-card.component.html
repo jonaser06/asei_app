@@ -32,11 +32,11 @@
 
     <!-- Admin -->
     <div class="admin-edit">
-        <div class="pencil-btn">
+        <div class="pencil-btn" *ngIf='rol == "admin"'>
             <button (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)"><ion-icon name="pencil-outline" ></ion-icon> </button>
         </div>
 
-        <div class="delete-btn">
+        <div class="delete-btn" *ngIf='rol == "admin"'>
             <button (click)="deleteItem(card_ind.id)"><ion-icon name="trash" ></ion-icon></button>
         </div>
     </div>
