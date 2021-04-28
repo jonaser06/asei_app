@@ -66,17 +66,10 @@
             </div>
 
             <div class="content-link-2">
-              <div class="link-1 link-all">
+              <div class="link-1 link-all" *ngFor="let item of links">
                 <ion-icon class="icon-link" name="link-outline"></ion-icon>
-                <a target="_blank" href="http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129">
-                  http://www.newsmonitor.biz/Viewer/postview.aspx?PAU=4069881&CLIP=2936129
-                </a>
-              </div>
-
-              <div class="link-2 link-all">
-                <ion-icon class="icon-link" name="link-outline"></ion-icon>
-                <a target="_blank" href="https://www.facebook.com/">
-                  https://www.facebook.com/
+                <a target="_blank" href="{{item}}">
+                  {{item}}
                 </a>
               </div>
             </div>

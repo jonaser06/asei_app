@@ -13,14 +13,16 @@ export class InfoPage implements OnInit {
 
   dialogCalificacion: boolean = false;
   isEdited = false;
+  links : any[];
   eventosData: any;
   URL = environment.url;
   NewsData : any;
   Title : String = 'Más eventos';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
-    this.get_Eventos()
-    this.more_news()
+    this.get_Eventos();
+    this.more_news();
+    this.links = [];
   }
 
   ngOnInit() {
@@ -51,9 +53,10 @@ export class InfoPage implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.infcenterService.get_infcenterEventosID(id)
-    .then(resp=>{
+    .then((resp: any)=>{
       this.eventosData = resp;
       this.eventosData = this.eventosData.data;
+      this.links = resp.data.link.split(',');
       console.log(this.eventosData);
     })
     .catch();
