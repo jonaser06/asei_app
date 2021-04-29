@@ -16,8 +16,12 @@ export class InfoPage implements OnInit {
   info_curso: any;
   play_list: any;
   player: any;
+  rol : String ;
   URL = environment.url
-  constructor(private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { }
+  constructor(private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) 
+  {
+    this.current_rol();
+  }
 
   ngOnInit(){
     this.get_webinnars();
@@ -104,7 +108,17 @@ export class InfoPage implements OnInit {
   }
 
   irawebinars(){
-    this.redireccionService.backpage();
+    if(this.rol=='admin'){
+      this.redireccionService.redireccion('/tabs/learning-center/webinars/admin');
+    }else{
+      this.redireccionService.redireccion('/tabs/learning-center/webinars');
+    }
   }
 
+  current_rol(){
+    this.authService.get_data()
+    .then(resp=>{
+      this.rol = resp['data']['rol'];
+    });
+  }
 }
