@@ -38,8 +38,6 @@
               <label *ngIf="!filebull && !isEdited">Ningun archivo seleccionado</label>
               <input type="hidden" name="id" [(ngModel)]="idbull">
             </div>
-            <app-send-notification (toggle)="notificacion($event);">
-            </app-send-notification>
           </div>
           <div class="content-btn">
             <button type="button" class="btn btn-lg btn-primary" (click)="add_documents_files();">Guardar</button>
