@@ -33,6 +33,7 @@ import { RouterModule } from '@angular/router';
 import { CardCalendarioComponent } from './card-calendario/card-calendario.component';
 import { CertificadosComponent } from './certificados/certificados.component';
 import { CardCertificadoComponent } from './card-certificado/card-certificado.component';
+import { PopoverComponent } from './popover/popover.component';
 
 
 
@@ -68,7 +69,8 @@ import { CardCertificadoComponent } from './card-certificado/card-certificado.co
     MenuAdminComponent,
     CardCalendarioComponent,
     CertificadosComponent,
-    CardCertificadoComponent
+    CardCertificadoComponent,
+    PopoverComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -100,7 +102,9 @@ import { CardCertificadoComponent } from './card-certificado/card-certificado.co
     DocumentosComponent,
     MenuAdminComponent,
     CardCalendarioComponent,
-    CertificadosComponent,CardCertificadoComponent
+    CertificadosComponent,
+    CardCertificadoComponent,
+    PopoverComponent
   ],
   imports: [
     CommonModule,

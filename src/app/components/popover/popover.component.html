@@ -2,10 +2,10 @@
   <ion-item>
     <ion-label (click)="option(1)">Descargar</ion-label>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="rol=='admin'">
     <ion-label (click)="option(2)">Editar</ion-label>
   </ion-item>
-  <ion-item>
+  <ion-item *ngIf="rol=='admin'">
     <ion-label (click)="option(3)">Eliminar</ion-label>
   </ion-item>
 </ion-list>
