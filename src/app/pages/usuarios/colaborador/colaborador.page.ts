@@ -3,6 +3,7 @@ import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import { PopoverController } from '@ionic/angular';
+import { UiServiceService } from '../../../services/ui-service.service';
 
 @Component({
   selector: 'app-colaborador',
@@ -17,9 +18,10 @@ export class ColaboradorPage implements OnInit {
   currentpage : any;
   currentkey : any;
   search : any;
+  resp : any;
 
   location : any;
-  constructor(private popoverController : PopoverController, private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef) { 
+  constructor(private popoverController : PopoverController, private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef, private uiServiceService : UiServiceService) { 
     // this.applicationRef.tick();
     this.get_colaborador();
     this.location = window.location.pathname.split("/").pop();
@@ -62,11 +64,16 @@ export class ColaboradorPage implements OnInit {
   }
 
   removeuser(id){
-    this.userService.delete_user(id)
-    .then(resp=>{
-      this.get_colaborador();
+    this.uiServiceService.presentAlertConfirm('Eliminar usuario','¿Estás seguro que desea eliminar este usuario?').then((res)=>{
+    let resp = res.data.resp;
+    if(resp){
+      this.userService.delete_user(id)
+      .then(resp=>{
+        this.get_colaborador();
+      })
+      .catch();
+      }
     })
-    .catch();
   }
 
 
