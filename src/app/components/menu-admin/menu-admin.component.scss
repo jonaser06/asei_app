@@ -11,7 +11,7 @@
     --background: white;
     color: #24344D;
     --border-radius: 20px 20px 0px 0px;
-    width: 27vh;
+    width: 35%;
     height: 40px;
     font-size: 16px;
     margin: .7vw;
@@ -23,7 +23,7 @@
 .options ion-button.active {
     border-bottom: 6px solid #DF8708;
     color: #DF8708;
-    width: fit-content;
+    width: 45%;
 }
 
 .mod2,
@@ -68,7 +68,7 @@
         background-color: white;
     }
     .options ion-button {
-        width: 27vh;
+        width: 35%;
         height: 5vh;
         font-size: 10px;
         margin: .7vw;
