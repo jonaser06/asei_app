@@ -38,10 +38,10 @@ const routes: Routes = [
         path: 'usuarios',
         loadChildren: () => import('../usuarios/usuarios.module').then( m => m.UsuariosPageModule )
       },
-      {
-        path: 'admin',
-        loadChildren: () => import('../admin-usuarios/admin-usuarios.module').then( m => m.AdminUsuariosPageModule )
-      },
+      // {
+      //   path: 'admin',
+      //   loadChildren: () => import('../admin-usuarios/admin-usuarios.module').then( m => m.AdminUsuariosPageModule )
+      // },
       {
         path: 'documents',
         loadChildren: () => import('../documents/documents.module').then( m => m.DocumentsPageModule )
