@@ -25,6 +25,7 @@ export class CrearPage implements OnInit {
   DocumentsData: any;
   DocumentsFilesData: any;
   path: any;
+  isEdited = false;
 
   constructor(private redireccionService: RedireccionService, private uiserviceService : UiServiceService, private documentsService : DocumentsService, public activatedRoute: ActivatedRoute ) { 
     this.noti = false;

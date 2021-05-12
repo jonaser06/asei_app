@@ -19,6 +19,8 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 //idioma
 import idiomalocal from '@angular/common/locales/es-PE';
 import { registerLocaleData } from '@angular/common';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 registerLocaleData ( idiomalocal );
 
 @NgModule({
@@ -30,7 +32,8 @@ registerLocaleData ( idiomalocal );
     AppRoutingModule, 
     HttpClientModule,
     IonicStorageModule.forRoot(),
-    ComponentsModule
+    ComponentsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {

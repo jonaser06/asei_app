@@ -69,4 +69,11 @@ export class CalendarioPage implements OnInit {
     })
     .catch();
   }
+  openCalendario_(event){
+
+  }
+
+  changepage_(event){
+
+  }
 }

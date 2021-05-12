@@ -84,4 +84,8 @@ export class EditPage implements OnInit {
   volverDocumentsTipos(){
     this.redireccionService.redireccion('/tabs/documents');
   }
+
+  handleFileInput(event){
+
+  }
 }

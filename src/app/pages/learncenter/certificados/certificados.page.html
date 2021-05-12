@@ -29,7 +29,7 @@
 
                     <ion-row>
                         <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CertificadosData?.contenido">
-                            <app-card-certificado [certificados_child]="item" (idCertificados)="openCertificados_($event)" [visible]="visible"></app-card-certificado>
+                            <app-card-certificado [certificados_child]="item" (idCertificados)="openCertificados_($event)"></app-card-certificado>
                         </ion-col>
                     </ion-row>
                 </div>

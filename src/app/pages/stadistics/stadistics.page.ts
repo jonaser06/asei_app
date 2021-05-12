@@ -590,6 +590,10 @@ export class StadisticsPage implements OnInit {
   closeDialogRemove() {
     this.dialogRemove = false;
   }
+
+  donwloadstat_($event){
+
+  }
   
   changepage_(page){
     let pages = [];

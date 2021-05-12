@@ -87,4 +87,21 @@ export class AdminPage implements OnInit {
     this.redireccionService.redireccion('/tabs/learning-center/webinars/info/'+ID_CO);
   }
 
+  changepage_(page){
+    let pages = [];
+    let input;
+    if(this.search === 'undefined'){
+      input  = '';
+    }else{
+      input  = this.search;
+    }
+    this.learncenterService.get_webinnars(page,input)
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
+
 }

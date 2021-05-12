@@ -36,7 +36,7 @@
               <ion-icon class="icon-doc" name="document-attach-outline"></ion-icon>
               <label *ngIf="filebull || isEdited">Archivo cargado: {{ filebull_ }}</label>
               <label *ngIf="!filebull && !isEdited">Ningun archivo seleccionado</label>
-              <input type="hidden" name="id" [(ngModel)]="idbull">
+              <input type="hidden" name="id">
             </div>
           </div>
           <div class="content-btn">
