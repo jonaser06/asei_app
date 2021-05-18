@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { InfcenterService } from '../../../services/infcenter.service';
 import { RedireccionService } from '../../../services/redireccion.service';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 @Component({
   selector: 'app-anniversary',
@@ -19,7 +20,7 @@ export class AnniversaryPage implements OnInit {
   URL = environment.url;
 
   aniversarioData: any;
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private uiServiceService: UiServiceService) { 
     this.getaniversario();
     
   }
@@ -84,13 +85,18 @@ export class AnniversaryPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/anniversary/edit/'+ID_NO);
   }
   removeAniversarios_(ID_NO){
-    this.infcenterService.delete_infcenterAniversarios(ID_NO)
-    .then(resp=>{ 
-      console.log('ELIMINAR EVENTOS: '+ID_NO);
-      this.getaniversario();
-    })
-    .catch();
-  }
+    this.uiServiceService.presentAlertConfirm('Eliminar aniversario','Se eliminará el aniversario, ¿Quieres continuar?').then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
+      this.infcenterService.delete_infcenterAniversarios(ID_NO)
+      .then(resp=>{ 
+        console.log('ELIMINAR EVENTOS: '+ID_NO);
+        this.getaniversario();
+      })
+      .catch();
+    }
+  });
+}
   
   search_(buscatxt){
     let pages = [];

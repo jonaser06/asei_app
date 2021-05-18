@@ -50,6 +50,21 @@
     color: var(--color-font-dark);
 }
 
+<<<<<<< HEAD
+=======
+@media (max-width: 800px) {
+    .panel2 {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    .panel2 {
+        width: 100%;
+    }
+}
+
+>>>>>>> 6bcb6743a4fc428d822b9c8d186f514c7d526d9d
 .certificate,
 .certificate__header,
 .certificate__info,

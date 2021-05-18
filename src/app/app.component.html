@@ -1,3 +1,25 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+    <ion-router-outlet></ion-router-outlet>
 </ion-app>
+
+<!-- modal  -->
+<div class="overlay-10">
+    <div class="modal-template">
+        <div class="close-modal">
+            <ion-icon class="close-btn" name="close-circle-outline" (click)="closemodal();"></ion-icon>
+        </div>
+        <h1 style="font-size: 1.3rem;font-weight: bold;color: #333333;">¿Cómo calificas este contenido? <span style="color:#df8708"></span></h1>
+        <div class="stars-btn">
+            <p class="container-stars">
+
+                <ion-icon data-id='1' (click)='mouser($event)' class="star" name="star-outline"></ion-icon>
+                <ion-icon data-id='2' (click)='mouser($event)' class="star-outline" name="star-outline"></ion-icon>
+                <ion-icon data-id='3' (click)='mouser($event)' class="star-outline" name="star-outline"></ion-icon>
+                <ion-icon data-id='4' (click)='mouser($event)' class="star-outline" name="star-outline"></ion-icon>
+                <ion-icon data-id='5' (click)='mouser($event)' class="star-outline" name="star-outline"></ion-icon>
+            </p>
+        </div>
+        <span class="calificacion_user" style="display: none;">1</span>
+        <ion-button (click)='calificar()' style="text-transform: none;">Calificar</ion-button>
+    </div>
+</div>

@@ -64,4 +64,20 @@ export class CursosPage implements OnInit {
     this.redireccionService.backpage();
   } 
 
+  changepage_(page){
+    let pages = [];
+    let input;
+    if(this.search === 'undefined'){
+      input  = '';
+    }else{
+      input  = this.search;
+    }
+    this.learncenterService.get_learncenterCursos(page,input)
+    .then(resp=>{
+      this.CursosData = resp['data'];
+      for(let i = 1 ; i <= this.CursosData.pages; i++ ){ pages.push(i)}
+      this.pages = pages;
+      this.currentpage = this.CursosData.page;
+    });
+  }
 }

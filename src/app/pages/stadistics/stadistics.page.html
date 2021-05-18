@@ -31,7 +31,7 @@
                         <div class="row-actions-top">
                             <div class="title-section-container">
                                 <h3 class="title-section">Boletines asei</h3>
-                                <p class="subtitle-section">Encuentra aqui el repositorio de graficos e indicadores ASEI</p>
+                                <p class="subtitle-section">Encuentra aquí el repositorio de gráficos e indicadores ASEI</p>
                             </div>
                             <button *ngIf='rol == "admin"' (click)="openDialogBulletin()" class="btn-new-item mt-3 mb-3">
                               <span>Nuevo boletín</span>
@@ -95,9 +95,14 @@
                                     <p>Añadir imagen*</p>
                                     <input class="añadir-st" type="file" title="Añadir imagen" accept="image/*" name="image" (change)="handleFileInput($event)" required>
                                 </div>
-
                                 <div class="content-img">
                                     <img src="{{ imagestat }}" alt="">
+                                </div>
+                                <div class="sugerencia">
+                                    <p>Tamaño recomendado: 300 x 250</p>
+                                </div>
+                                <div class="sugerencia">
+                                    <p>Peso máximo: 2 Mb</p>
                                 </div>
                             </div>
 
@@ -162,7 +167,7 @@
                 <form (ngSubmit)="isEdited ? bulletedit( fbullet ) : bullet( fbullet )" #fbullet="ngForm">
                     <div class="card-modal-2">
                         <div class="inputs-boletin">
-                            <p>Titulos del indicador*</p>
+                            <p>Titulos del boletín*</p>
                             <input type="text" [(ngModel)]="titlebull" name="title">
 
                             <div class="time">
@@ -225,11 +230,11 @@
                             <div class="inputs-boletin-2">
                                 <div class="percentage">
                                     <div class="number">
-                                        <p>Porcentaje*</p>
+                                        <p>Porcentaje* / Unidad*</p>
 
                                         <div>
-                                            <input name="percentage" [(ngModel)]="percentageind" type="number" min="50" >
-                                            <p>%</p>
+                                            <input name="percentage" [(ngModel)]="percentageind" type="text" style="margin:5px;">
+                                            <input name="percentageind_" [(ngModel)]="percentageind_" type="text" style="margin:5px;">
                                         </div>
                                     </div>
 
@@ -277,7 +282,7 @@
             </div>
             <div class="body-dialog">
                 <div class="card-modal-5">
-                    <p>¿Estas seguro que deseas eliminar este elemento?</p>
+                    <p>Se eliminará el elemento seleccionado,¿Quieres continuar?</p>
 
                     <div class="button">
                         <button (click)="btn_remove()">Eliminar</button>

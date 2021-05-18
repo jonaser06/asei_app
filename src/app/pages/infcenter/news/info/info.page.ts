@@ -16,6 +16,7 @@ export class InfoPage implements OnInit {
   dialogCalificacion: boolean = false;
   isEdited = false;
   NewData : any;
+  links : any[];
   NewsData : any;
   Title : String = 'Más noticias';
   URL = environment.url;
@@ -23,6 +24,7 @@ export class InfoPage implements OnInit {
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
     this.get_news();
     this.more_news();
+    this.links = [];
   }
 
   ngOnInit() {
@@ -50,9 +52,12 @@ export class InfoPage implements OnInit {
   get_news(){
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.infcenterService.get_infcenterNewsID(id)
-    .then(resp=>{
+    .then((resp: any)=>{
+
       this.NewData = resp;
       this.NewData = this.NewData.data;
+
+      this.links = resp.data.link.split(',');
       // console.log(this.NewData); 
     })
     .catch();

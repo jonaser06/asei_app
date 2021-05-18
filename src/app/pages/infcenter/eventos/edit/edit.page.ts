@@ -135,7 +135,7 @@ export class EditPage implements OnInit {
 
     if(this.noti){
       formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó el evento: '+this.titulo+'", "type":"eventos", "idus":"'+this.idus+'" }');
-      console.log(`{ id: ${id}, message: 'Se actualizo el evento:  ${this.titulo}', type:'eventos' }`);
+      console.log(`{ id: ${id}, message: 'Se actualizó el evento:  ${this.titulo}', type:'eventos' }`);
     }
 
     this.infcenterService.update_infcenterEventos (formdata, id)

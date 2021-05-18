@@ -95,6 +95,9 @@
 
                 <div class="add-img">
                     <p>Selecciones imagen</p>
+                    <div class="sugerencia">
+                        <p><b>Tamaño recomendado: </b>300 x 250 <br> <b>Peso máximo: </b>2 Mb</p>
+                      </div>
                     <div class="content-add-img">
                         <div class="content-img">
                             <img src="{{ imagestat }}" alt="">
@@ -107,11 +110,11 @@
                     </div>
                 </div>  
 
-                <!-- <div class="link-active">
+                 <div class="link-active">
                     <label for="active-note">Vincular con el calendario</label>
                     <input type="checkbox" name="" id="active-note">
                     <label class="check-note" for="active-note"></label>
-                </div> -->
+                </div> 
                 
                 <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
 

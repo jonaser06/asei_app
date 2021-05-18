@@ -1,47 +1,40 @@
 <ion-content class="content-section">
-  <ion-row>
-    <ion-col size="12" size-lg="6" class="header-course left-header">
-      <div class="title-section-container">
-        <div class="title-arrow">
-          <ion-row>
-            <ion-col size="1">
+    <div class="layout-section">
+      <div class="container">
+        <div class="row-actions-top">
+          <div class="title-section-container">
+            <div class="title-arrow">
               <!-- Flecha a la izquierda -->
-              <div class="left-arrow" (click)="volverCursos()">
+              <div class="left-arrow" (click)="volverLearn()">
                 <ion-icon name="arrow-back-outline"></ion-icon>
               </div>
-            </ion-col>
-            <ion-col>
               <div class="title">
                 <h3 class="title-section color-news">Cursos</h3>
                 <p class="subtitle-section color-news">Todos los cursos de ASEI</p>
               </div>
-            </ion-col>
-          </ion-row>
+            </div>
+          </div>
         </div>
       </div>
-    </ion-col>
-  </ion-row>
+  
+    <ion-row>
+        <ion-col size="12" size-lg="6" class="header-course left-header">
+            <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
+        </ion-col>
+    </ion-row>
 
-  <ion-row>
-    <ion-col size="12" size-lg="6" class="header-course left-header">
-      <ion-searchbar placeholder="Buscar por nombre o palabra clave" (ionChange)="onSearchChange($event)"></ion-searchbar>
-    </ion-col>
-  </ion-row>
+        <ion-grid class="section-grid">
+            <div class="courses">
+                <ion-row>
+                    <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CursosData?.contenido">
+                        <app-card-cursos [visible]="visible" [cursos_child]="item" (idCursos)="openCursos_($event)" [visible]="visible"></app-card-cursos>
+                    </ion-col>
+                </ion-row>
 
-  <div class="layout-section">
+                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
 
-      <ion-grid class="section-grid">
-        <div class="courses">
-          <ion-row>
-            <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CursosData?.contenido">
-              <app-card-cursos [visible]="visible" [cursos_child]="item" (idCursos)="openCursos_($event)" [visible]="visible"></app-card-cursos>
-            </ion-col>
-          </ion-row>
- 
-          <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
-
-        </div> 
-      </ion-grid>
-  </div>
-  <app-footer></app-footer>
+            </div>
+        </ion-grid>
+    </div>
+    <app-footer></app-footer>
 </ion-content>

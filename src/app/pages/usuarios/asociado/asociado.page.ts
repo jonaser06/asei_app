@@ -2,6 +2,7 @@ import { ApplicationRef, Component, OnInit } from '@angular/core';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
+import { UiServiceService } from '../../../services/ui-service.service';
 
 @Component({
   selector: 'app-asociado',
@@ -16,9 +17,10 @@ export class AsociadoPage implements OnInit {
   currentpage : any;
   currentkey : any;
   search : any;
+  resp : any;
 
   location : any;
-  constructor(private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef) { 
+  constructor(private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef, private UiServiceService : UiServiceService) { 
     this.get_asociado();
     this.location = window.location.pathname.split("/").pop();
   }
@@ -35,15 +37,24 @@ export class AsociadoPage implements OnInit {
     this.redireccionService.redireccion('/tabs/usuarios/create?rol=asociado')
   }
 
-  removeuser(id){
-  
-    this.userService.delete_user(id)
-    .then(resp=>{
-      this.get_asociado();
-
-    })
-    .catch();
+  irapersonal(id){
+    this.redireccionService.redireccion('/tabs/usuarios/personalfiles/'+id);
   }
+
+  removeuser(id){
+    this.UiServiceService.presentAlertConfirm('Eliminar usuario','¿Estás seguro que desea eliminar este usuario?').then((res)=>{
+    let resp = res.data.resp;
+    if(resp){
+      this.userService.delete_user(id)
+      .then(resp=>{
+        this.get_asociado();
+      })
+      .catch();
+      }
+    })
+  }
+
+
 
 
   onSearchChange(event){

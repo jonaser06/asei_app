@@ -102,16 +102,18 @@
           <p>Añade Imagen</p>
           <input type="file" title="Añade imagen" accept="image/*" name="" id="" (change)="handleFileInput($event)">
         </div>
-
+        <div class="sugerencia">
+          <p><b>Tamaño recomendado: </b>300 x 250 <br> <b>Peso máximo: </b>2 Mb</p>
+        </div>
         <div class="content-img">
           <img src="{{ imagestat }}" alt="">
         </div>
 
-        <!-- <div class="link-active">
+         <div class="link-active">
             <label for="active-note">Esta publicación se vinculará con el calendario</label>
             <input type="checkbox" name="" id="active-note">
             <label class="check-note" for="active-note"></label>
-        </div> -->
+        </div> 
         
         <app-send-notification (toggle)="notificacion($event);"></app-send-notification>
 

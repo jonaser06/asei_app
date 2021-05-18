@@ -14,13 +14,15 @@ export class InfoPage implements OnInit {
   dialogCalificacion: boolean = false;
   isEdited = false;
   aniversarioData: any;
+  links : any[];
   URL = environment.url;
   NewsData : any;
   Title : String = 'Más Aniversarios';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
-    this.get_Aniversario()
-    this.more_news()
+    this.get_Aniversario();
+    this.more_news();
+    this.links = [];
   }
 
   ngOnInit() {
@@ -50,9 +52,10 @@ export class InfoPage implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.infcenterService.get_infcenterAniversariosID(id)
-    .then(resp=>{
+    .then((resp: any)=>{
       this.aniversarioData = resp;
       this.aniversarioData = this.aniversarioData.data;
+      this.links = resp.data.link.split(',');
       console.log(this.aniversarioData);
     })
     .catch();

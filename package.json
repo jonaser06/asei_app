@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~10.0.0",
     "@angular/platform-browser-dynamic": "~10.0.0",
     "@angular/router": "~10.0.0",
+    "@angular/service-worker": "~10.0.0",
     "@ionic-native/core": "^5.31.1",
     "@ionic-native/file": "^5.31.1",
     "@ionic-native/file-transfer": "^5.31.1",
@@ -33,10 +34,18 @@
     "cordova-android": "9.0.0",
     "dom-to-image": "^2.6.0",
     "file-saver": "^2.0.5",
+<<<<<<< HEAD
     "html2canvas": "^1.0.0-rc.7",
     "ionic4-rating": "^1.0.9",
     "jquery": "^3.5.1",
     "jspdf": "^2.3.1",
+=======
+    "http-server": "^0.12.3",
+    "ionic4-rating": "^1.0.9",
+    "jquery": "^3.5.1",
+    "jspdf": "^2.3.1",
+    "material-ui-rating": "^4.0.0-beta.2",
+>>>>>>> 6bcb6743a4fc428d822b9c8d186f514c7d526d9d
     "ngx-slick-carousel": "^0.5.1",
     "rxjs": "~6.5.5",
     "slick-carousel": "^1.8.1",

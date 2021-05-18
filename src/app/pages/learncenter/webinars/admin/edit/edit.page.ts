@@ -162,4 +162,7 @@ export class EditPage implements OnInit {
     
   }
 
+  volverCursos(){
+    this.redireccionService.backpage();
+  }
 }

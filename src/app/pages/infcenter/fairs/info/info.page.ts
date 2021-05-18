@@ -15,12 +15,14 @@ export class InfoPage implements OnInit {
   isEdited = false;
   feriasData : any;
   NewsData : any;
+  links : any[];
   URL = environment.url;
   Title : String = 'Más ferias';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
-    this.get_Ferias()
-    this.more_news()
+    this.get_Ferias();
+    this.more_news();
+    this.links = [];
   }
     
 
@@ -51,9 +53,11 @@ export class InfoPage implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.infcenterService.get_infcenterFeriasID(id)
-    .then(resp=>{
+    .then((resp: any)=>{
       this.feriasData = resp;
       this.feriasData = this.feriasData.data;
+
+      this.links = resp.data.link.split(',');
       console.log(this.feriasData);
     })
     .catch();

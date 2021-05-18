@@ -17,6 +17,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
 
         </div>
 
@@ -209,6 +210,59 @@
                 </div>
 
 
+=======
+
+        </div>
+
+        <ion-grid class="section-grid">
+            <div class="courses">
+
+
+                <div class="new-card">
+
+
+                    <ion-row>
+                        <ion-col size="12" size-md="6" size-lg="4" *ngFor="let item of CertificadosData?.contenido">
+                            <app-card-certificado [certificados_child]="item" (idCertificados)="openCertificados_($event)"></app-card-certificado>
+                        </ion-col>
+                    </ion-row>
+                </div>
+
+                <app-paginador [paginas]="pages" [pagina]="currentpage" (number_page)="changepage_($event)"></app-paginador>
+
+                <!-- <div class="number-option">
+                    <div class="left-option">
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                    </div>
+
+                    <div class="numbers-option">
+                        <div class="number-one number-all">
+                            <p>1</p>
+                        </div>
+                        <div class="number-two number-all">
+                            <p>2</p>
+                        </div>
+                        <div class="number-three number-all">
+                            <p>3</p>
+                        </div>
+                        <div class="number-four number-all">
+                            <p>4</p>
+                        </div>
+                        <div class="number-five number-all">
+                            <p>5</p>
+                        </div>
+                        <div class="number-six number-all">
+                            <p>6</p>
+                        </div>
+                    </div>
+
+                    <div class="right-option">
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </div>
+                </div> -->
+
+
+>>>>>>> 6bcb6743a4fc428d822b9c8d186f514c7d526d9d
             </div>
         </ion-grid>
     </div>

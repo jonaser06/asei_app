@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <app-infouser [userdata]="userdata" (edit)="edituser($event);"></app-infouser>
+      <app-infouser [userdata]="userdata" (edit)="edituser($event);"  (readfiles)="irapersonales($event);"></app-infouser>
 
       <!-- <div class="doc-user">
         <span class="title-doc-user">Mis documentos</span>

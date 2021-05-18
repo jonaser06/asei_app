@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './create.page.html',
   styleUrls: ['./create.page.scss'],
 })
+
 export class CreatePage implements OnInit {
     URL = environment.url;
 
@@ -29,9 +30,15 @@ export class CreatePage implements OnInit {
 
     imgcolaborador : any;
     imagencol : any;
+    isAdmin  : boolean = false;
+    // para asociados 
+
 
     rol : any;
-  constructor(private route: ActivatedRoute, private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService ) { 
+    @ViewChild('msg') msg : ElementRef;
+  constructor(
+    private renderer : Renderer2,
+    private route: ActivatedRoute, private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService ) { 
     const firstParam: string = this.route.snapshot.queryParamMap.get('rol');
     this.rol = firstParam;
     console.log(this.rol);
@@ -87,6 +94,11 @@ export class CreatePage implements OnInit {
     if(this.password !== undefined){
       formdata.append('clave', this.password);
     }
+    if(this.rol == 'asociado' ) {
+      const adminAsociado = this.isAdmin ? '1': '0';
+      formdata.append('admin_asociado',adminAsociado);
+    }
+    
     
     this.userService.create_user(formdata)
     .then(resp=>{ 
@@ -101,4 +113,10 @@ export class CreatePage implements OnInit {
 
   }
 
+  changePerfil () {
+        this.isAdmin = !this.isAdmin 
+        const $mensaje:HTMLElement = this.msg.nativeElement
+        console.log($mensaje)
+        $mensaje.textContent = this.isAdmin ?  'Este asociado tendra privilegios de administrador':''
+  }
 }

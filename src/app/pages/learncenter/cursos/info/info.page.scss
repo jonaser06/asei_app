@@ -210,3 +210,22 @@ ion-icon {
 .close-btn {
     cursor: pointer !important;
 }
+.title-section-container .title-arrow .left-arrow {
+    display: flex;
+    align-items: flex-start;
+    font-size: 1.4em;
+    color: #828282;
+}
+.title-section-container .title-arrow {
+    display: flex;
+    align-items: center;
+}
+.title-section-container .title-arrow .title {
+    margin-left: 0.5em;
+}
+.title-section-container .title-arrow .title p {
+    font-family: Calibri;
+    font-weight: 300;
+    color: #828282;
+    font-style: italic;
+}

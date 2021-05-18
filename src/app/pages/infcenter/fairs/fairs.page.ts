@@ -23,7 +23,7 @@ export class FairsPage implements OnInit {
   
 
   feriasData: any;
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private uiServiceService: UiServiceService) { 
     this.getferias();
   }
 
@@ -87,12 +87,17 @@ export class FairsPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/fairs/edit/'+ID_NO);
   }
   removeFerias_(ID_NO){
+    this.uiServiceService.presentAlertConfirm('Eliminar feria','Se eliminará la feria, ¿Quieres continuar?').then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
     this.infcenterService.delete_infcenterNews(ID_NO)
     .then(resp=>{ 
       console.log('ELIMINAR FERIA : '+ID_NO);
       this.getferias();
     })
     .catch();
+      }
+    });
   }
 
   search_(buscatxt){

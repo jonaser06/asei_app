@@ -7,7 +7,7 @@
 
     <!-- Admin -->
     <div class="actions-page no-mobil">
-        <button class="btn-new-item" (click)="createSection()">
+        <button *ngIf='rol == "admin"' class="btn-new-item" (click)="createSection()">
         <span>Crear</span>
         <ion-icon class="icon-btn" name="add-circle"></ion-icon>
     </button>

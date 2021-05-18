@@ -16,6 +16,8 @@ import { PaginadorComponent } from './paginador/paginador.component';
 import { BuscadorComponent } from './buscador/buscador.component';
 import { MoreNewsComponent } from './more-news/more-news.component';
 import { CardCursosComponent } from './card-cursos/card-cursos.component';
+import { CardDocumentsTiposComponent } from './card-documents-tipos/card-documents-tipos.component';
+import { CardDocumentsfilesComponent } from './card-documents-files/card-documents-files.component';
 import { TrainerComponent } from './trainer/trainer.component';
 import { TrainerGetComponent } from './trainer-get/trainer-get.component';
 import { SesionGetComponent } from './sesion-get/sesion-get.component';
@@ -29,6 +31,9 @@ import { DocumentosComponent } from './documentos/documentos.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { RouterModule } from '@angular/router';
 import { CardCalendarioComponent } from './card-calendario/card-calendario.component';
+import { CertificadosComponent } from './certificados/certificados.component';
+import { CardCertificadoComponent } from './card-certificado/card-certificado.component';
+import { PopoverComponent } from './popover/popover.component';
 
 
 
@@ -49,6 +54,8 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
     BuscadorComponent,
     MoreNewsComponent,
     CardCursosComponent,
+    CardDocumentsTiposComponent,
+    CardDocumentsfilesComponent,
     TrainerComponent,
     TrainerGetComponent,
     SesionGetComponent,
@@ -60,7 +67,10 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
     InfouserComponent,
     DocumentosComponent,
     MenuAdminComponent,
-    CardCalendarioComponent
+    CardCalendarioComponent,
+    CertificadosComponent,
+    CardCertificadoComponent,
+    PopoverComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -78,6 +88,8 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
     BuscadorComponent,
     MoreNewsComponent,
     CardCursosComponent,
+    CardDocumentsTiposComponent,
+    CardDocumentsfilesComponent,
     TrainerComponent,
     TrainerGetComponent,
     SesionGetComponent,
@@ -89,7 +101,10 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
     InfouserComponent,
     DocumentosComponent,
     MenuAdminComponent,
-    CardCalendarioComponent
+    CardCalendarioComponent,
+    CertificadosComponent,
+    CardCertificadoComponent,
+    PopoverComponent
   ],
   imports: [
     CommonModule,

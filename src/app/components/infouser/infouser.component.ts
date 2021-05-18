@@ -11,6 +11,7 @@ export class InfouserComponent implements OnInit {
   @Input() userdata : any;
 
   @Output() edit = new EventEmitter();
+  @Output() readfiles = new EventEmitter();
 
   iduser: any;
   constructor(public authService: AuthService) { 
@@ -28,6 +29,10 @@ export class InfouserComponent implements OnInit {
     .then(resp=>{
       this.iduser = resp['data']['user_id'];
     });
+  }
+
+  irapersonal(){
+    this.readfiles.emit(this.iduser);
   }
 
 }

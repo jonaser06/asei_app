@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { InfcenterService } from 'src/app/services/infcenter.service';
 import { environment } from 'src/environments/environment';
 import { RedireccionService } from '../../../services/redireccion.service';
+import { UiServiceService } from 'src/app/services/ui-service.service';
 
 @Component({
   selector: 'app-eventos',
@@ -20,7 +21,7 @@ export class EventosPage implements OnInit {
   URL = environment.url;
 
 
-  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute) { 
+  constructor(private infcenterService: InfcenterService, private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private uiServiceService: UiServiceService) { 
     this.geteventos();
   }
 
@@ -81,12 +82,17 @@ export class EventosPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/eventos/edit/'+ID_NO);
   }
   removeEventos_(ID_NO){
+    this.uiServiceService.presentAlertConfirm('Eliminar evento','Se eliminará el evento, ¿Quieres continuar?').then((res)=>{
+      let resp = res.data.resp;
+      if(resp){
     this.infcenterService.delete_infcenterEventos(ID_NO)
     .then(resp=>{ 
       console.log('ELIMINAR EVENTOS: '+ID_NO);
       this.geteventos();
     })
     .catch();
+      }
+    });
   }
 
   search_(buscatxt){

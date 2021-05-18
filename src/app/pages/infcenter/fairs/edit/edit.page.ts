@@ -136,7 +136,7 @@ export class EditPage implements OnInit {
 
     if(this.noti){
       formdata.append('notificacion','{ "id": "'+id+'", "message": "Se actualizó la Feria: '+this.titulo+'", "type":"fairs", "idus":"'+this.idus+'"}');
-      console.log(`{ id: ${id}, message: 'Se actualizo la Feria:  ${this.titulo}', type:'fairs' }`);
+      console.log(`{ id: ${id}, message: 'Se actualizó la Feria:  ${this.titulo}', type:'fairs' }`);
     }
 
     this.infcenterService.update_infcenterFerias (formdata, id)

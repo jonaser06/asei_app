@@ -1,17 +1,36 @@
-ion-button{
+ion-button {
     --padding-end: 8px;
     --padding-start: 8px;
     --box-shadow: 0px;
 }
-.btn-create{
+
+.btn-create {
     border: 1px solid #24344D;
     border-radius: 5px;
 }
-.card_img{
+
+.card_img {
     max-height: 250px;
     height: 250px;
     width: 100%;
 }
-.stars{
+
+.stars {
     color: #DF8708
+}
+
+.class-card {
+    display: contents;
+}
+
+.card-course {
+    font-size: 1rem;
+    height: fit-content;
+    border-left: 5px solid #DF8708
+}
+
+.title-calendar {
+    color: #333333;
+    font-family: cursive;
+    font-size: 1.1rem;
 }

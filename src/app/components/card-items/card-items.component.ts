@@ -23,6 +23,7 @@ export class CardItemsComponent implements OnInit {
 
   URL = environment.url;
   iduser;
+  rol;
   constructor(
     private uiServiceService:UiServiceService,
     private authService: AuthService,
@@ -39,6 +40,8 @@ export class CardItemsComponent implements OnInit {
   current_session(){
     this.authService.get_data()
     .then(resp=>{
+      console.log(resp);
+      this.rol = resp['data']['rol']
       this.iduser = resp['data']['user_id'];
     });
   }
@@ -58,8 +61,10 @@ export class CardItemsComponent implements OnInit {
 
   dialogCalification (ID_NO) {
     this.calificationService.comproved(ID_NO, this.iduser).then ( estado => {
-      if( ! estado ) return this.uiServiceService.alert_info('YA CALIFICASTE ESTE POST')
-      this.calificationService.modalSend(ID_NO, this.iduser )
+      if( ! estado ) return this.uiServiceService.alert_info('YA CALIFICASTE ESTE POST');
+      
+
+      this.calificationService.modalCalificar(ID_NO, this.iduser )
     })
     
   }

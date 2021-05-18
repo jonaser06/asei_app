@@ -6,32 +6,27 @@
       <h1 style="font-size: 2rem;font-weight: bold;">¡Felicitaciones por completar <span style="color:#df8708">{{info_curso?.data.titulo}}</span> !</h1>
       <img width="200px" src="./../../../../../assets/img/logo-asei.png" alt="">
       <h3 style="font-size: 1rem;">Puedes seguir aprendiendo con los otros Webinars disponibles:</h3>
-      <ion-button style="text-transform: none;">Ver más Webinars</ion-button>
+      <ion-button style="text-transform: none;" (click)="irawebinars()">Ver más Webinars</ion-button>
   </div>
 </div>
 <ion-content>
-  <ion-row>
-    <ion-col size="12" size-lg="6" class="header-course left-header" style="padding-bottom: 0px;">
-      <div class="title-section-container">
-        <div class="title-arrow">
-          <ion-row>
-            <ion-col size="1">
-              <!-- Flecha a la izquierda -->
-              <div class="left-arrow" (click)="volverWebinars()">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-              </div>
-            </ion-col>
-            <ion-col>
-              <div class="title">
-                <h3 class="title-section color-news">Webinars</h3>
-                <p class="subtitle-section color-news">Revisa en esta sección los webinar ASEI</p>
-              </div>
-            </ion-col>
-          </ion-row>
+  <div class="layout-section">
+    <div class="container">
+      <div class="row-actions-top">
+        <div class="title-section-container">
+          <div class="title-arrow">
+            <!-- Flecha a la izquierda -->
+            <div class="left-arrow" (click)="volverWebinars()">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </div>
+            <div class="title">
+              <h3 class="title-section color-news">Webinars</h3>
+              <p class="subtitle-section color-news">Revisa en esta sección los webinar ASEI</p>
+            </div>
+          </div>
         </div>
       </div>
-    </ion-col>
-  </ion-row>
+    </div>
   <!-- content -->
   <ion-row>
     <ion-col size="12" size-md="12" size-lg="9" class="player_section">
@@ -87,5 +82,5 @@
       <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
     </ion-col>
   </ion-row>
-
+</div>
 </ion-content>

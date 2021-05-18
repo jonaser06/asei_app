@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://api.blogingenieria.site',
+  url: 'http://ec2-54-221-209-57.compute-1.amazonaws.com',
   // url: 'http://localhost/asei_api',
 };
 

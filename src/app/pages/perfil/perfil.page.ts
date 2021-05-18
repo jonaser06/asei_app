@@ -52,6 +52,10 @@ export class PerfilPage implements OnInit {
     this.navCtrol.navigateRoot('tabs/usuarios/edit/'+id, { animated : true } );
   }
 
+  irapersonales(id){
+    this.redireccionService.redireccion('/tabs/usuarios/personalfiles/'+id);
+  }
+
   volverCursos(){
     this.redireccionService.backpage();
   }
