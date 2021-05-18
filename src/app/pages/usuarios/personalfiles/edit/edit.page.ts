@@ -77,7 +77,7 @@ export class EditPage implements OnInit {
 
     formdata.append('nombre',titledocumentsfile);
     (!!this.filebull) && formdata.append('documentos[]', this.filebull);
-    this.documentsService.update_documentsFiles(formdata,55555555,id_doc).then(resp=>{
+    this.documentsService.update_documentsFiles(formdata,23964970,id_doc).then(resp=>{
       this.redireccionService.backpage();
       console.log(resp);
       this.filebull = null;

@@ -97,7 +97,7 @@ export class DocumentsFilesPage implements OnInit {
 
   editDocumentsfile_(ID_DOC){
     console.log('EDITAR ARCHIVO : '+ID_DOC);
-    this.redireccionService.redireccion('/tabs/usuarios/personalfiles/55555555/edit/'+ID_DOC);
+    this.redireccionService.redireccion('/tabs/usuarios/personalfiles/23964970/edit/'+ID_DOC);
   }
 
   removeFile_(ID_DOC){
