@@ -21,7 +21,7 @@
         <span class="label-top-percent">{{ card_ind.type | lowercase }}</span>
     </div>
     <div class="percent">
-        {{ card_ind.percentage }} %
+        {{ card_ind.percentage }} {{ card_ind.cantidad }}
     </div>
     <div class="title-percent">
         {{ card_ind.title }}
@@ -33,7 +33,7 @@
     <!-- Admin -->
     <div class="admin-edit">
         <div class="pencil-btn" *ngIf='rol == "admin"'>
-            <button (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type)"><ion-icon name="pencil-outline" ></ion-icon> </button>
+            <button (click)="editItem(card_ind.id, card_ind.title, card_ind.description, card_ind.percentage, card_ind.type, card_ind.cantidad)"><ion-icon name="pencil-outline" ></ion-icon> </button>
         </div>
 
         <div class="delete-btn" *ngIf='rol == "admin"'>

@@ -57,6 +57,7 @@ export class StadisticsPage implements OnInit {
   titleind: any;
   descriptionind: any;
   percentageind: any;
+  percentageind_: any;
   typeind: any;
   id_ind: any;
 
@@ -347,6 +348,7 @@ export class StadisticsPage implements OnInit {
       this.titleind = '';
       this.descriptionind = '';
       this.percentageind = '';
+      this.percentageind_ = '';
       this.typeind = 'incremento';
     }
   }
@@ -356,6 +358,7 @@ export class StadisticsPage implements OnInit {
     if( this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
     if( this.descriptionind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario la descripcion');
     if( this.percentageind.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el porcentaje');
+    if( this.percentageind_.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el porcentaje');
     if( this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdata = new FormData;
@@ -363,6 +366,7 @@ export class StadisticsPage implements OnInit {
     formdata.append('title', this.titleind);
     formdata.append('description', this.descriptionind);
     formdata.append('percentage', this.percentageind);
+    formdata.append('percentage_', this.percentageind_);
     formdata.append('type', this.typeind);
     formdata.append('notificacion','{ "message": "Se actualizó el indicador:  '+this.titleind+'", "type":"indicador", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Se actualizó el indicador:  ${this.titleind}', type:'indicador' }`);
@@ -437,12 +441,14 @@ export class StadisticsPage implements OnInit {
     if(this.titleind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(this.descriptionind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario la descripcion');
     if(this.percentageind.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
+    if(this.percentageind_.toString().replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario registrar el porcentaje');
     if(this.typeind.replace(/\s/g, "") === "" ) return this.uiserviceService.alert_info('Es necesario el tipo');
 
     let formdata = new FormData;
     formdata.append('title', this.titleind);
     formdata.append('description', this.descriptionind);
     formdata.append('percentage', this.percentageind);
+    formdata.append('percentage_', this.percentageind_);
     formdata.append('type', this.typeind);
 
     formdata.append('notificacion','{ "message": "Tienes un nuevo indicador:  '+this.titleind+'", "type":"indicador", "idus":"'+this.idus+'" }');
@@ -457,11 +463,12 @@ export class StadisticsPage implements OnInit {
   }
 
   editInd(objind){
-
+    console.log(objind);
     this.id_ind = objind.id;
     this.titleind = objind.title;
     this.descriptionind = objind.description;
     this.percentageind = objind.percentage;
+    this.percentageind_ = objind.cantidad;
     this.typeind = objind.type;
 
     this.isEdited = true;

@@ -30,13 +30,14 @@ export class PercentCardComponent implements OnInit {
       this.rol = resp['data']['rol'];
     });
   }
-  editItem( id, title, description, percentage, type ) {
+  editItem( id, title, description, percentage, type, cantidad ) {
     let objind = {
       id,
       title,
       description,
       percentage,
       type,
+      cantidad
     }
 
     this.editItemEv.emit(objind);
