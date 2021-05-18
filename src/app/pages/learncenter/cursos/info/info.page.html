@@ -1,94 +1,94 @@
 <div class="overlay-1">
-  <div class="modal-template">
-      <div class="close-modal">
-          <ion-icon class="close-btn" name="close-circle-outline" (click)="closemodal();"></ion-icon>
-      </div>
-      <h1 style="font-size: 2rem;font-weight: bold;">¡Felicitaciones por completar <span style="color:#df8708">{{info_curso?.data.titulo}}</span> !</h1>
-      <img width="200px" src="./../../../../../assets/img/logo-asei.png" alt="">
-      <h3 style="font-size: 1rem;">Puedes seguir aprendiendo con los otros cursos disponibles:</h3>
-      <ion-button style="text-transform: none;">Ver más Cursos</ion-button>
-  </div>
+    <div class="modal-template">
+        <div class="close-modal">
+            <ion-icon class="close-btn" name="close-circle-outline" (click)="closemodal();"></ion-icon>
+        </div>
+        <h1 style="font-size: 2rem;font-weight: bold;">¡Felicitaciones por completar <span style="color:#df8708">{{info_curso?.data.titulo}}</span> !</h1>
+        <img width="200px" src="./../../../../../assets/img/logo-asei.png" alt="">
+        <h3 style="font-size: 1rem;">Puedes seguir aprendiendo con los otros cursos disponibles:</h3>
+        <ion-button style="text-transform: none;">Ver más Cursos</ion-button>
+    </div>
 </div>
 
 <ion-content>
-  <ion-row>
-    <ion-col size="12" size-lg="6" class="header-course left-header" style="padding-bottom: 0px;">
-      <div class="title-section-container">
-        <div class="title-arrow">
-          <ion-row>
-            <ion-col size="1">
-              <!-- Flecha a la izquierda -->
-              <div class="left-arrow" (click)="volverCursos()">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-              </div>
-            </ion-col>
-            <ion-col>
-              <div class="title">
-                <h3 class="title-section color-news">Cursos</h3>
-                <p class="subtitle-section color-news">Todos los cursos de ASEI</p>
-              </div>
-            </ion-col>
-          </ion-row>
-        </div>
-      </div>
-    </ion-col>
-  </ion-row>
-  <!-- content -->
-  <ion-row>
-    <ion-col size="12" size-md="12" size-lg="9" class="player_section">
-      <div *ngIf="player">
-        <app-videoplayer [link]="player"></app-videoplayer>
-      </div>
-      <ion-content class="content_tab__">
-        <ion-tabs>
-          <!-- Tab bar -->
-          <ion-tab-bar slot="top">
-            <ion-tab-button class="sesiones_tab" (click)="playlist();">
-              <ion-label>Sesiones</ion-label>
-            </ion-tab-button>
-            <ion-tab-button (click)="resumen();">
-              <ion-label>Resumen</ion-label>
-            </ion-tab-button>
-            <ion-tab-button (click)="objetivos();">
-              <ion-label>Objetivos</ion-label>
-            </ion-tab-button>
-            <ion-tab-button  (click)="capacitadores();">
-              <ion-label>Capacitadores</ion-label>
-            </ion-tab-button>
-          </ion-tab-bar>
-        </ion-tabs>
-        <div class="contenido">
-          <div class="playlist_tab">
-            <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
-          </div>
-          <div class="resumen_tab">
-            <h1>{{info_curso?.data.titulo}}</h1>
-            {{info_curso?.data.resumen}}
-          </div>
-          <div class="objetivos_tab">
-            <h1>Objetivos</h1>
-            {{info_curso?.data.objetivo}}
-          </div>
-          <div class="capacitadores_tab">
-            <h1>Capacitadores</h1>
-            <ion-list>
-              <ion-item *ngFor="let item of info_curso?.data.capacitadores">
-                <ion-avatar slot="start">
-                  <img src="{{ URL + '/' + item.foto }}" alt="">
-                </ion-avatar>
-                <ion-label>
-                  <h2>{{ item.nombre }}</h2>
-                  <p>{{ item.resumen }}</p>
-                </ion-label>
-              </ion-item>
-            </ion-list>
-          </div>
-        </div>
-      </ion-content>
-    </ion-col>
-    <ion-col size-lg="3" class="playlist">
-      <app-playlist *ngFor="let sesion of play_list ; let last = last;" [sesion]="sesion" (viewsesion)="verclase_($event)" (click)="finish(last)"></app-playlist>
-    </ion-col>
-  </ion-row>
+    <ion-row>
+        <ion-col size="12" size-lg="6" class="header-course left-header" style="padding-bottom: 0px;">
+            <div class="title-section-container">
+                <div class="title-arrow">
+                    <ion-row>
+                        <ion-col size="1">
+                            <!-- Flecha a la izquierda -->
+                            <div class="left-arrow" (click)="volverCursos()">
+                                <ion-icon name="arrow-back-outline"></ion-icon>
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div class="title">
+                                <h3 class="title-section color-news">Cursos</h3>
+                                <p class="subtitle-section color-news">Todos los cursos de ASEI</p>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </ion-col>
+    </ion-row>
+    <!-- content -->
+    <ion-row>
+        <ion-col size="12" size-md="12" size-lg="9" class="player_section">
+            <div *ngIf="player">
+                <app-videoplayer [link]="player"></app-videoplayer>
+            </div>
+            <ion-content class="content_tab__">
+                <ion-tabs>
+                    <!-- Tab bar -->
+                    <ion-tab-bar slot="top">
+                        <ion-tab-button class="sesiones_tab" (click)="playlist();">
+                            <ion-label>Sesiones</ion-label>
+                        </ion-tab-button>
+                        <ion-tab-button (click)="resumen();">
+                            <ion-label>Resumen</ion-label>
+                        </ion-tab-button>
+                        <ion-tab-button (click)="objetivos();">
+                            <ion-label>Objetivos</ion-label>
+                        </ion-tab-button>
+                        <ion-tab-button (click)="capacitadores();">
+                            <ion-label>Capacitadores</ion-label>
+                        </ion-tab-button>
+                    </ion-tab-bar>
+                </ion-tabs>
+                <div class="contenido">
+                    <div class="playlist_tab">
+                        <app-playlist *ngFor="let sesion of play_list" [sesion]="sesion" (viewsesion)="verclase_($event)"></app-playlist>
+                    </div>
+                    <div class="resumen_tab">
+                        <h1>{{info_curso?.data.titulo}}</h1>
+                        {{info_curso?.data.resumen}}
+                    </div>
+                    <div class="objetivos_tab">
+                        <h1>Objetivos</h1>
+                        {{info_curso?.data.objetivo}}
+                    </div>
+                    <div class="capacitadores_tab">
+                        <h1>Capacitadores</h1>
+                        <ion-list>
+                            <ion-item *ngFor="let item of info_curso?.data.capacitadores">
+                                <ion-avatar slot="start">
+                                    <img src="{{ URL + '/' + item.foto }}" alt="">
+                                </ion-avatar>
+                                <ion-label>
+                                    <h2>{{ item.nombre }}</h2>
+                                    <p>{{ item.resumen }}</p>
+                                </ion-label>
+                            </ion-item>
+                        </ion-list>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-col>
+        <ion-col size-lg="3" class="playlist">
+            <app-playlist *ngFor="let sesion of play_list ; let last = last;" [sesion]="sesion" (viewsesion)="verclase_($event)" (click)="finish(last)"></app-playlist>
+        </ion-col>
+    </ion-row>
 
 </ion-content>

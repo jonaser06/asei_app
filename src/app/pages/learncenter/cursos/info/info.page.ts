@@ -13,17 +13,19 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./info.page.scss'],
 })
 export class InfoPage implements OnInit {
-
+  user : any;
   info_curso: any;
   play_list: any;
   player: any;
   URL = environment.url
-  constructor(private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService ) { 
+  constructor(private authservice : AuthService,private sanitizer:DomSanitizer,public authService: AuthService,private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService ) { 
     
   }
 
   ngOnInit(){
     this.get_curso();
+    this.authservice.get_data().then( resp => this.user = resp)
+
     document.querySelector('.playlist_tab').classList.add("display-none");
     document.querySelector('.resumen_tab').classList.remove("display-none");
     document.querySelector('.objetivos_tab').classList.add("display-none");
@@ -50,6 +52,8 @@ export class InfoPage implements OnInit {
 
   finish(value){
     if(value){
+      console.log(this.info_curso.data)
+      console.log(this.user.data)
       setTimeout(() => {
         (document.querySelector('.overlay-1') as HTMLElement).style.display = "block";
       }, 5000);
