@@ -23,6 +23,7 @@ export class CreatePage implements OnInit {
     fecha_fin : any;
     hora_inicio : any;
     hora_fin : any;
+    calendario : any;
     fileToUploadstat: any;
     imagestat: any;
     link: any;
@@ -34,6 +35,7 @@ export class CreatePage implements OnInit {
     idus: any;
   constructor(public authService: AuthService, private redireccionService: RedireccionService, private infcenterService: InfcenterService, private uiserviceService: UiServiceService) { 
     this.links = [];
+    this.calendario = 0;
     this.link_ = '';
     this.authService.get_data().then((resp:any)=>{
       this.idus = resp.data.user_id;
@@ -64,6 +66,10 @@ export class CreatePage implements OnInit {
     // this.redireccionService.redireccion('/tabs/infcenter/eventos');
     this.redireccionService.backpage();
   }
+
+  calendar(event){
+    this.calendario = (event) ? 1 : 0 ;
+  }
   
   handleFileInput(event){
     this.fileToUploadstat = event.target.files[0];
@@ -75,10 +81,15 @@ export class CreatePage implements OnInit {
   }
   createEventos(fEventos: NgForm){
     let coma = '';
-    this.links.forEach((e, i) => {
-      if(i != 0) { coma = ','}
-      this.link_ += coma + e;
-    });
+    if(this.links.length > 0){
+      this.links.forEach((e, i) => {
+        if(i != 0) { coma = ','}
+        this.link_ += coma + e;
+      });
+    }else{
+      this.link_ = this.link;
+    }
+
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
@@ -104,6 +115,7 @@ export class CreatePage implements OnInit {
     formdata.append('hora_fin', this.hora_fin);
     formdata.append('link', this.link_);
     formdata.append('seccion', 'eventos');
+    formdata.append('calendario', this.calendario);
     formdata.append("files[]", this.fileToUploadstat);
 
     if(this.noti){

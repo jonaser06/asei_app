@@ -23,6 +23,7 @@ export class CreatePage implements OnInit {
   fecha_fin: any;
   hora_inicio: any;
   hora_fin: any;
+  calendario : any;
   fileToUploadstat: any;
   imagestat: any;
   link: any;
@@ -34,6 +35,7 @@ export class CreatePage implements OnInit {
   idus: any;
   constructor(public authService: AuthService, private redireccionService: RedireccionService, private uiserviceService: UiServiceService, private infcenterService: InfcenterService) { 
     this.links = [];
+    this.calendario = 0;
     this.link_ = '';
     this.authService.get_data().then((resp:any)=>{
       this.idus = resp.data.user_id;
@@ -58,6 +60,11 @@ export class CreatePage implements OnInit {
     this.links = this.links.filter(e=>e !== item)
   }
 
+   
+  calendar(event){
+    this.calendario = (event) ? 1 : 0 ;
+  }
+
   handleFileInput(event){
     this.fileToUploadstat = event.target.files[0];
     const reader = new FileReader();
@@ -73,10 +80,15 @@ export class CreatePage implements OnInit {
 
   createAniversario(fAniversario: NgForm){
     let coma = '';
-    this.links.forEach((e, i) => {
-      if(i != 0) { coma = ','}
-      this.link_ += coma + e;
-    });
+    if(this.links.length > 0){
+      this.links.forEach((e, i) => {
+        if(i != 0) { coma = ','}
+        this.link_ += coma + e;
+      });
+    }else{
+      this.link_ = this.link;
+    }
+
     if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
@@ -100,6 +112,7 @@ export class CreatePage implements OnInit {
     formdata.append('hora_fin', this.hora_inicio);
     formdata.append('link', this.link);
     formdata.append('seccion', 'aniversarios');
+    formdata.append('calendario', this.calendario);
     formdata.append("files[]", this.fileToUploadstat);
 
     if(this.noti){
