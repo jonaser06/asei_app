@@ -21,6 +21,7 @@ export class EditPage implements OnInit {
   seccion : any;
   link : any;
   link_ : any;
+  calendario : any;
   fecha_publicacion : any;
   hora_publicacion: any;
   fileToUploadstat: any;
@@ -70,6 +71,7 @@ export class EditPage implements OnInit {
       this.texto = this.uiserviceService.stripHtml(resp.data.texto);
       this.fecha_publicacion = resp.data.fecha_publicacion;
       this.hora_publicacion = resp.data.hora_publicacion;
+      this.calendario= resp.data.calendario;
       this.imagestat = environment.url + '/' + resp.data.imagenes[0].RUTA;
     })
     .catch();
@@ -89,12 +91,20 @@ export class EditPage implements OnInit {
     this.redireccionService.backpage();
   }
 
+  calendar(event){
+    this.calendario = (event) ? 1 : 0 ;
+  }
+
   editNews(fNews: NgForm){
     let coma = '';
-    this.links.forEach((e, i) => {
-      if(i != 0) { coma = ','}
-      this.link_ += coma + e;
-    });
+    if(this.links.length > 0){
+      this.links.forEach((e, i) => {
+        if(i != 0) { coma = ','}
+        this.link_ += coma + e;
+      });
+    }else{
+      this.link_ = this.link;
+    }
     // console.log(this.link_);
     // return;
     // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
@@ -114,6 +124,7 @@ export class EditPage implements OnInit {
     formdata.append('fecha_publicacion', this.fecha_publicacion);
     formdata.append('hora_publicacion', this.hora_publicacion);
     formdata.append('seccion', 'noticias');
+    formdata.append('calendario', this.calendario);
     formdata.append('link', this.link_);
     formdata.append("file", this.fileToUploadstat);
 

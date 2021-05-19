@@ -25,6 +25,7 @@ export class EditPage implements OnInit {
   fecha_fin : any;
   hora_inicio: any;
   hora_fin: any;
+  calendario : any;
   fileToUploadstat: any;
   imagestat: any;
   link: any;
@@ -61,6 +62,10 @@ export class EditPage implements OnInit {
   removelink(item){
     this.links = this.links.filter(e=>e !== item)
     console.log(item);
+  }
+
+  calendar(event){
+    this.calendario = (event) ? 1 : 0 ;
   }
 
   get_feriasid(){
@@ -101,10 +106,14 @@ export class EditPage implements OnInit {
   }
   editFerias(fFerias: NgForm){
     let coma = '';
-    this.links.forEach((e, i) => {
-      if(i != 0) { coma = ','}
-      this.link_ += coma + e;
-    });
+    if(this.links.length > 0){
+      this.links.forEach((e, i) => {
+        if(i != 0) { coma = ','}
+        this.link_ += coma + e;
+      });
+    }else{
+      this.link_ = this.link;
+    }
     // if(!this.fileToUploadstat) return this.uiserviceService.alert_info('selecciona una imagen');
     if(!this.titulo) return this.uiserviceService.alert_info('Es necesario un titulo');
     if(!this.resumen) return this.uiserviceService.alert_info('Es necesario el resumen');
@@ -132,6 +141,7 @@ export class EditPage implements OnInit {
     formdata.append('hora_fin', this.hora_fin);
     formdata.append('link', this.link_);
     formdata.append('seccion', 'ferias');
+    formdata.append('calendario', this.calendario);
     formdata.append("file", this.fileToUploadstat);
 
     if(this.noti){
