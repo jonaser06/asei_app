@@ -34,6 +34,7 @@ import { CardCalendarioComponent } from './card-calendario/card-calendario.compo
 import { CertificadosComponent } from './certificados/certificados.component';
 import { CardCertificadoComponent } from './card-certificado/card-certificado.component';
 import { PopoverComponent } from './popover/popover.component';
+import { VincularcalendarioComponent } from './vincularcalendario/vincularcalendario.component';
 
 
 
@@ -70,7 +71,8 @@ import { PopoverComponent } from './popover/popover.component';
     CardCalendarioComponent,
     CertificadosComponent,
     CardCertificadoComponent,
-    PopoverComponent
+    PopoverComponent,
+    VincularcalendarioComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -104,7 +106,8 @@ import { PopoverComponent } from './popover/popover.component';
     CardCalendarioComponent,
     CertificadosComponent,
     CardCertificadoComponent,
-    PopoverComponent
+    PopoverComponent,
+    VincularcalendarioComponent
   ],
   imports: [
     CommonModule,
