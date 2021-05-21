@@ -2,6 +2,27 @@
     <ion-router-outlet></ion-router-outlet>
 </ion-app>
 
+<div class="notificacionevent">
+    <div class="headernotificacion">
+        <div class="titlenotificacion">
+            Nueva notificacion
+        </div>
+        <div class="closenotificacion" (click)="closenotificacion();">
+            x
+        </div>
+    </div>
+    <div class="boddynotificacion" (click)="opennotificacion();">
+        <div class="avatarnotificacion">
+            <ion-icon name="notifications-outline"></ion-icon>
+        </div>
+        <div class="contentnotificacion">
+            <h5 class="title_noti"></h5>
+            <p class="desc_noti"></p>
+            <p class="desc_noti_"></p>
+        </div>
+    </div>
+</div>
+
 <!-- modal  -->
 <div class="overlay-10">
     <div class="modal-template">

@@ -19,6 +19,48 @@ export class PushNotificationsService {
   nn_bubble = new EventEmitter();
 
   constructor(private http: HttpClient, private oneSignal: OneSignal, private alertCrtl: AlertController, private localNotification: LocalNotifications, public authService: AuthService, private navCtrol : NavController) { }
+  
+  initdesktop(){
+    let Osignal = window['OneSignal'] || [];
+    var ref = this;
+
+    Osignal.push(function() {
+      Osignal.init({
+        appId: "a8ee2c87-30d7-4925-b437-66f2f84deef1",
+      });
+
+      Osignal.on('notificationDisplay', function(event) {
+        console.warn('OneSignal notification displayed:', event);
+        ref.bubble();
+
+        (document.querySelector('.title_noti') as HTMLElement).innerHTML='';
+        (document.querySelector('.desc_noti') as HTMLElement).innerHTML='';
+        (document.querySelector('.desc_noti_') as HTMLElement).innerHTML='';
+        
+        let title = event.data.categoria;
+        let desc = (event.data.descripcion).split(':')[0]+' :'; 
+        let desc_ = (event.data.descripcion).split(':')[1];
+        (document.querySelector('.notificacionevent') as HTMLElement).style.visibility = 'visible';
+        (document.querySelector('.title_noti') as HTMLElement).append(title);
+        (document.querySelector('.desc_noti') as HTMLElement).append(desc);
+        (document.querySelector('.desc_noti_') as HTMLElement).append(desc_);
+
+        localStorage.setItem('destino',event.data.destino);
+        
+      });
+
+      Osignal.push(["addListenerForNotificationOpened", function(data) {
+        alert("Received NotificationOpened:");
+        console.log(data);
+    }]);
+      
+    })
+
+  }
+
+  bubble(){
+    this.n_bubble.emit('{"notification":true}');
+  }
 
   init(){
 
@@ -48,10 +90,6 @@ export class PushNotificationsService {
 
     this.oneSignal.endInit();
     
-  }
-
-  bubble(){
-    this.n_bubble.emit('{"notification":true}');
   }
 
   not_booble(){

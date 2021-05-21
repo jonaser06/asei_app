@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { PushNotificationsService } from './services/push-notifications.service';
 import { RedireccionService } from './services/redireccion.service';
 import { CalificationService } from './services/calification.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,8 @@ import { CalificationService } from './services/calification.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  URL = environment.url;
   constructor(
     private calificationService : CalificationService,
     private  navCtrol: NavController,
@@ -47,6 +50,9 @@ export class AppComponent {
             this.redireccionService.backpage();
           }
         });
+      }else if(this.platform.is('desktop')){
+        console.log('init desktop');
+        this.pushService.initdesktop();
       }
 
     });
@@ -58,11 +64,13 @@ export class AppComponent {
     this.renderStart(1)
 
   }
+
   mouser($event){
     const {id} = $event.target.dataset ;
       this.renderStart(parseInt(id));
       (document.querySelector('.calificacion_user') as HTMLElement).textContent = `${id}`;
   }
+
   renderStart (limit) {
     console.log(limit)
     const parent = (document.querySelector('.container-stars') as HTMLElement);
@@ -82,6 +90,7 @@ export class AppComponent {
     }
     
   }
+
   calificar () {
     this.closemodal()
     const select = (document.querySelector('.calificacion_user') as HTMLElement).textContent ;
@@ -95,6 +104,16 @@ export class AppComponent {
                 }
             })
   }
+
+  opennotificacion(){
+    let destino = localStorage.getItem('destino');
+    this.navCtrol.navigateRoot(`/tabs/${destino}`);
+    (document.querySelector('.notificacionevent') as HTMLElement).style.visibility = 'hidden';
+  }
+  closenotificacion(){
+    (document.querySelector('.notificacionevent') as HTMLElement).style.visibility = 'hidden';
+  }
+
   async modalResponse( message : string) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
