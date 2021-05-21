@@ -42,10 +42,13 @@ export class InfoPage implements OnInit {
          .then( dataUrl => {
           $contain.style.width = '100%'
           $render_canvas.style.width = '100%'
-         const doc = new jsPDF('l', 'mm', 'a4');
+           const doc = new jsPDF('l', 'mm', 'a4');
            doc.addImage(dataUrl, 'png',225/6 , 150/7, 225, 150);
+           const blob = doc.output("blob");
+           window.open(URL.createObjectURL(blob));
            doc.save('pdfDocument.pdf');
            })
+           
            .catch(err => console.log(err))
       }else {
         // const options = { height:510 , width: 570};
