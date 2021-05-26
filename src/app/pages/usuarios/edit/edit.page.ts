@@ -1,7 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { UserService } from 'src/app/services/user.service';
@@ -37,7 +37,7 @@ export class EditPage implements OnInit {
   user_id : any;
   @ViewChild('msg') msg : ElementRef;
 
-  constructor( private authservice : AuthService,private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
+  constructor( private alertController : AlertController,private authservice : AuthService,private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
     
     
     this.get_user();
@@ -126,14 +126,27 @@ export class EditPage implements OnInit {
     
     this.userService.update_user(id, formdata)
     .then(resp=>{ 
-      this.navCtrol.navigateRoot('tabs/usuarios/colaborador', { animated : true } );
+      console.log(this.rol)
+      if(this.rol =='ADMIN') {
+        this.navCtrol.navigateRoot('tabs/usuarios/colaborador', { animated : true } );
+        return
+      }
+      this.modalResponse( 'Se actualizaron sus datos correctamente');
     })
     .catch();
 
   }
+  async modalResponse( message : string) {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      message,
+    });
+
+    await alert.present();
+  }
   changePerfil () {
     this.isAdmin = !this.isAdmin 
     const $mensaje:HTMLElement = this.msg.nativeElement
-    $mensaje.textContent = this.isAdmin ?  'Este asociado tendra privilegios de administrador':''
+    $mensaje.textContent = this.isAdmin ?  'Este asociado tendra privilegios de administrador de asociados':''
 }
 }
