@@ -103,7 +103,7 @@
             <span>Editar</span>
             </button>
         </div>
-        <div class="iraperso">
+        <div class="iraperso" *ngIf="rol!='asociado'">
             <button class="btn-new-item" (click)="irapersonal();">
             <span>Documentos personales</span>
             </button>

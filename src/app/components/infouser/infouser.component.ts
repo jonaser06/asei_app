@@ -14,6 +14,7 @@ export class InfouserComponent implements OnInit {
   @Output() readfiles = new EventEmitter();
 
   iduser: any;
+  rol: any;
   constructor(public authService: AuthService) { 
     this.current_session();
   }
@@ -28,6 +29,8 @@ export class InfouserComponent implements OnInit {
     this.authService.get_data()
     .then(resp=>{
       this.iduser = resp['data']['user_id'];
+      this.rol = resp['data']['rol'];
+      
     });
   }
 
