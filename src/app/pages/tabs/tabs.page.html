@@ -20,10 +20,10 @@
             </button>
             <div class="separator-header"></div>
             <button class="responsive-button responsive-profile-button" (click)="goProfile()">
-                <img draggable="false" src="{{ userdata?.image }}" >
+                <img draggable="false" src="{{ (userdata?.image)?userdata?.image:'../../../assets/perfil29.jpg' }}" >
             </button>
             <div class="auth-user">
-                <img draggable="false" src="{{ userdata?.image }}">
+                <img draggable="false" src="{{ (userdata?.image)?userdata?.image:'../../../assets/perfil29.jpg' }}">
                 <span class="user-name">{{ nombres }}</span>
                 <ion-icon slot="icon-only" name="caret-down"></ion-icon>
                 <div class="popover-menu-user">
