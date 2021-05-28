@@ -37,7 +37,7 @@ export class EditPage implements OnInit {
   user_id : any;
   @ViewChild('msg') msg : ElementRef;
 
-  constructor( private alertController : AlertController,private authservice : AuthService,private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
+  constructor( private alertController : UiServiceService,private authservice : AuthService,private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
     
     
     this.get_user();
@@ -131,19 +131,12 @@ export class EditPage implements OnInit {
         this.navCtrol.navigateRoot('tabs/usuarios/colaborador', { animated : true } );
         return
       }
-      this.modalResponse( 'Se actualizaron sus datos correctamente');
+      this.alertController.alert_info( 'Se actualizaron sus datos correctamente');
     })
     .catch();
 
   }
-  async modalResponse( message : string) {
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      message,
-    });
-
-    await alert.present();
-  }
+  
   changePerfil () {
     this.isAdmin = !this.isAdmin 
     const $mensaje:HTMLElement = this.msg.nativeElement
