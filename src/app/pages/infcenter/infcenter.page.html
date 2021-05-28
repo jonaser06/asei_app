@@ -17,79 +17,68 @@
               </button>
             </div> -->
         </div>
-
-        <ion-grid class="section-grid">
-            <div class="cards-section">
-                <div class="cards-content news-section" (click)="noticias()">
-                    <img class="img-part1" src="../../../assets/img/news-section-3.png">
-                    <img class="img-part2" src="../../../assets/img/news-section-2.png">
-                    <img class="img-part3" src="../../../assets/img/news-section.png">
-                    <h5>Noticias</h5>
-                    <!-- admin -->
-                    <div class="admin-buttons">
-                        <!-- <div class="btn-active">
-                          <button class="active">Deshabilitar</button>
-                      </div>
-                      
-                      <div class="edit-buttons">
-                          <div class="white-button">
-                              <ion-icon name="pencil-outline"></ion-icon>
-                          </div>
-  
-                          <div class="blue-button">
-                              <ion-icon name="trash"></ion-icon>
-                          </div>
-                      </div> -->
-                    </div>
-                </div>
-
-                <div class="cards-content anniversary-section" (click)="aniversario()">
-                    <img class="img-part1" src="../../../assets/img/anniversary-section-3.png">
-                    <img class="img-part2" src="../../../assets/img/anniversary-section-2.png">
-                    <img class="img-part3" src="../../../assets/img/anniversary-section.png">
-                    <h5>Aniversario</h5>
-                    <!-- admin -->
-                    <div class="admin-buttons">
-
-                    </div>
-                </div>
-
-                <div class="cards-content fairs-section" (click)="ferias()">
-                    <img class="img-part1" src="../../../assets/img/fairs-section-3.png">
-                    <img class="img-part2" src="../../../assets/img/fairs-section-2.png">
-                    <img class="img-part3" src="../../../assets/img/fairs-section.png">
-                    <h5>Ferias</h5>
-                    <!-- admin -->
-                    <div class="admin-buttons">
-
-                    </div>
-                </div>
-
-                <div class="cards-content events-section" (click)="eventos()">
-                    <img class="img-part1" src="../../../assets/img/event-section-3.png">
-                    <img class="img-part2" src="../../../assets/img/event-section-2.png">
-                    <img class="img-part3" src="../../../assets/img/event-section.png">
-                    <h5>Eventos</h5>
-                    <!-- admin -->
-                    <div class="admin-buttons">
-
-                    </div>
-                </div>
-
-                <div class="cards-content calendar-section" (click)="calendario()">
-                    <img class="img-part1" src="../../../assets/img/calendar-section-3.png">
-                    <img class="img-part2" src="../../../assets/img/calendar-section-2.png">
-                    <img class="img-part3" src="../../../assets/img/calendar-section.png">
-                    <h5>Calendario</h5>
-
-                    <!-- admin -->
-                    <div class="admin-buttons">
-
-                    </div>
-                </div>
-
-            </div>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="noticias()">
+                        <!-- <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header> -->
+                        <!-- <ion-card-content>
+                            ASEI metting
+                        </ion-card-content> -->
+                        <img src="../../../assets/img/Imagenes_Noticias.png" alt="">
+                    </ion-card>
+                </ion-col>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="aniversario()">
+                        <!-- <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header>
+                        <ion-card-content>
+                            Webinars
+                        </ion-card-content> -->
+                        <img src="../../../assets/img/Imagenes_Aniversario.png" alt="" class="img_card">
+                    </ion-card>
+                </ion-col>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="ferias()">
+                        <!-- <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header>
+                        <ion-card-content>
+                            Mis certificados
+                        </ion-card-content> -->
+                        <img src="../../../assets/img/Imagenes_Ferias.png" alt="">
+                    </ion-card>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="eventos()">
+                        <!-- <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header> -->
+                        <!-- <ion-card-content>
+                            ASEI metting
+                        </ion-card-content> -->
+                        <img src="../../../assets/img/Imagenes_Eventos.png" alt="">
+                    </ion-card>
+                </ion-col>
+                <ion-col size="12" size-md="6" size-lg="4">
+                    <ion-card (click)="calendario()">
+                        <!-- <ion-card-header>
+                            <img class="logo-learning" src="../../../assets/img/logo-learning.png">
+                        </ion-card-header>
+                        <ion-card-content>
+                            Webinars
+                        </ion-card-content> -->
+                        <img src="../../../assets/img/Imagenes_Calendario.png" alt="" class="img_card">
+                    </ion-card>
+                </ion-col>
+            </ion-row>
         </ion-grid>
+
     </div>
     <app-footer></app-footer>
 </ion-content>
