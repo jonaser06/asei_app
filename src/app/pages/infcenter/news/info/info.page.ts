@@ -19,6 +19,7 @@ export class InfoPage implements OnInit {
   links : any[];
   NewsData : any;
   Title : String = 'Más noticias';
+  Section : String = 'news';
   URL = environment.url;
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 

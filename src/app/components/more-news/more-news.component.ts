@@ -10,6 +10,7 @@ export class MoreNewsComponent implements OnInit {
 
   @Input() news_child : any;
   @Input() title : any;
+  @Input() section : any;
 
   URL = environment.url;
 

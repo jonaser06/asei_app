@@ -18,6 +18,7 @@ export class InfoPage implements OnInit {
   URL = environment.url;
   NewsData : any;
   Title : String = 'Más Aniversarios';
+  Section : String = 'anniversary';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
     this.get_Aniversario();

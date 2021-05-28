@@ -18,6 +18,7 @@ export class InfoPage implements OnInit {
   links : any[];
   URL = environment.url;
   Title : String = 'Más ferias';
+  Section : String = 'fairs';
 
   constructor(private redireccionService: RedireccionService, public activatedRoute: ActivatedRoute, private infcenterService: InfcenterService) { 
     this.get_Ferias();

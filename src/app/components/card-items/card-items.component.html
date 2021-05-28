@@ -1,47 +1,3 @@
-<!-- <div class="card-1 card-all">
-    <div class="img-content">
-        <img class="img-web" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
-    </div>
-
-    <div class="text-content">
-        <div class="text">
-            <div class="date">
-                <ion-icon class="icon-calendar" name="calendar-clear-outline"></ion-icon>
-                <p>Publicado : {{ news_child.fecha_publicacion }}</p>
-            </div>
-        </div>
-        <div class="content-title">
-            <h5 (click)="openNote(news_child.ID_NO)">{{ news_child.titulo }}</h5>
-            <p class="none-mobile">{{ news_child.resumen | slice:0:193 }}</p>
-        </div>
-        <div class="btn-like">
-            <div class="admin-edit">
-                <div class="edit" (click)="editNew(news_child.ID_NO)">
-                    <ion-icon name="pencil-outline"></ion-icon>
-                </div>
-
-                <div class="delete" (click)="removeNew(news_child.ID_NO)">
-                    <ion-icon name="trash"></ion-icon>
-                </div>
-            </div>
-        </div>
-
-        <div class="btn-like">
-
-            <div class="stars-btn">
-                <p>Calificación</p>
-		<ion-icon class="stars" name="{{(  1 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
-                <ion-icon class="stars" name="{{(  2 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
-                <ion-icon class="stars" name="{{(  3 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
-                <ion-icon class="stars" name="{{(  4 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
-                <ion-icon class="stars" name="{{(  5 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
-                <p class="number-stars"> {{ news_child.promedio}} </p>
-            </div>
-        </div>
-    </div>
-
-</div> -->
-
 <ion-card class="md hydrated card-course">
     <img class="card_img" src="{{ URL + '/' + news_child.imagenes[0].RUTA }}">
     <ion-card-header class="ion-inherit-color md hydrated">
@@ -91,15 +47,9 @@
                     <ion-icon class="stars" name="{{(  3 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
                     <ion-icon class="stars" name="{{(  4 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
                     <ion-icon class="stars" name="{{(  5 <= news_child.promedio ) ? 'star': 'star-outline'}}"></ion-icon>
-
                     {{ news_child.promedio}}
-
-
-
                 </p>
             </div>
-
-
         </div>
     </ion-card-content>
 </ion-card>
