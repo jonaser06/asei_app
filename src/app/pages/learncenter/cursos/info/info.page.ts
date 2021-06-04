@@ -143,11 +143,12 @@ export class InfoPage implements OnInit {
   }
 
   iraCursos(){
-    if(this.rol=='admin'){
-      this.redireccionService.redireccion('/tabs/learning-center/cursos/admin');
-    }else{
-      this.redireccionService.redireccion('/tabs/learning-center/cursos');
-    }
+    this.redireccionService.redireccion('/tabs/learning-center/cursos');
+    // if(this.rol=='admin'){
+    //   this.redireccionService.redireccion('/tabs/learning-center/cursos/admin');
+    // }else{
+    //   this.redireccionService.redireccion('/tabs/learning-center/cursos');
+    // }
   }
 
   current_rol(){

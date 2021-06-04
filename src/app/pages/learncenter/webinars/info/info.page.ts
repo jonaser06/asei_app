@@ -108,11 +108,12 @@ export class InfoPage implements OnInit {
   }
 
   irawebinars(){
-    if(this.rol=='admin'){
-      this.redireccionService.redireccion('/tabs/learning-center/webinars/admin');
-    }else{
-      this.redireccionService.redireccion('/tabs/learning-center/webinars');
-    }
+    this.redireccionService.redireccion('/tabs/learning-center/webinars');
+    // if(this.rol=='admin'){
+    //   this.redireccionService.redireccion('/tabs/learning-center/webinars/admin');
+    // }else{
+    //   this.redireccionService.redireccion('/tabs/learning-center/webinars');
+    // }
   }
 
   current_rol(){
