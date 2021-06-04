@@ -14,12 +14,14 @@
             <div class="sub-menu" *ngFor="let bulletin of bulletin_child; index as j">
                 <div *ngIf="bulletin.year == year">
                     <div class="sub-item">
-                        <span>{{ bulletin.title }}</span>
+                        <a href="{{ bulletin.link }}" target="_blank">
+                            {{ bulletin.title }} 
+                        </a>
                         <div class="actions">
-                            <button class="btn-outline-primary btn-bulletin-download" (click)="downloadfile(j)">
+                            <!-- <button class="btn-outline-primary btn-bulletin-download" (click)="downloadfile(j)">
                                 <ion-icon name="cloud-download-outline"></ion-icon>
-                            </button>
-                            <a href="{{ bulletin.file }}" download="FileName" target="_blank">
+                            </button> -->
+                            <a href="{{ bulletin.link }}" download="linkName" target="_blank">
                                 <button class="btn-outline-primary btn-bulletin-download">
                                     <ion-icon name="eye-outline"></ion-icon> 
                                 </button>

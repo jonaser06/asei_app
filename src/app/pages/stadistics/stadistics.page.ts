@@ -69,6 +69,7 @@ export class StadisticsPage implements OnInit {
   yearbull: any;
   filebull: any;
   filebull_: any;
+  linkbull: any;
 
   /* eliminar dialogs */
   stat_rmv = false;
@@ -485,11 +486,13 @@ export class StadisticsPage implements OnInit {
   // Boletin
   openDialogBulletin() {
     this.dialogBulletin = true;
-    this.filebull = '';
+    // this.filebull = '';
+    this.linkbull = ''
     if(!this.isEdited){
       this.monthbull = '';
       this.yearbull = '';
       this.titlebull = '';
+      this.linkbull = '';
     }
   }
 
@@ -503,10 +506,11 @@ export class StadisticsPage implements OnInit {
     this.titlebull = objbull.title;
     this.monthbull = objbull.month;
     this.yearbull = objbull.year;
-    this.filebull = objbull.file;
-    this.filebull_ = objbull.file;
-    this.filebull_ = this.filebull_.split('/');
-    this.filebull_ = this.filebull_[this.filebull_.length - 1 ];
+    this.linkbull = objbull.link;
+    // this.filebull = objbull.file;
+    // this.filebull_ = objbull.file;
+    // this.filebull_ = this.filebull_.split('/');
+    // this.filebull_ = this.filebull_[this.filebull_.length - 1 ];
     this.isEdited = true;
     this.openDialogBulletin();
 
@@ -524,7 +528,7 @@ export class StadisticsPage implements OnInit {
     this.bulletinService.get_bulletin()
     .then(resp=>{
       resp['data']['content'].forEach( (data, index) =>{
-        data.file = environment.url + '/' + data.file;
+        data.link = environment.url + '/' + data.link;
         // console.log(index);
         this.years.push(data.year);
       });
@@ -549,7 +553,8 @@ export class StadisticsPage implements OnInit {
     formdata.append('title', this.titlebull);
     formdata.append('month', this.monthbull);
     formdata.append('year', this.yearbull);
-    formdata.append('file', this.filebull);
+    // formdata.append('file', this.filebull);
+    formdata.append('link', this.linkbull);
 
     formdata.append('notificacion','{ "message": "Se actualizó el boletin:  '+this.titlebull+'", "type":"boletin", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Se actualizó el boletin:  ${this.titlebull}', type:'boletin' }`);
@@ -564,7 +569,7 @@ export class StadisticsPage implements OnInit {
   }
 
   bullet(fbullet: NgForm){
-    if(!this.filebull) return this.uiserviceService.alert_info('Es necesario un archivo pdf');
+    if(!this.linkbull) return this.uiserviceService.alert_info('Es necesario un link');
     if(this.monthbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario el mes');
     if(this.yearbull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario año');
     if(this.titlebull.replace(/\s/g, "") === "") return this.uiserviceService.alert_info('Es necesario un titulo');
@@ -573,7 +578,8 @@ export class StadisticsPage implements OnInit {
     formdata.append('title', this.titlebull);
     formdata.append('month', this.monthbull);
     formdata.append('year', this.yearbull);
-    formdata.append('file', this.filebull);
+    // formdata.append('file', this.filebull);
+    formdata.append('link', this.linkbull);
 
     formdata.append('notificacion','{ "message": "Tienes un nuevo boletin:  '+this.titlebull+'", "type":"boletin", "idus":"'+this.idus+'" }');
     console.log(`{ message: 'Tienes un nuevo boletin:  ${this.titlebull}', type:'boletin' }`);
@@ -582,7 +588,9 @@ export class StadisticsPage implements OnInit {
     .then(resp=>{ 
       this.closeDialogBulletin();
       this.load_bulletin();
-      this.filebull == null; 
+      // this.filebull == null; 
+      this.linkbull == null; 
+
     })
     .catch();
 

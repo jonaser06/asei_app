@@ -197,12 +197,24 @@
                                 </div>
                             </div>
 
-                            <p>Añade data del boletin</p>
+                            
+                            <div class="inputs-boletin">
+                                <p>Link del boletin*</p>
+                                <div class="inputs-boletin">
+                                    <div>
+                                    <input type="text" name="link" [(ngModel)]="linkbull">
+                                    <!-- <textarea name="" id="link-note"></textarea> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                            
+                            <!-- <p>Añade data del boletin</p>
                             <input type="file" accept="application/pdf" (change)="adjuntfile($event)">
                             <ion-icon class="icon-doc" name="document-attach-outline"></ion-icon>
                             <label *ngIf="filebull || isEdited">Archivo cargado: {{ filebull_ }}</label>
                             <label *ngIf="!filebull && !isEdited">Ningun archivo seleccionado</label>
-                            <input type="hidden" name="id" [(ngModel)]="idbull">
+                            <input type="hidden" name="id" [(ngModel)]="idbull"> -->
                         </div>
 
                         <div class="button">
