@@ -487,7 +487,7 @@ export class StadisticsPage implements OnInit {
   openDialogBulletin() {
     this.dialogBulletin = true;
     // this.filebull = '';
-    this.linkbull = ''
+    // this.linkbull = ''
     if(!this.isEdited){
       this.monthbull = '';
       this.yearbull = '';
@@ -502,6 +502,7 @@ export class StadisticsPage implements OnInit {
   }
 
   editBulletin(objbull){
+    console.log(objbull.link);
     this.idbull = objbull.id;
     this.titlebull = objbull.title;
     this.monthbull = objbull.month;
@@ -528,7 +529,7 @@ export class StadisticsPage implements OnInit {
     this.bulletinService.get_bulletin()
     .then(resp=>{
       resp['data']['content'].forEach( (data, index) =>{
-        data.link = environment.url + '/' + data.link;
+        // data.link = environment.url + '/' + data.link;
         // console.log(index);
         this.years.push(data.year);
       });
