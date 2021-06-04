@@ -14,7 +14,7 @@
             <div class="sub-menu" *ngFor="let bulletin of bulletin_child; index as j">
                 <div *ngIf="bulletin.year == year">
                     <div class="sub-item">
-                        <a href="{{ bulletin.link }}" target="_blank">
+                        <a class="link" href="{{ bulletin.link }}" target="_blank">
                             {{ bulletin.title }} 
                         </a>
                         <div class="actions">
