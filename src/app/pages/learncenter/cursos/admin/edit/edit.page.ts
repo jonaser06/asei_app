@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { LearncenterService } from 'src/app/services/learncenter.service';
 import { RedireccionService } from 'src/app/services/redireccion.service';
 import { environment } from 'src/environments/environment';
+import { UiServiceService } from '../../../../../services/ui-service.service';
 
 @Component({
   selector: 'app-edit',
@@ -34,7 +35,7 @@ export class EditPage implements OnInit {
 
 
   idus: any;
-  constructor( public authService: AuthService, private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private learncenterService: LearncenterService) { 
+  constructor( public authService: AuthService, private redireccionService: RedireccionService,public activatedRoute: ActivatedRoute, private uiserviceService : UiServiceService, private learncenterService: LearncenterService) { 
     this.trainer = [];
     this.sesion = [];
     this.imagfile = [];
@@ -138,6 +139,17 @@ export class EditPage implements OnInit {
     let summarycourse = (<HTMLInputElement>document.querySelector('.summary-course')).value;
     let objectivecourse = (<HTMLInputElement>document.querySelector('.objective-course')).value;
     let duracion = (<HTMLInputElement>document.querySelector('.duracion')).value;
+
+    if(titlecourse.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario el titulo de curso');
+    if(summarycourse.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario un resumen');
+    if(objectivecourse.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es necesario el objetivo del curso');
+    if(duracion.replace(/\s/g, "") === '') return this.uiserviceService.alert_info('Es especificar la duracion');
+    // if(!this.imgcourse) return this.uiserviceService.alert_info('selecciona una imagen del curso');
+
+    if(this.trainer.length == 0) return this.uiserviceService.alert_info('Es necesario al menos un capacitador');
+    if(this.sesion.length == 0) return this.uiserviceService.alert_info('Es necesario al menos una sesion');
+
+
     let formdata = new FormData();
     formdata.append('titulo', titlecourse);
     formdata.append('resumen', summarycourse);
