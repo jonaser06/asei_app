@@ -6,6 +6,62 @@
     margin-bottom: 1.5em;
 }
 
+.options .aso1 ion-button {
+    text-transform: none;
+    --background: white;
+    color: #24344D;
+    --border-radius: 20px 20px 0px 0px;
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    margin: .7vw;
+    font-family: Calibri;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.options .aso2 ion-button {
+    text-transform: none;
+    --background: white;
+    color: #24344D;
+    --border-radius: 20px 20px 0px 0px;
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    margin: .7vw;
+    font-family: Calibri;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.options .col1 ion-button {
+    text-transform: none;
+    --background: white;
+    color: #24344D;
+    --border-radius: 20px 20px 0px 0px;
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    margin: .7vw;
+    font-family: Calibri;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.options .col2 ion-button {
+    text-transform: none;
+    --background: white;
+    color: #24344D;
+    --border-radius: 20px 20px 0px 0px;
+    width: 35%;
+    height: 40px;
+    font-size: 16px;
+    margin: .7vw;
+    font-family: Calibri;
+    font-weight: 400;
+    width: fit-content;
+}
+
 .options ion-button {
     text-transform: none;
     --background: white;
@@ -17,6 +73,34 @@
     margin: .7vw;
     font-family: Calibri;
     font-weight: 400;
+    width: fit-content;
+}
+
+.options .aso1 ion-button.active {
+    border-bottom: 6px solid #DF8708;
+    color: #DF8708;
+    width: 45%;
+    width: fit-content;
+}
+
+.options .aso2 ion-button.active {
+    border-bottom: 6px solid #DF8708;
+    color: #DF8708;
+    width: 45%;
+    width: fit-content;
+}
+
+.options .col1 ion-button.active {
+    border-bottom: 6px solid #DF8708;
+    color: #DF8708;
+    width: 45%;
+    width: fit-content;
+}
+
+.options .col2 ion-button.active {
+    border-bottom: 6px solid #DF8708;
+    color: #DF8708;
+    width: 45%;
     width: fit-content;
 }
 

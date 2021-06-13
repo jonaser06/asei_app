@@ -3,6 +3,7 @@ import { RedireccionService } from 'src/app/services/redireccion.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import { UiServiceService } from '../../../services/ui-service.service';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-asociado',
@@ -12,6 +13,8 @@ import { UiServiceService } from '../../../services/ui-service.service';
 export class AsociadoPage implements OnInit {
 
   URL = environment.url;
+  
+  email;
   pages : any;
   UserData:any;
   currentpage : any;
@@ -20,17 +23,27 @@ export class AsociadoPage implements OnInit {
   resp : any;
 
   location : any;
-  constructor(private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef, private UiServiceService : UiServiceService) { 
+  constructor(private authService: AuthService, private userService: UserService, private redireccionService: RedireccionService, private applicationRef: ApplicationRef, private UiServiceService : UiServiceService) { 
     this.get_asociado();
     this.location = window.location.pathname.split("/").pop();
   }
 
   ngOnInit() {
+    this.current_session();
   }
 
   rows = [];
   reorderable: boolean = true;
   loadingIndicator: boolean = true;
+
+  current_session(){
+    this.authService.get_data()
+    .then(resp=>{
+      console.log(resp);
+      this.email = resp['data']['email']
+      
+    });
+  }
 
 
   iraCrear(){
@@ -84,6 +97,8 @@ export class AsociadoPage implements OnInit {
     })
     .catch();
   }
+
+
 
   changepage_(page){
     let pages = [];

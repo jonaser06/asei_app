@@ -1,7 +1,7 @@
-<ion-content class="content-section">
+<ion-content class="content-section"  *ngIf='email != "admin@asei.com"'>
     <app-navigation-tabs></app-navigation-tabs>
 
-    <div class="layout-section">
+    <div class="layout-section" >
         <div class="courses">
 
             <app-menu-admin [location]="location"></app-menu-admin>

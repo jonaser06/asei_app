@@ -9,12 +9,12 @@ const routes: Routes = [
     component: UsuariosPage
   },
   {
-    path: 'colaborador',
-    loadChildren: () => import('./colaborador/colaborador.module').then( m => m.ColaboradorPageModule)
-  },
-  {
     path: 'asociado',
     loadChildren: () => import('./asociado/asociado.module').then( m => m.AsociadoPageModule)
+  },
+  {
+    path: 'colaborador',
+    loadChildren: () => import('./colaborador/colaborador.module').then( m => m.ColaboradorPageModule)
   },
   {
     path: 'modulos',

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu-admin',
@@ -8,8 +9,21 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MenuAdminComponent implements OnInit {
 
   @Input() location : any;
-  constructor() { }
 
-  ngOnInit() {}
+  email;
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+    this.current_session();
+  }
+  current_session(){
+    this.authService.get_data()
+    .then(resp=>{
+      console.log(resp);
+      this.email = resp['data']['email']
+    });
+  }
+
 
 }
