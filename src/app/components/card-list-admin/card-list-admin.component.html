@@ -6,8 +6,8 @@
         <img src="{{ URL + '/' + user_child.imagenes[0].RUTA }}" alt=""/>
       </ion-avatar>
       <ion-label slot="start">
-        <h2>{{user_child.NOMBRES}}</h2>
-        <p>{{user_child.CARGO}}</p>
+        <h2>{{user_child.NOMBRES + ' ' + user_child.APELLIDO_PATERNO + ' ' + user_child.APELLIDO_MATERNO | titlecase}}</h2>
+        <p>{{user_child.CARGO | titlecase}}</p>
       </ion-label>
       <ion-label slot="end">
         <p>{{ user_child.estado=='1' ? 'Habilitado' : 'Deshabilitado' }}</p>
