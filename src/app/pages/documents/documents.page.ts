@@ -15,8 +15,8 @@ export class DocumentsPage implements OnInit {
   URL = environment.url;
   pages: any;
   DocumentsTiposData: any;
-  currentpage : any;
-  currentkey : any;
+  currentPage : any;
+  currentKey : any;
   visible: any;
   search : any;
   rol : String ;
@@ -30,30 +30,35 @@ export class DocumentsPage implements OnInit {
   ngOnInit() {
   }
 
-  onSearchChange(event){
-    let input = event.detail.value;
+  onSearchChange(event) {
+    const input = event.detail.value;
     this.search = input;
-    let pages = [];
-    this.documentsService.get_documentsTipos(1,input) 
-    .then(resp=>{
-      this.DocumentsTiposData = resp['data'];
-      for(let i = 1 ; i <= this.DocumentsTiposData.pages; i++ ){ pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.DocumentsTiposData.page;
-    });
+    const pages = [];
+    this.documentsService.get_documentsTipos(1, input)
+      .then((resp: any) => {
+        this.DocumentsTiposData = resp.data;
+        for (let i = 1; i <= this.DocumentsTiposData.pages; i++) {
+          pages.push(i);
+        }
+        this.pages = pages;
+        this.currentPage = this.DocumentsTiposData.page;
+      });
   }
 
-  getdocumentstipos(){
-    let pages = [];
+  
+  getdocumentstipos() {
+    const pages = [];
     this.documentsService.get_documentsTipos()
-    .then(resp=>{
-      console.log();
-      this.DocumentsTiposData = resp['data'];
-      for(let i = 1 ; i <= this.DocumentsTiposData.pages; i++ ){ pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.DocumentsTiposData.page;
-    })
-    .catch();
+      .then((resp: any) => {
+        console.log();
+        this.DocumentsTiposData = resp.data;
+        for (let i = 1; i <= this.DocumentsTiposData.pages; i++) {
+          pages.push(i);
+        }
+        this.pages = pages;
+        this.currentPage = this.DocumentsTiposData.page;
+      })
+      .catch();
   }
 
   current_rol(){
@@ -63,21 +68,23 @@ export class DocumentsPage implements OnInit {
     });
   }
 
-  changepage_(page){
-    let pages = [];
+  changepage_(page) {
+    const pages = [];
     let input;
-    if(this.search === 'undefined'){
-      input  = '';
-    }else{
-      input  = this.search;
+    if (this.search === 'undefined') {
+      input = '';
+    } else {
+      input = this.search;
     }
-    this.documentsService.get_documentsTipos(page,input)
-    .then(resp=>{
-      this.DocumentsTiposData = resp['data'];
-      for(let i = 1 ; i <= this.DocumentsTiposData.pages; i++ ){ pages.push(i)}
-      this.pages = pages;
-      this.currentpage = this.DocumentsTiposData.page;
-    });
+    this.documentsService.get_documentsTipos(page, input)
+      .then((resp: any) => {
+        this.DocumentsTiposData = resp.data;
+        for (let i = 1; i <= this.DocumentsTiposData.pages; i++) {
+          pages.push(i);
+        }
+        this.pages = pages;
+        this.currentPage = this.DocumentsTiposData.page;
+      });
   }
   
   editDocumentsTipo_(ID_NO){
@@ -85,25 +92,32 @@ export class DocumentsPage implements OnInit {
     this.redireccionService.redireccion('/tabs/documents/edit/'+ID_NO);
   }
 
-  openDocumentsTipos_(id_ar){
-    this.redireccionService.redireccion('/tabs/documents/files/'+id_ar);
+  openDocumentsTipos_(idAr){
+    this.redireccionService.redireccion('/tabs/documents/files/' + idAr);
   }
 
   iraCrear(){
     this.redireccionService.redireccion('/tabs/documents/crear');
   }
 
-  removeTipo_(id_ar){
-    this.uiServiceService.presentAlertConfirm('Eliminar Categoría','Al eliminar la categoría, se eliminarán también los archivos pertenecientes a esta, ¿Quieres continuar?').then((res)=>{
-      let resp = res.data.resp;
-      if(resp){
-        this.documentsService.delete_tipo(id_ar)
-        .then(resp=>{ 
-          console.log('ELIMINAR CATEGORIA : '+id_ar);
-          this.getdocumentstipos();
-        })
-        .catch();
+  removeTipo_(idAr) {
+    this.uiServiceService.presentAlertConfirm(
+      'Eliminar Categoría',
+      'Al eliminar la categoría, se eliminarán también los archivos pertenecientes a esta, ¿Quieres continuar?'
+    ).then((res) => {
+      const resp = res.data.resp;
+      if (resp) {
+        this.documentsService.delete_tipo(idAr)
+          .then(() => {
+            console.log('ELIMINAR CATEGORIA : ' + idAr);
+            this.getdocumentstipos();
+          })
+          .catch();
       }
     });
+  }
+
+  goAssistantControl() {
+    window.open('https://trabajador.relojcontrol.com', '_blank').focus();
   }
 }

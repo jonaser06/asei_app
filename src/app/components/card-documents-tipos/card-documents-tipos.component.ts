@@ -9,41 +9,42 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './card-documents-tipos.component.html',
   styleUrls: ['./card-documents-tipos.component.scss'],
 })
-export class CardDocumentsTiposComponent implements OnInit {
+export class CardDocumentsTiposComponent {
 
-  @Input() documents_child : any;
-  @Input() visible : any;
+  @Input() documentsChild: any;
+  @Input() visible: any;
 
   @Output() idDocumentsTipos = new EventEmitter();
   @Output() idDocumentsTiposE = new EventEmitter();
   @Output() idDocumentsTiposR = new EventEmitter();
-  
-  rol : String ;
+
+  rol: string ;
 
   URL = environment.url;
 
-  constructor(public authService: AuthService, private redireccionService: RedireccionService, private router: Router) { 
+  constructor(
+    public authService: AuthService
+  ) {
     this.current_rol();
   }
 
-  ngOnInit() {}
-
-  openDocumentsTipos(id_ar){
-    this.idDocumentsTipos.emit(id_ar);
-  }
-  
-  editDocumentsTipo(id_ar){
-    this.idDocumentsTiposE.emit(id_ar);
+  openDocumentsTipos(idAr){
+    this.idDocumentsTipos.emit(idAr);
   }
 
-  removeTipo(id_ar){
-    this.idDocumentsTiposR.emit(id_ar);
+  editDocumentsTipo(idAr){
+    this.idDocumentsTiposE.emit(idAr);
   }
-  
+
+  removeTipo(idAr){
+    this.idDocumentsTiposR.emit(idAr);
+  }
+
   current_rol(){
     this.authService.get_data()
-    .then(resp=>{
-      this.rol = resp['data']['rol'];
+    .then((resp: any) => {
+      this.rol = resp.data.rol;
     });
   }
+
 }
