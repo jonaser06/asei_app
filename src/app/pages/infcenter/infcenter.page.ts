@@ -42,4 +42,8 @@ export class InfCenterPage implements OnInit {
   calendario(){
     this.redireccionService.redireccion('/tabs/infcenter/calendario')
   }
+
+  boletin_legal(){
+    this.redireccionService.redireccion('/tabs/infcenter/boletin-legal')
+  }
 }

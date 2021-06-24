@@ -35,6 +35,7 @@ import { CertificadosComponent } from './certificados/certificados.component';
 import { CardCertificadoComponent } from './card-certificado/card-certificado.component';
 import { PopoverComponent } from './popover/popover.component';
 import { VincularcalendarioComponent } from './vincularcalendario/vincularcalendario.component';
+import { CardBoletinLegalComponent } from './card-boletin-legal/card-boletin-legal.component';
 
 
 
@@ -72,7 +73,8 @@ import { VincularcalendarioComponent } from './vincularcalendario/vincularcalend
     CertificadosComponent,
     CardCertificadoComponent,
     PopoverComponent,
-    VincularcalendarioComponent
+    VincularcalendarioComponent,
+    CardBoletinLegalComponent
   ],
   exports: [
     AuthMenuComponent,
@@ -107,7 +109,8 @@ import { VincularcalendarioComponent } from './vincularcalendario/vincularcalend
     CertificadosComponent,
     CardCertificadoComponent,
     PopoverComponent,
-    VincularcalendarioComponent
+    VincularcalendarioComponent,
+    CardBoletinLegalComponent
   ],
   imports: [
     CommonModule,

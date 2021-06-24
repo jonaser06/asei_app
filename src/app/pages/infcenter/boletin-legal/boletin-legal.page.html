@@ -1,0 +1,26 @@
+<ion-content class="content-section">
+  <app-navigation-tabs></app-navigation-tabs>
+  <div class="layout-section">
+      <div class="container">
+          <div class="row-actions-top">
+              <div class="title-section-container">
+                  <div class="title-arrow">
+                    <!-- Flecha a la izquierda -->
+                    <div class="left-arrow" (click)="volverInfo()">
+                      <ion-icon name="arrow-back-outline"></ion-icon>
+                    </div>
+    
+                    <div class="title">
+                      <h3 class="title-section color-news">Boletin Legal</h3>
+                      <p class="subtitle-section color-news"></p>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+
+      <app-card-boletin-legal></app-card-boletin-legal>
+      
+  </div>
+  <app-footer></app-footer>
+</ion-content>

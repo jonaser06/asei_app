@@ -1,0 +1,32 @@
+.cardconteudo {
+    background: none;
+    display: inline;
+
+}
+
+ion-button {
+    --padding-end: 8px;
+    --padding-start: 8px;
+    --box-shadow: 0px;
+}
+
+.btn-create {
+    border: 1.5px solid #4d4c24;
+    border-radius: 5px;
+}
+
+.card_img {
+    max-height: 250px;
+    height: 250px;
+    width: 100%;
+}
+
+.stars {
+    color: #DF8708
+}
+
+.resume-course{
+    max-height: 75px;
+    height: 75px;
+    width: 100%;
+}
