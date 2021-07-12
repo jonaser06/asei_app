@@ -29,7 +29,7 @@
           </ion-item>
         </ion-col> -->
                 <ion-col size="12" size-lg="6">
-                    <ion-button expand="block" class="btn-new-item" (click)="iraCrear()">Nuevo
+                    <ion-button expand="block" class="btn-new-item" (click)="iraCrear()" *ngIf="rol=='admin'">Nuevo
                         <ion-icon name="add-circle" class="more-icon"></ion-icon>
                     </ion-button>
                 </ion-col>

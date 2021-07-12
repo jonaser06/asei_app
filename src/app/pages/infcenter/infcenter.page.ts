@@ -43,7 +43,5 @@ export class InfCenterPage implements OnInit {
     this.redireccionService.redireccion('/tabs/infcenter/calendario')
   }
 
-  boletin_legal(){
-    this.redireccionService.redireccion('/tabs/infcenter/boletin-legal')
-  }
+  
 }

@@ -13,6 +13,7 @@ import { AuthService } from '../../../services/auth.service';
 export class AsociadoPage implements OnInit {
 
   URL = environment.url;
+  rol;
   
   email;
   pages : any;
@@ -41,7 +42,7 @@ export class AsociadoPage implements OnInit {
     .then(resp=>{
       console.log(resp);
       this.email = resp['data']['email']
-      
+      this.rol = resp['data']['rol']
     });
   }
 

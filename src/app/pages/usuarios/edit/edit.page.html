@@ -13,9 +13,12 @@
                                 <ion-icon name="arrow-back-outline"></ion-icon>
                             </div>
 
-                            <div class="title">
+                            <div class="title" *ngIf="rol=='admin'">
                                 <h3 class="title-section color-news">EDITAR USUARIO</h3>
                                 <p class="subtitle-section color-news">Completa la información correspondiente al usuario </p>
+                              </div>
+                              <div class="title" *ngIf="rol=='COLABORADOR' && 'ASOCIADO'">
+                                <h3 class="title-section color-news">DATOS DEL USUARIO</h3>
                               </div>
                         </div>
                     </div>
@@ -102,7 +105,7 @@
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="fecha">
+                    <ion-card class="fecha" *ngIf="rol=='admin'">
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
@@ -115,7 +118,7 @@
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="telefono">
+                    <ion-card class="telefono" *ngIf="rol=='admin'">
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
@@ -128,7 +131,7 @@
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="direccion">
+                    <ion-card class="direccion" *ngIf="rol=='admin'">
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
@@ -150,8 +153,7 @@
                                 <div class="title-arrow npt">
                                     <select name="inmobiliaria" [(ngModel)]="inmobiliaria">
                     <option value="" disabled selected>Inmobiliarias</option>
-                    <option value="Inmobilaria A">Inmobiliaria A</option>
-                    <option value="Inmobilaria B">Inmobiliaria B</option>
+                    <option value="Asei">ASEI</option>
                     <option value="EDIFICA">EDIFICA</option>
                     <option value="PADOVA">PADOVA</option>
                     <option value="LA VENTUROSA">LA VENTUROSA</option>
@@ -296,14 +298,13 @@
                     <option value="MAAS INMOBILIARIA">MAAS INMOBILIARIA</option>
                     <option value="S&M INOBILIARIA ">S&M INOBILIARIA </option>
                     <option value="TALE ">TALE </option>
-                  
                   </select>
                                 </div>
                             </div>
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="contrasena">
+                    <ion-card class="contrasena" *ngIf="rol=='admin'">
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
@@ -315,7 +316,7 @@
                             </div>
                         </ion-item>
                     </ion-card>
-                    <ion-card class="admin-asociado" *ngIf="rol=='ASOCIADO' && !currentUser">
+                    <ion-card class="admin-asociado" *ngIf="rol=='admin' && !currentUser " >
                         <ion-item style="width: 50%;">
                             <ion-label class="toggle-admin">Admin</ion-label>
                             <ion-toggle [checked]='isAdmin' (ionChange)='changePerfil()'></ion-toggle>
@@ -334,7 +335,7 @@
                         <div class="text-admin"> Usted tiene privilegios de Administrador</div>
                     </ion-card>
                     <br>
-                    <ion-card class="campob">
+                    <ion-card class="campob" *ngIf="rol=='admin'">
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
@@ -346,7 +347,7 @@
 
                     <ion-item>
                         <div class="actions-page no-mobil">
-                            <button class="btn-new-item" type="submit">
+                            <button class="btn-new-item" type="submit" *ngIf="rol=='admin'">
                   <span>Guardar</span>
               </button>
                         </div>

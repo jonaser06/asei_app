@@ -15,6 +15,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class EditPage implements OnInit {
   URL = environment.url;
+  
 
   /* usuarios/edit */
   name_1 : any;
@@ -49,6 +50,18 @@ export class EditPage implements OnInit {
   }
 
   ngOnInit() {
+    this.current_session();
+    console.log('0. ngOnInit');
+  }
+
+
+  current_session(){
+    this.authservice.get_data()
+    .then(resp=>{
+      console.log(resp);
+      this.email = resp['data']['email']
+      this.rol = resp['data']['rol']
+    });
   }
 
   subirimg(){ (document.querySelector('.img_') as HTMLElement).click(); }
