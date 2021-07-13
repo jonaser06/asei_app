@@ -13,13 +13,10 @@
                                 <ion-icon name="arrow-back-outline"></ion-icon>
                             </div>
 
-                            <div class="title" *ngIf="rol=='admin'">
+                            <div class="title" >
                                 <h3 class="title-section color-news">EDITAR USUARIO</h3>
                                 <p class="subtitle-section color-news">Completa la información correspondiente al usuario </p>
-                              </div>
-                              <div class="title" *ngIf="rol=='COLABORADOR' && 'ASOCIADO'">
-                                <h3 class="title-section color-news">DATOS DEL USUARIO</h3>
-                              </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,7 +44,7 @@
                                     <label>Nombres*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="name_1" [(ngModel)]="name_1">
+                                    <input type="text" style="width:100%;" name="name_1" [(ngModel)]="name_1" disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
@@ -60,20 +57,20 @@
                                     <label>Apellido paterno*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="lastname_1" [(ngModel)]="lastname_1">
+                                    <input type="text" style="width:100%;" name="lastname_1" [(ngModel)]="lastname_1"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="amaterno">
+                    <ion-card class="amaterno" >
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
                                     <label>Apellido materno*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="lastname_2" [(ngModel)]="lastname_2">
+                                    <input type="text" style="width:100%;" name="lastname_2" [(ngModel)]="lastname_2"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
@@ -86,7 +83,7 @@
                                     <label>Cargo*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="cargo" [(ngModel)]="cargo">
+                                    <input type="text" style="width:100%;" name="cargo" [(ngModel)]="cargo"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
@@ -99,46 +96,46 @@
                                     <label>Correo electrónico*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="email" [(ngModel)]="email">
+                                    <input type="text" style="width:100%;" name="email" [(ngModel)]="email"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="fecha" *ngIf="rol=='admin'">
+                    <ion-card class="fecha" >
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
                                     <label>Fecha de ingreso (año-mes-día)*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="fecha" [(ngModel)]="fecha">
+                                    <input type="text" style="width:100%;" name="fecha" [(ngModel)]="fecha"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="telefono" *ngIf="rol=='admin'">
+                    <ion-card class="telefono" >
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
                                     <label>Teléfono*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="phone" [(ngModel)]="phone">
+                                    <input type="text" style="width:100%;" name="phone" [(ngModel)]="phone"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="direccion" *ngIf="rol=='admin'">
+                    <ion-card class="direccion" >
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
                                     <label>Dirección*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <input type="text" style="width:100%;" name="direccion" [(ngModel)]="direccion">
+                                    <input type="text" style="width:100%;" name="direccion" [(ngModel)]="direccion"  disabled = {{estado}}>
                                 </div>
                             </div>
                         </ion-item>
@@ -151,7 +148,7 @@
                                     <label>Inmobiliaria*</label>
                                 </div>
                                 <div class="title-arrow npt">
-                                    <select name="inmobiliaria" [(ngModel)]="inmobiliaria">
+                                    <select name="inmobiliaria" [(ngModel)]="inmobiliaria"  disabled = {{estado}}>
                     <option value="" disabled selected>Inmobiliarias</option>
                     <option value="Asei">ASEI</option>
                     <option value="EDIFICA">EDIFICA</option>
@@ -304,7 +301,7 @@
                         </ion-item>
                     </ion-card>
 
-                    <ion-card class="contrasena" *ngIf="rol=='admin'">
+                    <ion-card class="contrasena" *ngIf="rolAdmin=='admin'">
                         <ion-item>
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
@@ -335,8 +332,8 @@
                         <div class="text-admin"> Usted tiene privilegios de Administrador</div>
                     </ion-card>
                     <br>
-                    <ion-card class="campob" *ngIf="rol=='admin'">
-                        <ion-item>
+                    <ion-card class="campob">
+                        <ion-item *ngIf="rolAdmin=='admin'">
                             <div class="title-section-container tcard">
                                 <div class="title-arrow">
                                     <label>Campos obligatorios(*)</label>
@@ -347,9 +344,9 @@
 
                     <ion-item>
                         <div class="actions-page no-mobil">
-                            <button class="btn-new-item" type="submit" *ngIf="rol=='admin'">
-                  <span>Guardar</span>
-              </button>
+                            <button class="btn-new-item" type="submit" *ngIf="rolAdmin=='admin'" >
+                                <span>Guardar</span>
+                            </button>
                         </div>
                     </ion-item>
 

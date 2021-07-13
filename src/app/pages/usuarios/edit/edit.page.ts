@@ -38,31 +38,29 @@ export class EditPage implements OnInit {
   user_id : any;
   @ViewChild('msg') msg : ElementRef;
 
+  rolAdmin:any;
+  estado: boolean;
+
   constructor( private alertController : UiServiceService,private authservice : AuthService,private navCtrol : NavController, public activatedRoute: ActivatedRoute,private redireccionService: RedireccionService, private userService: UserService, private uiServiceService:UiServiceService) { 
     
     
     this.get_user();
     this.authservice.get_data().then( resp => {
+      this.rolAdmin = resp['data']['rol']
+      console.log(this.rolAdmin)
       this.currentUser =  resp['data']['ID_US'] == this.user_id ? true : false
       this.currentUser =  '1608532826' == this.user_id ? true : false
+      this.estado = this.rolAdmin == 'admin' ? false : true
     })
     this.imgcolaborador = '';
   }
 
   ngOnInit() {
-    this.current_session();
-    console.log('0. ngOnInit');
+    
   }
 
 
-  current_session(){
-    this.authservice.get_data()
-    .then(resp=>{
-      console.log(resp);
-      this.email = resp['data']['email']
-      this.rol = resp['data']['rol']
-    });
-  }
+
 
   subirimg(){ (document.querySelector('.img_') as HTMLElement).click(); }
 

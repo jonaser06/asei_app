@@ -17,24 +17,13 @@ export class CardListAdminComponent implements OnInit {
   @Output() idUsersDoc = new EventEmitter();
 
   URL = environment.url;
-  rol;
+ 
 
   constructor(private redireccionService: RedireccionService, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-    this.current_session();
-    console.log('0. ngOnInit');
+   
   }
-
-
-  current_session(){
-    this.authService.get_data()
-    .then(resp=>{
-      console.log(resp);
-      this.rol = resp['data']['rol']
-    });
-  }
-
   removeUser(ID_US){
     this.idUsers.emit(ID_US);
   }
